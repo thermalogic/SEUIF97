@@ -1,2 +1,2 @@
 # SEUIF97
-IF97 Library; Excel Macro; Python Interface
+IF97 Library (Windows, Linux); Excel Macro; Python Interface
