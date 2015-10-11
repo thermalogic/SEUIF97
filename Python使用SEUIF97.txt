@@ -1,0 +1,4 @@
+Python使用SEUIF97 
+  
+   1) 将SEUIF97.dll拷贝到 c:\windows\system
+   2) 将seuif97.py拷贝到 c:\python34\Lib （python3安装目录下的Lib子目录）
