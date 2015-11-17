@@ -7,6 +7,6 @@ SEUIF97Ë®ºÍË®ÕôÆûÎïÐÔ¼ÆËã¿âÊÇÒÔIAPWS¡¡IF97¹«Ê½Îª±ê×¼£¬CÓïÑÔÊµÏÖµÄ¸ßËÙ¡¢¶àÆ½Ì¨ÊÊÓ
   
    1) ½«SEUIF97.dll¿½±´µ½ c:\windows\system
    
-   2) ½«seuif97.py¿½±´µ½ c:\python34\Lib £¨python°²×°Ä¿Â¼ÏÂµÄLib×ÓÄ¿Â¼£©
+   2) ½«seuif97.py¿½±´µ½ c:\python35\Lib £¨python°²×°Ä¿Â¼ÏÂµÄLib×ÓÄ¿Â¼£©
 
 Ïê¼û£ºIntroduction_SEUIF97.ipynb
