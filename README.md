@@ -1,4 +1,7 @@
 # SEUIF97
+
+[![Join the chat at https://gitter.im/Py03013050/SEUIF97](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Py03013050/SEUIF97?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 IF97 Library (Windows, Linux); Excel Macro; Python Interface
 
 SEUIF97水和水蒸汽物性计算库是以IAPWS　IF97公式为标准，C语言实现的高速、多平台适用共享库。
