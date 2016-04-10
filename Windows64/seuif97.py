@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*- 
 
 from ctypes import c_int,c_double,WINFUNCTYPE,windll
@@ -64,6 +63,18 @@ def pv(p,v,w):
 def px(p,x,w): 
     f=prototype(("seupx",windll.seuif97),)
     result=f(p,x,w)
+    return result
+
+def px2s(p,x): 
+    result=fpx(p,x,5)
+    return result
+
+def px2h(p,x): 
+    result=fpx(p,x,4)
+    return result
+
+def px2t(p,x): 
+    result=fpx(p,x,1)
     return result
 
 def th(t,h,w): 
