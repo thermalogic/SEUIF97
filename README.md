@@ -10,7 +10,7 @@
         
         Microsoft Excel Macro
 
-**Author:** Cheng Maohua， Southeast University， Najing，China  ( cmh@seu.edu.cn )
+**Author:** Cheng Maohua， Southeast University， Nanjing，China  ( cmh@seu.edu.cn )
 
 # Python 
 
