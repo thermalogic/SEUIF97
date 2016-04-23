@@ -73,6 +73,3 @@ def ief(p1,t1,p2,t2):
     f.restype = c_double 
     result=f(p1,t1,p2,t2)
     return result
-
-h=pt2h(16.1,535.2)
-print(h)
