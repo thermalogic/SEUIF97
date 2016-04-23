@@ -1,12 +1,27 @@
 # -*- coding: utf-8 -*- 
 
+"""
+This is a python api of shared linrary  for linux platform to
+
+calculate the properties of water and steam
+
+using the IAPWS-IF97 industry-standard steam properties correlations.
+
+License: this code is in the public domain
+
+Author:   Cheng Maohua
+Email:    cmh@seu.edu.cn
+
+Last modified: 2016.4.20
+
+"""
 from ctypes import c_int,c_double,cdll
 
-# 库位于当前目录下
+# lib in locale path
 # import os 
 #flib= cdll.LoadLibrary(os.getcwd() + '/SEUIF97.so')
 
-# 库位于Linux动态库的默认搜索路径
+# lib in a default path of linux
 flib= cdll.LoadLibrary('SEUIF97.so')
     
 def pt2h(p,t): 

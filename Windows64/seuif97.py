@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*- 
 
+"""
+This is a python api of shared linrary  for windows platform to
+
+calculate the properties of water and steam
+
+using the IAPWS-IF97 industry-standard steam properties correlations.
+
+License: this code is in the public domain
+
+Author:   Cheng Maohua
+Email:    cmh@seu.edu.cn
+
+Last modified: 2016.4.20
+
+"""
+
 from ctypes import c_int,c_double,WINFUNCTYPE,windll
 prototype=WINFUNCTYPE(c_double,c_double,c_double,c_int)
 

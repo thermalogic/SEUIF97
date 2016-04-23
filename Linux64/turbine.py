@@ -1,5 +1,15 @@
 # -*- coding: utf-8 -*-
+"""
+This is a simple sample for seuif.py
 
+License: this code is in the public domain
+
+Author:   Cheng Maohua
+Email:    cmh@seu.edu.cn
+
+Last modified: 2016.4.20
+
+"""
 from seuif97 import *
 
 import matplotlib.pyplot as plt
