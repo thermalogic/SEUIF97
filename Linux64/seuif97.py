@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*- 
 
-from ctypes import *
-import os 
-# 参数为生成的.so文件所在的绝对路径
-flib= cdll.LoadLibrary(os.getcwd() + '/SEUIF97.so')
+from ctypes import c_int,c_double,cdll
+
+# 库位于当前目录下
+# import os 
+#flib= cdll.LoadLibrary(os.getcwd() + '/SEUIF97.so')
+
+# 库位于Linux动态库的默认搜索路径
+flib= cdll.LoadLibrary('SEUIF97.so')
     
 def pt2h(p,t): 
     f=flib.seupt
