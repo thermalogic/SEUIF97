@@ -14,7 +14,7 @@ SEUIF97水和水蒸汽物性计算库是以IAPWS　IF97公式为标准，C语言
    
 2. 将seuif97.py拷贝到Python库的默认搜索路径：Python安装目录下的Lib子目录
     
-       C:\Python35\Lib 
+        C:\Python35\Lib 
    
 #  Linux平台下Python使用SEUIF97   
     
