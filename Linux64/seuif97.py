@@ -21,7 +21,7 @@ from ctypes import c_int,c_double,cdll
 # import os 
 #flib= cdll.LoadLibrary(os.getcwd() + '/SEUIF97.so')
 
-# lib in a default path of linux
+# lib in a default path of linux:    /usr/lib/
 flib= cdll.LoadLibrary('SEUIF97.so')
     
 def pt2h(p,t): 

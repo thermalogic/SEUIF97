@@ -54,7 +54,6 @@ def ps(p,s,w):
     result=f(p,s,w)
     return result
 
-
 def ps(p,s,w): 
     f=prototype(("seups",windll.seuif97),)
     result=f(p,s,w)

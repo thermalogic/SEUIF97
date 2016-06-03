@@ -35,7 +35,7 @@ def pt2s(p,t):
     return result
 
 def ph(p,h,w): 
-    f=prototype(("h",windll.seuif97),)
+    f=prototype(("ph",windll.seuif97),)
     result=f(p,h,w)
     return result
 
