@@ -49,9 +49,9 @@ def ph2s(p,h):
     result=f(p,h,5)
     return result
 
-def ph(p,h,w): 
-    f=prototype(("seuph",windll.seuif97),)
-    result=f(p,h,w)
+def ps(p,s,w): 
+    f=prototype(("seups",windll.seuif97),)
+    result=f(p,s,w)
     return result
 
 
