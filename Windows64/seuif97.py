@@ -75,17 +75,43 @@ def px(p,x,w):
     result=f(p,x,w)
     return result
 
+def px2t(p,x): 
+    result=px(p,x,1)
+    return result
+
+def px2v(p,x): 
+    result=px(p,x,3)
+    return result
+
 def px2s(p,x): 
-    result=fpx(p,x,5)
+    result=px(p,x,5)
     return result
 
 def px2h(p,x): 
-    result=fpx(p,x,4)
+    result=px(p,x,4)
     return result
 
-def px2t(p,x): 
-    result=fpx(p,x,1)
+def tx(t,x,w): 
+    f=prototype(("seutx",windll.seuif97),)
+    result=f(t,x,w)
     return result
+
+def tx2p(t,x): 
+    result=tx(t,x,0)
+    return result
+
+def tx2v(t,x): 
+    result=tx(t,x,3)
+    return result
+
+def tx2s(t,x): 
+    result=tx(t,x,5)
+    return result
+
+def tx2h(t,x): 
+    result=tx(t,x,4)
+    return result
+
 
 def th(t,h,w): 
     f=prototype(("seuth",windll.seuif97),)
