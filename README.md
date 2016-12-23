@@ -47,14 +47,84 @@ h=seuif97.pt2h(p,t)
 
         Introduction_SEUIF97.ipynb
 
-## Properties in SEUIF97 Lib
+##  SEUIF97 share Lib
 
-|   物性       |    单位     |  符号  |  编码   |   
+## Function for Properties 
+
+ * seu**inAinB**( inA,inB, propertyID)\n",
+   *  inA -  double，the first known property: p、t、h
+   *  inB -  double，the second known property:t、h、s、v、x
+   *  propertyID  - int，0-29,(see **Properties in SEUIF97 Lib**)
+
+```c
+   seupt ( pressure, temperature, propertyID)
+   seuph (pressure, enthalpy, propertyID )
+   seups ( pressure, entropy, propertyID )
+   seupv ( pressure , volume, property ID)
+   seuth ( temperature, enthalpy, propertyID )
+   seuts ( temperature, entropy, property ID)
+   seutv ( temperature , volume, property ID)
+   seuhs ( enthalpy , entropy, property ID)
+   seupx ( pressure, quality, propertyID )
+   seutx ( temperature , quality, propertyID)
+```
+
+* Example  
+    Get Properties from （p,t)
+         
+    stdcall in  Windows
+
+```c
+          extern  "C" __stdcall __declspec(dllexport)  double seupt(double p,double t,int  propertyID);
+```
+
+    cdecl in Linux
+
+```c
+                 extern  "C"  double seupt(double p,double t,int wp);
+```
+
+```c
+        #include <iostream>
+        #include "seuif97.h"
+  
+        int main() {
+	
+                double p=16.13;
+	        double t=535;
+	        double h;
+       
+                h=seupt(p,t,4);
+                printf("%5.2f",h);
+
+	        return 0;
+        }   
+
+```
+
+## Function for process  
+   
+*  1 等熵焓降： ishd( pi,ti,pe)
+    
+        pi - double，入口压力； ti - double，入口温度
+
+        pe - double，出口压力
+
+* 2 内效率： ief( pi,ti,pe,te)
+
+         pi  -double，入口压力；ti  - double，入口温度\n",
+
+         pe  -double，出口压力；te  - double， 出口温度\n",
+
+
+### Properties in SEUIF97 Lib
+
+|   物性       |    单位     |  符号  |  编码 propertyID   |   
 | -------------|:----------:| ------:|-------:|
 | 压力         |   MPa     |  P     |   0     |  
 | 温度         |   °C      |  t     |   1     |
 | 密度         | kg/m^3    |  d     |   2     |
-| 比容         | m^3/kgd   |  v     |   3     |
+| 比容         | m^3/kg    |  v     |   3     |
 | 焓           | kJ/kg     |  h     |   4     |
 | 熵           | kJ/(kg·K) |  s     |   5     |
 | 用           | kJ/kg     |  e     |   6     |
@@ -65,36 +135,19 @@ h=seuif97.pt2h(p,t)
 | 定熵指数   |             |  ks     | 11      |	
 |亥姆霍兹自由能   |   kJ/kg          |  f     | 12      |	
 |吉布斯自由能     |   kJ/kg           | g     | 13      |	
-
-
-可压缩性因子	/	z	14
-
-干度	/	x	15
-
-区域	/	r	16
-
-定压热膨胀系数	1/K	ec	17
-
-等温压缩率	1/MPa	kt	18
-
-偏导数 (dV/dT)p	m3/(kg·K)	dvdt	19
-
-偏导数 (dV/dP)T	m3/(kg·Mpa)	dvdp	20
-
-偏导数 (dP/dT)v	Mpa/K	dpdt	21
-
-等温Joule-Thomson系数	kJ/(kg·MPa)	iJTC	22
-
-Joule-Thomson系数	K/MPa	JTC	23
-
-动力粘度	kg/(m·s)	dv	24
-
-运动粘度	m^2/s	kv	25
-
-导热系数	W/(m.K)	tc	26
-
-热扩散系数	um^2/s	td	27
-
-普朗特数	/	pr	28
-
-表面张力	mN/m	st	29
+|可压缩性因子     |                      | z      | 14      |
+| 干度                 |                      | x      | 15      |
+| 区域                 |                      | r       | 16      |
+| 定压热膨胀系数   |        1/K       | ec     | 17      |
+| 等温压缩率         |        1/MPa   | kt     | 18      |
+| 偏导数 (dV/dT)p	   |    m3/(kg·K)	     | dvdt     | 19      |
+| 偏导数 (dV/dP)T	   |    m3/(kg·MPa)	  | dvdp    | 20      |
+| 偏导数 (dP/dT)v	   |    MPa/K	         | dpdt	    | 21      |
+| 等温Joule-Thomson系数	   |   kJ/(kg·MPa)        | iJTC	    | 22      |
+| Joule-Thomson系数	   |  K/MPa        | JTC	    | 23      |
+| 动力粘度        |        kg/(m·s)   | dv     | 24      |
+| 运动粘度        |       m^2/s       | kv     | 25      |
+| 导热系数        |       W/(m.K)	  | tc     | 26      |
+| 热扩散系数      |       um^2/s	 | td     | 27      |
+| 普朗特数        |            	  | pr     | 28      |
+| 表面张力        |       mN/m    	  | st     | 29      |
