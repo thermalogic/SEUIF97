@@ -47,7 +47,8 @@ h=seuif97.pt2h(p,t)
 
         Introduction_SEUIF97.ipynb
 
-##  SEUIF97 share Lib
+---
+#  SEUIF97 share Lib
 
 ## Function for Properties 
 
@@ -70,18 +71,17 @@ h=seuif97.pt2h(p,t)
 ```
 
 * Example  
-    Get Properties from （p,t)
+    Get Properties from (p,t)
          
-    stdcall in  Windows
 
 ```c
+          // stdcall in  Windows
           extern  "C" __stdcall __declspec(dllexport)  double seupt(double p,double t,int  propertyID);
 ```
 
-    cdecl in Linux
-
 ```c
-                 extern  "C"  double seupt(double p,double t,int wp);
+        // cdecl in Linux
+        extern  "C"  double seupt(double p,double t,int propertyID);
 ```
 
 ```c
@@ -117,7 +117,7 @@ h=seuif97.pt2h(p,t)
          pe  -double，出口压力；te  - double， 出口温度\n",
 
 
-### Properties in SEUIF97 Lib
+## Properties in SEUIF97 Lib
 
 |   物性       |    单位     |  符号  |  编码 propertyID   |   
 | -------------|:----------:| ------:|-------:|
