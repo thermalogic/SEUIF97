@@ -52,9 +52,10 @@ h=seuif97.pt2h(p,t)
 
 ## Function for Properties 
 
- * seu**inAinB**( inA,inB, propertyID)\n",
+ * seu**inAinB**( inA,inB, propertyID)
+
    *  inA -  double，the first known property: p、t、h
-   *  inB -  double，the second known property:t、h、s、v、x
+   *  inB -  double，the second known property: t、h、s、v、x
    *  propertyID  - int，0-29,(see **Properties in SEUIF97 Lib**)
 
 ```c
