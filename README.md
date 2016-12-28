@@ -59,30 +59,31 @@ h=seuif97.pt2h(p,t)
    *  propertyID  - int，0-29,(see **Properties in SEUIF97 Lib**)
 
 ```c
-   seupt ( pressure, temperature, propertyID)
-   seuph (pressure, enthalpy, propertyID )
-   seups ( pressure, entropy, propertyID )
-   seupv ( pressure , volume, property ID)
-   seuth ( temperature, enthalpy, propertyID )
-   seuts ( temperature, entropy, property ID)
-   seutv ( temperature , volume, property ID)
-   seuhs ( enthalpy , entropy, property ID)
-   seupx ( pressure, quality, propertyID )
-   seutx ( temperature , quality, propertyID)
+   seupt( pressure,    temperature, propertyID)
+   seuph( pressure,    enthalpy,    propertyID)
+   seups( pressure,    entropy,     propertyID)
+   seupv( pressure ,   volume,      propertyID)
+   seuth( temperature, enthalpy,    propertyID)
+   seuts( temperature, entropy,     propertyID)
+   seutv( temperature, volume,      propertyID)
+   seuhs( enthalpy,    entropy,     propertyID)
+   seupx( pressure,    quality,     propertyID)
+   seutx( temperature, quality,     propertyID)
 ```
 
 * Example  
+    
     Get Properties from (p,t)
          
 
 ```c
-          // stdcall in  Windows
-          extern  "C" __stdcall __declspec(dllexport)  double seupt(double p,double t,int  propertyID);
+       // stdcall in  Windows
+       extern  "C" __stdcall __declspec(dllexport)  double seupt(double p,double t,int  propertyID);
 ```
 
 ```c
-        // cdecl in Linux
-        extern  "C"  double seupt(double p,double t,int propertyID);
+       // cdecl in Linux
+       extern  "C"  double seupt(double p,double t,int propertyID);
 ```
 
 ```c
