@@ -48,15 +48,9 @@ h=seuif97.pt2h(p,t)
         Introduction_SEUIF97.ipynb
 
 ---
-#  SEUIF97 share Lib
+#  SEUIF97 shared Lib
 
 ## Function for Properties 
-
- * seu**inAinB**( inA,inB, propertyID)
-
-   *  inA -  double，the first known property: p、t、h
-   *  inB -  double，the second known property: t、h、s、v、x
-   *  propertyID  - int，0-29,(see **Properties in SEUIF97 Lib**)
 
 ```c
    seupt( pressure,    temperature, propertyID)
@@ -70,6 +64,8 @@ h=seuif97.pt2h(p,t)
    seupx( pressure,    quality,     propertyID)
    seutx( temperature, quality,     propertyID)
 ```
+
+   *  propertyID  - int，0-29,(see **Properties in SEUIF97 Lib**)
 
 * Example  
     
