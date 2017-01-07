@@ -7,7 +7,7 @@ int main(){
       double t=535;
       double h;
 
-      h=seupt(p,t,4);
+      h=pt(p,t,4);
       printf("%5.2f",h);
 
       return 0;

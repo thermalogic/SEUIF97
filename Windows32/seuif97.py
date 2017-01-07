@@ -20,58 +20,58 @@ from ctypes import c_int,c_double,WINFUNCTYPE,windll
 prototype=WINFUNCTYPE(c_double,c_double,c_double,c_int)
 
 def pt(p,t,w): 
-    f=prototype(("seupt",windll.seuif97),)
+    f=prototype(("pt",windll.seuif97),)
     result=f(p,t,w)
     return result
 
 def pt2h(p,t): 
-    f=prototype(("seupt",windll.seuif97),)
+    f=prototype(("pt",windll.seuif97),)
     result=f(p,t,4)
     return result
 
 def pt2s(p,t): 
-    f=prototype(("seupt",windll.seuif97),)
+    f=prototype(("pt",windll.seuif97),)
     result=f(p,t,5)
     return result
 
 def ph(p,h,w): 
-    f=prototype(("seuph",windll.seuif97),)
+    f=prototype(("ph",windll.seuif97),)
     result=f(p,h,w)
     return result
 
 def ph2t(p,h): 
-    f=prototype(("seuph",windll.seuif97),)
+    f=prototype(("ph",windll.seuif97),)
     result=f(p,h,0)
     return result
 
 def ph2s(p,h): 
-    f=prototype(("seuph",windll.seuif97),)
+    f=prototype(("ph",windll.seuif97),)
     result=f(p,h,5)
     return result
 
 def ps(p,s,w): 
-    f=prototype(("seups",windll.seuif97),)
+    f=prototype(("ps",windll.seuif97),)
     result=f(p,s,w)
     return result
 
 def ps2h(p,s): 
-    f=prototype(("seups",windll.seuif97),)
+    f=prototype(("ps",windll.seuif97),)
     result=f(p,s,4)
     return result
 
 def ps2t(p,s): 
-    f=prototype(("seups",windll.seuif97),)
+    f=prototype(("ps",windll.seuif97),)
     result=f(p,s,1)
     return result
 
 
 def pv(p,v,w): 
-    f=prototype(("seupv",windll.seuif97),)
+    f=prototype(("pv",windll.seuif97),)
     result=f(p,v,w)
     return result
 
 def px(p,x,w): 
-    f=prototype(("seupx",windll.seuif97),)
+    f=prototype(("px",windll.seuif97),)
     result=f(p,x,w)
     return result
 
@@ -92,7 +92,7 @@ def px2h(p,x):
     return result
 
 def tx(t,x,w): 
-    f=prototype(("seutx",windll.seuif97),)
+    f=prototype(("tx",windll.seuif97),)
     result=f(t,x,w)
     return result
 
@@ -114,23 +114,23 @@ def tx2h(t,x):
 
 
 def th(t,h,w): 
-    f=prototype(("seuth",windll.seuif97),)
+    f=prototype(("th",windll.seuif97),)
     result=f(t,h,w)
     return result
 
 
 def th2p(t,h): 
-    f=prototype(("seuth",windll.seuif97),)
+    f=prototype(("th",windll.seuif97),)
     result=f(t,h,0)
     return result
 
 def th2s(t,h,w): 
-    f=prototype(("seuth",windll.seuif97),)
+    f=prototype(("th",windll.seuif97),)
     result=f(t,h,5)
     return result
 
 def ts(t,s,w): 
-    f=prototype(("seuts",windll.seuif97),)
+    f=prototype(("ts",windll.seuif97),)
     result=f(t,s,w)
     return result
 

@@ -83,7 +83,7 @@ h=seuif97.pt2h(p,t)
 ```
 
 ```c
-        #include <iostream>
+        #include <stdio.h> 
         #include "seuif97.h"
   
         int main() {
