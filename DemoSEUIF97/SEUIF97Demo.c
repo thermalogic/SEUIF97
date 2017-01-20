@@ -29,6 +29,6 @@ int main(void) {
 		double h;
 
 	   h=seupt(p,t,4);
-	   printf("%f",h);
+	   printf("h= %f",h);
 	   return EXIT_SUCCESS;
 }
