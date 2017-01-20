@@ -67,52 +67,54 @@ h=seuif97.pt2h(p,t)
 
    *  propertyID  - int，0-29,(see **Properties in SEUIF97 Lib**)
 
-* Example  
+### [C Example](./DemoSEUIF97)  
     
-    Get Properties from (p,t)
-         
+      libSEUIF.dll: Windows 64 DLL;  GCC: MingW-GCC 64
+
+* SEUIF97Demo.c      
 
 ```c
-       // stdcall in  Windows
-       extern  "C" __stdcall __declspec(dllexport)  double seupt(double p,double t,int  propertyID);
-```
+#include <stdio.h>
+#include <stdlib.h>
 
-```c
-       // cdecl in Linux
-       extern  "C"  double seupt(double p,double t,int propertyID);
-```
+#include "seuif97.h"
 
-```c
-        #include <stdio.h> 
-        #include "seuif97.h"
-  
-        int main() {
-	
-                double p=16.13;
-	        double t=535;
-	        double h;
-       
-                h=seupt(p,t,4);
-                printf("%5.2f",h);
+int main(void) {
 
-	        return 0;
-        }   
+    double p=16.13;
+    double t=535;
+    double h;
+
+    h=seupt(p,t,4);
+    printf("%f",h);
+    return EXIT_SUCCESS;
+}
+
+* makefile
+
+```base
+
+SEUIF97Demo.exe: SEUIF97Demo.o seuif97.dll
+	gcc -o SEUIF97Demo SEUIF97Demo.o seuif97.dll
+
+SEUIF97Demo.o: SEUIF97Demo.c seuif97.h
+	gcc -c SEUIF97Demo.c 
 
 ```
 
 ## Function for process  
    
-*  1 等熵焓降： ishd( pi,ti,pe)
+*  1 Isentropic Enthalpy Drop： ishd( pi,ti,pe)
     
-        pi - double，入口压力； ti - double，入口温度
+        pi - double，inlet P； ti - double，inlet T
 
-        pe - double，出口压力
+        pe - double，outlet P
 
-* 2 内效率： ief( pi,ti,pe,te)
+* 2 Isentropic Efficiency： ief( pi,ti,pe,te)
 
-         pi  -double，入口压力；ti  - double，入口温度\n",
+         pi  -double，inlet P；ti  - double，inlet T"
 
-         pe  -double，出口压力；te  - double， 出口温度\n",
+         pe  -double，outlet P; te  - double， outlet T
 
 
 ## Properties in SEUIF97 Lib
