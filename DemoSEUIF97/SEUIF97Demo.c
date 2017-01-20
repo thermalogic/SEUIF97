@@ -2,17 +2,12 @@
  ============================================================================
  Name        : SEUIF97Demo.c
  Author      : Cheng Maohua
- Version     :
- Copyright   : Cheng Maohua
- Description : Hello World in C, Ansi-style
+ 
+  The MinGW toolchain is directly link against the created DLL.
 
-  The MinGW toolchain is perfectly happy to directly link against the created DLL.
+  The executable may be built without an import library using the following command:
 
-  It is worth mentioning that the same executable may be built without
-
-  an import library using the following command:
-
-g++ -o SEUIF97Demo.exe SEUIF97Demo.o libSEUIF97.dll
+   >gcc -o SEUIF97Demo.exe SEUIF97Demo.o libSEUIF97.dll
 
  ============================================================================
  */
