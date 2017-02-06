@@ -24,6 +24,6 @@ int main(void) {
 		double h;
 
 	   h=seupt(p,t,4);
-	   printf("h= %f",h);
+	   printf("(p,t) (%f,%f) h= %f",p,t,h);
 	   return EXIT_SUCCESS;
 }

@@ -9,23 +9,19 @@
 
 #define IMPORT __stdcall __declspec(dllimport)
 
-IMPORT double seupt(double p,double t,int wp);
-IMPORT double seuph(double  p,double h,int wp);
-IMPORT double seups(double  p,double s,int wp);
-IMPORT double seupv(double  p,double v,int wp);
-IMPORT double seuth(double  t,double h,int wp);
-IMPORT double seuthHi(double  t,double h,int wp);
-IMPORT double seuthLo(double  t,double h,int wp);
-IMPORT double seuts(double  t,double s,int wp);
-IMPORT double seutv(double  t,double v,int wp);
-IMPORT double seuhs(double  h,double s,int wp);
-IMPORT double seupx(double  p,double x,int wp);
-IMPORT double seutx(double  t,double x,int wp);
+IMPORT double seupt(double p,double t,int propertyID);
+IMPORT double seuph(double  p,double h,int propertyID);
+IMPORT double seups(double  p,double s,int propertyID);
+IMPORT double seupv(double  p,double v,int propertyID);
+IMPORT double seuth(double  t,double h,int propertyID);
+IMPORT double seuthHi(double  t,double h,int propertyID);
+IMPORT double seuthLo(double  t,double h,int propertyID);
+IMPORT double seuts(double  t,double s,int propertyID);
+IMPORT double seutv(double  t,double v,int propertyID);
+IMPORT double seuhs(double  h,double s,int propertyID);
+IMPORT double seupx(double  p,double x,int propertyID);
+IMPORT double seutx(double  t,double x,int propertyID);
 
-//IMPORT double hx(long ID, double  h,double x,int wp);
-//IMPORT double sx(long ID, double  s,double x,int wp);
-//IMPORT double vx(long ID, double  v,double x,int wp);
-  
 IMPORT double seuishd(double  pi, double ti,double pe);
 IMPORT double seuief(double  pi, double ti,double pe,double te);
 IMPORT double seupt2eu(double  p,double t,double tu);

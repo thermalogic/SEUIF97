@@ -69,7 +69,8 @@ h=seuif97.pt2h(p,t)
 
 ### [C Example](./DemoSEUIF97)  
     
-      libSEUIF.dll: Windows 64 DLL;  GCC: MingW-GCC 64
+      Windows 64 DLL：libSEUIF97.DLL：
+      GCC: MingW-GCC 64
 
 * SEUIF97Demo.c      
 
@@ -86,20 +87,27 @@ int main(void) {
     double h;
 
     h=seupt(p,t,4);
-    printf("%f",h);
+    printf("(p,t) (%f,%f) h= %f",p,t,h);
     return EXIT_SUCCESS;
 }
 ```
 
 * makefile
 
-```base
+```bash
 
-SEUIF97Demo.exe: SEUIF97Demo.o seuif97.dll
-	gcc -o SEUIF97Demo SEUIF97Demo.o seuif97.dll
+all: SEUIF97Demo.exe
+
+clean:
+	del SEUIF97Demo.exe *.o
+
+SEUIF97Demo.exe: SEUIF97Demo.o libseuif97.dll
+	gcc -o SEUIF97Demo SEUIF97Demo.o  -L./ -llibseuif97
+	del *.o
 
 SEUIF97Demo.o: SEUIF97Demo.c seuif97.h
 	gcc -c SEUIF97Demo.c 
+
 
 ```
 
@@ -107,48 +115,48 @@ SEUIF97Demo.o: SEUIF97Demo.c seuif97.h
    
 *  1 Isentropic Enthalpy Drop： ishd( pi,ti,pe)
     
-        pi - double，inlet P； ti - double，inlet T
+        pi - double,inlet P; ti - double,inlet T
 
-        pe - double，outlet P
+        pe - double,outlet P
 
 * 2 Isentropic Efficiency： ief( pi,ti,pe,te)
 
-         pi  -double，inlet P；ti  - double，inlet T"
+         pi  -double，inlet P;ti  - double,inlet T"
 
-         pe  -double，outlet P; te  - double， outlet T
+         pe  -double，outlet P; te  - double, outlet T
 
 
 ## Properties in SEUIF97 Lib
 
-|   物性       |    单位     |  符号  |  编码 propertyID   |   
-| -------------|:----------:| ------:|-------:|
-| 压力         |   MPa     |  P     |   0     |  
-| 温度         |   °C      |  t     |   1     |
-| 密度         | kg/m^3    |  d     |   2     |
-| 比容         | m^3/kg    |  v     |   3     |
-| 焓           | kJ/kg     |  h     |   4     |
-| 熵           | kJ/(kg·K) |  s     |   5     |
-| 用           | kJ/kg     |  e     |   6     |
-| 内能         | kJ/kg     |  u     |   7     |
-| 定压比热容    | kJ/(kg·K) |  cp    |   8     |
-| 定容比热容    | kJ/(kg·K) |  cv    |   9     |		
-| 声速         | m/s       |   w     | 10      |	
-| 定熵指数   |             |  ks     | 11      |	
-|亥姆霍兹自由能   |   kJ/kg          |  f     | 12      |	
-|吉布斯自由能     |   kJ/kg           | g     | 13      |	
-|可压缩性因子     |                      | z      | 14      |
-| 干度                 |                      | x      | 15      |
-| 区域                 |                      | r       | 16      |
-| 定压热膨胀系数   |        1/K       | ec     | 17      |
-| 等温压缩率         |        1/MPa   | kt     | 18      |
-| 偏导数 (dV/dT)p	   |    m3/(kg·K)	     | dvdt     | 19      |
-| 偏导数 (dV/dP)T	   |    m3/(kg·MPa)	  | dvdp    | 20      |
-| 偏导数 (dP/dT)v	   |    MPa/K	         | dpdt	    | 21      |
-| 等温Joule-Thomson系数	   |   kJ/(kg·MPa)        | iJTC	    | 22      |
-| Joule-Thomson系数	   |  K/MPa        | JTC	    | 23      |
-| 动力粘度        |        kg/(m·s)   | dv     | 24      |
-| 运动粘度        |       m^2/s       | kv     | 25      |
-| 导热系数        |       W/(m.K)	  | tc     | 26      |
-| 热扩散系数      |       um^2/s	 | td     | 27      |
-| 普朗特数        |            	  | pr     | 28      |
-| 表面张力        |       mN/m    	  | st     | 29      |
+|   Properties |    Unit     |  symbol  |  propertyID   |   
+| ----------------|:----------:| ------:|-------:|
+| Pressure        |   MPa     |  P     |   0     |  
+| Temperature     |   °C      |  t     |   1     |
+| Density         | kg/m^3    |  d     |   2     |
+| Specific Volume | m^3/kg    |  v     |   3     |
+| Specific enthalpy  | kJ/kg     |  h     |   4     |
+| Specific entropy   | kJ/(kg·K) |  s     |   5     |
+| Specific  exergy   | kJ/kg     |  e     |   6     |
+| Specific internal energy   | kJ/kg     |  u     |   7     |
+| Specific isobaric heat capacity  | kJ/(kg·K) |  cp    |   8     |
+| Specific isochoric heat capacity  | kJ/(kg·K) |  cv    |   9     |		
+| Speed of sound          | m/s       |   w     | 10      |	
+| Isentropic exponent     |             |  ks     | 11      |	
+| Specific Helmholtz free energy   |   kJ/kg          |  f     | 12      |	
+| Specific Gibbs free energy       |   kJ/kg           | g     | 13      |	
+| Compressibility factor           |                      | z      | 14      |
+| Steam quality                    |                      | x      | 15      |
+| Region                           |                      | r       | 16      |
+| Isobaric volume expansion coefficient  |        1/K       | ec     | 17      |
+| Isothermal compressibility             |        1/MPa   | kt     | 18      |
+| Partial derivative (dV/dT)p            |    m3/(kg·K)	     | dvdt     | 19      |
+| Partial derivative (dV/dP)T            |    m3/(kg·MPa)	  | dvdp    | 20      |
+| Partial derivative (dP/dT)v            |    MPa/K	         | dpdt	    | 21      |
+| Isothermal Joule-Thomson coefficient   |   kJ/(kg·MPa)        | iJTC	    | 22      |
+| Joule-Thomson coefficient              |  K/MPa        | JTC	    | 23      |
+| Dynamic viscosity                      |        kg/(m·s)   | dv     | 24      |
+| Kinematic viscosity                    |       m^2/s       | kv     | 25      |
+| Thermal conductivity                   |       W/(m.K)	  | tc     | 26      |
+| Thermal diffusivity                    |       um^2/s	 | td     | 27      |
+| Prandtl number                         |            	  | pr     | 28      |
+| Surface tension                        |       mN/m    	  | st     | 29      |
