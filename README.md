@@ -48,7 +48,7 @@ h=seuif97.pt2h(p,t)
         Introduction_SEUIF97.ipynb
 
 ---
-#  SEUIF97 shared Lib
+#  SEUIF97 shared library
 
 ## Function for Properties 
 
