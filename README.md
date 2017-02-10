@@ -8,9 +8,11 @@
         
         Microsoft Excel Macro
 
-**Author:** Cheng Maohua， Southeast University， Nanjing，China  ( cmh@seu.edu.cn )
+**Author:** Cheng Maohua， Southeast University， Nanjing，China  (cmh@seu.edu.cn)
 
 # Python 
+
+* Python API: seuif97.py 
 
 ## Windows 
   
@@ -42,9 +44,6 @@ t=535.10
 
 h=seuif97.pt2h(p,t)
 ```
- 
-
----
 #  SEUIF97 shared library
 
 ## Function for Properties 
@@ -64,7 +63,7 @@ h=seuif97.pt2h(p,t)
 
    *  propertyID  - int，0-29,(see **Properties in SEUIF97 Lib**)
 
-### [C Example](./DemoSEUIF97)  
+### [C Example](./example)  
     
       Windows 64 DLL：libSEUIF97.DLL：
       GCC: MingW-GCC 64
