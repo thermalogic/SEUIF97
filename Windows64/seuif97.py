@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*- 
 
 """
-This is a python api of shared linrary  for windows platform to
-
-calculate the properties of water and steam
-
-using the IAPWS-IF97 industry-standard steam properties correlations.
+This is a python api of SEUIF97  for windows platform
 
 License: this code is in the public domain
 

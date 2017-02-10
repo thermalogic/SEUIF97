@@ -1,3 +1,13 @@
+/*
+This is header file of SEUIF97 
+
+License: this code is in the public domain
+
+Author:   Cheng Maohua
+Email:    cmh@seu.edu.cn
+
+Last modified: 2016.4.20
+*/
 
 #ifndef SEUIF97H
 #define SEUIF97H

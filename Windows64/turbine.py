@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-This is a simple sample for seuif.py
+This is a simple demo for seuif.py
 
 License: this code is in the public domain
 
