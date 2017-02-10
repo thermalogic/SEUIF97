@@ -43,9 +43,6 @@ t=535.10
 h=seuif97.pt2h(p,t)
 ```
  
-## Details:
-
-        Introduction_SEUIF97.ipynb
 
 ---
 #  SEUIF97 shared library

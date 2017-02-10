@@ -41,7 +41,7 @@ def ph(p,h,w):
 
 def ph2t(p,h): 
     f=prototype(("seuph",windll.seuif97),)
-    result=f(p,h,0)
+    result=f(p,h,1)
     return result
 
 def ph2s(p,h): 
