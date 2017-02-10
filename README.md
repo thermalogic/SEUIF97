@@ -44,6 +44,16 @@ t=535.10
 
 h=seuif97.pt2h(p,t)
 ```
+* T-s Diagram: /Windows64/Diagram_T-S.py
+
+![T-s Diagram](./doc/T-s.jpg)
+
+# Microsoft Excel Macro
+
+* /windows64/DEMO_SEUIF97.xlsm
+
+* /doc/SEUIF97_Add-in.doc（Chinese）
+
 #  SEUIF97 shared library
 
 ## Function for Properties 
