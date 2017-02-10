@@ -1,6 +1,6 @@
 # SEUIF97
 
-**Purpose:** Provide a library for developers to calculate the properties of water and steam using the IAPWS-IF97 industry-standard steam properties correlations
+**Purpose:** Provide a high-speed library for developers to calculate the properties of water and steam using the IAPWS-IF97 industry-standard steam properties correlations
 
         IF97 shared library: Windows(32/64), Linux(64)
         
