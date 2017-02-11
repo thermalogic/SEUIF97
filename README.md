@@ -1,36 +1,40 @@
 # SEUIF97
 
-**Purpose:** Provide a high-speed library for developers to calculate the properties of water and steam using the IAPWS-IF97 industry-standard steam properties correlations
+**Purpose:** Provide a high-speed library for developers to calculate the properties of water and steam using the IAPWS-IF97
 
-        IF97 shared library: Windows(32/64), Linux(64)
+        IF97 shared library: Windows(32/64):seuif97.dll, Linux(64):seuif97.so
         
-        Python API：Windows, Linux
+        Python API：Windows, Linux: seuif97.py
         
-        Microsoft Excel Macro
+        Microsoft Excel Macro: DEMO_SEUIF97.xlsm,SEUIF97.xlam
 
-**Author:** Cheng Maohua， Southeast University， Nanjing，China  (cmh@seu.edu.cn)
+* Algorithm of the High-speed IAPWS-IF97 Library: 
+
+   * 王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS_IF97公式的通用计算模型[J]. 动力工程. 2001 21(6)：1564-1567(EI)
+  
+**Author:** Cheng Maohua, Southeast University, Nanjing，China  (cmh@seu.edu.cn)
 
 # Python 
 
-* Python API: seuif97.py 
+* Python API: **seuif97.py** 
 
 ## Windows 
   
-1. copy SEUIF97.dll  to a default path of Windows dll
+1. copy **seuif97.dll**  to a default path of Windows dll
       
         C:\Windows\system
    
-2. copy seuif97.py to a default path of Python lib
+2. copy **seuif97.py** to a default path of Python lib
     
         C:\Python35\Lib 
    
 ##  Linux   
     
- 1. copy SEUIF97.so  to a default path of Linux shared lib
+ 1. copy **seuif97.so**  to a default path of Linux shared lib
    
         $ sudo cp SEUIF97.so /usr/lib/
 
- 2. copy seuif97.py to a default path of Python lib
+ 2. copy **seuif97.py** to a default path of Python lib
    
         $ sudo cp seuif97.py /usr/lib/python3.5/
         
@@ -44,17 +48,17 @@ t=535.10
 
 h=seuif97.pt2h(p,t)
 ```
-* T-s Diagram: /Windows64/Diagram_T-S.py
+* T-s Diagram: **/Windows64/Diagram_T-S.py**
 
 ![T-s Diagram](./doc/T-s.jpg)
 
 # Microsoft Excel Macro
 
-* /windows64/DEMO_SEUIF97.xlsm
+* /Windows64/DEMO_SEUIF97.xlsm
 
-* /doc/SEUIF97_Add-in.doc（Chinese）
+* /doc/SEUIF97_Add-in.doc(Chinese)
 
-#  SEUIF97 shared library
+# SEUIF97 shared library
 
 ## Function for Properties 
 
@@ -75,7 +79,7 @@ h=seuif97.pt2h(p,t)
 
 ### [C Example](./example)  
     
-      Windows 64 DLL：libSEUIF97.DLL：
+      Windows 64 DLL：libseuif97.dLL：
       GCC: MingW-GCC 64
 
 * SEUIF97Demo.c      
