@@ -2,7 +2,7 @@
 
 **Purpose:** Provide a high-speed library for developers to calculate the properties of water and steam using the IAPWS-IF97
 
-        IF97 shared library: Windows(32/64):seuif97.dll, Linux(64):seuif97.so
+        IF97 shared library: Windows(64):seuif97.dll, Linux(64):seuif97.so
         
         Python API：Windows, Linux: seuif97.py
         
