@@ -1,9 +1,8 @@
 """
 T-s Diagram
 
-1 Calculating isoenthalpic lines isoh(200, hmax2)kJ/kg
-    T<1023.15 h<hmax2:p=100Mpa,T=1023.15k
-2 Calculating isobar lines  isop(0.01,100)MPa
+1 Calculating isoenthalpic lines isoh(200, 3600)kJ/kg
+2 Calculating isobar lines  isop(611.657e-6,100)MPa
 3 Calculating saturation lines x=0,x=1
 4 Calculating isoquality lines x(0.1,0.9)
 
@@ -24,7 +23,7 @@ Tc=647.096
 
 xAxis = "s"
 yAxis = "T"
-title = {"T": "T, C", "s": "s, kJ/kgK"}
+title = {"T": "T, ºC", "s": "s, kJ/kgK"}
 
 plt.title("%s-%s Diagram" % (yAxis, xAxis))
 plt.xlabel(title[xAxis])
@@ -33,8 +32,7 @@ plt.xlim(0, 11.5)
 plt.ylim(0, 810)
 plt.grid()
 
-hmax2=pt2h(100,800)
-isoh = np.linspace(200, int(hmax2), 18)
+isoh = np.linspace(200,3600, 18)
 isop = np.array([Pt,0.001,0.002,0.004,0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0,
                  2.0, 5.0, 10.0, 20.0, 50.0, 100.0])
 for h in isoh:

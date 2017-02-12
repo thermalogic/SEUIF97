@@ -112,12 +112,10 @@ def tx2h(t,x):
     result=tx(t,x,4)
     return result
 
-
 def th(t,h,w): 
     f=prototype(("th",windll.seuif97),)
     result=f(t,h,w)
     return result
-
 
 def th2p(t,h): 
     f=prototype(("th",windll.seuif97),)
