@@ -1,11 +1,11 @@
-all: SEUIF97Demo.exe
+all: demo.exe
 
 clean:
-	del SEUIF97Demo.exe *.o
+	del demo.exe *.o
 
-SEUIF97Demo.exe: SEUIF97Demo.o libseuif97.dll
-	gcc -o SEUIF97Demo SEUIF97Demo.o  -L./ -llibseuif97
+demo.exe: demo.o libseuif97.dll
+	gcc -o demo demo.o  -L./ -llibseuif97
 	del *.o
 
-SEUIF97Demo.o: SEUIF97Demo.c seuif97.h
-	gcc -c SEUIF97Demo.c 
+demo.o: demo.c seuif97.h
+	gcc -c demo.c 
