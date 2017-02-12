@@ -66,10 +66,6 @@ h=seuif97.pt2h(p,t)
    seupt( pressure,    temperature, propertyID)
    seuph( pressure,    enthalpy,    propertyID)
    seups( pressure,    entropy,     propertyID)
-   seupv( pressure ,   volume,      propertyID)
-   seuth( temperature, enthalpy,    propertyID)
-   seuts( temperature, entropy,     propertyID)
-   seutv( temperature, volume,      propertyID)
    seuhs( enthalpy,    entropy,     propertyID)
    seupx( pressure,    quality,     propertyID)
    seutx( temperature, quality,     propertyID)
@@ -79,7 +75,7 @@ h=seuif97.pt2h(p,t)
 
 ### [C Example](./example)  
     
-      Windows 64 DLL：libseuif97.dLL：
+      Windows 64 DLL：libseuif97.dll：
       GCC: MingW-GCC 64
 
 * SEUIF97Demo.c      
@@ -131,10 +127,9 @@ SEUIF97Demo.o: SEUIF97Demo.c seuif97.h
 
 * 2 Isentropic Efficiency： ief( pi,ti,pe,te)
 
-         pi  -double，inlet P;ti  - double,inlet T"
+         pi  -double，inlet P; ti  - double,inlet T
 
          pe  -double，outlet P; te  - double, outlet T
-
 
 ## Properties in SEUIF97 Lib
 
