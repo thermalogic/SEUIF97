@@ -17,7 +17,7 @@ t=350
 pr = cProfile.Profile()
 pr.enable()
 
-h=linuxseuif97.pt2h(p,t)
+h=seuif97.pt2h(p,t)
     
 pr.disable()
 s = io.StringIO()
