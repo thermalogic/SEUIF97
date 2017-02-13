@@ -64,7 +64,7 @@ point_p1_s[1] = s1
 point_p1_s[2] = sap1
 
 # 2 Isobar p2
-smp2 = s1 - samp  
+smp2 = s1 - samp
 hsmp2 = ps2h(p2, smp2)
 sap2 = s2 + samp
 hsap2 = ps2h(p2, sap2)
@@ -118,13 +118,13 @@ plt.legend(loc="best", bbox_to_anchor=[0.5, 0.5],
            ncol=2, shadow=True, title=_title)
 
 # annotate the interesting points
-txt="(%s,%s)" % (p1,t1)
+txt = "(%s,%s)" % (p1, t1)
 plt.annotate(txt,
              xy=(s1, h1), xycoords='data',
              xytext=(+10, +30), textcoords='offset points', fontsize=12,
              arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=.2"))
 
-txt="(%s,%s)" % (p2,t2)
+txt = "(%s,%s)" % (p2, t2)
 plt.annotate(txt,
              xy=(s2, h2), xycoords='data',
              xytext=(+10, +30), textcoords='offset points', fontsize=12,

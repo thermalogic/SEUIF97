@@ -4,7 +4,7 @@
 
         IF97 shared library: Windows(64):seuif97.dll, Linux(64):seuif97.so
         
-        Python API：Windows, Linux: seuif97.py
+        Python API：seuif97.py
         
         Microsoft Excel Macro: DEMO_SEUIF97.xlsm,SEUIF97.xlam
 
@@ -32,7 +32,7 @@
     
  1. copy **seuif97.so**  to a default path of Linux shared lib
    
-        $ sudo cp SEUIF97.so /usr/lib/
+        $ sudo cp seuif97.so /usr/lib/
 
  2. copy **seuif97.py** to a default path of Python lib
    

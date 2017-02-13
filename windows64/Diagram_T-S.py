@@ -18,8 +18,8 @@ from seuif97 import pt2h, ph2t, ph2s, tx2s
 import numpy as np
 import matplotlib.pyplot as plt
 
-Pt=611.657e-6
-Tc=647.096
+Pt = 611.657e-6
+Tc = 647.096
 
 xAxis = "s"
 yAxis = "T"
@@ -32,8 +32,8 @@ plt.xlim(0, 11.5)
 plt.ylim(0, 810)
 plt.grid()
 
-isoh = np.linspace(200,3600, 18)
-isop = np.array([Pt,0.001,0.002,0.004,0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0,
+isoh = np.linspace(200, 3600, 18)
+isop = np.array([Pt, 0.001, 0.002, 0.004, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0,
                  2.0, 5.0, 10.0, 20.0, 50.0, 100.0])
 for h in isoh:
     T = np.array([ph2t(p, h) for p in isop])
