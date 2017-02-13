@@ -54,9 +54,11 @@ h=seuif97.pt2h(p,t)
 
 # Microsoft Excel Macro
 
-* /windows64/DEMO_SEUIF97.xlsm
+* Excel Add-in Macro: /windows64/SEUIF97.xlam
 
-* /doc/SEUIF97_Add-in.doc(Chinese)
+* Excel VBA:  /windows64/DEMO_SEUIF97.xlsm
+
+* Guide: /doc/SEUIF97_Add-in.doc(Chinese)
 
 # SEUIF97 shared library
 
