@@ -48,13 +48,13 @@ t=535.10
 
 h=seuif97.pt2h(p,t)
 ```
-* T-s Diagram: **/Windows64/Diagram_T-S.py**
+* T-s Diagram: **/windows64/Diagram_T-S.py**
 
 ![T-s Diagram](./doc/T-s.jpg)
 
 # Microsoft Excel Macro
 
-* /Windows64/DEMO_SEUIF97.xlsm
+* /windows64/DEMO_SEUIF97.xlsm
 
 * /doc/SEUIF97_Add-in.doc(Chinese)
 
@@ -102,18 +102,17 @@ int main(void) {
 
 ```bash
 
-all: SEUIF97Demo.exe
+all: demo.exe
 
 clean:
-	del SEUIF97Demo.exe *.o
+	del demo.exe *.o
 
-SEUIF97Demo.exe: SEUIF97Demo.o libseuif97.dll
-	gcc -o SEUIF97Demo SEUIF97Demo.o  -L./ -llibseuif97
+demo.exe: demo.o libseuif97.dll
+	gcc -o demo demo.o  -L./ -llibseuif97
 	del *.o
 
-SEUIF97Demo.o: SEUIF97Demo.c seuif97.h
-	gcc -c SEUIF97Demo.c 
-
+demo.o: demo.c seuif97.h
+	gcc -c demo.c 
 
 ```
 
