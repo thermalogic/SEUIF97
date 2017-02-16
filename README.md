@@ -2,7 +2,7 @@
 
 **Purpose:** Provide a high-speed library for developers to calculate the properties of water and steam using the IAPWS-IF97
 
-        IF97 shared library: Windows(64):seuif97.dll, Linux(64):seuif97.so
+        IF97 shared library: Windows(64):libseuif97.dll, Linux(64):libseuif97.so
         
         Python API：seuif97.py
         
@@ -20,7 +20,7 @@
 
 ## Windows 
   
-1. copy **seuif97.dll**  to a default path of Windows dll
+1. copy **libseuif97.dll**  to a default path of Windows dll
       
         C:\Windows\system
    
@@ -30,9 +30,9 @@
    
 ##  Linux   
     
- 1. copy **seuif97.so**  to a default path of Linux shared lib
+ 1. copy **libseuif97.so**  to a default path of Linux shared lib
    
-        $ sudo cp seuif97.so /usr/lib/
+        $ sudo cp libseuif97.so /usr/lib/
 
  2. copy **seuif97.py** to a default path of Python lib
    
@@ -75,12 +75,12 @@ h=seuif97.pt2h(p,t)
 
    *  propertyID  - int，0-29,(see **Properties in SEUIF97 Lib**)
 
-### [C Example](./example)  
+### [C Example](./example-c-win)  
     
       Windows 64 DLL：libseuif97.dll：
       GCC: MingW-GCC 64
 
-* SEUIF97Demo.c      
+* demo.c      
 
 ```c
 #include <stdio.h>
@@ -110,7 +110,7 @@ clean:
 	del demo.exe *.o
 
 demo.exe: demo.o libseuif97.dll
-	gcc -o demo demo.o  -L./ -llibseuif97
+	gcc -o demo demo.o  -L./ -lseuif97
 	del *.o
 
 demo.o: demo.c seuif97.h
@@ -132,7 +132,7 @@ demo.o: demo.c seuif97.h
 
          pe  -double，outlet P; te  - double, outlet T
 
-## Properties in SEUIF97 Lib
+## Properties in libseuif97
 
 |   Properties |    Unit     |  symbol  |  propertyID   |   
 | ----------------|:----------:| ------:|-------:|

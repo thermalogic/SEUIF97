@@ -4,7 +4,7 @@
 from ctypes import *
 import os
 # 参数为生成的.so文件所在的绝对路径
-flib = cdll.LoadLibrary(os.getcwd() + '/seuif.so')
+flib = cdll.LoadLibrary(os.getcwd() + '/libseuif97.so')
 
 
 def pt2h(p, t):

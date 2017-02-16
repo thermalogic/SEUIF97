@@ -25,7 +25,7 @@ plt.xlim(0,12.5)
 plt.grid()
 
 Pt=611.657e-6
-# Isotherm lines to plot, values in ºC
+# Isotherm lines to plot, values in C
 isot = np.array([0, 50, 100, 200, 300, 400, 500, 600, 700, 800])
 isop = np.array([Pt,0.001, 0.01, 0.1, 1, 10, 20, 50, 100])
 for t in isot:

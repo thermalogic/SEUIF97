@@ -16,7 +16,15 @@ Last modified: 2016.4.20
 extern "C" {
 #endif
 
+#ifdef WIN32
+
 #define IMPORT __stdcall __declspec(dllimport)
+
+#else
+
+#define IMPORT   
+
+#endif
 
 IMPORT double seupt(double p, double t, int propertyID);
 IMPORT double seuph(double p, double h, int propertyID);

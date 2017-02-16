@@ -1,5 +1,5 @@
 /*
-* Name        : SEUIF97Demo.c
+* Name        : demo.c
 * Author      : Cheng Maohua
 */
 
@@ -16,6 +16,6 @@ int main(void)
     double h;
 
     h = seupt(p, t, 4);
-    printf("(p,t) (%f,%f) h= %f", p, t, h);
+    printf("(p,t) (%f,%f) h= %f \n", p, t, h);
     return EXIT_SUCCESS;
 }
