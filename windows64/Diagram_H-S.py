@@ -22,6 +22,7 @@ plt.title("%s-%s Diagram" % (yAxis, xAxis))
 plt.xlabel(title[xAxis])
 plt.ylabel(title[yAxis])
 plt.xlim(0,12.5)
+plt.ylim(0,4300)
 plt.grid()
 
 Pt=611.657e-6

@@ -2,7 +2,7 @@
 T-s Diagram
 
 1 Calculating isoenthalpic lines isoh(200, 3600)kJ/kg
-2 Calculating isobar lines  isop(0.01,100)MPa
+2 Calculating isobar lines  isop(611.657e-6,100)MPa
 3 Calculating saturation lines x=0,x=1
 4 Calculating isoquality lines x(0.1,0.9)
 
@@ -23,8 +23,9 @@ plt.xlabel(title[xAxis])
 plt.ylabel(title[yAxis])
 plt.grid()
 
+Pt=611.657e-6
 isoh = np.linspace(200,3600,18)
-isop = np.array([0.01,0.02,0.05,0.1,0.2,0.5,1.0,2.0,5.0,10.0,20.0,50.0,100.0])
+isop = np.array([Pt,0.001,0.01,0.02,0.05,0.1,0.2,0.5,1.0,2.0,5.0,10.0,20.0,50.0,100.0])
 for h in isoh:
     T = np.array([ph2t(p,h) for p in isop])
     S = np.array([ph2s(p,h) for p in isop])

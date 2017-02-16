@@ -73,11 +73,11 @@ h=seuif97.pt2h(p,t)
    seutx( temperature, quality,     propertyID)
 ```
 
-   *  propertyID  - int，0-29,(see **Properties in SEUIF97 Lib**)
+   *  propertyID  - int，0-29,(see **Properties in libseuif97**)
 
-### [C Example](./example-c-win)  
+### [C Example for Windows](./example-c-win)  
     
-      Windows 64 DLL：libseuif97.dll：
+      Windows64 DLL：libseuif97.dll：
       GCC: MingW-GCC 64
 
 * demo.c      
