@@ -15,10 +15,8 @@ from seuif97 import *
 import matplotlib.pyplot as plt
 import numpy as np
 
-p1 = 16
-t1 = 535
-p2 = 3.56
-t2 = 315
+p1,t1 = 16, 535
+p2,t2 = 3.56,315
 h1 = pt2h(p1, t1)
 s1 = pt2s(p1, t1)
 
