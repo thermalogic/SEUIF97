@@ -48,9 +48,15 @@ t=535.10
 
 h=seuif97.pt2h(p,t)
 ```
-* T-s Diagram: **/windows64/Diagram_T-S.py**
+## PyThermoCycle 
+  
+  `PyThermoCycle`  a simple simulator of ideal rankine cycle with `libseuif97`  to show the object-oriented programming
 
-![T-s Diagram](./doc/T-s.jpg)
+## T-s Diagram:
+
+ * **Diagram_T-S.py**
+
+  ![T-s Diagram](./doc/T-s.jpg)
 
 # Microsoft Excel Macro
 
