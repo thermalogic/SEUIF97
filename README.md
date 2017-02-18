@@ -6,7 +6,7 @@
  
         Algorithm of the High-speed IAPWS-IF97 Library: 
 
-        王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS_IF97公式的通用计算模型[J]. 动力工程. 2001 21(6)：1564-1567(EI)
+        王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型[J]. 动力工程. 2001 21(6)：1564-1567(EI)
  
  This library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different C++ compilers.
  
