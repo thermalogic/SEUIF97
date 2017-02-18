@@ -1,4 +1,4 @@
-import NodeIF97
+import Node
 
 class Turbine():
 
@@ -8,30 +8,22 @@ class Turbine():
     Represents a turbine in the Rankine cycle
     """
 
-    def __init__(self, inletNode):
+    def __init__(self, inletNode,exitNode):
         """
-        Initializes the turbine with the previous conditions
-
-        inletNode: the Turbine's inlet node  Must be an NodeIF97.Node object
+        Initializes the turbine with the  conditions
         """
-
-        if not isinstance(inletNode, NodeIF97.Node):
-            raise TypeError("inletNode should be of type NodeIF97.Node")
-
         self.inletNode = inletNode
-        self.exitNode=None
-
-    def simulate(self, desiredOutletPressure):
+        self.exitNode=exitNode
+    
+    def simulate(self):
         """
         Simulates the turbine and tries to have the exit quality
         as desiredOutletQuality. It does so by progressively and
         isentropically extracting work from the turbine until
         the desired outlet quality is reached
-
         desiredOutletQuality: The quality of the turbine exit
         """
-
-        self.exitNode = NodeIF97.Node(p=desiredOutletPressure,
-                                      s=self.inletNode.s)
-
+        self.inletNode.s=self.exitNode.s
+        self.inletNode.ps()
+        
         self.workExtracted = - self.exitNode.h + self.inletNode.h

@@ -1,51 +1,69 @@
-import NodeIF97
-from tabulate import tabulate
+"""
+PyThermoCycle is a simple simulator of the ideal rankine cycle as 
+   
+    ----Node 0---Turbine---Node 1---|
+    |                               |
+  Boiler                          Condenser
+    |                               |
+    ----Node 3---Pump------Node 2---| 
 
+Author:Cheng Maohua
+Email: cmh@seu.edu.cn
+
+"""
+from tabulate import tabulate
+import Node
 import turbine
 import pump
 import condenser
 import boiler
 
+
 def RankineCycle():
     condenserOverCool = 0.1
     condenserPressure = 0.006
-
     desiredQuality = 0.9
 
     table = []
 
     for boilerPressure in [1, 1.5, 2]:
-        turbineEntropy = NodeIF97.Node(p=condenserPressure, x=desiredQuality).s
+        nodes = []
+        for i in range(4):
+            nodes.append(Node.Node())
 
-        turbineInletTemperature = NodeIF97.Node(p=boilerPressure,
-                                                s=turbineEntropy).t
+        nodes[0].p = boilerPressure
 
-        condenserExitNode = NodeIF97.Node(p=condenserPressure, x=0.0)
-        condenserExitNode = NodeIF97.Node(h=condenserExitNode.h - condenserOverCool,
-                                          p=condenserPressure)
+        nodes[1].p = condenserPressure
+        nodes[1].x = desiredQuality
 
-        p = pump.Pump(condenserExitNode)
-        p.simulate(boilerPressure)
+        nodes[2].p = condenserPressure
+        nodes[2].x = 0
 
-        b = boiler.Boiler(p.exitNode)
-        b.simulate(turbineInletTemperature)
+        nodes[3].p = boilerPressure
 
-        boilerSaturationTemp = NodeIF97.Node(p=boilerPressure, x=0.0).t
-        degreeOfSuperheat = turbineInletTemperature - boilerSaturationTemp
+        #  simulate
+        nodes[1].px()
+        t = turbine.Turbine(nodes[0], nodes[1])
+        t.simulate()
+        nodes[0] = t.inletNode
 
-        t = turbine.Turbine(b.exitNode)
-        t.simulate(condenserPressure)
+        nodes[2].px()
+        c = condenser.Condenser(nodes[1], nodes[2])
+        c.simulate(condenserOverCool)
+        nodes[2] = c.exitNode
 
-        c = condenser.Condenser(t.exitNode)
-        c.simulate(condenserExitNode.t)
+        p = pump.Pump(nodes[2], nodes[3])
+        p.simulate()
+        nodes[3] = p.exitNode
+
+        b = boiler.Boiler(nodes[3], nodes[0])
+        b.simulate()
 
         efficiency = (t.workExtracted - p.workRequired) / (b.heatAdded)
 
-        table.append([boilerPressure, degreeOfSuperheat, efficiency])
+        table.append([boilerPressure, efficiency])
 
-    print(tabulate(table, headers=["Boiler Pressure",
-                                   "Degree of Superheat",
-                                   "Efficiency"]))
+    print(tabulate(table, headers=["Boiler Pressure", "Efficiency"]))
 
 
 if __name__ == '__main__':

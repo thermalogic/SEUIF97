@@ -1,8 +1,6 @@
 # PyThermoCycle
 
-`PyThermoCycle` is a simple simulator of ideal rankine cycle with `libseuif97` to show the object-oriented programming 
-
-     modified from :https://github.com/UtkrishtDhankar/pyRankine
+`PyThermoCycle` is a simple simulator of ideal rankine cycle with `libseuif97`:  https://github.com/PySEE/SEUIF97
 
 ## Dependencies
  
@@ -17,3 +15,9 @@ pip install tabulate
 ```
 python rankine.py
 ```
+
+## Reference:
+
+* https://github.com/UtkrishtDhankar/pyRankine
+
+

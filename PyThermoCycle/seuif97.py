@@ -70,7 +70,6 @@ def ps2h(p, s):
     result = f(p, s, 4)
     return result
 
-
 def ps2t(p, s):
     f = prototype(("seups", windll.libseuif97),)
     result = f(p, s, 1)
@@ -99,6 +98,21 @@ def hs2t(h, s):
     f = prototype(("seuhs", windll.libseuif97),)
     result = f(h, s, 1)
     return result
+
+def hs2p(h, s):
+    f = prototype(("seuhs", windll.libseuif97),)
+    result = f(h, s, 0)
+    return result    
+
+def hs2v(h, s):
+    f = prototype(("seuhs", windll.libseuif97),)
+    result = f(h, s, 3)
+    return result     
+
+def hs2x(h, s):
+    f = prototype(("seuhs", windll.libseuif97),)
+    result = f(h, s, 15)
+    return result     
 
 
 def pv(p, v, w):

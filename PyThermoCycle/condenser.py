@@ -1,4 +1,4 @@
-import NodeIF97
+import Node
 
 
 class Condenser:
@@ -6,28 +6,21 @@ class Condenser:
     The condenser class
     """
 
-    def __init__(self, inletNode):
+    def __init__(self, inletNode, exitNode):
         """
-        Initializes the condenser with the previous conditions
-
-        inletNode: The Node of the steam on the Condenser's inlet.
-            Must be an NodeIF97.Node object
+        Initializes the condenser with the conditions
         """
-
-        if not isinstance(inletNode, NodeIF97.Node):
-            raise TypeError("inletNode should be of type NodeIF97.Node")
-
         self.inletNode = inletNode
-        self.exitNode=None
+        self.exitNode = exitNode
 
-    def simulate(self, desiredOutletTemp):
+    def simulate(self, condenserOverCool):
         """
         Simulates the Condenser and tries to get the exit temperature down
         to the desiredOutletTemp. This is done by continuously extracting h
         while keeping the P constant.
         """
 
-        self.exitNode = NodeIF97.Node(p=self.inletNode.p,
-                                      t=desiredOutletTemp)
-
         self.heatExtracted = self.inletNode.h - self.exitNode.h
+
+        self.exitNode.h = self.exitNode.h - condenserOverCool
+        self.exitNode.ph()
