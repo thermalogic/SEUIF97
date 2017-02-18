@@ -2,7 +2,7 @@
 
 **Purpose:** Provide a high-speed library for developers to calculate the properties of water and steam  in extensive process simulations, such as Computational Fluid Dynamics (CFD), heat cycle calculations, simulations of non-stationary processes, and real-time process optimizations, where the direct IAPWS-IF97 implementation may be unsuitable because of their computing time consumption.
  
- TThrough the high-speed library, the results of the IAPWS-IF97  are accurately produced at above 3 times computational speed.
+ Through the high-speed library, the results of the IAPWS-IF97  are accurately produced at above 3 times computational speed.
 
         IF97 shared library: Windows(64):libseuif97.dll, Linux(64):libseuif97.so
         
