@@ -1,19 +1,25 @@
 # SEUIF97
 
-**Purpose:** Provide a high-speed library for developers to calculate the properties of water and steam  in extensive process simulations, such as Computational Fluid Dynamics (CFD), heat cycle calculations, simulations of non-stationary processes, and real-time process optimizations, where the direct IAPWS-IF97 implementation may be unsuitable because of their computing time consumption.
+**Purpose:** Provide a high-speed shared library for developers to calculate the properties of water and steam  in extensive process simulations, such as Computational Fluid Dynamics (CFD), heat cycle calculations, simulations of non-stationary processes, and real-time process optimizations, where the direct IAPWS-IF97 implementation may be unsuitable because of their computing time consumption.
  
  Through the high-speed library, the results of the IAPWS-IF97  are accurately produced at above 3 times computational speed.
+ 
+        Algorithm of the High-speed IAPWS-IF97 Library: 
 
-        IF97 shared library: Windows(64):libseuif97.dll, Linux(64):libseuif97.so
+        王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS_IF97公式的通用计算模型[J]. 动力工程. 2001 21(6)：1564-1567(EI)
+ 
+ This library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different C++ compilers.
+ 
+ For Windows and Linux users, convenient binary packages are provided.
+ 
+         IF97 shared library: Windows(64):libseuif97.dll, Linux(64):libseuif97.so
+ 
+ The package includes bindings for Python, Microsoft Excel. 
         
         Python API：seuif97.py
         
         Microsoft Excel Macro: DEMO_SEUIF97.xlsm,SEUIF97.xlam
-
-* Algorithm of the High-speed IAPWS-IF97 Library: 
-
-   * 王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS_IF97公式的通用计算模型[J]. 动力工程. 2001 21(6)：1564-1567(EI)
-  
+ 
 **Author:** Cheng Maohua, Southeast University, Nanjing，China  (cmh@seu.edu.cn)
 
 # Python 
