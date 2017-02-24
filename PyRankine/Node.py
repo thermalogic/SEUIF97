@@ -9,6 +9,7 @@ class Node(object):
         self.t = None
         self.h = None
         self.s = None
+        self.v = None
         self.x = None
 
     def pt(self):

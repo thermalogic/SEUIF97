@@ -56,9 +56,9 @@ t=535.10
 
 h=seuif97.pt2h(p,t)
 ```
-## PyThermoCycle 
+## PyRankine 
   
-  `PyThermoCycle`  a simple simulator of ideal rankine cycle with `libseuif97`  to show the object-oriented programming
+  `PyRankine`  a demo application of `libseuif97` to simulate of ideal rankine cycle
 
 ## T-s Diagram:
 

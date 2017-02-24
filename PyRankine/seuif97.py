@@ -156,6 +156,10 @@ def tx(t, x, w):
     result = f(t, x, w)
     return result
 
+def tx2p(t, x):
+    f = prototype(("seutx", windll.libseuif97),)
+    result = f(t, x, 0)
+    return result
 
 def tx2s(t, x):
     f = prototype(("seutx", windll.libseuif97),)
@@ -166,6 +170,11 @@ def tx2s(t, x):
 def tx2h(t, x):
     f = prototype(("seutx", windll.libseuif97),)
     result = f(t, x, 4)
+    return result
+
+def tx2v(t, x):
+    f = prototype(("seutx", windll.libseuif97),)
+    result = f(t, x, 3)
     return result
 
 
