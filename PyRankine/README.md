@@ -24,6 +24,8 @@ python rankine.py
 
    * Cooling water enters the condenser at 15C and exits at 35C.
 
+![rankine](./vps-fig81.png)
+
 * Determine for the cycle
 
   * the thermal efficiency, %
