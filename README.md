@@ -92,7 +92,7 @@ h=seuif97.pt2h(p,t)
 ### [C Example for Windows](./example-c-win)  
     
       Windows64 DLL：libseuif97.dll：
-      GCC: MingW-GCC 64
+      GCC: MinGW-w64
 
 * demo.c      
 
