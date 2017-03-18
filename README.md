@@ -56,10 +56,6 @@ t=535.10
 
 h=seuif97.pt2h(p,t)
 ```
-## PyRankine 
-  
-  `PyRankine`  a demo application of `libseuif97` to simulate of ideal rankine cycle
-
 ## T-s Diagram:
 
  * **Diagram_T-S.py**
@@ -76,7 +72,7 @@ h=seuif97.pt2h(p,t)
 
 # SEUIF97 shared library
 
-## Function for Properties 
+## Functions 
 
 ```c
    seupt( pressure,    temperature, propertyID)
