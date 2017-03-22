@@ -14,6 +14,7 @@ def pt2h(p, t):
     result = f(p, t, 4)
     return result
 
+
 def pt2s(p, t):
     f = flib.seupt
     f.argtypes = [c_double, c_double, c_int]
