@@ -26,7 +26,7 @@
 
 * Python API: **seuif97.py** 
 
-## Windows 
+## Windows64 
   
 1. copy **libseuif97.dll**  to a default path of Windows dll
       
@@ -36,7 +36,7 @@
     
         C:\Python35\Lib 
    
-##  Linux   
+##  Linux64   
     
  1. copy **libseuif97.so**  to a default path of Linux shared lib
    
@@ -46,7 +46,9 @@
    
         $ sudo cp seuif97.py /usr/lib/python3.5/
         
-# Quick start
+# demo
+
+## Quick start
 
 ```python
 import seuif97
@@ -62,11 +64,11 @@ h=seuif97.pt2h(p,t)
 
   ![T-s Diagram](./doc/T-s.jpg)
 
-# Microsoft Excel Macro
+# ExcelVBA
 
-* Excel Add-in Macro: /windows64/SEUIF97.xlam
+* Excel Add-in Macro:SEUIF97.xlam
 
-* Excel VBA:  /windows64/DEMO_SEUIF97.xlsm
+* Excel VBA:  DEMO_SEUIF97.xlsm
 
 * Guide: /doc/SEUIF97_Add-in.doc(Chinese)
 

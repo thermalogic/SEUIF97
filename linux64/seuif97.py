@@ -4,7 +4,7 @@
 from ctypes import *
 import os
 
-flib = cdll.LoadLibrary(os.getcwd() + '/libseuif97.so')
+flib = cdll.LoadLibrary('libseuif97.so')
 
 
 def pt2h(p, t):
