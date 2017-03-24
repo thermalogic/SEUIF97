@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 from ctypes import c_int, c_double, WINFUNCTYPE, windll
