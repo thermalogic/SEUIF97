@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 from ctypes import *
@@ -22,6 +21,13 @@ def pt2s(p, t):
     result = f(p, t, 5)
     return result
 
+def pt2v(p, t):
+    f = flib.seupt
+    f.argtypes = [c_double, c_double, c_int]
+    f.restype = c_double
+    result = f(p, t,3)
+    return result
+
 
 def ph2s(p, h):
     f = flib.seuph
@@ -30,6 +36,12 @@ def ph2s(p, h):
     result = f(p, h, 5)
     return result
 
+def ph2v(p, h):
+    f = flib.seuph
+    f.argtypes = [c_double, c_double, c_int]
+    f.restype = c_double
+    result = f(p, h, 3)
+    return result
 
 def ph2t(p, h):
     f = flib.seuph
@@ -37,6 +49,13 @@ def ph2t(p, h):
     f.restype = c_double
     result = f(p, h, 1)
     return result
+
+def ph2x(p, h):
+    f = flib.seuph
+    f.argtypes = [c_double, c_double, c_int]
+    f.restype = c_double
+    result = f(p, h, 15)
+    return result    
 
 def ps2t(p, s):
     f = flib.seups
