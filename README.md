@@ -26,7 +26,7 @@
 
 * Python API: **seuif97.py** 
 
-## Windows64 
+## Windows32/64 
   
 1. copy **libseuif97.dll**  to a default path of Windows dll
       
