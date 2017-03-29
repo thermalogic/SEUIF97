@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-This is a simple demo for seuif.py
+This is a simple demo for seuif97.py
 
  4 lines: 
   
