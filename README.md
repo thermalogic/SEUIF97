@@ -12,7 +12,7 @@
  
  For Windows and Linux users, convenient binary packages are provided.
  
-         IF97 shared library: Windows(64):libseuif97.dll, Linux(64):libseuif97.so
+         IF97 shared library: Windows(32/64):libseuif97.dll, Linux(64):libseuif97.so
  
  The package includes bindings for Python, Microsoft Excel. 
         
@@ -89,8 +89,8 @@ h=seuif97.pt2h(p,t)
 
 ### [C Example for Windows](./example-c-win)  
     
-      Windows64 DLL：libseuif97.dll：
-      GCC: MinGW-w64
+      Windows32/64 DLL：libseuif97.dll：
+      GCC: MinGW-w64:sjlj
 
 * demo.c      
 
