@@ -70,7 +70,7 @@ h=seuif97.pt2h(p,t)
 
 * Excel VBA:  DEMO_SEUIF97.xlsm
 
-* Guide: /doc/SEUIF97_Add-in.doc(Chinese)
+* Guide: SEUIF97_Add-in.doc(Chinese)
 
 # SEUIF97 shared library
 
@@ -110,24 +110,6 @@ int main(void) {
     printf("(p,t) (%f,%f) h= %f",p,t,h);
     return EXIT_SUCCESS;
 }
-```
-
-* makefile
-
-```bash
-
-all: demo.exe
-
-clean:
-	del demo.exe *.o
-
-demo.exe: demo.o libseuif97.dll
-	gcc -o demo demo.o  -L./ -lseuif97
-	del *.o
-
-demo.o: demo.c seuif97.h
-	gcc -c demo.c 
-
 ```
 
 ## Function for process  
