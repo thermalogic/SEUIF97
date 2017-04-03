@@ -27,6 +27,10 @@ def pt2v(p, t):
     result = f(p, t, 3)
     return result
 
+def pt2x(p, t):
+    f = prototype(("seupt", windll.libseuif97),)
+    result = f(p, t, 15)
+    return result    
 
 def ph(p, h, w):
     f = prototype(("seuph", windll.libseuif97),)

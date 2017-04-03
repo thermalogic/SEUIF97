@@ -28,6 +28,12 @@ def pt2v(p, t):
     result = f(p, t,3)
     return result
 
+def pt2x(p, t):
+    f = flib.seupt
+    f.argtypes = [c_double, c_double, c_int]
+    f.restype = c_double
+    result = f(p, t,15)
+    return result
 
 def ph2s(p, h):
     f = flib.seuph
