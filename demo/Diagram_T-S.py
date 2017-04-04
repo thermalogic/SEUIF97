@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 
 xAxis = "s"
 yAxis = "T"
-title = {"T": "T, ºC", "s": "s, kJ/kgK"}
+title = {"T": "T, °C", "s": "s, kJ/kgK"}
 
 plt.title("%s-%s Diagram" % (yAxis, xAxis))
 plt.xlabel(title[xAxis])
