@@ -46,9 +46,7 @@
    
         $ sudo cp seuif97.py /usr/lib/python3.5/
         
-# demo
-
-## Quick start
+## Python Demo
 
 ```python
 import seuif97
@@ -87,10 +85,19 @@ h=seuif97.pt2h(p,t)
 
    *  propertyID  - int，0-29,(see **Properties in libseuif97**)
 
-### [C Example for Windows](./example-c-win)  
-    
-      Windows64 DLL：libseuif97.dll：
-      GCC: MinGW-w64
+### [C Example]  
+
+*   [C Example for Windows](./example-c-win)   
+       
+       Windows DLL：libseuif97.dll
+       
+       C/C++ Compiler: MinGW-w64
+
+*   [C Example for Linuxs](./example-c-linux)   
+       
+       Linux shared lib：libseuif97.so
+       
+       C/C++ Compiler: GCC
 
 * demo.c      
 
