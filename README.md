@@ -46,7 +46,7 @@
    
         $ sudo cp seuif97.py /usr/lib/python3.5/
         
-## Python Demo
+## [Demo Python](./demo-python)
 
 ```python
 import seuif97
@@ -62,7 +62,7 @@ h=seuif97.pt2h(p,t)
 
   ![T-s Diagram](./doc/T-s.jpg)
 
-# ExcelVBA
+# [ExcelVBA64](./ExcelVBA64)
 
 * Excel Add-in Macro:SEUIF97.xlam
 
@@ -83,17 +83,17 @@ h=seuif97.pt2h(p,t)
    seutx( temperature, quality,     propertyID)
 ```
 
-   *  propertyID  - int，0-29,(see **Properties in libseuif97**)
+   *  propertyID  - int, 0-29,(see **Properties in libseuif97**)
 
-### [C Example]  
+### [Demo with GCC](./demo-gcc)  
 
-*   [C Example for Windows](./example-c-win)   
+*   Windows   
        
-       Windows DLL：libseuif97.dll
+        Windows DLL：libseuif97.dll
        
-       C/C++ Compiler: MinGW-w64
+        C/C++ Compiler: MinGW-w64
 
-*   [C Example for Linuxs](./example-c-linux)   
+*  Linux 
        
        Linux shared lib：libseuif97.so
        
