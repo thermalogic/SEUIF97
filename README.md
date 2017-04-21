@@ -12,7 +12,7 @@
  
  For Windows and Linux users, convenient binary packages are provided.
  
-         IF97 shared library: Windows(64):libseuif97.dll, Linux(64):libseuif97.so
+         IF97 shared library: Windows(32/64):libseuif97.dll, Linux(64):libseuif97.so
  
  The package includes bindings for Python, Microsoft Excel. 
         
@@ -26,7 +26,7 @@
 
 * Python API: **seuif97.py** 
 
-## Windows64 
+## Windows32/64 
   
 1. copy **libseuif97.dll**  to a default path of Windows dll
       
