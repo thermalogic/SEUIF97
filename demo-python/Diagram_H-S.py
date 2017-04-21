@@ -1,8 +1,8 @@
 """
 h-s Diagram
 
-1 Calculating Isotherm lines isot(0.0,800)C
-2 Calculating Isobar lines  isop(611.657e-6, 100)Mpa
+1 Calculating Isotherm lines isot(0.0,800.0)°C
+2 Calculating Isobar lines  isop(611.657e-6, 100.0)Mpa
 3 Calculating saturation lines x=0,x=1
 4 Calculating isoquality lines x(0.1,0.9)
 
