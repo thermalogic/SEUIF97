@@ -22,9 +22,15 @@
  
 **Author:** Cheng Maohua, Southeast University, Nanjing，China  (cmh@seu.edu.cn)
 
-# Python 
+# [API](/api)
+
+   Windows and Linux
 
 * Python API: **seuif97.py** 
+
+* C API: **seuif97.h** 
+
+# Using shared library
 
 ## Windows32/64 
   
@@ -86,18 +92,6 @@ h=seuif97.pt2h(p,t)
    *  propertyID  - int, 0-29,(see **Properties in libseuif97**)
 
 ### [Demo with GCC](./demo-gcc)  
-
-*   Windows   
-       
-        Windows DLL：libseuif97.dll
-       
-        C/C++ Compiler: MinGW-w64
-
-*  Linux 
-       
-       Linux shared lib：libseuif97.so
-       
-       C/C++ Compiler: GCC
 
 * demo.c      
 

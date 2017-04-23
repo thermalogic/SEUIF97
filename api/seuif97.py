@@ -3,19 +3,17 @@
 from ctypes import *
 from platform import *
 
-cdll_name = {'Linux': 'libseuif97.so',
+cdll_names = {'Linux': 'libseuif97.so',
               'Windows': 'libseuif97.dll'}
 
-cLoadLibrary = {'Linux': cdll.LoadLibrary,
-                'Windows': windll.LoadLibrary}
-
-cprototype = {'Linux': CFUNCTYPE,
-              'Windows': WINFUNCTYPE}
-
 osplat = system()
-flib = cLoadLibrary[osplat](cdll_name[osplat])
-prototype = cprototype[osplat](c_double, c_double, c_double, c_int)
-
+if (osplat=='Linux'):
+    flib =cdll.LoadLibrary(cdll_names[osplat])
+    prototype =CFUNCTYPE(c_double, c_double, c_double, c_int)
+if (osplat=='Windows'):  
+    flib = windll.LoadLibrary(cdll_names[osplat])
+    prototype =WINFUNCTYPE(c_double, c_double, c_double, c_int)
+    
 # ---(p,t) ----------------
 
 
