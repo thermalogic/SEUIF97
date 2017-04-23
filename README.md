@@ -62,7 +62,7 @@ h=seuif97.pt2h(p,t)
 
   ![T-s Diagram](./doc/T-s.jpg)
 
-# [ExcelVBA64](./ExcelVBA64)
+# [ExcelVBA32/64](./ExcelVBA)
 
 * Excel Add-in Macro:SEUIF97.xlam
 
