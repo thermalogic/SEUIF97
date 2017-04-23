@@ -62,13 +62,35 @@ t=535.10
 
 h=seuif97.pt2h(p,t)
 ```
-## T-s Diagram:
+### T-s Diagram:
 
  * **Diagram_T-S.py**
 
   ![T-s Diagram](./doc/T-s.jpg)
 
-# [ExcelVBA32/64](./ExcelVBA)
+## [Demo with GCC](./demo-gcc)  
+
+* demo.c      
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "seuif97.h"
+
+int main(void) {
+
+    double p=16.13;
+    double t=535;
+    double h;
+
+    h=seupt(p,t,4);
+    printf("(p,t) (%f,%f) h= %f",p,t,h);
+    return EXIT_SUCCESS;
+}
+```
+
+## [ExcelVBA32/64](./ExcelVBA)
 
 * Excel Add-in Macro:SEUIF97.xlam
 
@@ -90,28 +112,6 @@ h=seuif97.pt2h(p,t)
 ```
 
    *  propertyID  - int, 0-29,(see **Properties in libseuif97**)
-
-### [Demo with GCC](./demo-gcc)  
-
-* demo.c      
-
-```c
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "seuif97.h"
-
-int main(void) {
-
-    double p=16.13;
-    double t=535;
-    double h;
-
-    h=seupt(p,t,4);
-    printf("(p,t) (%f,%f) h= %f",p,t,h);
-    return EXIT_SUCCESS;
-}
-```
 
 ## Function for process  
    
