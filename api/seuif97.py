@@ -7,13 +7,13 @@ cdll_names = {'Linux': 'libseuif97.so',
               'Windows': 'libseuif97.dll'}
 
 osplat = system()
-if (osplat=='Linux'):
-    flib =cdll.LoadLibrary(cdll_names[osplat])
-    prototype =CFUNCTYPE(c_double, c_double, c_double, c_int)
-if (osplat=='Windows'):  
+if (osplat == 'Linux'):
+    flib = cdll.LoadLibrary(cdll_names[osplat])
+    prototype = CFUNCTYPE(c_double, c_double, c_double, c_int)
+elif (osplat == 'Windows'):
     flib = windll.LoadLibrary(cdll_names[osplat])
-    prototype =WINFUNCTYPE(c_double, c_double, c_double, c_int)
-    
+    prototype = WINFUNCTYPE(c_double, c_double, c_double, c_int)
+
 # ---(p,t) ----------------
 
 
@@ -238,7 +238,7 @@ def tx2s(t, x):
     result = f(t, x, 5)
     return result
 
-# ---------- precessing -------------------------
+# ---------- processing ------------
 
 
 def ishd(p1, t1, p2):

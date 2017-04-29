@@ -10,9 +10,10 @@ Author: Cheng Maohua. 2017.02.10
 Email: cmh@seu.edu.cn
 
 """
-from seuif97 import ph2t, ph2s, tx2s
-import numpy as np
+from seuif97 import ph2s, ph2t, tx2s
+
 import matplotlib.pyplot as plt
+import numpy as np
 
 xAxis = "s"
 yAxis = "T"
