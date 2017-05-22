@@ -1,11 +1,11 @@
 all: demo
 
 clean:
-	rm demo *.o
+	rm -f demo
 
 demo: demo.o 
 	gcc -o demo demo.o -L/usr/lib/ -lseuif97
-	rm *.o
+	rm -f *.o
 
 demo.o: demo.c seuif97.h
 	gcc -c demo.c 
