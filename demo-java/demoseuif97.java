@@ -4,8 +4,7 @@
 */
 public class demoseuif97 {
 
-   //public native static String pirntStr(String msg);//函数声明
-   public static void main(String[] args){
+    public static void main(String[] args){
         double p=16.0;
         double t=540.0;
         double h;
