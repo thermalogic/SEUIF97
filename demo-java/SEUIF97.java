@@ -1,7 +1,5 @@
 /*
-   JNA provides Java programs easy access to native shared libraries 
-   without writing anything but Java code 
- 
+   access to the shared libraries through JNA   
    https://github.com/java-native-access/jna
 
 */

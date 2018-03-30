@@ -108,7 +108,7 @@ int main(void) {
 
 ```java
 /*
-   access to the shared libraries througu JNA   
+   access to the shared libraries through JNA   
    https://github.com/java-native-access/jna
 
 */
