@@ -16,11 +16,13 @@
  
          IF97 shared library: Windows(32/64):libseuif97.dll, Linux(64):libseuif97.so
  
- The package includes bindings for Python, Microsoft Excel. 
+ The package includes bindings for Python, Microsoft Excel, Java 
         
         Python API：seuif97.py
         
         Microsoft Excel Macro: DEMO_SEUIF97.xlsm,SEUIF97.xlam
+
+        Java API: SEUIF97.java
  
 **Author:** Cheng Maohua, Southeast University, Nanjing，China  (cmh@seu.edu.cn)
 
@@ -31,6 +33,8 @@
 * Python API: **seuif97.py** 
 
 * C API: **seuif97.h** 
+
+* Java API: **SEUIF97.java**
 
 # Using shared library
 
@@ -99,6 +103,25 @@ int main(void) {
 * Excel VBA:  DEMO_SEUIF97.xlsm
 
 * Guide: SEUIF97_Add-in.doc(Chinese)
+
+## [Demo Java](./demo-java)
+
+```java
+/*
+   access to the shared libraries througu JNA   
+   https://github.com/java-native-access/jna
+
+*/
+import com.sun.jna.Library;  
+import com.sun.jna.Native;  
+  
+public interface SEUIF97 extends Library{  
+
+    SEUIF97 instance  = (SEUIF97)Native.loadLibrary("libseuif97",SEUIF97.class);    
+    
+    public double  seupt(double p, double t,int w);  
+}   
+```
 
 # SEUIF97 shared library
 
