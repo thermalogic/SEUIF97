@@ -48,7 +48,7 @@
     
         C:\Python35\Lib 
 
-##  Linux64   
+##  Linux64(Ubuntu 18.04)  
     
  1. copy **libseuif97.so**  to a default path of Linux shared lib
    
@@ -56,7 +56,7 @@
 
  2. copy **seuif97.py** to a default path of Python lib
    
-        $sudo cp seuif97.py /usr/lib/python3.5/
+        $sudo cp seuif97.py /usr/lib/python3.6/
         
 ## [Demo Python](./demo-python)
 
