@@ -73,6 +73,7 @@ $sudo -H python3 -m pip install seuif97
  2. copy **seuif97.py** to a default path of Python lib
    
         $sudo cp seuif97.py /usr/lib/python3.6/
+ 
         
 ## [Demo Python](./demo-python)
 
