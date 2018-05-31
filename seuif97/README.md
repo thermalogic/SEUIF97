@@ -2,7 +2,7 @@
 
 **Purpose:** Provide a high-speed shared library for developers to calculate the properties of water and steam  in extensive process simulations, such as Computational Fluid Dynamics (CFD), heat cycle calculations, simulations of non-stationary processes, and real-time process optimizations, where the direct IAPWS-IF97 implementation may be unsuitable because of their computing time consumption.
  
- Through the high-speed library, the results of the IAPWS-IF97  are accurately produced at above 3 times computational speed.
+Through the high-speed library, the results of the IAPWS-IF97  are accurately produced at above 3 times computational speed.
  
 Algorithm of the High-speed IAPWS-IF97 Library: 
 
@@ -10,59 +10,28 @@ Algorithm of the High-speed IAPWS-IF97 Library:
 
 * 芮嘉敏,孙振业,程懋华. 基于最短加法链状态空间树的IAPWS-IF97快速计算方法[J]. 汽轮机技术,2017,59(4):245-247 
 
- This library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different C++ compilers.
+This library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different C++ compilers.
  
-For Windows and Linux users, convenient binary packages are provided.
+For Windows and Linux users, the convenient binary IF97 shared libraries are provided.
  
-* IF97 shared library: Windows(32/64):libseuif97.dll, Linux(64):libseuif97.so
+* Windows64:libseuif97.dll, Linux64:libseuif97.so
  
-The package includes bindings for Python, Microsoft Excel, Java 
-        
-* Python API：seuif97.py
-        
-* Microsoft Excel Macro: DEMO_SEUIF97.xlsm,SEUIF97.xlam
-
-* Java API: SEUIF97.java
- 
+The package seuif97 is binding the shared library for Python
+      
 **Author:** Cheng Maohua, Southeast University, Nanjing，China  (cmh@seu.edu.cn)
 
-## Install the shared library
+## Install through pip for Python (Windows64,Linux64)
 
-you may use pip to install for Python or download the repo,then install manually for more languages
-
-### Install through pip for Python (Windows64,Linux64)
-
-#### Windows64
+### Windows64
 
 ```bash
 >pip install seuif97
 ```
-#### Linux64
+### Linux64
 
 ```bash
 $sudo -H python3 -m pip install seuif97
 ```
-### Download the repo,install manually for more languages
-
-#### Windows32/64 
-  
-1. copy **libseuif97.dll**  to a default path of Windows dll
-      
-        C:\Windows\system
-   
-2. copy **seuif97.py** to a default path of Python lib
-    
-        C:\Python35\Lib 
-
-####  Linux64(Ubuntu 18.04)  
-    
- 1. copy **libseuif97.so**  to a default path of Linux shared lib
-   
-        $sudo cp libseuif97.so /usr/lib/
-
- 2. copy **seuif97.py** to a default path of Python lib
-   
-        $sudo cp seuif97.py /usr/lib/python3.6/
 
 ## Python API 
 
@@ -132,7 +101,6 @@ pi －inlet P，ti - inlet T，pe - outlet P
 ief( pi,ti,pe,te)
 ```
 pi－inlet P， ti　－inlet T，pe　outlet P; te－ outlet T
-
 
         
 ## Demo Python
