@@ -26,7 +26,7 @@
  
 **Author:** Cheng Maohua, Southeast University, Nanjing，China  (cmh@seu.edu.cn)
 
-# [API](/api)
+## [API](/api)
 
    Windows and Linux
 
@@ -36,25 +36,25 @@
 
 * Java API: **SEUIF97.java**
 
-# Install the shared library
+## Install the shared library
 
 you may use pip to install for Python or download the repo,then install manually for more languages
 
-# Install through pip for Python (Windows64,Linux64)
+### Install through pip for Python (Windows64,Linux64)
 
-### Windows64
+#### Windows64
 
 ```bash
 >pip install seuif97
 ```
-### Linux64
+#### Linux64
 
 ```bash
 $sudo -H python3 -m pip install seuif97
 ```
-## Download the repo,install manually for more languages
+### Download the repo,install manually for more languages
 
-### Windows32/64 
+#### Windows32/64 
   
 1. copy **libseuif97.dll**  to a default path of Windows dll
       
@@ -64,7 +64,7 @@ $sudo -H python3 -m pip install seuif97
     
         C:\Python35\Lib 
 
-###  Linux64(Ubuntu 18.04)  
+####  Linux64(Ubuntu 18.04)  
     
  1. copy **libseuif97.so**  to a default path of Linux shared lib
    
@@ -139,9 +139,9 @@ public interface SEUIF97 extends Library{
 }   
 ```
 
-# SEUIF97 shared library
+## SEUIF97 shared library
 
-## Functions 
+### Functions 
 
 ```c
    seupt( pressure,    temperature, propertyID)
@@ -154,7 +154,7 @@ public interface SEUIF97 extends Library{
 
    *  propertyID  - int, 0-29,(see **Properties in libseuif97**)
 
-## Function for process  
+### Function for process  
    
 *  1 Isentropic Enthalpy Drop： ishd( pi,ti,pe)
     
