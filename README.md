@@ -36,9 +36,25 @@
 
 * Java API: **SEUIF97.java**
 
-# Using shared library
+# Install the shared library
 
-## Windows32/64 
+you may use pip to install for Python or download the repo,then install manually for more languages
+
+# Install through pip for Python (Windows64,Linux64)
+
+### Windows64
+
+```bash
+>pip install seuif97
+```
+### Linux64
+
+```bash
+$sudo -H python3 -m pip install seuif97
+```
+## Download the repo,install manually for more languages
+
+### Windows32/64 
   
 1. copy **libseuif97.dll**  to a default path of Windows dll
       
@@ -48,7 +64,7 @@
     
         C:\Python35\Lib 
 
-##  Linux64(Ubuntu 18.04)  
+###  Linux64(Ubuntu 18.04)  
     
  1. copy **libseuif97.so**  to a default path of Linux shared lib
    
