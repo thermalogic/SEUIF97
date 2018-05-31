@@ -1,13 +1,5 @@
 import setuptools
 
-from platform import *
-
-osplat = system()
-if (osplat == 'Linux'):
-    packagedata={'': '*.so'}
-elif (osplat == 'Windows'):
-    packagedata={'': '*.dll'}
-
 setuptools.setup(
     name="seuif97",
     version="1.0.0.0.3",
@@ -19,7 +11,7 @@ setuptools.setup(
     license="MIT",
     description='IAPWS-IF97 high-speed shared library(Windows64,Linux64) in ANSI C,Python API',
     long_description='IAPWS-IF97 high-speed shared library(Windows64,Linux64) in ANSI C,Python API',                  
-    platforms=["Windows64","Linux"],
+    platforms=["Windows64","Linux64"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "Programming Language :: C",
