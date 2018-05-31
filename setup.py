@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="seuif97",
-    version="1.0.0.0.3",
+    version="1.0.0.0.5",
     author="Cheng Maohua",
     author_email="cmh@seu.edu.cn",
     url="https://github.com/PySEE/SEUIF97",
@@ -10,7 +10,7 @@ setuptools.setup(
     package_data={'': ['*.so','*.dll']},
     license="MIT",
     description='IAPWS-IF97 high-speed shared library(Windows64,Linux64) in ANSI C,Python API',
-    long_description='IAPWS-IF97 high-speed shared library(Windows64,Linux64) in ANSI C,Python API',                  
+    long_description=open("LDESC4PyPI.md", "r").read(),   
     platforms=["Windows64","Linux64"],
     classifiers=[
         "Programming Language :: Python :: 3",

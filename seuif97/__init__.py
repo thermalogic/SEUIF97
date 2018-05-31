@@ -41,7 +41,6 @@ def pt2v(p, t):
     result = f(p, t, 3)
     return result
 
-
 def pt2x(p, t):
     f = prototype(("seupt", flib),)
     result = f(p, t, 15)
@@ -239,7 +238,7 @@ def tx2s(t, x):
     result = f(t, x, 5)
     return result
 
-# ---------- processing ------------
+# ---------- steam turbine processing ------------
 
 
 def ishd(p1, t1, p2):
