@@ -1,26 +1,16 @@
 # SEUIF97
 
-**Purpose:** Provide a high-speed shared library for developers to calculate the properties of water and steam  in extensive process simulations, such as Computational Fluid Dynamics (CFD), heat cycle calculations, simulations of non-stationary processes, and real-time process optimizations, where the direct IAPWS-IF97 implementation may be unsuitable because of their computing time consumption.
- 
-Through the high-speed library, the results of the IAPWS-IF97  are accurately produced at above 3 times computational speed.
- 
-Algorithm of the High-speed IAPWS-IF97 Library: 
+The package seuif97 is binding the high-speed IAPWS-IF97 shared library for Python
 
-* 王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型[J]. 动力工程,2001,21(6)：1564-1567
-
-* 芮嘉敏,孙振业,程懋华. 基于最短加法链状态空间树的IAPWS-IF97快速计算方法[J]. 汽轮机技术,2017,59(4):245-247 
-
-This library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different C++ compilers.
+The shared library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different C++ compilers.
  
-For Windows and Linux users, the convenient binary IF97 shared libraries are provided.
+The shared librariy is provided for Windows and Linux users 
  
 * Windows64:libseuif97.dll, Linux64:libseuif97.so
  
-The package seuif97 is binding the shared library for Python
-      
-**Author:** Cheng Maohua, Southeast University, Nanjing，China  (cmh@seu.edu.cn)
-
-## Install through pip for Python (Windows64,Linux64)
+Through the high-speed library, the results of the IAPWS-IF97  are accurately produced at above 3 times computational speed.
+ 
+## Install through pip(Windows64,Linux64)
 
 ### Windows64
 
