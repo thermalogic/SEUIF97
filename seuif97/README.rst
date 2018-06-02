@@ -6,36 +6,36 @@ What is seuif97?
 The package seuif97 is binding the high-speed IAPWS-IF97 shared library for Python
 
 The shared library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different C++ compilers.
- 
-The shared librariy is provided for Windows and Linux users 
- 
-* Windows64:libseuif97.dll, Linux64:libseuif97.so
- 
+
 Through the high-speed library, the results of the IAPWS-IF97  are accurately produced at above 3 times computational speed.
  
+The shared library is provided for Windows and Linux users 
+ 
+- Windows64:libseuif97.dll
+
+- Linux64:libseuif97.so
+
+You may visit https://github.com/PySEE/SEUIF97 for more information about the shared library 
+
 Installation
 ------------
 
-Get the latest version of seuif97 from
-
-https://pypi.python.org/pypi/seuif97/
-
-If you have an installation of Python with pip, simple install it with:
+If you have an installation of Python with pip, install it with:
 
 - Windows64
 
-   >pip install seuif97
+  >pip install seuif97
 
 - Linux64
 
-   $sudo -H python3 -m pip install seuif97
+  $sudo -H python3 -m pip install seuif97
 
 
 Python API 
 ------------
 
-Functions 
->>>>>>>>>>>>>>>>>>
+Functions of properties
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 .. code:: python
 
@@ -47,14 +47,24 @@ Functions
    px( pressure,    quality,     propertyID)
    tx( temperature, quality,     propertyID)
 
-**propertyID** - int, 0-29,(see **propertyIDs in seuif97** for details)
+- pressure    : MPa  
+
+- temperature : °C
+
+- enthalpy    : kJ/kg  
+
+- entropy     : kJ/(kg·K)
+
+- quality     :
+
+- **propertyID** - int, 0-29,(see **propertyIDs in seuif97** for details)
 
 .. code:: python
 
    pt2v( pressure,    temperature)
    pt2h( pressure,    temperature)
    pt2s( pressure,    temperature)
-   pt2xs( pressure,    temperature)
+   pt2x( pressure,    temperature)
   
    ph2t( pressure,    enthalpy)
    ph2v( pressure,    enthalpy)
@@ -84,30 +94,33 @@ Functions
    tx2p( temperature, quality)
    tx2v( temperature, quality)
    tx2h( temperature, quality)
-   tx2s( temperature, qualityD)
+   tx2s( temperature, quality)
 
+Functions for the thermodynamic process of steam turbine   
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-Function for steam turbine process  
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-- 1 Isentropic Enthalpy Drop： 
+Isentropic Enthalpy Drop
+:::::::::::::::::::::::::::
 
 .. code:: python
 
-   ishd( pi,ti,pe)
+   ishd(pi,ti,po)
     
-pi －inlet P，ti - inlet T，pe - outlet P
+- pi：inlet P，MPa；　ti：inlet T，°C
 
-- 2 Isentropic Efficiency： 
+- po：outlet P，MPa；
+
+Isentropic Efficiency 
+:::::::::::::::::::::::::::
 
 .. code:: python
 
-   ief( pi,ti,pe,te)
+   ief(pi,ti,po,to)
 
-pi－inlet P， ti　－inlet T，pe　outlet P; te－ outlet T
-
+- pi：inlet P，MPa； 　ti：inlet T，°C
+- po：outlet P，MPa；　to：outlet T，°C
         
-Demo Python
+Examples
 --------------
 
 .. code:: python
