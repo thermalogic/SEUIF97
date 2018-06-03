@@ -148,12 +148,18 @@ public interface SEUIF97 extends Library{
    seupt( pressure,    temperature, propertyID)
    seuph( pressure,    enthalpy,    propertyID)
    seups( pressure,    entropy,     propertyID)
+   seupv( pressure,    volume,      propertyID)
+
+   seuth( temperature, enthalpy,    propertyID)
+   seuts( temperature, entropy,     propertyID)
+   seutv( temperature, volume,      propertyID)
+
    seuhs( enthalpy,    entropy,     propertyID)
    seupx( pressure,    quality,     propertyID)
    seutx( temperature, quality,     propertyID)
 ```
 
-   *  propertyID  - int, 0-29,(see **Properties in libseuif97**)
+*  propertyID  - int, 0-29,(see **Properties in libseuif97**)
 
 ### Function for process  
    

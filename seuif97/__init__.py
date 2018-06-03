@@ -251,7 +251,6 @@ def px2v(p, x):
 
 # --- (t,x) ------------
 
-
 def tx(t, x, pid):
     f = prototype(("seutx", flib),)
     result = f(t, x, pid)
