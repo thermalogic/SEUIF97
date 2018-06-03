@@ -39,17 +39,20 @@ Functions of properties
 
 .. code:: python
 
-   pt( pressure,    temperature, propertyID)
-   ph( pressure,    enthalpy,    propertyID)
-   ps( pressure,    entropy,     propertyID)
-   ts( temperature, entropy,     propertyID)
-   hs( enthalpy,    entropy,     propertyID)
-   px( pressure,    quality,     propertyID)
-   tx( temperature, quality,     propertyID)
+  pt( pressure,    temperature, propertyID)
+  ph( pressure,    enthalpy,    propertyID)
+  ps( pressure,    entropy,     propertyID)
+  ts( temperature, entropy,     propertyID)
+  tv( temperature, volume,     propertyID)
+  hs( enthalpy,    entropy,     propertyID)
+  px( pressure,    quality,     propertyID)
+  tx( temperature, quality,     propertyID)
 
 - pressure    : MPa  
 
 - temperature : °C
+
+- volume      : m^3/kg 
 
 - enthalpy    : kJ/kg  
 
@@ -80,6 +83,11 @@ Functions of properties
    ts2h( temperature,    entropy)
    ts2p( temperature,    entropy)
    ts2x( temperature,    entropy)
+
+   tv2p( temperature,    volume)
+   tv2h( temperature,    volume)
+   tv2s( temperature,    volume)
+   tv2x( temperature,    volume)
   
    hs2p( enthalpy,    entropy)
    hs2t( enthalpy,    entropy)
