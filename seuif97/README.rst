@@ -42,9 +42,12 @@ Functions of properties
   pt( pressure,    temperature, propertyID)
   ph( pressure,    enthalpy,    propertyID)
   ps( pressure,    entropy,     propertyID)
+
   ts( temperature, entropy,     propertyID)
   tv( temperature, volume,     propertyID)
+  
   hs( enthalpy,    entropy,     propertyID)
+  
   px( pressure,    quality,     propertyID)
   tx( temperature, quality,     propertyID)
 

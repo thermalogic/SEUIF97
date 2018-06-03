@@ -173,24 +173,26 @@ def ts2x(t, s):
     f = prototype(("seuts", flib),)
     result = f(t, s, 15)
     return result
+
+
 # --- (t,v) -----
 
 
 def tv(t, v, pid):
     f = prototype(("seutv", flib),)
     result = f(t, v, pid)
-    return resul
+    return result
 
 
-def tv2p(t, vs):
+def tv2p(t, v):
     f = prototype(("seutv", flib),)
     result = f(t, v, 0)
     return result
 
 
-def tv2s(t, s):
+def tv2s(t, v):
     f = prototype(("seutv", flib),)
-    result = f(t, s, 5)
+    result = f(t, v, 5)
     return result
 
 
@@ -200,10 +202,11 @@ def tv2h(t, v):
     return result
 
 
-def tvx(t, s):
+def tv2x(t, v):
     f = prototype(("seutv", flib),)
     result = f(t, v, 15)
     return result
+
 # --- (p,x) -------------------
 
 
