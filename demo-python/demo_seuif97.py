@@ -8,6 +8,7 @@ s1 = seuif97.px2s(p, 0)
 s2 = seuif97.px2s(p, 1)
 h1 = seuif97.px2h(p, 0)
 h2 = seuif97.px2h(p, 1)
+
 x = 0.20
 s = s1 + x * (s2 - s1)
 h = h1 + x * (h2 - h1)
