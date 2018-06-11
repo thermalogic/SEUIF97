@@ -4,7 +4,7 @@
  
  Through the high-speed library, the results of the IAPWS-IF97  are accurately produced at about 6 times computational speed than the IAPWS-IF97 implementation with the fast integer exponentiation algorithms.
  
-        Algorithm of the High-speed IAPWS-IF97 Library: 
+        Algorithms of the High-speed IAPWS-IF97 Library: 
 
           王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型[J]. 动力工程,2001,21(6)：1564-1567
 
