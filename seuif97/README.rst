@@ -7,7 +7,7 @@ The package seuif97 is binding the high-speed IAPWS-IF97 shared library for Pyth
 
 The shared library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different C++ compilers.
 
-Through the high-speed library, the results of the IAPWS-IF97  are accurately produced at about 2～3 times computational speed
+Through the high-speed library, the results of the IAPWS-IF97  are accurately produced at about 2~3 times computational speed
 than the IAPWS-IF97 implementation with the fast algorithm of integer powers. 
 
 The shared library is provided for Windows and Linux users 
