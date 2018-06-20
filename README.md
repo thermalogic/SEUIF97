@@ -2,7 +2,7 @@
 
 **Purpose:** Provide a high-speed shared library for developers to calculate the properties of water and steam  in extensive process simulations, such as Computational Fluid Dynamics (CFD), heat cycle calculations, simulations of non-stationary processes, and real-time process optimizations, where the direct IAPWS-IF97 implementation may be unsuitable because of their computing time consumption.
  
-Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 2~3 times computational speed than the repeated squaring method.
+Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 2~3 times computational speed than the repeated squaring method for fast computation of large positive integer powers.
  
         Algorithms of the High-speed IAPWS-IF97 Library: 
 
