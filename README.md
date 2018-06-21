@@ -10,13 +10,13 @@ Through the high-speed library, the results of the IAPWS-IF97 are accurately pro
 
           芮嘉敏,孙振业,程懋华. 基于最短加法链状态空间树的IAPWS-IF97快速计算方法[J]. 汽轮机技术,2017,59(4):245-247 
 
- This library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different C++ compilers.
+This library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different C++ compilers.
  
- For Windows and Linux users, convenient binary packages are provided.
+For Windows and Linux users, convenient binary packages are provided.
  
          IF97 shared library: Windows(32/64):libseuif97.dll, Linux(64):libseuif97.so
  
- The package includes bindings for Python, Microsoft Excel, Java 
+The package includes bindings for Python, Microsoft Excel, Java 
         
         Python API：seuif97.py
         
