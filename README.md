@@ -60,9 +60,9 @@ $sudo -H python3 -m pip install seuif97
       
         C:\Windows\system
    
-2. copy **seuif97.py** to a default path of Python lib
+2. copy **seuif97.py** to a default path of Python lib. If you have installed Python3.7 in the C:\Python37\, copy to
     
-        C:\Python35\Lib 
+        C:\Python37\Lib 
 
 ####  Linux64(Ubuntu 18.04)  
     
@@ -70,7 +70,7 @@ $sudo -H python3 -m pip install seuif97
    
         $sudo cp libseuif97.so /usr/lib/
 
- 2. copy **seuif97.py** to a default path of Python lib
+ 2. copy **seuif97.py** to a default path of Python lib, if  you have installed Python3.6
    
         $sudo cp seuif97.py /usr/lib/python3.6/
  
