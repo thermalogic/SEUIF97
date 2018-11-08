@@ -36,25 +36,31 @@ The package includes bindings for Python, Microsoft Excel, Java
 
 * Java API: **SEUIF97.java**
 
-## Install the shared library
+## Install the Shared Library
 
-you may use pip to install for Python or download the repo,then install manually for more languages
+you may use **pip** to install for Python or download the repo,then install manually for more languages
 
-### Install through pip for Python (Windows64,Linux64)
+### 1 Install for Python (Windows64,Linux64)
 
 #### Windows64
 
 ```bash
->pip install seuif97
+>python -m pip install seuif97
 ```
 #### Linux64
 
 ```bash
 $sudo -H python3 -m pip install seuif97
 ```
-### Download the repo,install manually for more languages
+### 2 Install for More Languages
 
-#### Windows32/64 
+Download **SEUIF97.zip** ,
+
+![Download SEUIF97.zip](./doc/downloadseuif97.jpg)
+
+ Then unzip and install manually for more languages:C/C++,Java,VBA.Python.etc
+
+ #### Windows32/64 
   
 1. copy **libseuif97.dll**  to a default path of Windows dll
       
@@ -64,13 +70,13 @@ $sudo -H python3 -m pip install seuif97
     
         C:\Python37\Lib 
 
-####  Linux64(Ubuntu 18.04)  
+####  Linux64 
     
  1. copy **libseuif97.so**  to a default path of Linux shared lib
    
         $sudo cp libseuif97.so /usr/lib/
 
- 2. copy **seuif97.py** to a default path of Python lib, if  you have installed Python3.6
+ 2. copy **seuif97.py** to a default path of Python lib, if you have installed Python3.6(Ubuntu 18.04) 
    
         $sudo cp seuif97.py /usr/lib/python3.6/
  
