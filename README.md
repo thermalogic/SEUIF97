@@ -79,8 +79,7 @@ Download **SEUIF97.zip** ,
  2. copy **seuif97.py** to a default path of Python lib, if you have installed Python3.6(Ubuntu 18.04) 
    
         $sudo cp seuif97.py /usr/lib/python3.6/
- 
-        
+
 ## [Demo Python](./demo-python)
 
 ```python
@@ -93,9 +92,9 @@ h=seuif97.pt2h(p,t)
 ```
 ### T-s Diagram:
 
- * **Diagram_T-S.py**
+ * [Diagram_T-S.py](./demo-python/demo_T-S.py)
 
-  ![T-s Diagram](./doc/T-s.jpg)
+ ![T-s Diagram](./doc/T-s.jpg)
 
 ## [Demo with GCC](./demo-gcc)  
 
