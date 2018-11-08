@@ -92,7 +92,7 @@ h=seuif97.pt2h(p,t)
 ```
 ### T-s Diagram:
 
- * [Diagram_T-S.py](./demo-python/demo_T-S.py)
+ * [Diagram_T-S.py](./demo-python/Diagram_T-S.py)
 
  ![T-s Diagram](./doc/T-s.jpg)
 
