@@ -74,6 +74,45 @@ Download **SEUIF97.zip** of the repository
    
         $sudo cp seuif97.py /usr/lib/python3.6/
 
+## The Functions for the SEUIF97 Shared Library
+
+### The Functions for Properties of SEUIF97 Shared Library
+
+Using SEUIF97, you can set the state of steam using various pairs of know properties to get any output properties you wish to know, including in the [Properties in libseuif97](#properties-in-libseuif97).
+
+The following input pairs are implemented: 
+
+```c
+(p,t) 
+(p,h) 
+(p,s) 
+(p,v)
+
+(t,h) 
+(t,s) 
+(t,v) 
+
+(h,s) 
+
+(p,x) 
+(t,x) 
+```
+
+
+### Functions for Thermodynamic Process
+   
+*  1 Isentropic Enthalpy Drop： ishd(pi,ti,pe)
+    
+        pi - double,inlet pressure; ti - double,inlet temperature
+
+        pe - double,outlet pressure
+
+* 2 Isentropic Efficiency： ief( pi,ti,pe,te)
+
+         pi  -double，inlet pressure ti  - double,inlet temperature
+
+         pe  -double，outlet pressure; te  - double, outlet temperature
+
 ## [Demo Python](./demo-python)
 
 ```python
@@ -84,33 +123,14 @@ t=535.10
 
 h=seuif97.pt2h(p,t)
 ```
+
+In Python, using syntax like `h = seuif97.pt2h(p,t)`
+
 ### T-s Diagram:
 
  * [Diagram_T-S.py](./demo-python/Diagram_T-S.py)
 
  ![T-s Diagram](./doc/T-s.jpg)
-
-## [Demo with GCC](./demo-gcc)  
-
-* demo.c      
-
-```c
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "seuif97.h"
-
-int main(void) {
-
-    double p=16.13;
-    double t=535;
-    double h;
-
-    h=seupt(p,t,4);
-    printf("(p,t) (%f,%f) h= %f",p,t,h);
-    return EXIT_SUCCESS;
-}
-```
 
 ## [ExcelVBA32/64](./ExcelVBA)
 
@@ -138,41 +158,49 @@ public interface SEUIF97 extends Library{
 }   
 ```
 
-## The Functions of SEUIF97 Shared Library
-
-### Functions for Properties
+## [Demo C/C++ Using GCC](./demo-gcc)  
 
 ```c
-   seupt( pressure,    temperature, propertyID)
-   seuph( pressure,    enthalpy,    propertyID)
-   seups( pressure,    entropy,     propertyID)
-   seupv( pressure,    volume,      propertyID)
+#include <stdio.h>
+#include <stdlib.h>
 
-   seuth( temperature, enthalpy,    propertyID)
-   seuts( temperature, entropy,     propertyID)
-   seutv( temperature, volume,      propertyID)
+#include "seuif97.h"
 
-   seuhs( enthalpy,    entropy,     propertyID)
-   seupx( pressure,    quality,     propertyID)
-   seutx( temperature, quality,     propertyID)
+int main(void) {
+
+    double p=16.13;
+    double t=535;
+    double h;
+
+    h=seupt(p,t,4);
+    printf("(p,t) (%f,%f) h= %f",p,t,h);
+    return EXIT_SUCCESS;
+}
 ```
 
-*  input parameter: first,second properties(double)
-*  output parameter: propertyID(int, 0-29), see [Properties in libseuif97](#properties-in-libseuif97)
+In C, using syntax like `h =  seupt(p, t, 4)`
 
-### Functions for Thermodynamic Process  
-   
-*  1 Isentropic Enthalpy Drop： ishd(pi,ti,pe)
-    
-        pi - double,inlet P; ti - double,inlet T
+* first,second input parameters: the input properties(double)
+* third input parameter: the propertyID of the calculated property(int, 0-29), see [Properties in libseuif97](#properties-in-libseuif97)
+* the return: the calculated property value(double)
 
-        pe - double,outlet P
+### The Functions for Properties in C 
 
-* 2 Isentropic Efficiency： ief( pi,ti,pe,te)
+```c
+double seupt(double pressure, double temperature, int propertyID)
+double seuph(double pressure, double enthalpy,    int  propertyID)
+double seups(double pressure, double entropy,     int  propertyID)
+double seupv(double pressure, double volume,      int  propertyID)
 
-         pi  -double，inlet P; ti  - double,inlet T
+double seuth(double temperature, double enthalpy,  int  propertyID)
+double seuts(double temperature, double entropy,   int  propertyID)
+double seutv(double temperature, double volume,    int  propertyID)
 
-         pe  -double，outlet P; te  - double, outlet T
+double seuhs(double enthalpy,    double entropy,   int propertyID)
+
+double seupx(double pressure,    double quality,   int  propertyID)
+double seutx(double temperature, double quality,   int  propertyID)
+```
 
 ## Properties in libseuif97
 
