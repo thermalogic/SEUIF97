@@ -98,20 +98,17 @@ The following input pairs are implemented:
 (t,x) 
 ```
 
-
 ### Functions for Thermodynamic Process
    
 *  1 Isentropic Enthalpy Drop： ishd(pi,ti,pe)
-    
-        pi - double,inlet pressure; ti - double,inlet temperature
 
+        pi - double,inlet pressure; ti - double,inlet temperature
         pe - double,outlet pressure
 
 * 2 Isentropic Efficiency： ief( pi,ti,pe,te)
 
-         pi  -double，inlet pressure ti  - double,inlet temperature
-
-         pe  -double，outlet pressure; te  - double, outlet temperature
+         pi - double，inlet pressure   ti  - double,inlet temperature
+         pe - double，outlet pressure; te  - double, outlet temperature
 
 ## [Demo Python](./demo-python)
 
