@@ -1,46 +1,40 @@
 # SEUIF97
 
-**Purpose:** Provide a high-speed shared library for developers to calculate the properties of water and steam  in extensive process simulations, such as Computational Fluid Dynamics (CFD), heat cycle calculations, simulations of non-stationary processes, and real-time process optimizations, where the direct IAPWS-IF97 implementation may be unsuitable because of their computing time consumption.
+ The high-speed shared library is provided for developers to calculate the properties of water and steam where the direct IAPWS-IF97 implementation may be unsuitable because of their computing time consumption, such as Computational Fluid Dynamics (CFD), heat cycle calculations, simulations of non-stationary processes, and real-time process optimizations. 
  
-Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 2~3 times computational speed than the repeated squaring method for fast computation of large positive integer powers.
+Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 3 times computational speed than the repeated squaring method for fast computation of large positive integer powers.
  
-        Algorithms of the High-speed IAPWS-IF97 Library: 
+The library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different C++ compilers.
+ 
+For Windows and Linux users, the convenient binary library and APIs are provided.
+ 
+*  The shared library: Windows(32/64): libseuif97.dll; Linux(64): libseuif97.so
 
-          王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型[J]. 动力工程,2001,21(6)：1564-1567
+* The binding API: Python, C/C++, Java,Microsoft Excel VBA
+       
+**Publications:**
 
-          芮嘉敏,孙振业,程懋华. 基于最短加法链状态空间树的IAPWS-IF97快速计算方法[J]. 汽轮机技术,2017,59(4):245-247 
+* 王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型[J]. 动力工程,2001,21(6)：1564-1567
 
-This library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different C++ compilers.
- 
-For Windows and Linux users, convenient binary packages are provided.
- 
-         IF97 shared library: Windows(32/64):libseuif97.dll, Linux(64):libseuif97.so
- 
-The package includes bindings for Python, Microsoft Excel, Java 
-        
-        Python API：seuif97.py
-        
-        Microsoft Excel Macro: DEMO_SEUIF97.xlsm,SEUIF97.xlam
-
-        Java API: SEUIF97.java
+* 芮嘉敏,孙振业,程懋华. 基于最短加法链状态空间树的IAPWS-IF97快速计算方法[J]. 汽轮机技术,2017,59(4):245-247 
  
 **Author:** Cheng Maohua, Southeast University, Nanjing，China  (cmh@seu.edu.cn)
 
-## [API](/api)
+## [API](./api)
 
-   Windows and Linux
+* Python API: [seuif97.py](./api/seuif97.py) 
 
-* Python API: **seuif97.py** 
+* C API: [seuif97.h](./api/seuif97.h)  
 
-* C API: **seuif97.h** 
+* Java API: [SEUIF97.java](./api/SEUIF97.java)  
 
-* Java API: **SEUIF97.java**
+* Microsoft Excel VBA API:  [SEUIF97.xlam](./ExcelVBA/SEUIF97.xlam)
 
-## Install the Shared Library
+## Install SEUIF97 Packages
 
-you may use **pip** to install for Python or download the repo,then install manually for more languages
+you may use **pip** to install for Python or download the repository,then install the library and APIs manually.
 
-### 1 Install for Python (Windows64,Linux64)
+### 1 Using `pip` to Install(Windows64,Linux64)
 
 #### Windows64
 
@@ -52,23 +46,23 @@ you may use **pip** to install for Python or download the repo,then install manu
 ```bash
 $sudo -H python3 -m pip install seuif97
 ```
-### 2 Install for More Languages
+### 2 Install Manually
 
-Download **SEUIF97.zip** ,
+Download **SEUIF97.zip** of the repository
 
 ![Download SEUIF97.zip](./doc/downloadseuif97.jpg)
 
- Then unzip and install manually for more languages:C/C++,Java,VBA.Python.etc
+ Then unzip and install the shared library and APIs manually
 
  #### Windows32/64 
   
 1. copy **libseuif97.dll**  to a default path of Windows dll
       
-        C:\Windows\system
+       C:\Windows\system
    
 2. copy **seuif97.py** to a default path of Python lib. If you have installed Python3.7 in the C:\Python37\, copy to
     
-        C:\Python37\Lib 
+       C:\Python37\Lib 
 
 ####  Linux64 
     
@@ -132,7 +126,6 @@ int main(void) {
 /*
    access to the shared libraries through JNA   
    https://github.com/java-native-access/jna
-
 */
 import com.sun.jna.Library;  
 import com.sun.jna.Native;  
@@ -145,9 +138,9 @@ public interface SEUIF97 extends Library{
 }   
 ```
 
-## SEUIF97 shared library
+## The Functions of SEUIF97 Shared Library
 
-### Functions 
+### Functions for Properties
 
 ```c
    seupt( pressure,    temperature, propertyID)
@@ -164,11 +157,12 @@ public interface SEUIF97 extends Library{
    seutx( temperature, quality,     propertyID)
 ```
 
-*  propertyID  - int, 0-29,(see **Properties in libseuif97**)
+*  input parameter: first,second properties(double)
+*  output parameter: propertyID(int, 0-29), see [Properties in libseuif97](#properties-in-libseuif97)
 
-### Function for process  
+### Function for Thermodynamic Process  
    
-*  1 Isentropic Enthalpy Drop： ishd( pi,ti,pe)
+*  1 Isentropic Enthalpy Drop： ishd(pi,ti,pe)
     
         pi - double,inlet P; ti - double,inlet T
 
