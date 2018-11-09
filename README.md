@@ -14,9 +14,9 @@ For Windows and Linux users, the convenient binary library and APIs are provided
        
 **Publications:**
 
-* 王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型[J]. 动力工程,2001,21(6)：1564-1567 [pdf](./doc/水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型.pdf)
+* 王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型[J]. 动力工程,2001,21(6)：1564-1567 [Download pdf](./doc/水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型.pdf)
 
-* 芮嘉敏,孙振业,程懋华. 基于最短加法链状态空间树的IAPWS-IF97快速计算方法[J]. 汽轮机技术,2017,59(4):245-247 [pdf](./doc/基于最短加法链状态空间树的IAPWS-IF97快速计算方法.pdf)
+* 芮嘉敏,孙振业,程懋华. 基于最短加法链状态空间树的IAPWS-IF97快速计算方法[J]. 汽轮机技术,2017,59(4):245-247 [Download pdf](./doc/基于最短加法链状态空间树的IAPWS-IF97快速计算方法.pdf)
  
 **Author:** Cheng Maohua, Southeast University, Nanjing，China  (cmh@seu.edu.cn)
 
