@@ -160,7 +160,7 @@ public interface SEUIF97 extends Library{
 *  input parameter: first,second properties(double)
 *  output parameter: propertyID(int, 0-29), see [Properties in libseuif97](#properties-in-libseuif97)
 
-### Function for Thermodynamic Process  
+### Functions for Thermodynamic Process  
    
 *  1 Isentropic Enthalpy Drop： ishd(pi,ti,pe)
     
