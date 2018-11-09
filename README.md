@@ -20,7 +20,44 @@ For Windows and Linux users, the convenient binary library and APIs are provided
  
 **Author:** Cheng Maohua, Southeast University, Nanjing，China  (cmh@seu.edu.cn)
 
-## [API](./api)
+## The Functions of the SEUIF97 Shared Library
+
+### The Functions for Properties
+
+Using SEUIF97, you can set the state of steam using various pairs of know properties to get any output properties you wish to know, including in the [30 properties in libseuif97](#properties-in-libseuif97).
+
+The following input pairs are implemented: 
+
+```c
+(p,t) 
+(p,h) 
+(p,s) 
+(p,v)
+
+(t,h) 
+(t,s) 
+(t,v) 
+
+(h,s) 
+
+(p,x) 
+(t,x) 
+```
+
+### Functions for Thermodynamic Process
+   
+*  1 Isentropic Enthalpy Drop： ishd(pi,ti,pe)
+
+       pi - double,inlet pressure; ti - double,inlet temperature
+       pe - double,outlet pressure
+
+* 2 Isentropic Efficiency： ief( pi,ti,pe,te)
+
+       pi - double，inlet pressure   ti  - double,inlet temperature
+       pe - double，outlet pressure; te  - double, outlet temperature
+
+
+### [API](./api)
 
 * Python API: [seuif97.py](./api/seuif97.py) 
 
@@ -73,42 +110,6 @@ Download **SEUIF97.zip** of the repository
  2. copy **seuif97.py** to a default path of Python lib, if you have installed Python3.6(Ubuntu 18.04) 
    
         $sudo cp seuif97.py /usr/lib/python3.6/
-
-## The Functions for the SEUIF97 Shared Library
-
-### The Functions for Properties
-
-Using SEUIF97, you can set the state of steam using various pairs of know properties to get any output properties you wish to know, including in the [Properties in libseuif97](#properties-in-libseuif97).
-
-The following input pairs are implemented: 
-
-```c
-(p,t) 
-(p,h) 
-(p,s) 
-(p,v)
-
-(t,h) 
-(t,s) 
-(t,v) 
-
-(h,s) 
-
-(p,x) 
-(t,x) 
-```
-
-### Functions for Thermodynamic Process
-   
-*  1 Isentropic Enthalpy Drop： ishd(pi,ti,pe)
-
-        pi - double,inlet pressure; ti - double,inlet temperature
-        pe - double,outlet pressure
-
-* 2 Isentropic Efficiency： ief( pi,ti,pe,te)
-
-         pi - double，inlet pressure   ti  - double,inlet temperature
-         pe - double，outlet pressure; te  - double, outlet temperature
 
 ## [Demo Python](./demo-python)
 
