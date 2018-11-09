@@ -76,7 +76,7 @@ Download **SEUIF97.zip** of the repository
 
 ## The Functions for the SEUIF97 Shared Library
 
-### The Functions for Properties of SEUIF97 Shared Library
+### The Functions for Properties
 
 Using SEUIF97, you can set the state of steam using various pairs of know properties to get any output properties you wish to know, including in the [Properties in libseuif97](#properties-in-libseuif97).
 
