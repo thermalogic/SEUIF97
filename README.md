@@ -136,7 +136,7 @@ In Python, using syntax like `h = seuif97.pt2h(p,t)`
 
 * Excel VBA Demo:  DEMO_SEUIF97.xlsm
 
-* Guide: SEUIF97-ExcleVBA-Add-in-Macro.pdf(Chinese)
+* Guide: [SEUIF97-Excel-VBA-Add-in-Macro(Chinese).pdf](./ExcelVBA/SEUIF97-Excel-VBA-Add-in-Macro(Chinese).pdf)
 
 ## [Demo Java](./demo-java)
 
