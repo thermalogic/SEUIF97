@@ -132,11 +132,11 @@ In Python, using syntax like `h = seuif97.pt2h(p,t)`
 
 ## [ExcelVBA32/64](./ExcelVBA)
 
-* Excel Add-in Macro:SEUIF97.xlam
+* Excel Add-in Macro: SEUIF97.xlam
 
-* Excel VBA:  DEMO_SEUIF97.xlsm
+* Excel VBA Demo:  DEMO_SEUIF97.xlsm
 
-* Guide: SEUIF97_Add-in.doc(Chinese)
+* Guide: SEUIF97-ExcleVBA-Add-in-Macro.pdf(Chinese)
 
 ## [Demo Java](./demo-java)
 
@@ -151,7 +151,6 @@ import com.sun.jna.Native;
 public interface SEUIF97 extends Library{  
 
     SEUIF97 instance  = (SEUIF97)Native.loadLibrary("libseuif97",SEUIF97.class);    
-    
     public double  seupt(double p, double t,int w);  
 }   
 ```
@@ -176,7 +175,7 @@ int main(void) {
 }
 ```
 
-In C, using syntax like `h =  seupt(p, t, 4)`
+In C/C++, using syntax like `h =  seupt(p, t, 4)`
 
 * first,second input parameters: the input properties(double)
 * third input parameter: the propertyID of the calculated property(int, 0-29), see [Properties in libseuif97](#properties-in-libseuif97)
@@ -184,7 +183,7 @@ In C, using syntax like `h =  seupt(p, t, 4)`
 
 ### The Functions for Properties in C 
 
-```c
+```cpp
 double seupt(double pressure, double temperature, int propertyID)
 double seuph(double pressure, double enthalpy,    int  propertyID)
 double seups(double pressure, double entropy,     int  propertyID)
