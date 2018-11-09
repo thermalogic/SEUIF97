@@ -8,7 +8,7 @@ The library is written in ANSI C for faster, smaller binaries and better compati
  
 For Windows and Linux users, the convenient binary library and APIs are provided.
  
-*  The shared library: Windows(32/64): libseuif97.dll; Linux(64): libseuif97.so
+* The shared library: Windows(32/64): libseuif97.dll; Linux(64): libseuif97.so
 
 * The binding API: Python, C/C++, Java,Microsoft Excel VBA
        
@@ -51,7 +51,7 @@ The following input pairs are implemented:
        pi - double,inlet pressure; ti - double,inlet temperature
        pe - double,outlet pressure
 
-* 2 Isentropic Efficiency： ief( pi,ti,pe,te)
+* 2 Isentropic Efficiency： ief(pi,ti,pe,te)
 
        pi - double，inlet pressure   ti  - double,inlet temperature
        pe - double，outlet pressure; te  - double, outlet temperature
