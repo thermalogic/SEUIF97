@@ -44,7 +44,7 @@ The following input pairs are implemented:
 (t,x) 
 ```
 
-### Functions for Thermodynamic Process
+### Functions for Thermodynamic Process of Steam Turbine
    
 *  1 Isentropic Enthalpy Drop： ishd(pi,ti,pe)
 
