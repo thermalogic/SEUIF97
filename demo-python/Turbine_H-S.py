@@ -1,5 +1,5 @@
 """
-The demo turbine class for seuif97.py
+ H-S(Mollier) Diagram of Steam Turbine Expansion
 
  4 lines:
 
@@ -18,8 +18,7 @@ Last modified: 2018.11.28
 """
 import matplotlib.pyplot as plt
 import numpy as np
-from seuif97 import pt2h, pt2s, ps2h, ief, ishd
-
+from seuif97 import pt2h, pt2s, ps2h, ph2t,ief, ishd
 
 class Turbine(object):
 
@@ -59,31 +58,39 @@ class Turbine(object):
         s_expL =np.array([self.sin,self.sex])
 
         # plot lines
+        plt.figure(figsize=(6,8))
+        plt.title("H-S(Mollier) Diagram of Steam Turbine Expansion")
         plt.plot(s_isopin, h_isopin, 'b-') # Isobar line: pin
         plt.plot(s_isopex, h_isopex, 'b-') # Isobar line: pex
 
         plt.plot(s_isos, h_isos, 'ys-')  # isoentropic line: 
-        plt.plot(s_expL, h_expL, 'rs-', label='Expansion Line')
+        plt.plot(s_expL, h_expL, 'r-', label='Expansion Line')
+        plt.plot(s_expL, h_expL, 'rs')
 
         _title = 'The isentropic efficiency = ' + \
-            r'$\frac{h1-h2}{h1-h2s}$' + '=' + \
+            r'$\frac{h_1-h_2}{h_1-h_{2s}}$' + '=' + \
             '{:.2f}'.format(self.ef) + '%'
 
-        plt.legend(loc="best", bbox_to_anchor=[
-                   0.5, 0.5], ncol=2, shadow=True, title=_title)
+        plt.legend(loc="center", bbox_to_anchor=[0.6, 0.9], ncol=2, shadow=True, title=_title)
 
         # annotate the inlet and exlet
-        txt = "(%s,%s)" % (self.pin, self.tin)
+        txt = "h1(%s,%s)" % (self.pin, self.tin)
         plt.annotate(txt,
                      xy=(self.sin, self.hin), xycoords='data',
-                     xytext=(+10, +30), textcoords='offset points', fontsize=12,
+                     xytext=(+1, +10), textcoords='offset points', fontsize=10,
                      arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=.2"))
 
-        txt = "(%s,%s)" % (self.pex, self.tex)
+        txt = "h2(%s,%s)" % (self.pex, self.tex)
         plt.annotate(txt,
                      xy=(self.sex, self.hex), xycoords='data',
-                     xytext=(+10, +30), textcoords='offset points', fontsize=12,
+                     xytext=(+1, +10), textcoords='offset points', fontsize=10,
                      arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=.2"))
+       # annotate h2s
+        txt = "h2s(%s,%.2f)" % (self.pex, ph2t(self.pex,h_isos[1]))
+        plt.annotate(txt,
+                     xy=(self.sin, h_isos[1]), xycoords='data',
+                     xytext=(+1, +10), textcoords='offset points', fontsize=10,
+                     arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=.2"))             
 
         plt.xlabel('s(kJ/(kg.K))')
         plt.ylabel('h(kJ/kg)')
