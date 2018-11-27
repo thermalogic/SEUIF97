@@ -35,7 +35,7 @@ his = ishd(p1, t1, p2)
 
 ef = ief(p1, t1, p2, t2)
 
-# print('The isentropic efficiency is ',ef)
+print('The isentropic efficiency is ',ef)
 
 samp = 0.01
 
@@ -50,14 +50,8 @@ hsmt1 = ps2h(p1, smp1)
 sat1 = s1 + samp
 hsat1 = ts2h(t1, sap1)
 
-point_p1_h = np.zeros(shape=2)
-point_p1_s = np.zeros(shape=2)
-
-point_p1_h[0] = hsmp1
-point_p1_h[1] = hsap1
-
-point_p1_s[0] = smp1
-point_p1_s[1] = sap1
+point_p1_h = np.array([hsmp1, hsap1])
+point_p1_s = np.array([smp1,sap1])
 
 # 2 Isobar p2
 smp2 = s1 - samp
@@ -70,34 +64,16 @@ hsmt2 = ps2h(p1, smp1)
 sat2 = s2 + samp
 hsat2 = ts2h(t2, sap1)
 
-point_p2_h = np.zeros(shape=2)
-point_p2_s = np.zeros(shape=2)
-
-point_p2_h[0] = hsmp2
-point_p2_h[1] = hsap2
-
-point_p2_s[0] = smp2
-point_p2_s[1] = sap2
+point_p2_h = np.array([hsmp2,hsap2])
+point_p2_s = np.array([smp2,sap2])
 
 # 3 isoentropic lines
-point_is_h = np.zeros(shape=2)
-point_is_s = np.zeros(shape=2)
-
-point_is_h[0] = h1
-point_is_h[1] = h2s
-
-point_is_s[0] = s1
-point_is_s[1] = s1
+point_is_h = np.array([h1,h2s])
+point_is_s = np.array([s1,s1])
 
 # 4 expansion Line
-point_el_h = np.zeros(shape=2)
-point_el_s = np.zeros(shape=2)
-
-point_el_h[0] = h1
-point_el_h[1] = h2
-
-point_el_s[0] = s1
-point_el_s[1] = s2
+point_el_h = np.array([h1,h2])
+point_el_s = np.array([s1,s2])
 
 # plot lines
 plt.plot(point_p1_s, point_p1_h, 'b-')

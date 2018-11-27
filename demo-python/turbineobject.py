@@ -1,5 +1,5 @@
 """
-This is the  demo turbine class for seuif97.py
+The demo turbine class for seuif97.py
 
  4 lines:
 
@@ -41,44 +41,22 @@ class Turbine(object):
 
     def expensinonline(self):
         sdelta = 0.01
-        h_isopin = np.zeros(shape=2)
-        s_isopin = np.zeros(shape=2)
-
+    
         # 1 Isobar pin
-        s_isopin[0] = self.sin - sdelta
-        s_isopin[1] = self.sin + sdelta
-
-        h_isopin[0] = ps2h(self.pin, s_isopin[0])
-        h_isopin[1] = ps2h(self.pin, s_isopin[1])
+        s_isopin = np.array([self.sin - sdelta,self.sin + sdelta])
+        h_isopin = np.array([ps2h(self.pin, s_isopin[0]),ps2h(self.pin,s_isopin[1])])
 
         # 2 Isobar pex
-        h_isopex = np.zeros(shape=2)
-        s_isopex = np.zeros(shape=2)
-
-        s_isopex[0] = s_isopin[0]
-        h_isopex[0] = ps2h(self.pex, s_isopex[0])
-
-        s_isopex[1] = self.sex + sdelta
-        h_isopex[1] = ps2h(self.pex, s_isopex[1])
+        s_isopex = np.array([s_isopin[0],self.sex + sdelta])
+        h_isopex = np.array([ps2h(self.pex, s_isopex[0]),ps2h(self.pex, s_isopex[1])])
 
         # 3 isoentropic lines
-        h_isos = np.zeros(shape=2)
-        s_isos = np.zeros(shape=2)
-        h_isos[0] = self.hin
-        s_isos[0] = self.sin
-
-        s_isos[1] = self.sin
-        h_isos[1] = ps2h(self.pex, s_isos[1])
+        h_isos = np.array([self.hin,ps2h(self.pex, self.sin)])
+        s_isos = np.array([self.sin,self.sin])
 
         # 4 expansion Line
-        h_expL = np.zeros(shape=2)
-        s_expL = np.zeros(shape=2)
-
-        h_expL[0] = self.hin
-        s_expL[0] = self.sin
-
-        h_expL[1] = self.hex
-        s_expL[1] = self.sex
+        h_expL =np.array([self.hin,self.hex])
+        s_expL =np.array([self.sin,self.sex])
 
         # plot lines
         plt.plot(s_isopin, h_isopin, 'b-') # Isobar line: pin
@@ -113,7 +91,7 @@ class Turbine(object):
         plt.show()
 
     def __str__(self):
-        result = ('Inlet(p, t)  {:>6.2f}MPa {:>6.2f}°C \nExlet(p, t) {:>6.2f}MPa {:>6.2f}°C \n The isentropic efficiency: {:>5.2f}%'
+        result = ('\n  Inlet(p, t)  {:>6.2f}MPa {:>6.2f}°C \n  Exlet(p, t) {:>6.2f}MPa {:>6.2f}°C \nThe isentropic efficiency: {:>5.2f}%'
                   .format(self.pin, self.tin, self.pex, self.tex, self.ef))
         return result
 
