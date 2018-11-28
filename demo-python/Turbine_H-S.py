@@ -74,19 +74,19 @@ class Turbine(object):
         plt.legend(loc="center", bbox_to_anchor=[0.6, 0.9], ncol=2, shadow=True, title=_title)
 
         # annotate the inlet and exlet
-        txt = "h1(%s,%s)" % (self.pin, self.tin)
+        txt = "h1(%.2f,%.2f)" % (self.pin, self.tin)
         plt.annotate(txt,
                      xy=(self.sin, self.hin), xycoords='data',
                      xytext=(+1, +10), textcoords='offset points', fontsize=10,
                      arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=.2"))
 
-        txt = "h2(%s,%s)" % (self.pex, self.tex)
+        txt = "h2(%.2f,%.2f)" % (self.pex, self.tex)
         plt.annotate(txt,
                      xy=(self.sex, self.hex), xycoords='data',
                      xytext=(+1, +10), textcoords='offset points', fontsize=10,
                      arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=.2"))
        # annotate h2s
-        txt = "h2s(%s,%.2f)" % (self.pex, ph2t(self.pex,h_isos[1]))
+        txt = "h2s(%.2f,%.2f)" % (self.pex, ph2t(self.pex,h_isos[1]))
         plt.annotate(txt,
                      xy=(self.sin, h_isos[1]), xycoords='data',
                      xytext=(+1, +10), textcoords='offset points', fontsize=10,
