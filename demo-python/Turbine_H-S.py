@@ -39,7 +39,7 @@ class Turbine(object):
         self.hex = pt2h(self.pex, self.tex)
         self.sex = pt2s(self.pex, self.tex)
 
-    def expensinonline(self):
+    def expansionline(self):
         sdelta = 0.01
 
         # 1 Isobar pin
@@ -113,4 +113,4 @@ if __name__ == '__main__':
     tb1 = Turbine(pin, tin, pex, tex)
     tb1.analysis()
     print(tb1)
-    tb1.expensinonline()
+    tb1.expansionline()
