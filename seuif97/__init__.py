@@ -158,7 +158,7 @@ def hs2x(h, s):
 def ts(t, s, pid):
     f = prototype(("seuts", flib),)
     result = f(t, s, pid)
-    return resul
+    return result
 
 
 def ts2p(t, s):

@@ -7,8 +7,7 @@ The package seuif97 is binding the high-speed IAPWS-IF97 shared library for Pyth
 
 The shared library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different C++ compilers.
 
-Through the high-speed library, the results of the IAPWS-IF97  are accurately produced at about 2~3 times computational speed
-than the repeated squaring method for fast computation of large positive integer powers.
+Through the high-speed library, the results of the IAPWS-IF97  are accurately produced at about 3 times computational speed than the repeated squaring method for fast computation of large positive integer powers.
 
 The shared library is provided for Windows and Linux users 
  
@@ -19,7 +18,7 @@ The shared library is provided for Windows and Linux users
 You may visit https://github.com/PySEE/SEUIF97 for more information about the shared library 
 
 Installation
-------------
+====================
 
 If you have an installation of Python with pip, install it with:
 
@@ -33,10 +32,10 @@ If you have an installation of Python with pip, install it with:
 
 
 Python API 
-------------
+====================
 
 Functions of properties
->>>>>>>>>>>>>>>>>>>>>>>>>>>>
+---------------------------
 
 .. code:: python
 
@@ -109,7 +108,7 @@ Functions of properties
    tx2s( temperature, quality)
 
 Functions for the thermodynamic process of steam turbine   
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+---------------------------------------------------------------------------------
 
 Isentropic Enthalpy Drop
 :::::::::::::::::::::::::::
@@ -133,7 +132,7 @@ Isentropic Efficiency
 - po：outlet P，MPa；　to：outlet T，°C
         
 Examples
---------------
+====================
 
 .. code:: python
 
@@ -147,8 +146,7 @@ Examples
 
 
 propertyIDs in seuif97
----------------------------
-
+==========================
 
 +---------------------------------------+-------------+----------+------------+
 |       Properties                      |    Unit     |  symbol  | propertyID |   
