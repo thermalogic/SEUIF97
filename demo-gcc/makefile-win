@@ -1,7 +1,7 @@
 all: demo.exe
 
 clean:
-	del demo.exe *.o
+	del demo.exe
 
 demo.exe: demo.o 
 	gcc -o demo demo.o -LC:/Windows/system/ -lseuif97
