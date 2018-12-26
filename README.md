@@ -69,6 +69,8 @@ The following input pairs are implemented:
 
 ## Install SEUIF97 Packages
 
+![](https://img.shields.io/twitter/url/https/pypi.org/project/seuif97/.svg?style=social)
+
 you may use **pip** to install for Python or download the repository,then install the library and APIs manually.
 
 ### 1 Using `pip` to Install(Windows64,Linux64)
