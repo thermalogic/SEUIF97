@@ -66,11 +66,11 @@ The following input pairs are implemented:
 
 * Microsoft Excel VBA API:  [SEUIF97.xlam](./ExcelVBA/SEUIF97.xlam)
 
-## Install SEUIF97 Packages
+## Install SEUIF97 Library
 
-![seuif97 PyPI Downloads](https://pypistats.com/badge/seuif97.svg) 
+ Download the repository,then install the library and APIs manually.
 
-you may use **pip** to install for Python or download the repository,then install the library and APIs manually.
+ For Python, you may conveniently use **pip** to install from [The Python Package Index](https://pypi.org/project/seuif97/) ![seuif97 PyPI Downloads](https://pypistats.com/badge/seuif97.svg) 
 
 ### 1 Using `pip` to Install(Windows64,Linux64)
 
