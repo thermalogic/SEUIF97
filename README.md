@@ -56,7 +56,6 @@ The following input pairs are implemented:
        pi - double，inlet pressure   ti  - double,inlet temperature
        pe - double，outlet pressure; te  - double, outlet temperature
 
-
 ### [API](./api)
 
 * Python API: [seuif97.py](./api/seuif97.py) 
@@ -68,8 +67,6 @@ The following input pairs are implemented:
 * Microsoft Excel VBA API:  [SEUIF97.xlam](./ExcelVBA/SEUIF97.xlam)
 
 ## Install SEUIF97 Packages
-
-![](https://img.shields.io/twitter/url/https/pypi.org/project/seuif97/.svg?style=social)
 
 you may use **pip** to install for Python or download the repository,then install the library and APIs manually.
 
