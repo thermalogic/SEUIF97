@@ -68,6 +68,8 @@ The following input pairs are implemented:
 
 ## Install SEUIF97 Packages
 
+![seuif97 PyPI Downloads](https://pypistats.com/badge/seuif97.png) 
+
 you may use **pip** to install for Python or download the repository,then install the library and APIs manually.
 
 ### 1 Using `pip` to Install(Windows64,Linux64)
