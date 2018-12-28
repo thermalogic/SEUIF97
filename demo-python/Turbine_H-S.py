@@ -16,9 +16,10 @@ Email:    cmh@seu.edu.cn
 Last modified: 2018.11.28
 
 """
+from seuif97 import ief, ishd, ph2t, ps2h, pt2h, pt2s
+
 import matplotlib.pyplot as plt
 import numpy as np
-from seuif97 import pt2h, pt2s, ps2h, ph2t, ief, ishd
 
 
 class Turbine(object):
