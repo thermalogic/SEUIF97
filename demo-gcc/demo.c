@@ -1,6 +1,15 @@
 /*
-* Name        : demo seuif97
-* Author      : Cheng Maohua
+
+For Windows:
+>gcc -o demo.exe demo.c -LC:/Windows/system/ -lseuif97
+
+For Linux
+$gcc -o demo demo.c -L/usr/lib/ -lseuif97 -lm
+
+Run:
+./demo
+
+Author: Cheng Maohua
 */
 
 #include <stdio.h>
