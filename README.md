@@ -70,7 +70,7 @@ The following input pairs are implemented:
 
  Download the repository,then install the library and APIs manually.
 
- For Python, you may conveniently use **pip** to install from [The Python Package Index](https://pypi.org/project/seuif97/) ![seuif97 PyPI Downloads](https://pypistats.com/badge/seuif97.svg) 
+ For Python, you may conveniently use **pip** to install from [The Python Package Index](https://pypi.org/project/seuif97/)
 
 ### 1 Using `pip` to Install(Windows64,Linux64)
 
