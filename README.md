@@ -159,6 +159,18 @@ public interface SEUIF97 extends Library{
 ## [Demo C/C++ Using GCC](./demo-gcc)  
 
 ```c
+/*
+For Windows:
+>gcc -o demo.exe demo.c -LC:/Windows/system/ -lseuif97
+
+For Linux
+$gcc -o demo demo.c -L/usr/lib/ -lseuif97 -lm
+
+Run:
+./demo
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
