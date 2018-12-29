@@ -121,6 +121,8 @@ p=16.10
 t=535.10
 
 h=seuif97.pt2h(p,t)
+s=seuif97.pt2s(p,t)
+v=seuif97.pt2v(p,t)
 ```
 
 In Python, using syntax like `h = seuif97.pt2h(p,t)`
@@ -143,17 +145,19 @@ In Python, using syntax like `h = seuif97.pt2h(p,t)`
 
 ```java
 /*
-   access to the shared libraries through JNA   
-   https://github.com/java-native-access/jna
+  >javac -cp jna.jar SEUIF97.java demoseuif97.java
+  >java -cp .;jna.jar demoseuif97
 */
-import com.sun.jna.Library;  
-import com.sun.jna.Native;  
-  
-public interface SEUIF97 extends Library{  
+public class demoseuif97 {
 
-    SEUIF97 instance  = (SEUIF97)Native.loadLibrary("libseuif97",SEUIF97.class);    
-    public double  seupt(double p, double t,int w);  
-}   
+    public static void main(String[] args){
+        double p=16.0;
+        double t=540.0;
+        double h;
+        h=SEUIF97.instance.seupt(p,t,4);
+        System.out.printf("(p,t)->h: (%.1f %.1f) h: %.4f ",p,t,h);
+   }
+} 
 ```
 
 ## [Demo C/C++ Using GCC](./demo-gcc)  
