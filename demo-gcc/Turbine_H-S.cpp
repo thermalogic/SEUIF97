@@ -115,8 +115,6 @@ void Turbine::expansionline(void)
         fprintf(pipe, "set xrange [%lf:%lf]\n", s_isopex[0] - 0.01, s_isopex[1] + 0.01);
 
         fprintf(pipe, "set label 'The isentropic efficiency= %.2f%%' at %lf,%lf left\n", ef, s_isopin[1] + 0.01, h_isopin[1] - 50);
-        // latex 无效！不支持显示，需要设置终端为latex 类型，然后，产生latex结果文件
-        //fprintf(pipe, "set label 'The isentropic efficiency= $\frac{h_1-h_2}{h_1-h_{2s}}$ %.2f%%' at %lf,%lf left\n",ef,s_isopin[1]+0.01, h_isopin[1]-50);
 
         fprintf(pipe, "plot '-' title '' with line lc rgb 'red', \
                        '-' title '' with line lc rgb 'green',\
