@@ -162,19 +162,8 @@ public class demoseuif97 {
 
 ## [Demo C/C++ Using GCC](./demo-gcc)  
 
+[demo.c](./demo-gcc/demo.c)
 ```c
-/*
-For Windows:
->gcc -o demo.exe demo.c -LC:/Windows/system/ -lseuif97
-
-For Linux
-$gcc -o demo demo.c -L/usr/lib/ -lseuif97 -lm
-
-Run:
-./demo
-
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "seuif97.h"

@@ -10,15 +10,15 @@
 
 SEUIF97 Library:
     1 Winodws: C:/Windows/system/libseuif97.dll
-    2 Linux:  usr/lib/libseuif97.so
+    2 Linux:  /usr/lib/libseuif97.so
     3 ./seuif97.h
 
 Build:
 
-For Windows
+ Windows：
 >g++ -o turbine Turbine_H-S.cpp -LC:/Windows/system/  -lseuif97
 
-For Linux
+Linux：
 $g++ -o turbine Turbine_H-S.cpp -L/usr/lib  -lseuif97 -lm
 
 Run:
