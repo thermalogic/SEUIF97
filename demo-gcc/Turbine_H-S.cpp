@@ -93,9 +93,9 @@ void Turbine::expansionline(void)
     // 2 Isobar pex
     double s_isopex[2] = {s_isopin[0], wex.s + sdelta};
     double h_isopex[2] = {seups(wex.p, s_isopex[0], 4), seups(wex.p, s_isopex[1], 4)};
-     
+
     // 3 isentropic lines
-    double h_isos[2] = {win.h,  win.h-his};
+    double h_isos[2] = {win.h, win.h - his};
     double s_isos[2] = {win.s, win.s};
 
     // 4 expansion Line
@@ -111,18 +111,18 @@ void Turbine::expansionline(void)
         fprintf(pipe, "set xlabel 's(kJ/(kg.K))'\n");
         fprintf(pipe, "set ylabel 'h(kJ/kg)'\n");
         fprintf(pipe, "set title 'H-S(Mollier) Diagram of Steam Turbine Expansion'\n");
-        fprintf(pipe, "set yrange [%lf:%lf]\n", h_isopex[0]-20, h_isopin[1]+20);
-        fprintf(pipe, "set xrange [%lf:%lf]\n", s_isopex[0]-0.01,s_isopex[1]+0.01);
-        
-        fprintf(pipe, "set label 'The isentropic efficiency= %.2f%%' at %lf,%lf left\n",ef,s_isopin[1]+0.01, h_isopin[1]-50);
+        fprintf(pipe, "set yrange [%lf:%lf]\n", h_isopex[0] - 20, h_isopin[1] + 20);
+        fprintf(pipe, "set xrange [%lf:%lf]\n", s_isopex[0] - 0.01, s_isopex[1] + 0.01);
+
+        fprintf(pipe, "set label 'The isentropic efficiency= %.2f%%' at %lf,%lf left\n", ef, s_isopin[1] + 0.01, h_isopin[1] - 50);
         // latex 无效！不支持显示，需要设置终端为latex 类型，然后，产生latex结果文件
         //fprintf(pipe, "set label 'The isentropic efficiency= $\frac{h_1-h_2}{h_1-h_{2s}}$ %.2f%%' at %lf,%lf left\n",ef,s_isopin[1]+0.01, h_isopin[1]-50);
-      
+
         fprintf(pipe, "plot '-' title '' with line lc rgb 'red', \
                        '-' title '' with line lc rgb 'green',\
                        '-' title '' with linespoints lc rgb 'orange',\
                        '-' title 'Expansion Line' with linespoints lc rgb 'blue'\n");
-      
+
         // 1 Isobar line : pin
         for (int i = 0; i < 2; i++)
         {
@@ -135,8 +135,8 @@ void Turbine::expansionline(void)
         for (int i = 0; i < 2; i++)
         {
             fprintf(pipe, "%lf %lf\n", s_isopex[i], h_isopex[i]);
-       }
-       fprintf(pipe, "e");
+        }
+        fprintf(pipe, "e");
 
         // 3 isentropic lines
         fprintf(pipe, "\n");
