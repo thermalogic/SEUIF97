@@ -173,19 +173,22 @@ Run:
 
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "seuif97.h"
 
-int main(void) {
+int main(void)
+{
 
-    double p=16.13;
-    double t=535;
-    double h;
+    double p = 16.13;
+    double t = 535;
+    double h, s, v;
 
-    h=seupt(p,t,4);
-    printf("(p,t) (%f,%f) h= %f",p,t,h);
+    h = seupt(p, t, 4);
+    s = seupt(p, t, 5);
+    v = seupt(p, t, 3);
+    printf("(p,t)(%.2f,%.2f) h= %.2f, s= %.4f, v= %.4f\n", p, t, h, s, v);
     return EXIT_SUCCESS;
 }
+
 ```
 
 In C/C++, using syntax like `h =  seupt(p, t, 4)`
