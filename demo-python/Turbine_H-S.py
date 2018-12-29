@@ -54,7 +54,7 @@ class Turbine(object):
                              ps2h(self.pex, s_isopex[1])])
 
         # 3 isentropic lines
-        h_isos = np.array([self.hin, ps2h(self.pex, self.sin)])
+        h_isos = np.array([self.hin, self.hin-self.his])
         s_isos = np.array([self.sin, self.sin])
 
         # 4 expansion Line
