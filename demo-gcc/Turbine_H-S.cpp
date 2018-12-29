@@ -129,7 +129,7 @@ void Turbine::expansionline(void)
         fprintf(pipe, "e");
 
         // 2 Isobar line : pex
-        fprintf(pipe, "\n"); // start a new draw item!
+        fprintf(pipe, "\n"); // draw a new item!
         for (int i = 0; i < 2; i++)
         {
             fprintf(pipe, "%lf %lf\n", s_isopex[i], h_isopex[i]);
