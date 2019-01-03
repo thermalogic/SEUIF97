@@ -144,10 +144,6 @@ In Python, using syntax like `h = seuif97.pt2h(p,t)`
 ## [Demo Java](./demo-java)
 
 ```java
-/*
-  >javac -cp jna.jar SEUIF97.java demoseuif97.java
-  >java -cp .;jna.jar demoseuif97
-*/
 public class demoseuif97 {
 
     public static void main(String[] args){
