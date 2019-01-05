@@ -11,7 +11,7 @@ you may use the C# compiler and set the Platform target of application to the sa
        
         Add the path of C#5 compiler C:\Windows\Microsoft.NET\Framework64\v4.0.30319\ to the system environment variables Path 
 
-    1.2 The latest C#compiler 
+    1.2 The latest C# compiler 
 
        1.2.1 Using nuget to install the latest version of  C# compiler (https://github.com/dotnet/roslyn)
 
