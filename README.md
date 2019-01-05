@@ -192,9 +192,9 @@ namespace demo_seuif97
             double p = 16.13;
             double t = 535.0;
             double h, s, v;
-            h = seuif97.Seuif97.seupt(p, t, 4);
-            s = seuif97.Seuif97.seupt(p, t, 5);
-            v = seuif97.Seuif97.seupt(p, t, 3);
+            h = Seuif97.seupt(p, t, 4);
+            s = Seuif97.seupt(p, t, 5);
+            v = Seuif97.seupt(p, t, 3);
             Console.WriteLine("(p,t) h,s,v {0 :.00} {1:.0} {2:.000} {3:.000} {4:.000}", p, t, h, s, v);
        }
     }
