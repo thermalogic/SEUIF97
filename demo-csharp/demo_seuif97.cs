@@ -3,28 +3,35 @@ SEUIF97 Library:
     1 Windows: C:/Windows/system/libseuif97.dll
     2 seuif97.cs
 
-you should set the Platform target of application is the same as  the dynamic library  
+you may use the C# compiler and set the Platform target of application to the same as the dynamic library to build the demo applocation
 
-1)Build with C#5 compiler on x64 libseuif97.dll：
+1  choose the C# compiler
 
-  >C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc demo_seuif97.cs seuif97.cs /platform:"x64"
+    1.1 The C#5 compiler in Windows 
+       
+        Add the path of C#5 compiler C:\Windows\Microsoft.NET\Framework64\v4.0.30319\ to the system environment variables Path 
 
-2)Build with the latest compiler on x64 libseuif97.dll：
+    1.2 The latest C#compiler on x64 libseuif97.dll：
 
-  2.1 Using nuget to install the latest version of  C# compiler (https://github.com/dotnet/roslyn)
+       1.2.1 Using nuget to install the latest version of  C# compiler (https://github.com/dotnet/roslyn)
 
-    2.1.1 mkdir C:\csharp\ for the latest version of  C# compiler,then download nuget to the path
+       1.2.2 mkdir C:\csharp\ for the latest version of  C# compiler,then download nuget to the path
 
-    2.1.2 In the path C:\csharp\, Install the latest release without Visual Studio, run one of the following `nuget` command lines:
+       1.2.3 In the path C:\csharp\, install the latest release without Visual Studio, run one of the following `nuget` command lines:
 
-      >nuget install Microsoft.Net.Compilers   # Install C# and VB compilers
-      >nuget install Microsoft.CodeAnalysis    # Install Language APIs and Services
+           >nuget install Microsoft.Net.Compilers   # Install C# and VB compilers
+           >nuget install Microsoft.CodeAnalysis    # Install Language APIs and Services
 
-      then the compiler is installed in the path  C:\csharp\Microsoft.Net.Compilers.2.10.0\tools\
+           then the compiler is installed in the path  C:\csharp\Microsoft.Net.Compilers.2.10.0\tools\
 
-   2,2 Build:
+       1.2.4 add the path C:\csharp\Microsoft.Net.Compilers.2.10.0\tools\ to the system environment variables Path  
+
+2. Build:
      
-     >C:\csharp\Microsoft.Net.Compilers.2.10.0\tools\csc demo_seuif97.cs seuif97.cs /platform:"x64"
+ >csc -out:demo.exe demo_seuif97.cs seuif97.cs /platform:"x64"
+
+Run:
+./demo
 
 License: this code is in the public domain
 
