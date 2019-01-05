@@ -13,7 +13,7 @@ you should set the Platform target of application is the same as  the dynamic li
 
   2.1 Using nuget to install the latest version of  C# compiler (https://github.com/dotnet/roslyn)
 
-    2.1.1 mkdir C:\cs harp\ for the latest version of  C# compiler,then download nuget to the path
+    2.1.1 mkdir C:\csharp\ for the latest version of  C# compiler,then download nuget to the path
 
     2.1.2 In the path C:\csharp\, Install the latest release without Visual Studio, run one of the following `nuget` command lines:
 
