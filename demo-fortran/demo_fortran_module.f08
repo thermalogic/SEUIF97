@@ -21,7 +21,7 @@
 ! Email:    cmh@seu.edu.cn
 !
 ! Last modified: 2019.01.05
-!!
+!
 
 program demo
   use iso_c_binding
