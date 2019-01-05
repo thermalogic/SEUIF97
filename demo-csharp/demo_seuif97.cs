@@ -1,14 +1,39 @@
 /*
 SEUIF97 Library:
     1 Windows: C:/Windows/system/libseuif97.dll
-    3 seuif97.cs
+    2 seuif97.cs
 
-you should set the Platform target of application  is the same as  the dynamic library  
+you should set the Platform target of application is the same as  the dynamic library  
 
-Build using x64 libseuif97.dll：
->C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc demo_seuif97.cs seuif97.cs /platform:"x64"
+1)Build with C#5 compiler on x64 libseuif97.dll：
 
- */
+  >C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc demo_seuif97.cs seuif97.cs /platform:"x64"
+
+2)Build with the latest  compiler on x64 libseuif97.dll：
+
+  2.1 Using nuget to install the latest version of  C# compiler (https://github.com/dotnet/roslyn)
+
+    2.1.1 mkdir C:\cs harp\ for the latest version of  C# compiler,then download nuget to the path
+
+    2.1.2 In the path C:\csharp\, Install the latest release without Visual Studio, run one of the following `nuget` command lines:
+
+      >nuget install Microsoft.Net.Compilers   # Install C# and VB compilers
+      >nuget install Microsoft.CodeAnalysis    # Install Language APIs and Services
+
+      then the  compiler is installed in the path  C:\csharp\Microsoft.Net.Compilers.2.10.0\tools\
+
+   2,2 Build:
+     
+     >C:\csharp\Microsoft.Net.Compilers.2.10.0\tools\csc demo_seuif97.cs seuif97.cs /platform:"x64"
+
+License: this code is in the public domain
+
+Author:   Cheng Maohua
+Email:    cmh@seu.edu.cn
+
+Last modified: 2019.01.05
+
+*/
 using System;
 
 using seuif97;
