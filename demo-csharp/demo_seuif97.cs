@@ -5,6 +5,9 @@ SEUIF97 Library:
 
 you should set the Platform target of application  is the same as  the dynamic library  
 
+Build using x64 libseuif97.dll：
+>C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc demo_seuif97.cs seuif97.cs /platform:"x64"
+
  */
 using System;
 
