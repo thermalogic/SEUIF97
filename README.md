@@ -158,7 +158,7 @@ public class demoseuif97 {
 } 
 ```
 
-## [Demo Fortran](./demo-Fortran)
+## [Demo Fortran Using gfortran](./demo-Fortran)
 
 ```fortran
 program demo

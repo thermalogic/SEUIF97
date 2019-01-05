@@ -1,10 +1,24 @@
-!
-! MinGW-W64 for Windows: 
-!   1 The Shared Library:  C:/Windows/system/libseuif97.dll
-!   2 The Module: ./seuif97.f08
-! Build：
-!   gfortran -fno-underscoring -o demo demo_fortran_module.f08 seuif97.f08 -LC:/Windows/system/ -lseuif97
+!  
+! SEUIF97 Library:
 ! 
+!  1 Windows: C:/Windows/system/libseuif97.dll
+!  2 Linux:  /usr/lib/libseuif97.so
+!  3 The Module: ./seuif97.f08
+
+! Build：
+! Windows with MinGW-W64
+!  >gfortran -fno-underscoring -c seuif97.f08 -LC:/Windows/system/ -lseuif97
+!  >gfortran -fno-underscoring -o demo demo_fortran_module.f08 -LC:/Windows/system/ -lseuif97
+!
+! Linux：
+!  $gcc  -fno-underscoring -c seuif97.f08 -L/usr/lib/ -lseuif97 -lm
+!  $gcc  -fno-underscoring -o demo demo_fortran_module.f08 seuif97.f08 -L/usr/lib/ -lseuif97 -lm
+!
+! Run:
+! ./demo
+!
+! Author: Cheng Maohua
+!
 
 program demo
   use iso_c_binding

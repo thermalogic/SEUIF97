@@ -1,12 +1,12 @@
 /*
 
 SEUIF97 Library:
-    1 Winodws: C:/Windows/system/libseuif97.dll
+    1 Windows: C:/Windows/system/libseuif97.dll
     2 Linux:  /usr/lib/libseuif97.so
     3 ./seuif97.h
 
 Build:
-Windows：
+Windows with MinGW-W64：
 >gcc -o demo.exe demo.c -LC:/Windows/system/ -lseuif97
 
 Linux：
