@@ -1,17 +1,17 @@
 /*
 SEUIF97 Library:
-    1 Windows: C:/Windows/system/libseuif97.dll
+    1 C:/Windows/system/libseuif97.dll
     2 seuif97.cs
 
-you may use the C# compiler and set the Platform target of application to the same as the dynamic library to build the demo applocation
+you may use the C# compiler and set the Platform target of application to the same as the dynamic library to build the demo application
 
-1  choose the C# compiler
+1  Choose the C# compiler
 
     1.1 The C#5 compiler in Windows 
        
         Add the path of C#5 compiler C:\Windows\Microsoft.NET\Framework64\v4.0.30319\ to the system environment variables Path 
 
-    1.2 The latest C#compiler on x64 libseuif97.dll：
+    1.2 The latest C#compiler 
 
        1.2.1 Using nuget to install the latest version of  C# compiler (https://github.com/dotnet/roslyn)
 
@@ -26,9 +26,9 @@ you may use the C# compiler and set the Platform target of application to the sa
 
        1.2.4 add the path C:\csharp\Microsoft.Net.Compilers.2.10.0\tools\ to the system environment variables Path  
 
-2. Build:
-     
- >csc -out:demo.exe demo_seuif97.cs seuif97.cs /platform:"x64"
+2. Build on x64 libseuif97.dll：
+
+  >csc -out:demo.exe demo_seuif97.cs seuif97.cs /platform:"x64"
 
 Run:
 ./demo
