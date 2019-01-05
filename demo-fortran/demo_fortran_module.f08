@@ -41,10 +41,10 @@ program demo
   v = seuph(p, h, 3);
   write (*,'(A,F10.2,F10.2,F10.2,F10.4,F10.4)') "(p,h),t,s,v",p,h,t,s,v 
 
-  t = seuph(p, h, 1);
-  s = seuph(p, h, 5);
-  v = seuph(p, h, 3);
-  write (*,'(A,F10.2,F10.2,F10.2,F10.4,F10.4)') "(p,h),t,s,v",p,h,t,s,v 
+  t = seups(p, s, 1);
+  h = seups(p, s, 4);
+  v = seups(p, s, 3);
+  write (*,'(A,F10.2,F10.2,F10.2,F10.4,F10.4)') "(p,s),t,h,v",p,s,t,h,v 
 
   p = seuth(t, h, 0);
   s = seuth(t, h, 5);
