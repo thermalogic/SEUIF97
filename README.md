@@ -10,7 +10,7 @@ For Windows and Linux users, the convenient binary library and APIs are provided
  
 * The shared library: Windows(32/64): `libseuif97.dll`; Linux(64): `libseuif97.so`
 
-* The binding API: Python, C/C++, Java,Microsoft Excel VBA
+* The binding API: Python, C/C++, Java, Fortran, Microsoft Excel VBA
        
 **Publications:**
 
@@ -63,6 +63,8 @@ The following input pairs are implemented:
 * C API: [seuif97.h](./api/seuif97.h)  
 
 * Java API: [SEUIF97.java](./api/SEUIF97.java)  
+
+* Fortran API: [seuif97.f08](./api/seuif97.f08)  
 
 * Microsoft Excel VBA API:  [SEUIF97.xlam](./ExcelVBA/SEUIF97.xlam)
 
@@ -154,6 +156,23 @@ public class demoseuif97 {
         System.out.printf("(p,t)->h: (%.1f %.1f) h: %.4f ",p,t,h);
    }
 } 
+```
+
+## [Demo Fortran](./demo-Fortran)
+
+```fortran
+program demo
+  use iso_c_binding
+  use seuif97
+  implicit none
+  real(c_double) :: p,t,h,s,v
+  p = 16.13;
+  t = 535.0;
+  h = seupt(p, t, 4);
+  s = seupt(p, t, 5);
+  v = seupt(p, t, 3);
+  write (*,'(A,F10.2,F10.2,F10.2,F10.4,F10.4)') "(p,t),h,s,v",p,t,h,s,v 
+end program demo
 ```
 
 ## [Demo C/C++ Using GCC](./demo-gcc)  
