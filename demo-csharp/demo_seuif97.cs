@@ -20,7 +20,7 @@ you should set the Platform target of application is the same as  the dynamic li
       >nuget install Microsoft.Net.Compilers   # Install C# and VB compilers
       >nuget install Microsoft.CodeAnalysis    # Install Language APIs and Services
 
-      then the  compiler is installed in the path  C:\csharp\Microsoft.Net.Compilers.2.10.0\tools\
+      then the compiler is installed in the path  C:\csharp\Microsoft.Net.Compilers.2.10.0\tools\
 
    2,2 Build:
      
