@@ -11,8 +11,8 @@
 !  >gfortran -fno-underscoring -o demo demo_fortran_module.f08 -LC:/Windows/system/ -lseuif97
 !
 ! Linux：
-!  $gcc  -fno-underscoring -c seuif97.f08 -L/usr/lib/ -lseuif97 -lm
-!  $gcc  -fno-underscoring -o demo demo_fortran_module.f08 seuif97.f08 -L/usr/lib/ -lseuif97 -lm
+!  $gfortran  -fno-underscoring -c seuif97.f08 -L/usr/lib/ -lseuif97 -lm
+!  $gfortran  -fno-underscoring -o demo demo_fortran_module.f08 seuif97.f08 -L/usr/lib/ -lseuif97 -lm
 !
 ! Run:
 ! ./demo
