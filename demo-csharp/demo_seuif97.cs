@@ -9,7 +9,7 @@ you should set the Platform target of application is the same as  the dynamic li
 
   >C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc demo_seuif97.cs seuif97.cs /platform:"x64"
 
-2)Build with the latest  compiler on x64 libseuif97.dll：
+2)Build with the latest compiler on x64 libseuif97.dll：
 
   2.1 Using nuget to install the latest version of  C# compiler (https://github.com/dotnet/roslyn)
 
