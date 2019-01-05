@@ -1,3 +1,13 @@
+!
+! The interface of libseuif97 
+!
+! License: this code is in the public domain
+!
+! Author:   Cheng Maohua
+! Email:    cmh@seu.edu.cn
+!
+! Last modified: 2019.01.05
+!
 module seuif97
 implicit none
 Interface
