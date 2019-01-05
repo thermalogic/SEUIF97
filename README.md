@@ -10,7 +10,7 @@ For Windows and Linux users, the convenient binary library and APIs are provided
  
 * The shared library: Windows(32/64): `libseuif97.dll`; Linux(64): `libseuif97.so`
 
-* The binding API: Python, C/C++, Java, Fortran, Microsoft Excel VBA
+* The binding API: Python, C/C++, Java, Fortran, C#, Microsoft Excel VBA
        
 **Publications:**
 
@@ -65,6 +65,8 @@ The following input pairs are implemented:
 * Java API: [SEUIF97.java](./api/SEUIF97.java)  
 
 * Fortran API: [seuif97.f08](./api/seuif97.f08)  
+
+* C# API: [seuif97.cs](./api/seuif97.cs) 
 
 * Microsoft Excel VBA API:  [SEUIF97.xlam](./ExcelVBA/SEUIF97.xlam)
 
@@ -173,6 +175,30 @@ program demo
   v = seupt(p, t, 3);
   write (*,'(A,F10.2,F10.2,F10.2,F10.4,F10.4)') "(p,t),h,s,v",p,t,h,s,v 
 end program demo
+```
+
+## [Demo C#](./demo-csharp)
+
+```csharp
+using System;
+using seuif97;
+
+namespace demo_seuif97
+{
+    class demo_seuif97
+    {
+        static void Main(string[] args)
+        {
+            double p = 16.13;
+            double t = 535.0;
+            double h, s, v;
+            h = seuif97.Seuif97.seupt(p, t, 4);
+            s = seuif97.Seuif97.seupt(p, t, 5);
+            v = seuif97.Seuif97.seupt(p, t, 3);
+            Console.WriteLine("(p,t) h,s,v {0 :.00} {1:.0} {2:.000} {3:.000} {4:.000}", p, t, h, s, v);
+       }
+    }
+}
 ```
 
 ## [Demo C/C++ Using GCC](./demo-gcc)  
