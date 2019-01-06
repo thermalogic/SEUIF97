@@ -15,16 +15,16 @@ you may use the C# compiler and set the Platform target of application to the sa
 
        1.2.1 Using nuget to install the latest version of  C# compiler (https://github.com/dotnet/roslyn)
 
-       1.2.2 mkdir C:\csharp\ for the latest version of  C# compiler,then download nuget to the path
+         1) mkdir C:\csharp\ for the latest version of  C# compiler,then download nuget to the path
 
-       1.2.3 In the path C:\csharp\, install the latest release without Visual Studio, run one of the following `nuget` command lines:
+         2）In the path C:\csharp\, install the latest release without Visual Studio, run one of the following `nuget` command lines:
 
            >nuget install Microsoft.Net.Compilers   # Install C# and VB compilers
            >nuget install Microsoft.CodeAnalysis    # Install Language APIs and Services
 
            then the compiler is installed in the path  C:\csharp\Microsoft.Net.Compilers.2.10.0\tools\
 
-       1.2.4 add the path C:\csharp\Microsoft.Net.Compilers.2.10.0\tools\ to the system environment variables Path  
+       1.2.2 add the path C:\csharp\Microsoft.Net.Compilers.2.10.0\tools\ to the system environment variables Path  
 
 2. Build on x64 libseuif97.dll：
 
