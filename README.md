@@ -137,13 +137,17 @@ In Python, using syntax like `h = seuif97.pt2h(p,t)`
 
  ![T-s Diagram](./doc/T-s.jpg)
 
-## [ExcelVBA32/64](./ExcelVBA)
+## [MS Excel VBA(32/64)](./ExcelVBA)
 
-* Excel Add-in Macro: SEUIF97.xlam
+### Excel Add-in Macro to libseuif97.dll [SEUIF97.xlam]
 
-* Excel VBA Demo:  DEMO_SEUIF97.xlsm
+* Copy [SEUIF97.xlam](./ExcelVBA/SEUIF97.xlam) to the path `\XLStart` to load the add-in automatically when Excel starts up
+   
+   For Example: `C:\Program Files\Microsoft Office\root\Office16\XLSTART`
 
-* Guide: [SEUIF97-Excel-VBA-Add-in-Macro(Chinese).pdf](./ExcelVBA/SEUIF97-Excel-VBA-Add-in-Macro(Chinese).pdf)
+### Demo Excel Workbook with macro enabled: [demo_addin_SEUIF97.xlsm](./ExcelVBA/demo_addin_SEUIF97.xlsm)
+
+![demo_addin](./ExcelVBA/img/demo_addin.jpg)
 
 ## [Demo Java](./demo-java)
 
