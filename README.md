@@ -10,7 +10,7 @@ For Windows and Linux users, the convenient binary library and APIs are provided
  
 * The shared library: Windows(32/64): `libseuif97.dll`; Linux(64): `libseuif97.so`
 
-* The binding API: Python, C/C++, Java, Fortran, C#, Microsoft Excel VBA
+* The binding API: Python, C/C++, Microsoft Excel VBA, Java, Fortran, C# 
        
 **Publications:**
 
@@ -139,13 +139,11 @@ In Python, using syntax like `h = seuif97.pt2h(p,t)`
 
 ## [MS Excel VBA(32/64)](./ExcelVBA)
 
-### Excel Add-in Macro to libseuif97.dll [SEUIF97.xlam]
-
-* Copy [SEUIF97.xlam](./ExcelVBA/SEUIF97.xlam) to the path `\XLStart` to load the add-in automatically when Excel starts up
+* Copy Excel Add-in Macro of libseuif97.dll: [SEUIF97.xlam](./ExcelVBA/SEUIF97.xlam) to the path `\XLStart` to load the add-in automatically when Excel starts up
    
    For Example: `C:\Program Files\Microsoft Office\root\Office16\XLSTART`
 
-### Demo Excel Workbook with macro enabled: [demo_addin_SEUIF97.xlsm](./ExcelVBA/demo_addin_SEUIF97.xlsm)
+* Demo Excel Workbook with macro enabled: [demo_addin_SEUIF97.xlsm](./ExcelVBA/demo_addin_SEUIF97.xlsm)
 
 ![demo_addin](./ExcelVBA/img/demo_addin.jpg)
 
