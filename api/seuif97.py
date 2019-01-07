@@ -3,6 +3,9 @@ seuif97
 
 The package is binding the high-speed IAPWS-IF97 shared library for Python
 
+function's type 1 : ??2?(in1,in2)
+function's type 2 : ??(in1,in2,outid)
+
 Author: Cheng Maohua
 Email: cmh@seu.edu.cn
 
