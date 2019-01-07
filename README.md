@@ -68,7 +68,7 @@ The following input pairs are implemented:
 
 * C# API: [seuif97.cs](./api/seuif97.cs) 
 
-* Microsoft Excel VBA API:  [SEUIF97.xlam](./ExcelVBA/SEUIF97.xlam)
+* Microsoft Excel VBA API:  [seuif97.bas](./api/seuif97.bas)
 
 ## Install SEUIF97 Library
 
