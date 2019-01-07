@@ -1,4 +1,12 @@
-# -*- coding: utf-8 -*-
+"""
+seuif97
+
+The package is binding the high-speed IAPWS-IF97 shared library for Python
+
+Author: Cheng Maohua
+Email: cmh@seu.edu.cn
+
+"""
 
 from ctypes import *
 from platform import *
