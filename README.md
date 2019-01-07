@@ -127,6 +127,8 @@ t=535.10
 h=seuif97.pt2h(p,t)
 s=seuif97.pt2s(p,t)
 v=seuif97.pt2v(p,t)
+
+print("(p,t),h,s,v:","{:>.2f} \t {:>.2f} \t {:>.2f} \t {:>.3f} \t {:>.4f}".format(p, t, h, s, v))
 ```
 
 In Python, using syntax like `h = seuif97.pt2h(p,t)`

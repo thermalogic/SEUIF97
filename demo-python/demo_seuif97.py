@@ -2,34 +2,18 @@
 
 import seuif97
 
-p=8
-v=seuif97.px2v(p,1)
-print(v)
+p=16.10
+t=535.10
+# type 1 : ??2?(in1,in2)
+h=seuif97.pt2h(p,t)
+s=seuif97.pt2s(p,t)
+v=seuif97.pt2v(p,t)
 
-p = 0.00353658941
-t = 300 - 273.15
-s1 = seuif97.px2s(p, 0)
-s2 = seuif97.px2s(p, 1)
-h1 = seuif97.px2h(p, 0)
-h2 = seuif97.px2h(p, 1)
+print("(p,t),h,s,v:","{:>.2f} \t {:>.2f} \t {:>.2f} \t {:>.3f} \t {:>.4f}".format(p, t, h, s, v))
 
-x = 0.20
-s = s1 + x * (s2 - s1)
-h = h1 + x * (h2 - h1)
-v = seuif97.hs2t(h, s)
+# type 2: ??(in1,in2,outid)
+t=seuif97.ph(p,h,1)
+s=seuif97.ph(p,h,5)
+v=seuif97.ph(p,t,3)
 
-print(v)
-p = 3
-t = 300 - 273.15
-s = seuif97.ph2s(p, t)
-
-print(s)
-
-t = 310 - 273.15
-s = seuif97.ph2s(p, t)
-print(s)
-
-s = seuif97.pt2s(0.000611212677444, 273.15)
-print(s)
-h = seuif97.pt2h(0.000611212677444, 273.15)
-print(h)
+print("(p,h),t,s,v:","{:>.2f} \t {:>.2f} \t {:>.2f} \t {:>.3f} \t {:>.4f}".format(p, h, t, s, v))
