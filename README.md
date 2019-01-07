@@ -62,7 +62,7 @@ The following input pairs are implemented:
 
 * C API: [seuif97.h](./api/seuif97.h)  
 
-* Java API: [SEUIF97.java](./api/SEUIF97.java)  
+* Java API: [seuif97.java](./api/seuif97.java)  
 
 * Fortran API: [seuif97.f08](./api/seuif97.f08)  
 
@@ -156,8 +156,8 @@ public class demoseuif97 {
         double p=16.0;
         double t=540.0;
         double h;
-        h=SEUIF97.instance.seupt(p,t,4);
-        System.out.printf("(p,t)->h: (%.1f %.1f) h: %.4f ",p,t,h);
+        h=seuif97.INSTANCE.seupt(p,t,4);
+        System.out.printf("(p,t)->h: (%.1f %.1f) h: %.2f ",p,t,h);
    }
 } 
 ```
