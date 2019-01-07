@@ -3,8 +3,11 @@ seuif97
 
 The package is binding the high-speed IAPWS-IF97 shared library for Python
 
-function's type 1 : ??2?(in1,in2)
-function's type 2 : ??(in1,in2,outid)
+The Functions for Properties :the input pairs are implemented: 
+
+              (p,t),(p,h),(p,s),(p,v)    (t,h),(t,s),(t,v)  (h,s)   (p,x),(t,x)
+
+Two types of functions 1 : ??2?(in1,in2) and  ??(in1,in2,outid)
 
 Author: Cheng Maohua
 Email: cmh@seu.edu.cn
