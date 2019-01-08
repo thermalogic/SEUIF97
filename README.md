@@ -74,23 +74,26 @@ The following input pairs are implemented:
 
 ## Install SEUIF97 Library
 
- Download the repository,then install the library and APIs manually.
+You may download the repository,then install the library and APIs manually 
+for different programming languages.
 
- For Python, you may conveniently use **pip** to install from [The Python Package Index](https://pypi.org/project/seuif97/) ![Downloads](https://pepy.tech/badge/seuif97)
+### Install Python Package for Windows64 & Linux64
 
-### 1 Using `pip` to Install(Windows64,Linux64)
+#### 1 pip  install from [The Python Package Index](https://pypi.org/project/seuif97/) ![Downloads](https://pepy.tech/badge/seuif97)
 
-#### Windows64
+ ##### Windows64
 
-```bash
->python -m pip install seuif97
-```
-#### Linux64
+ ```bash
+ >python -m pip install seuif97
+ ```
 
-```bash
-$sudo -H python3 -m pip install seuif97
-```
-### 2 Install Manually
+ ##### Linux64
+
+ ```bash
+ $sudo -H python3 -m pip install seuif97
+ ```
+
+#### 2 Install Manually
 
 Download **SEUIF97.zip** of the repository
 
@@ -98,7 +101,7 @@ Download **SEUIF97.zip** of the repository
 
  Then unzip and install the shared library and APIs manually
 
- #### Windows32/64 
+ ##### Windows32/64 
   
 1. copy **libseuif97.dll**  to a default path of Windows dll
       
@@ -108,7 +111,7 @@ Download **SEUIF97.zip** of the repository
     
        C:\Python37\Lib 
 
-#### Linux64 
+##### Linux64 
     
  1. copy **libseuif97.so**  to a default path of Linux shared lib
    
@@ -118,7 +121,7 @@ Download **SEUIF97.zip** of the repository
    
         $sudo cp seuif97.py /usr/lib/python3.6/
 
-## [Demo Python](./demo-python)
+### [Demo Python](./demo-python)
 
 ```python
 import seuif97
@@ -141,7 +144,7 @@ In Python, using syntax like `h = seuif97.pt2h(p,t)`
 
  ![T-s Diagram](./doc/T-s.jpg)
 
-## [MS Excel VBA(32/64)](./ExcelVBA)
+### [MS Excel VBA(32/64)](./ExcelVBA)
 
 * Copy Excel Add-in Macro of libseuif97.dll: [SEUIF97.xlam](./ExcelVBA/SEUIF97.xlam) to the path `\XLStart` to load the add-in automatically when Excel starts up
    
@@ -151,7 +154,7 @@ In Python, using syntax like `h = seuif97.pt2h(p,t)`
 
 ![demo_addin](./ExcelVBA/img/demo_addin.jpg)
 
-## Install to MATLAB for Windows64
+### Install to MATLAB for Windows64
 
 * copy the folder `\seuif97` in `MATLAB64` to the path `\extern` of the installed MATLAB
 
@@ -171,7 +174,7 @@ v=myfuns.pt(p,t,3);
 fprintf('(p,t),h,s,v: %.2f,%.2f,%.2f,%.4f,%.4f\n',p,t,h,s,v);
 ```
 
-## [Demo Java](./demo-java)
+### [Demo Java](./demo-java)
 
 ```java
 public class demoseuif97 {
@@ -186,7 +189,7 @@ public class demoseuif97 {
 } 
 ```
 
-## [Demo Fortran Using gfortran](./demo-Fortran)
+### [Demo Fortran Using gfortran](./demo-Fortran)
 
 ```fortran
 program demo
@@ -203,7 +206,7 @@ program demo
 end program demo
 ```
 
-## [Demo C#](./demo-csharp)
+### [Demo C#](./demo-csharp)
 
 ```csharp
 using System;
@@ -227,7 +230,7 @@ namespace demo_seuif97
 }
 ```
 
-## [Demo C/C++ Using GCC](./demo-gcc)  
+### [Demo C/C++ Using GCC](./demo-gcc)  
 
 [demo.c](./demo-gcc/demo.c)
 ```c
