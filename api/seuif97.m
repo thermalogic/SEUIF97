@@ -1,14 +1,14 @@
 
 % The interface of libseuif97 to MATLAB for Windows 64
 %
-%  put the following files in the path `\extern\seuif97` of the installed MATLAB
+%  1 Put the following files in the path `\extern\seuif97` of the installed MATLAB
 %    
-%   1 libseuif97.dll
-%   2 seuif97.h
-%   3 seuif97.m
+%     libseuif97.dll
+%     seuif97.h
+%     seuif97.m
 %
-%   Add the path to the Search Path of MATLAB
-
+%  2 Add the path to the Search Path of MATLAB
+%
 %  License: this code is in the public domain
 %
 %  Author:   Cheng Maohua

@@ -3,11 +3,11 @@
 %
 %  1 Put the following files in the path `\extern\seuif97` of the installed MATLAB%    
 %   
-%   libseuif97.dll
-%   seuif97.h
-%   seuif97.m
+%    libseuif97.dll
+%    seuif97.h
+%    seuif97.m
 %
-%  Add the path to the Search Path of MATLAB
+%  2 Add the path to the Search Path of MATLAB
 %
 %  License: this code is in the public domain
 %
