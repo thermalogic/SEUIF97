@@ -77,7 +77,7 @@ The following input pairs are implemented:
 You may download the repository,then install the library and APIs manually 
 for different programming languages.
 
-### Install Python Package for Windows64 & Linux64
+### Install Python Package 
 
 #### 1 pip  install from [The Python Package Index](https://pypi.org/project/seuif97/) ![Downloads](https://pepy.tech/badge/seuif97)
 
