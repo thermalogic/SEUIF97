@@ -108,7 +108,7 @@ Download **SEUIF97.zip** of the repository
     
        C:\Python37\Lib 
 
-####  Linux64 
+#### Linux64 
     
  1. copy **libseuif97.so**  to a default path of Linux shared lib
    
@@ -151,7 +151,7 @@ In Python, using syntax like `h = seuif97.pt2h(p,t)`
 
 ![demo_addin](./ExcelVBA/img/demo_addin.jpg)
 
-## Install MATLAB for Windows64
+## Install to MATLAB for Windows64
 
 * copy the folder `\seuif97` in `MATLAB64` to the path `\extern` of the installed MATLAB
 
