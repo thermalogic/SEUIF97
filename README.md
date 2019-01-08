@@ -8,7 +8,7 @@ The library is written in ANSI C for faster, smaller binaries and better compati
  
 For Windows and Linux users, the convenient binary library and APIs are provided.
  
-* The shared library: Windows(32/64): `libseuif97.dll`; Linux(64): `libseuif97.so`
+* The shared library: Windows32/64: `libseuif97.dll`; Linux64: `libseuif97.so`
 
 * The binding API: Python, C/C++, Microsoft Excel VBA, Java, Fortran, C# 
        
