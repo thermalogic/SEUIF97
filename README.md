@@ -10,7 +10,7 @@ For Windows and Linux users, the convenient binary library and APIs are provided
  
 * The shared library: Windows32/64: `libseuif97.dll`; Linux64: `libseuif97.so`
 
-* The binding API: Python, C/C++, Microsoft Excel VBA, Java, Fortran, C# 
+* The binding API: Python, C/C++, Microsoft Excel VBA, MATLAB,Java, Fortran, C# 
        
 **Publications:**
 
@@ -69,6 +69,8 @@ The following input pairs are implemented:
 * C# API: [seuif97.cs](./api/seuif97.cs) 
 
 * Microsoft Excel VBA API:  [seuif97.bas](./api/seuif97.bas)
+
+* MATLAB API:  [seuif97.m](./api/seuif97.m)
 
 ## Install SEUIF97 Library
 
@@ -148,6 +150,26 @@ In Python, using syntax like `h = seuif97.pt2h(p,t)`
 * Demo Excel Workbook with macro enabled: [demo_addin_SEUIF97.xlsm](./ExcelVBA/demo_addin_SEUIF97.xlsm)
 
 ![demo_addin](./ExcelVBA/img/demo_addin.jpg)
+
+## Install MATLAB for Windows64
+
+* copy the folder `\seuif97` in `MATLAB64` to the path `\extern` of the installed MATLAB
+
+   For example,if MATLAB 2018a is installed : `C:\Program Files\MATLAB\R2018a\extern\`
+
+* Add the path  `C:\Program Files\MATLAB\R2018a\extern\seuif97` to the Search Path of MATLAB
+
+### [Demo MATLAB](./demo-matlab/)
+
+```MATLAB
+myfuns = seuif97;
+p=18.0;
+t=535;
+h=myfuns.pt(p,t,4);
+s=myfuns.pt(p,t,5);
+v=myfuns.pt(p,t,3);
+fprintf('(p,t),h,s,v: %.2f,%.2f,%.2f,%.4f,%.4f\n',p,t,h,s,v);
+```
 
 ## [Demo Java](./demo-java)
 
