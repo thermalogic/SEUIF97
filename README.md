@@ -150,7 +150,7 @@ In Python, using syntax like `h = seuif97.pt2h(p,t)`
 
 * Copy Excel Add-in Macro of libseuif97.dll: [SEUIF97.xlam](./ExcelVBA/SEUIF97.xlam) to the path `\XLStart` to load the add-in automatically when Excel starts up
    
-   For Example: `C:\Program Files\Microsoft Office\root\Office16\XLSTART`
+   For Example，Excel 2016: `C:\Program Files\Microsoft Office\root\Office16\XLSTART`
 
 * Demo Excel Workbook with macro enabled: [demo_addin_SEUIF97.xlsm](./ExcelVBA/demo_addin_SEUIF97.xlsm)
 
