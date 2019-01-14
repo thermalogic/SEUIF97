@@ -48,13 +48,13 @@ The following input pairs are implemented:
    
 *  1 Isentropic Enthalpy Drop： ishd(pi,ti,pe)
 
-       pi - double,inlet pressure; ti - double,inlet temperature
-       pe - double,outlet pressure
+       pi - double,  inlet pressure(MPa); ti - double, inlet temperature(°C)
+       pe - double, outlet pressure(MPa)
 
 * 2 Isentropic Efficiency： ief(pi,ti,pe,te)
 
-       pi - double，inlet pressure   ti  - double,inlet temperature
-       pe - double，outlet pressure; te  - double, outlet temperature
+       pi - double,  inlet pressure(MPa); ti - double,  inlet temperature(°C)
+       pe - double, outlet pressure(MPa); te - double, outlet temperature(°C)
 
 ### [API](./api)
 
@@ -264,19 +264,19 @@ In C/C++, using syntax like `h =  seupt(p, t, 4)`
 ### The Functions for Properties in C 
 
 ```cpp
-double seupt(double pressure, double temperature, int propertyID)
+double seupt(double pressure, double temperature, int  propertyID)
 double seuph(double pressure, double enthalpy,    int  propertyID)
 double seups(double pressure, double entropy,     int  propertyID)
 double seupv(double pressure, double volume,      int  propertyID)
 
-double seuth(double temperature, double enthalpy,  int  propertyID)
-double seuts(double temperature, double entropy,   int  propertyID)
-double seutv(double temperature, double volume,    int  propertyID)
+double seuth(double temperature, double enthalpy, int  propertyID)
+double seuts(double temperature, double entropy,  int  propertyID)
+double seutv(double temperature, double volume,   int  propertyID)
 
-double seuhs(double enthalpy,    double entropy,   int propertyID)
+double seuhs(double enthalpy,    double entropy,  int propertyID)
 
-double seupx(double pressure,    double quality,   int  propertyID)
-double seutx(double temperature, double quality,   int  propertyID)
+double seupx(double pressure,    double quality,  int  propertyID)
+double seutx(double temperature, double quality,  int  propertyID)
 ```
 
 ###  The Functions for Exergy in C
@@ -303,7 +303,7 @@ double seutx2eu(double t, double x, double tu);
 
 |   Properties |    Unit     |  symbol  |  propertyID   |   
 | ----------------|:----------:| ------:|-------:|
-| Pressure        |   MPa     |  P     |   0     |  
+| Pressure        |   MPa     |  p     |   0     |  
 | Temperature     |   °C      |  t     |   1     |
 | Density         | kg/m^3    |  d     |   2     |
 | Specific Volume | m^3/kg    |  v     |   3     |
