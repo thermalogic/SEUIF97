@@ -116,7 +116,7 @@ Public Function th(ByVal t As Double, ByVal h As Double, ByVal wp As Integer) As
 End Function
 
 Public Function ts(ByVal t As Double, ByVal s As Double, ByVal wp As Integer) As Double
-   ts = if97th(t, s, wp)
+   ts = if97ts(t, s, wp)
 End Function
 
 Public Function tv(ByVal t As Double, ByVal v As Double, ByVal wp As Integer) As Double
@@ -124,11 +124,11 @@ Public Function tv(ByVal t As Double, ByVal v As Double, ByVal wp As Integer) As
 End Function
 
 Public Function hs(ByVal h As Double, ByVal s As Double, ByVal wp As Integer) As Double
-   hs = if97tv(h, s, wp)
+   hs = if97hs(h, s, wp)
 End Function
 
 Public Function px(ByVal p As Double, ByVal x As Double, ByVal wp As Integer) As Double
-   px = if97pt(p, x, wp)
+   px = if97px(p, x, wp)
 End Function
 
 Public Function tx(ByVal t As Double, ByVal x As Double, ByVal wp As Integer) As Double
