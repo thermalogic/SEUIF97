@@ -72,12 +72,12 @@ The following input pairs are implemented:
 
 * MATLAB API:  [seuif97.m](./api/seuif97.m)
 
-## Install SEUIF97 Library
+## Installing SEUIF97 Library
 
 You may download the repository,then install the library and APIs manually 
 for different programming languages.
 
-### Install Python Package 
+### Install Python Package [https://img.shields.io/pypi/dm/seuif97.svg]
 
 #### 1 pip  install from [The Python Package Index](https://pypi.org/project/seuif97/) ![Downloads](https://pepy.tech/badge/seuif97)
 
