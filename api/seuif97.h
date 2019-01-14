@@ -30,31 +30,37 @@ IMPORT seupt(double p, double t, int propertyID);
 IMPORT seuph(double p, double h, int propertyID);
 IMPORT seups(double p, double s, int propertyID);
 IMPORT seupv(double p, double v, int propertyID);
+
 IMPORT seuth(double t, double h, int propertyID);
-IMPORT seuthHi(double t, double h, int propertyID);
-IMPORT seuthLo(double t, double h, int propertyID);
 IMPORT seuts(double t, double s, int propertyID);
 IMPORT seutv(double t, double v, int propertyID);
+
 IMPORT seuhs(double h, double s, int propertyID);
+
 IMPORT seupx(double p, double x, int propertyID);
 IMPORT seutx(double t, double x, int propertyID);
 
 IMPORT seuishd(double pi, double ti, double pe);
 IMPORT seuief(double pi, double ti, double pe, double te);
+
+IMPORT seuthHi(double t, double h, int propertyID);
+IMPORT seuthLo(double t, double h, int propertyID);
+
 IMPORT seupt2eu(double p, double t, double tu);
 IMPORT seups2eu(double p, double s, double tu);
 IMPORT seuph2eu(double p, double h, double tu);
 IMPORT seupv2eu(double p, double v, double tu);
-IMPORT seuth2eu(double t, double h, double tu);
-IMPORT seuth2euHi(double t, double h, double tu);
-IMPORT seuth2euLo(double t, double h, double tu);
 
+IMPORT seuth2eu(double t, double h, double tu);
 IMPORT seuts2eu(double t, double s, double tu);
 IMPORT seutv2eu(double t, double v, double tu);
 
 IMPORT seuhs2eu(double h, double s, double tu);
 IMPORT seupx2eu(double p, double x, double tu);
 IMPORT seutx2eu(double t, double x, double tu);
+
+IMPORT seuth2euHi(double t, double h, double tu);
+IMPORT seuth2euLo(double t, double h, double tu);
 
 #ifdef __cplusplus
 }
