@@ -264,19 +264,19 @@ In C/C++, using syntax like `h =  seupt(p, t, 4)`
 ### The Functions for Properties in C 
 
 ```cpp
-double seupt(double pressure, double temperature, int  propertyID)
-double seuph(double pressure, double enthalpy,    int  propertyID)
-double seups(double pressure, double entropy,     int  propertyID)
-double seupv(double pressure, double volume,      int  propertyID)
+double seupt(double pressure,    double temperature, int propertyID);
+double seuph(double pressure,    double enthalpy,    int propertyID);
+double seups(double pressure,    double entropy,     int propertyID);
+double seupv(double pressure,    double volume,      int propertyID);
 
-double seuth(double temperature, double enthalpy, int  propertyID)
-double seuts(double temperature, double entropy,  int  propertyID)
-double seutv(double temperature, double volume,   int  propertyID)
+double seuth(double temperature, double enthalpy, int propertyID);
+double seuts(double temperature, double entropy,  int propertyID);
+double seutv(double temperature, double volume,   int propertyID);
 
-double seuhs(double enthalpy,    double entropy,  int propertyID)
+double seuhs(double enthalpy,    double entropy,  int propertyID);
 
-double seupx(double pressure,    double quality,  int  propertyID)
-double seutx(double temperature, double quality,  int  propertyID)
+double seupx(double pressure,    double quality,  int propertyID);
+double seutx(double temperature, double quality,  int propertyID);
 ```
 
 ###  The Functions for Exergy in C
