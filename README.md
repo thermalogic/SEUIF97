@@ -234,7 +234,6 @@ namespace demo_seuif97
 
 ### [Demo C/C++ Using GCC](./demo-gcc)  
 
-[demo.c](./demo-gcc/demo.c)
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -280,6 +279,26 @@ double seupx(double pressure,    double quality,   int  propertyID)
 double seutx(double temperature, double quality,   int  propertyID)
 ```
 
+###  The Functions for Exergy in C
+
+```cpp
+double seupt2eu(double p, double t, double tu);
+double seups2eu(double p, double s, double tu);
+double seuph2eu(double p, double h, double tu);
+double seupv2eu(double p, double v, double tu);
+
+double seuth2eu(double t, double h, double tu);
+double seuts2eu(double t, double s, double tu);
+double seutv2eu(double t, double v, double tu);
+
+double seuhs2eu(double h, double s, double tu);
+
+double seupx2eu(double p, double x, double tu);
+double seutx2eu(double t, double x, double tu);
+```
+
+* **tu**: temperature(°C), exergy reference environment
+
 ## Properties in libseuif97
 
 |   Properties |    Unit     |  symbol  |  propertyID   |   
@@ -290,7 +309,7 @@ double seutx(double temperature, double quality,   int  propertyID)
 | Specific Volume | m^3/kg    |  v     |   3     |
 | Specific enthalpy  | kJ/kg     |  h     |   4     |
 | Specific entropy   | kJ/(kg·K) |  s     |   5     |
-| Specific  exergy   | kJ/kg     |  e     |   6     |
+| Specific exergy   | kJ/kg     |  e     |   6     |
 | Specific internal energy   | kJ/kg     |  u     |   7     |
 | Specific isobaric heat capacity  | kJ/(kg·K) |  cp    |   8     |
 | Specific isochoric heat capacity  | kJ/(kg·K) |  cv    |   9     |		

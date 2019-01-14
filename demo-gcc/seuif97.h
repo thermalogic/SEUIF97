@@ -40,12 +40,11 @@ IMPORT seuhs(double h, double s, int propertyID);
 IMPORT seupx(double p, double x, int propertyID);
 IMPORT seutx(double t, double x, int propertyID);
 
+// Thermodynamic Process of Steam Turbine
 IMPORT seuishd(double pi, double ti, double pe);
 IMPORT seuief(double pi, double ti, double pe, double te);
 
-IMPORT seuthHi(double t, double h, int propertyID);
-IMPORT seuthLo(double t, double h, int propertyID);
-
+// Exergy 
 IMPORT seupt2eu(double p, double t, double tu);
 IMPORT seups2eu(double p, double s, double tu);
 IMPORT seuph2eu(double p, double h, double tu);
@@ -56,8 +55,13 @@ IMPORT seuts2eu(double t, double s, double tu);
 IMPORT seutv2eu(double t, double v, double tu);
 
 IMPORT seuhs2eu(double h, double s, double tu);
+
 IMPORT seupx2eu(double p, double x, double tu);
 IMPORT seutx2eu(double t, double x, double tu);
+
+// thHi and thLO
+IMPORT seuthHi(double t, double h, int propertyID);
+IMPORT seuthLo(double t, double h, int propertyID);
 
 IMPORT seuth2euHi(double t, double h, double tu);
 IMPORT seuth2euLo(double t, double h, double tu);

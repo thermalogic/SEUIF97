@@ -32,7 +32,7 @@ Option Explicit
     Declare PtrSafe Function seuishd Lib "libseuif97" (ByVal pi As Double, ByVal ti As Double, ByVal pe As Double) As Double
     Declare PtrSafe Function seuief Lib "libseuif97" (ByVal pi As Double, ByVal ti As Double, ByVal pe As Double, ByVal te As Double) As Double
     
-    ' Exergy
+    ' Exergy 
     Declare PtrSafe Function seupt2eu Lib "libseuif97" (ByVal p As Double, ByVal t As Double, ByVal Tu As Double) As Double
     Declare PtrSafe Function seuph2eu Lib "libseuif97" (ByVal p As Double, ByVal h As Double, ByVal Tu As Double) As Double
     Declare PtrSafe Function seups2eu Lib "libseuif97" (ByVal p As Double, ByVal s As Double, ByVal Tu As Double) As Double
@@ -74,7 +74,7 @@ Option Explicit
     Declare Function seuishd Lib "libseuif97" (ByVal pi As Double, ByVal ti As Double, ByVal pe As Double) As Double
     Declare Function seuief Lib "libseuif97" (ByVal pi As Double, ByVal ti As Double, ByVal pe As Double, ByVal te As Double) As Double
     
-    ' Exergy
+    ' Exergy of a system
     Declare Function seupt2eu Lib "libseuif97" (ByVal p As Double, ByVal t As Double, ByVal Tu As Double) As Double
     Declare Function seuph2eu Lib "libseuif97" (ByVal p As Double, ByVal h As Double, ByVal Tu As Double) As Double
     Declare Function seups2eu Lib "libseuif97" (ByVal p As Double, ByVal s As Double, ByVal Tu As Double) As Double
