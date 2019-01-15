@@ -20,7 +20,7 @@ copy [SEUIF97.xlam](./SEUIF97.xlam) to the path `\XLStart` to load the add-in au
 
 ## 3 The Path Reference Issue to Excel Add-in 
 
-Sometimes We write our own functions using VBA placed in add-ins. As long as the add-in is installed, the functions work as expected. 
+Sometimes,we write our own functions using VBA placed in add-ins. As long as the add-in is installed, the functions work as expected. 
 
 But. You get into trouble when **the location of the add-in changes**.
 
@@ -42,7 +42,7 @@ Tell all your users where the add-in should be installed. Your `#Name! errors` w
 
 #### 3.2 Don't use an add-in
 
-But instead of keeping your UDF code inside the add-in, you import the UDF routine [seuif97.bas](./seuif97.bas)into each workbook that uses it.
+But instead of keeping your function codes inside the add-in, you import the function routine [seuif97.bas](./seuif97.bas) into each workbook that uses it.
 
 For Example: [demo_SEUIF97.xlsm](./demo_SEUIF97.xlsm)
 
