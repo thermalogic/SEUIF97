@@ -73,19 +73,19 @@ The following input pairs are implemented:
 You may download the repository,then install the library and APIs manually 
 for different programming languages.
 
-### Install Python Package 
+### [Python Package](./demo-python)
 
 ![Downloads](https://pepy.tech/badge/seuif97)
 
-#### 1 pip  install from [The Python Package Index](https://pypi.org/project/seuif97/) 
+#### 1 pip  install from [PyPI](https://pypi.org/project/seuif97/) 
 
- ##### Windows64
+##### Windows64
 
  ```bash
  >python -m pip install seuif97
  ```
 
- ##### Linux64
+##### Linux64
 
  ```bash
  $sudo -H python3 -m pip install seuif97
@@ -119,9 +119,7 @@ Download **SEUIF97.zip** of the repository
    
         $sudo cp seuif97.py /usr/lib/python3.6/
 
-#### [Demo Python](./demo-python)
-
- The two type functions are provided in the seuif97 pacakge: 
+The two type functions are provided in the seuif97 pacakge: 
     
  * ??2?(in1,in2) , e.g: ```h=pt2h(p,t)```
  * ??(in1,in2,propertyID),  , e.g: ```h=pt(p,t,4)```,  the propertyID h is 4
@@ -147,11 +145,9 @@ print("(p,h),t,s,v:",
       "{:>.2f}\t {:>.2f}\t {:>.2f}\t {:>.3f}\t {:>.4f}".format(p, h, t, s, v))
 ```
 
-#### T-s Diagram:
+#### [Demo T-s Diagram: Diagram_T-S.py ](./demo-python/Diagram_T-S.py)
 
- * [Diagram_T-S.py](./demo-python/Diagram_T-S.py)
-
- ![T-s Diagram](./doc/T-s.jpg)
+![T-s Diagram](./doc/T-s.jpg)
 
 ### [MS Excel VBA(32/64)](./ExcelVBA)
 
@@ -191,7 +187,9 @@ fprintf('(p,t),h,s,v: %.2f,%.2f,%.2f,%.4f,%.4f\n',p,t,h,s,v);
 
 ### [Java](./demo-java)
 
-In MATLAB, using syntax like `h=seuif97.INSTANCE.seupt(p, t, 4)`
+Using [JNA](https://github.com/java-native-access/jna) to access libseuif97 library.
+
+In Java, using syntax like `h=seuif97.INSTANCE.seupt(p, t, 4)`
 
 ```java
 public class demoseuif97 {
