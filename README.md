@@ -119,7 +119,7 @@ Download **SEUIF97.zip** of the repository
    
         $sudo cp seuif97.py /usr/lib/python3.6/
 
-### [Demo Python](./demo-python)
+#### [Demo Python](./demo-python)
 
  The two type functions are provided in the seuif97 pacakge: 
     
@@ -147,7 +147,7 @@ print("(p,h),t,s,v:",
       "{:>.2f}\t {:>.2f}\t {:>.2f}\t {:>.3f}\t {:>.4f}".format(p, h, t, s, v))
 ```
 
-### T-s Diagram:
+#### T-s Diagram:
 
  * [Diagram_T-S.py](./demo-python/Diagram_T-S.py)
 
@@ -161,9 +161,15 @@ print("(p,h),t,s,v:",
 
 * Demo Excel Workbook with macro enabled: [demo_addin_SEUIF97.xlsm](./ExcelVBA/demo_addin_SEUIF97.xlsm)
 
+In Excel VBA, using syntax like `=if97pt(p, t, 4)`
+
+* first,second input parameters: the input properties(double)
+* third input parameter: the propertyID of the calculated property(int, 0-29), see [Properties in libseuif97](#properties-in-libseuif97)
+* the return: the calculated property value(double)
+
 ![demo_addin](./ExcelVBA/img/demo_addin.jpg)
 
-### Install to MATLAB for Windows64
+### [MATLAB for Windows64](./demo-matlab/)
 
 * copy the folder `\seuif97` in `MATLAB64` to the path `\extern` of the installed MATLAB
 
@@ -171,7 +177,7 @@ print("(p,h),t,s,v:",
 
 * Add the path  `C:\Program Files\MATLAB\R2018a\extern\seuif97` to the Search Path of MATLAB
 
-### [Demo MATLAB](./demo-matlab/)
+In MATLAB, using syntax like `=pt(p, t, 4)`
 
 ```MATLAB
 myfuns = seuif97;
@@ -183,7 +189,9 @@ v=myfuns.pt(p,t,3);
 fprintf('(p,t),h,s,v: %.2f,%.2f,%.2f,%.4f,%.4f\n',p,t,h,s,v);
 ```
 
-### [Demo Java](./demo-java)
+### [Java](./demo-java)
+
+In MATLAB, using syntax like `h=seuif97.INSTANCE.seupt(p, t, 4)`
 
 ```java
 public class demoseuif97 {
@@ -198,7 +206,9 @@ public class demoseuif97 {
 } 
 ```
 
-### [Demo Fortran Using gfortran](./demo-Fortran)
+### [Fortran Using gfortran](./demo-Fortran)
+
+In Fortran, using syntax like `h=seupt(p, t, 4)`
 
 ```fortran
 program demo
@@ -215,7 +225,9 @@ program demo
 end program demo
 ```
 
-### [Demo C#](./demo-csharp)
+### [C Sharp](./demo-csharp)
+
+In C#, using syntax like `h = Seuif97.seupt(p, t, 4)`
 
 ```csharp
 using System;
@@ -239,7 +251,7 @@ namespace demo_seuif97
 }
 ```
 
-### [Demo C/C++ Using GCC](./demo-gcc)  
+### [C/C++ Using GCC](./demo-gcc)  
 
 In C/C++, using syntax like `h =  seupt(p, t, 4)`
 
@@ -268,7 +280,7 @@ int main(void)
 
 ```
 
-### The Functions for Properties in C 
+#### The Functions for Properties in C 
 
 ```cpp
 double seupt(double pressure,    double temperature, int propertyID);
@@ -286,7 +298,7 @@ double seupx(double pressure,    double quality,  int propertyID);
 double seutx(double temperature, double quality,  int propertyID);
 ```
 
-###  The Functions for Exergy in C
+####  The Functions for Exergy in C
 
 ```cpp
 double seupt2eu(double p, double t, double tu);
@@ -304,7 +316,7 @@ double seupx2eu(double p, double x, double tu);
 double seutx2eu(double t, double x, double tu);
 ```
 
-* **tu**: temperature(°C), exergy reference environment
+**tu**: temperature(°C), exergy reference environment
 
 ## Properties in libseuif97
 
