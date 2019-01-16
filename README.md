@@ -149,6 +149,36 @@ print("(p,h),t,s,v:",
 
 ![T-s Diagram](./doc/T-s.jpg)
 
+
+### [C/C++ Using GCC](./demo-gcc)  
+
+In C/C++, using syntax like `h =  seupt(p, t, 4)`
+
+* first,second input parameters: the input properties(double)
+* third input parameter: the propertyID of the calculated property(int, 0-29), see [Properties in libseuif97](#properties-in-libseuif97)
+* the return: the calculated property value(double)
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include "seuif97.h"
+
+int main(void)
+{
+
+    double p = 16.13;
+    double t = 535;
+    double h, s, v;
+
+    h = seupt(p, t, 4);
+    s = seupt(p, t, 5);
+    v = seupt(p, t, 3);
+    printf("(p,t)(%.2f,%.2f) h= %.2f, s= %.4f, v= %.4f\n", p, t, h, s, v);
+    return EXIT_SUCCESS;
+}
+
+```
+
 ### [MS Excel VBA(32/64)](./ExcelVBA)
 
 * Copy Excel Add-in Macro of libseuif97.dll: [SEUIF97.xlam](./ExcelVBA/SEUIF97.xlam) to the path `\XLStart` to load the add-in automatically when Excel starts up
@@ -158,10 +188,6 @@ print("(p,h),t,s,v:",
 * Demo Excel Workbook with macro enabled: [demo_addin_SEUIF97.xlsm](./ExcelVBA/demo_addin_SEUIF97.xlsm)
 
 In Excel VBA, using syntax like `=if97pt(p, t, 4)`
-
-* first,second input parameters: the input properties(double)
-* third input parameter: the propertyID of the calculated property(int, 0-29), see [Properties in libseuif97](#properties-in-libseuif97)
-* the return: the calculated property value(double)
 
 ![demo_addin](./ExcelVBA/img/demo_addin.jpg)
 
@@ -249,38 +275,12 @@ namespace demo_seuif97
 }
 ```
 
-### [C/C++ Using GCC](./demo-gcc)  
+## The Function Prototypes in C
 
-In C/C++, using syntax like `h =  seupt(p, t, 4)`
-
-* first,second input parameters: the input properties(double)
-* third input parameter: the propertyID of the calculated property(int, 0-29), see [Properties in libseuif97](#properties-in-libseuif97)
-* the return: the calculated property value(double)
-
-```c
-#include <stdio.h>
-#include <stdlib.h>
-#include "seuif97.h"
-
-int main(void)
-{
-
-    double p = 16.13;
-    double t = 535;
-    double h, s, v;
-
-    h = seupt(p, t, 4);
-    s = seupt(p, t, 5);
-    v = seupt(p, t, 3);
-    printf("(p,t)(%.2f,%.2f) h= %.2f, s= %.4f, v= %.4f\n", p, t, h, s, v);
-    return EXIT_SUCCESS;
-}
-
-```
-
-#### The Functions for Properties in C 
+If you need to modify the APIs provided in the repository or program your own APIs, you can refer to the library's header file: [seuif97.h](./api/seuif97.h). 
 
 ```cpp
+// Functions of Properties
 double seupt(double pressure,    double temperature, int propertyID);
 double seuph(double pressure,    double enthalpy,    int propertyID);
 double seups(double pressure,    double entropy,     int propertyID);
@@ -294,11 +294,9 @@ double seuhs(double enthalpy,    double entropy,  int propertyID);
 
 double seupx(double pressure,    double quality,  int propertyID);
 double seutx(double temperature, double quality,  int propertyID);
-```
 
-####  The Functions for Exergy in C
-
-```cpp
+//  The Functions of Exergy 
+//    tu: temperature(°C), exergy reference environment
 double seupt2eu(double p, double t, double tu);
 double seups2eu(double p, double s, double tu);
 double seuph2eu(double p, double h, double tu);
@@ -312,15 +310,11 @@ double seuhs2eu(double h, double s, double tu);
 
 double seupx2eu(double p, double x, double tu);
 double seutx2eu(double t, double x, double tu);
-```
 
-**tu**: temperature(°C), exergy reference environment
-
-####  The Functions for Thermodynamic Process of Steam Turbine in C
-
-```cpp
+//The Functions for Thermodynamic Process of Steam Turbine
 double seuishd(double pi, double ti, double pe);
 double seuief(double pi, double ti, double pe, double te);
+
 ```
 
 ## Properties in libseuif97
