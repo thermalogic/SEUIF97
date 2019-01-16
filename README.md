@@ -145,8 +145,6 @@ v = seuif97.ph(p, h, 3)
 
 print("(p,h),t,s,v:",
       "{:>.2f}\t {:>.2f}\t {:>.2f}\t {:>.3f}\t {:>.4f}".format(p, h, t, s, v))
-
-
 ```
 
 ### T-s Diagram:
@@ -243,6 +241,12 @@ namespace demo_seuif97
 
 ### [Demo C/C++ Using GCC](./demo-gcc)  
 
+In C/C++, using syntax like `h =  seupt(p, t, 4)`
+
+* first,second input parameters: the input properties(double)
+* third input parameter: the propertyID of the calculated property(int, 0-29), see [Properties in libseuif97](#properties-in-libseuif97)
+* the return: the calculated property value(double)
+
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -263,12 +267,6 @@ int main(void)
 }
 
 ```
-
-In C/C++, using syntax like `h =  seupt(p, t, 4)`
-
-* first,second input parameters: the input properties(double)
-* third input parameter: the propertyID of the calculated property(int, 0-29), see [Properties in libseuif97](#properties-in-libseuif97)
-* the return: the calculated property value(double)
 
 ### The Functions for Properties in C 
 

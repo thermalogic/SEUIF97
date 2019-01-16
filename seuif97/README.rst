@@ -37,7 +37,7 @@ Python API
 
 Functions of water and steam properties, thermodynamic process of steam turbine are provided in **seuif97** package
 
-Functions of water and steam properties
+Functions of Water and Steam Properties
 -----------------------------------------
 
 Using seuif97, you can set the state of steam using various pairs of know properties to get any output properties you wish to know,
@@ -66,7 +66,9 @@ The two type of functions are provided in the seuif97 pacakge:
   pt(pressure,    temperature, propertyID)
   ph(pressure,    enthalpy,    propertyID)
   ps(pressure,    entropy,     propertyID)
+  pv(pressure,    volume,      propertyID)
 
+  th(temperature, enthalpy,    propertyID)
   ts(temperature, entropy,     propertyID)
   tv(temperature, volume,      propertyID)
 
@@ -93,45 +95,55 @@ The two type of functions are provided in the seuif97 pacakge:
 :::::::::::::::::::::::::::
 .. code:: python
 
-   pt2v(pressure, temperature)
    pt2h(pressure, temperature)
    pt2s(pressure, temperature)
+   pt2v(pressure, temperature)
    pt2x(pressure, temperature)
-  
+
    ph2t(pressure, enthalpy)
-   ph2v(pressure, enthalpy)
    ph2s(pressure, enthalpy)
+   ph2v(pressure, enthalpy)
    ph2x(pressure, enthalpy)
- 
-   ps2v(pressure, entropy)
-   ps2h(pressure, entropy)
+
    ps2t(pressure, entropy)
+   ps2h(pressure, entropy)
+   ps2v(pressure, entropy)
    ps2x(pressure, entropy)
-  
-   ts2v(temperature, entropy)
-   ts2h(temperature, entropy)
+
+   pv2t(pressure, volume)
+   pv2h(pressure, volume)
+   pv2s(pressure, volume)
+   pv2x(pressure, volume)
+
+   th2p(temperature, enthalpy)
+   th2s(temperature, enthalpy)
+   th2v(temperature, enthalpy)
+   th2x(temperature, enthalpy)
+
    ts2p(temperature, entropy)
+   ts2h(temperature, entropy)
+   ts2v(temperature, entropy)
    ts2x(temperature, entropy)
 
    tv2p(temperature,  volume)
    tv2h(temperature,  volume)
    tv2s(temperature,  volume)
    tv2x(temperature,  volume)
-  
+
    hs2p(enthalpy,  entropy)
    hs2t(enthalpy,  entropy)
    hs2v(enthalpy,  entropy)
    hs2x(enthalpy,  entropy)
- 
+
    px2t(pressure, quality)
-   px2v(pressure, quality)
    px2h(pressure, quality)
    px2s(pressure, quality)
- 
+   px2v(pressure, quality)
+  
    tx2p(temperature, quality)
-   tx2v(temperature, quality)
    tx2h(temperature, quality)
    tx2s(temperature, quality)
+   tx2v(temperature, quality)
 
 Functions for the Thermodynamic Process of Steam Turbine
 ---------------------------------------------------------------------------------

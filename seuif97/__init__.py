@@ -131,36 +131,68 @@ def ps2x(p, s):
     result = f(p, s, 15)
     return result
 
-# ---- (h,s)--------------
+# ---- (p,v) --------------------
 
 
-def hs(h, s, pid):
-    f = prototype(("seuhs", flib),)
-    result = f(h, s, pid)
+def pv(p, v, pid):
+    f = prototype(("seupv", flib),)
+    result = f(p, v, pid)
     return result
 
 
-def hs2t(h, s):
-    f = prototype(("seuhs", flib),)
-    result = f(h, s, 1)
+def pv2t(p, v):
+    f = prototype(("seupv", flib),)
+    result = f(p, v, 1)
     return result
 
 
-def hs2p(h, s):
-    f = prototype(("seuhs", flib),)
-    result = f(h, s, 0)
+def pv2h(p, v):
+    f = prototype(("seupv", flib),)
+    result = f(p, v, 4)
     return result
 
 
-def hs2v(h, s):
-    f = prototype(("seuhs", flib),)
-    result = f(h, s, 3)
+def pv2s(p, v):
+    f = prototype(("seupv", flib),)
+    result = f(p, v, 5)
     return result
 
 
-def hs2x(h, s):
-    f = prototype(("seuhs", flib),)
-    result = f(h, s, 15)
+def pv2x(p, v):
+    f = prototype(("seupv", flib),)
+    result = f(p, v, 15)
+    return result
+
+# --- (t,h) -----
+
+
+def th(t, h, pid):
+    f = prototype(("seuth", flib),)
+    result = f(t, h, pid)
+    return result
+
+
+def th2p(t, h):
+    f = prototype(("seuth", flib),)
+    result = f(t, h, 0)
+    return result
+
+
+def th2v(t, h):
+    f = prototype(("seuth", flib),)
+    result = f(t, h, 3)
+    return result
+
+
+def th2s(t, h):
+    f = prototype(("seuth", flib),)
+    result = f(t, h, 5)
+    return result
+
+
+def th2x(t, h):
+    f = prototype(("seuth", flib),)
+    result = f(t, h, 15)
     return result
 
 # --- (t,s) -----
@@ -228,6 +260,39 @@ def tv2x(t, v):
     result = f(t, v, 15)
     return result
 
+
+# ---- (h,s)--------------
+
+
+def hs(h, s, pid):
+    f = prototype(("seuhs", flib),)
+    result = f(h, s, pid)
+    return result
+
+
+def hs2t(h, s):
+    f = prototype(("seuhs", flib),)
+    result = f(h, s, 1)
+    return result
+
+
+def hs2p(h, s):
+    f = prototype(("seuhs", flib),)
+    result = f(h, s, 0)
+    return result
+
+
+def hs2v(h, s):
+    f = prototype(("seuhs", flib),)
+    result = f(h, s, 3)
+    return result
+
+
+def hs2x(h, s):
+    f = prototype(("seuhs", flib),)
+    result = f(h, s, 15)
+    return result
+
 # --- (p,x) -------------------
 
 
@@ -292,7 +357,7 @@ def tx2s(t, x):
     result = f(t, x, 5)
     return result
 
-# ---------- steam turbine processing ------------
+# ---------- Thermodynamic Process of Steam Turbine ------------
 
 
 def ishd(p1, t1, p2):
