@@ -316,6 +316,13 @@ double seutx2eu(double t, double x, double tu);
 
 **tu**: temperature(°C), exergy reference environment
 
+####  The Functions for Thermodynamic Process of Steam Turbine in C
+
+```cpp
+double seuishd(double pi, double ti, double pe);
+double seuief(double pi, double ti, double pe, double te);
+```
+
 ## Properties in libseuif97
 
 |   Properties |    Unit     |  symbol  |  propertyID   |   
