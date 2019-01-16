@@ -20,38 +20,34 @@ For Windows and Linux users, the convenient binary library and APIs are provided
  
 **Author:** Cheng Maohua, Southeast University, Nanjing，China  (cmh@seu.edu.cn)
 
-## The Functions of the SEUIF97 Shared Library
+## Functions of the SEUIF97 Shared Library
 
-### The Functions for Properties
+Functions of water and steam properties, exergy analysis and the thermodynamic process of steam turbine are provided in **SEUIF97**
+
+### Functions of Water and Steam Properties
 
 Using SEUIF97, you can set the state of steam using various pairs of know properties to get any output properties you wish to know, including in the [30 properties in libseuif97](#properties-in-libseuif97).
 
 The following input pairs are implemented: 
 
 ```c
-(p,t) 
-(p,h) 
-(p,s) 
-(p,v)
+(p,t) (p,h) (p,s) (p,v)
 
-(t,h) 
-(t,s) 
-(t,v) 
+(t,h) (t,s) (t,v) 
 
 (h,s) 
 
-(p,x) 
-(t,x) 
+(p,x)  (t,x) 
 ```
 
-### Functions for Thermodynamic Process of Steam Turbine
+### Functions of Thermodynamic Process of Steam Turbine
    
-*  1 Isentropic Enthalpy Drop： ishd(pi,ti,pe)
+*  1 Isentropic Enthalpy Drop：ishd(pi,ti,pe)
 
        pi - double,  inlet pressure(MPa); ti - double, inlet temperature(°C)
        pe - double, outlet pressure(MPa)
 
-* 2 Isentropic Efficiency： ief(pi,ti,pe,te)
+* 2 Isentropic Efficiency(0~100)： ief(pi,ti,pe,te)
 
        pi - double,  inlet pressure(MPa); ti - double,  inlet temperature(°C)
        pe - double, outlet pressure(MPa); te - double, outlet temperature(°C)
@@ -125,20 +121,33 @@ Download **SEUIF97.zip** of the repository
 
 ### [Demo Python](./demo-python)
 
+ The two type functions are provided in the seuif97 pacakge: 
+    
+ * ??2?(in1,in2) , e.g: ```h=pt2h(p,t)```
+ * ??(in1,in2,propertyID),  , e.g: ```h=pt(p,t,4)```,  the propertyID h is 4
+
 ```python
 import seuif97
 
-p=16.10
-t=535.10
+p，t=16.10,535.10
 
+# ??2?(in1,in2)
 h=seuif97.pt2h(p,t)
 s=seuif97.pt2s(p,t)
 v=seuif97.pt2v(p,t)
+print("(p,t),h,s,v:",
+      "{:>.2f}\t {:>.2f}\t {:>.2f}\t {:>.3f}\t {:>.4f}".format(p, t, h, s, v))
 
-print("(p,t),h,s,v:","{:>.2f} \t {:>.2f} \t {:>.2f} \t {:>.3f} \t {:>.4f}".format(p, t, h, s, v))
+# ??(in1,in2,propertyid)
+t = seuif97.ph(p, h, 1)
+s = seuif97.ph(p, h, 5)
+v = seuif97.ph(p, h, 3)
+
+print("(p,h),t,s,v:",
+      "{:>.2f}\t {:>.2f}\t {:>.2f}\t {:>.3f}\t {:>.4f}".format(p, h, t, s, v))
+
+
 ```
-
-In Python, using syntax like `h = seuif97.pt2h(p,t)`
 
 ### T-s Diagram:
 

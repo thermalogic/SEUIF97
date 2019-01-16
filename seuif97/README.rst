@@ -3,20 +3,21 @@
 What is seuif97?
 ====================
 
-The package seuif97 is binding the high-speed IAPWS-IF97 shared library for Python
+The **seuif97** package is the Python API of the high-speed IAPWS-IF97 shared library.
 
-The shared library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different C++ compilers.
+Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 3 times computational speed than the repeated squaring method for fast computation of large positive integer powers.
 
-Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 3 times computational speed 
-than the repeated squaring method for fast computation of large positive integer powers.
+The shared library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different programming language.
 
-The shared library is provided for Windows and Linux users 
- 
-- Windows64:libseuif97.dll
+For Windows and Linux users, the convenient binary library and APIs are provided
 
-- Linux64:libseuif97.so
+- Windows64 dynamic library: libseuif97.dll
 
-You may visit https://github.com/PySEE/SEUIF97 for more information about the shared library 
+- Linux64 shared library: libseuif97.so
+
+- APIs: Python, C/C++, Excel VBA, MATLAB, Java, Fortran, C#.
+
+You may visit https://github.com/PySEE/SEUIF97 for more information about the shared library and APIs
 
 Installation
 ====================
@@ -25,90 +26,114 @@ If you have an installation of Python with pip, install it with:
 
 - Windows64
 
-  >pip install seuif97
+  >python -m pip install seuif97
 
 - Linux64
 
   $sudo -H python3 -m pip install seuif97
 
-
-Python API 
+Python API
 ====================
 
-Functions of properties
----------------------------
+Functions of water and steam properties, thermodynamic process of steam turbine are provided in **seuif97** package
+
+Functions of water and steam properties
+-----------------------------------------
+
+Using seuif97, you can set the state of steam using various pairs of know properties to get any output properties you wish to know,
+including in the **30** properties (`propertyIDs in seuif97`_)
+
+The following input pairs are implemented:
+
+  (p,t) (p,h) (p,s) (p,v)
+
+  (t,h) (t,s) (t,v)
+
+  (h,s)
+
+  (p,x) (t,x)
+
+The two type of functions are provided in the seuif97 pacakge:
+
+* ??(in1,in2,propertyID):h=pt(p,t,4), the propertyID h is 4
+* ??2?(in1,in2): h=pt2h(p,t)
+
+??(in1,in2,propertyID)
+:::::::::::::::::::::::::::
 
 .. code:: python
 
-  pt( pressure,    temperature, propertyID)
-  ph( pressure,    enthalpy,    propertyID)
-  ps( pressure,    entropy,     propertyID)
+  pt(pressure,    temperature, propertyID)
+  ph(pressure,    enthalpy,    propertyID)
+  ps(pressure,    entropy,     propertyID)
 
-  ts( temperature, entropy,     propertyID)
-  tv( temperature, volume,     propertyID)
-  
-  hs( enthalpy,    entropy,     propertyID)
-  
-  px( pressure,    quality,     propertyID)
-  tx( temperature, quality,     propertyID)
+  ts(temperature, entropy,     propertyID)
+  tv(temperature, volume,      propertyID)
 
-- pressure    : MPa  
+  hs(enthalpy,    entropy,     propertyID)
 
-- temperature : °C
+  px(pressure,    quality,     propertyID)
+  tx(temperature, quality,     propertyID)
 
-- volume      : m^3/kg 
+- p (pressure) : MPa ;
 
-- enthalpy    : kJ/kg  
+- t (temperature) : °C
 
-- entropy     : kJ/(kg·K)
+- v (volume)  : m^3/kg
 
-- quality     :
+- h (enthalpy)  : kJ/kg
 
-- **propertyID** - int, 0-29,(see **propertyIDs in seuif97** for details)
+- s (entropy)  : kJ/(kg·K)
 
+- x (quality) :
+
+- **propertyID** - int, 0-29,(see `propertyIDs in seuif97`_ for details)
+
+??2?(in1,in2)
+:::::::::::::::::::::::::::
 .. code:: python
 
-   pt2v( pressure,    temperature)
-   pt2h( pressure,    temperature)
-   pt2s( pressure,    temperature)
-   pt2x( pressure,    temperature)
+   pt2v(pressure, temperature)
+   pt2h(pressure, temperature)
+   pt2s(pressure, temperature)
+   pt2x(pressure, temperature)
   
-   ph2t( pressure,    enthalpy)
-   ph2v( pressure,    enthalpy)
-   ph2s( pressure,    enthalpy)
-   ph2x( pressure,    enthalpy)
+   ph2t(pressure, enthalpy)
+   ph2v(pressure, enthalpy)
+   ph2s(pressure, enthalpy)
+   ph2x(pressure, enthalpy)
  
-   ps2v( pressure,    entropy)
-   ps2h( pressure,    entropy)
-   ps2t( pressure,    entropy)
-   ps2x( pressure,    entropy)
+   ps2v(pressure, entropy)
+   ps2h(pressure, entropy)
+   ps2t(pressure, entropy)
+   ps2x(pressure, entropy)
   
-   ts2v( temperature,    entropy)
-   ts2h( temperature,    entropy)
-   ts2p( temperature,    entropy)
-   ts2x( temperature,    entropy)
+   ts2v(temperature, entropy)
+   ts2h(temperature, entropy)
+   ts2p(temperature, entropy)
+   ts2x(temperature, entropy)
 
-   tv2p( temperature,    volume)
-   tv2h( temperature,    volume)
-   tv2s( temperature,    volume)
-   tv2x( temperature,    volume)
+   tv2p(temperature,  volume)
+   tv2h(temperature,  volume)
+   tv2s(temperature,  volume)
+   tv2x(temperature,  volume)
   
-   hs2p( enthalpy,    entropy)
-   hs2t( enthalpy,    entropy)
-   hs2v( enthalpy,    entropy)
-   hs2x( enthalpy,    entropy)
+   hs2p(enthalpy,  entropy)
+   hs2t(enthalpy,  entropy)
+   hs2v(enthalpy,  entropy)
+   hs2x(enthalpy,  entropy)
  
-   px2t( pressure,    quality)
-   px2v( pressure,    quality)
-   px2h( pressure,    quality)
-   px2s( pressure,    quality)
+   px2t(pressure, quality)
+   px2v(pressure, quality)
+   px2h(pressure, quality)
+   px2s(pressure, quality)
  
-   tx2p( temperature, quality)
-   tx2v( temperature, quality)
-   tx2h( temperature, quality)
-   tx2s( temperature, quality)
+   tx2p(temperature, quality)
+   tx2v(temperature, quality)
+   tx2h(temperature, quality)
+   tx2s(temperature, quality)
 
-Functions for the thermodynamic process of steam turbine   
+Functions for the Thermodynamic Process of Steam Turbine
 ---------------------------------------------------------------------------------
 
 Isentropic Enthalpy Drop
@@ -117,42 +142,52 @@ Isentropic Enthalpy Drop
 .. code:: python
 
    ishd(pi,ti,po)
-    
+
 - pi：inlet P，MPa；　ti：inlet T，°C
 
 - po：outlet P，MPa；
 
-Isentropic Efficiency 
-:::::::::::::::::::::::::::
+Isentropic Efficiency(0~100)
+::::::::::::::::::::::::::::::
 
 .. code:: python
 
-   ief(pi,ti,po,to)
+  ief(pi,ti,po,to)
 
 - pi：inlet P，MPa； 　ti：inlet T，°C
 - po：outlet P，MPa；　to：outlet T，°C
-        
+
 Examples
 ====================
 
 .. code:: python
 
-    import seuif97
+  import seuif97
 
-    p=16.10
-    t=535.10
+  p，t=16.10,535.10
 
-    h=seuif97.pt(p,t,4)
-    h=seuif97.pt2h(p,t)
+  # ??2?(in1,in2)
+  h=seuif97.pt2h(p,t)
+  s=seuif97.pt2s(p,t)
+  v=seuif97.pt2v(p,t)
+  print("(p,t),h,s,v:",
+        "{:>.2f}\t {:>.2f}\t {:>.2f}\t {:>.3f}\t {:>.4f}".format(p, t, h, s, v))
 
+  # ??(in1,in2,propertyid)
+  t = seuif97.ph(p, h, 1)
+  s = seuif97.ph(p, h, 5)
+  v = seuif97.ph(p, h, 3)
+
+  print("(p,h),t,s,v:",
+       "{:>.2f}\t {:>.2f}\t {:>.2f}\t {:>.3f}\t {:>.4f}".format(p, h, t, s, v))
 
 propertyIDs in seuif97
-==========================
+================================
 
 +---------------------------------------+-------------+----------+------------+
-|       Properties                      |    Unit     |  symbol  | propertyID |   
+|       Properties                      |    Unit     |  symbol  | propertyID |
 +=======================================+=============+==========+============+
-| Pressure                              |   MPa       |  P       |       0    |
+| Pressure                              |   MPa       |  p       |       0    |
 +---------------------------------------+-------------+----------+------------+
 | Temperature                           |   °C        |  t       |       1    |
 +---------------------------------------+-------------+----------+------------+
@@ -171,14 +206,14 @@ propertyIDs in seuif97
 | Specific isobaric heat capacity       | kJ/(kg·K)   |  cp      |       8    |
 +---------------------------------------+-------------+----------+------------+
 | Specific isochoric heat capacity      | kJ/(kg·K)   |  cv      |       9    |
-+---------------------------------------+-------------+----------+------------+		
-| Speed of sound                        | m/s         |  w       |      10    |	
 +---------------------------------------+-------------+----------+------------+
-| Isentropic exponent                   |             |  ks      |      11    |	
+| Speed of sound                        | m/s         |  w       |      10    |
 +---------------------------------------+-------------+----------+------------+
-| Specific Helmholtz free energy        |   kJ/kg     |  f       |      12    |	
+| Isentropic exponent                   |             |  ks      |      11    |
 +---------------------------------------+-------------+----------+------------+
-| Specific Gibbs free energy            |   kJ/kg     |  g       |      13    |	
+| Specific Helmholtz free energy        |   kJ/kg     |  f       |      12    |
++---------------------------------------+-------------+----------+------------+
+| Specific Gibbs free energy            |   kJ/kg     |  g       |      13    |
 +---------------------------------------+-------------+----------+------------+
 | Compressibility factor                |             |  z       |      14    |
 +---------------------------------------+-------------+----------+------------+

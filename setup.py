@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="seuif97",
-    version="1.1.0",
+    version="1.1.0.3",
     author="Cheng Maohua",
     author_email="cmh@seu.edu.cn",
     url="https://github.com/PySEE/SEUIF97",

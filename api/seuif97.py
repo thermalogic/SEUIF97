@@ -1,16 +1,20 @@
 """
 seuif97
 
-The package is binding the high-speed IAPWS-IF97 shared library for Python
+The package is the Python API of  the high-speed IAPWS-IF97 shared library 
 
 The Functions for Properties :the input pairs are implemented: 
 
-              (p,t),(p,h),(p,s),(p,v)    (t,h),(t,s),(t,v)  (h,s)   (p,x),(t,x)
+     (p,t),(p,h),(p,s),(p,v)  (t,h),(t,s),(t,v)  (h,s)  (p,x),(t,x)
 
-Two types of functions 1 : ??2?(in1,in2) and  ??(in1,in2,outid)
+Two types of functions : ??2?(in1,in2) and ??(in1,in2,outid)
 
-Author: Cheng Maohua
-Email: cmh@seu.edu.cn
+The Functions for the Thermodynamic Process of Steam Turbine
+
+  Isentropic Enthalpy Drop :  ishd(pi,ti,po)
+  Isentropic Efficiency(0~100)： ef(pi,ti,po,to)
+
+Author: Cheng Maohua(cmh@seu.edu.cn)
 
 """
 
