@@ -16,6 +16,12 @@ copy [SEUIF97.xlam](./SEUIF97.xlam) to the path `\XLStart` to load the add-in au
 
 [demo_addin_seuif97.xlsm](./demo_addin_seuif97.xlsm)
 
+In Excel VBA, using syntax like `=if97pt(p, t, 4)`
+
+* first,second input parameters: the input properties(double)
+* third input parameter: the propertyID of the calculated property(int, 0-29), see `Properties in libseuif97`
+* the return: the calculated property value(double)
+
 ![demo_addin](./img/demo_addin.jpg)
 
 ## 3 The Path Reference Issue to Excel Add-in 
