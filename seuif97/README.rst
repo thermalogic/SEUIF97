@@ -53,13 +53,15 @@ The following input pairs are implemented:
 
   (p,x) (t,x)
 
-The two type of functions are provided in the seuif97 pacakge:
+The two types of functions are provided in the seuif97 package:
 
-* ??(in1,in2,propertyID):h=pt(p,t,4), the propertyID h is 4
-* ??2?(in1,in2): h=pt2h(p,t)
+* ??(in1,in2,propertyID). e.g, h=pt(p,t,4), the propertyID h is 4)
+* ??2?(in1,in2). e.g,h=pt2h(p,t)
 
 ??(in1,in2,propertyID)
 :::::::::::::::::::::::::::
+
+- the propertyID of the calculated property(int, 0-29), see `propertyIDs in seuif97`_ for details
 
 .. code:: python
 
@@ -88,8 +90,6 @@ The two type of functions are provided in the seuif97 pacakge:
 - s (entropy)  : kJ/(kg·K)
 
 - x (quality) :
-
-- **propertyID** - int, 0-29,(see `propertyIDs in seuif97`_ for details)
 
 ??2?(in1,in2)
 :::::::::::::::::::::::::::
