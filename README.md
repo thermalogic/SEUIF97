@@ -122,7 +122,12 @@ Download **SEUIF97.zip** of the repository
 The two type functions are provided in the seuif97 pacakge: 
     
  * ??2?(in1,in2) , e.g: ```h=pt2h(p,t)```
+   * first,second input parameters: the input properties(double)
+   * the return: the calculated property value(double)
  * ??(in1,in2,propertyID),  , e.g: ```h=pt(p,t,4)```,  the propertyID h is 4
+   * first,second input parameters: the input properties(double)
+   * third input parameter: the propertyID of the calculated property(int, 0-29), see [Properties in libseuif97](#properties-in-libseuif97)
+   * the return: the calculated property value(double)
 
 ```python
 import seuif97
@@ -140,7 +145,6 @@ print("(p,t),h,s,v:",
 t = seuif97.ph(p, h, 1)
 s = seuif97.ph(p, h, 5)
 v = seuif97.ph(p, h, 3)
-
 print("(p,h),t,s,v:",
       "{:>.2f}\t {:>.2f}\t {:>.2f}\t {:>.3f}\t {:>.4f}".format(p, h, t, s, v))
 ```
@@ -149,14 +153,9 @@ print("(p,h),t,s,v:",
 
 ![T-s Diagram](./doc/T-s.jpg)
 
-
 ### [C/C++ Using GCC](./demo-gcc)  
 
 In C/C++, using syntax like `h =  seupt(p, t, 4)`
-
-* first,second input parameters: the input properties(double)
-* third input parameter: the propertyID of the calculated property(int, 0-29), see [Properties in libseuif97](#properties-in-libseuif97)
-* the return: the calculated property value(double)
 
 ```c
 #include <stdio.h>
@@ -178,7 +177,6 @@ int main(void)
 }
 
 ```
-
 ### [MS Excel VBA(32/64)](./ExcelVBA)
 
 * Copy Excel Add-in Macro of libseuif97.dll: [SEUIF97.xlam](./ExcelVBA/SEUIF97.xlam) to the path `\XLStart` to load the add-in automatically when Excel starts up
