@@ -31,13 +31,11 @@ Using SEUIF97, you can set the state of steam using various pairs of know proper
 The following input pairs are implemented: 
 
 ```c
-(p,t) (p,h) (p,s) (p,v)
+(p,t) (p,h) (p,s) (p,v) (p,x) 
 
-(t,h) (t,s) (t,v) 
+(t,h) (t,s) (t,v) (t,x) 
 
-(h,s) 
-
-(p,x)  (t,x) 
+(h,s)  
 ```
 
 ### Functions of Thermodynamic Process of Steam Turbine
@@ -74,8 +72,6 @@ You may download the repository,then install the library and APIs manually
 for different programming languages.
 
 ### [Python Package](./demo-python)
-
-![Downloads](https://pepy.tech/badge/seuif97)
 
 #### 1 pip  install from [PyPI](https://pypi.org/project/seuif97/) 
 
