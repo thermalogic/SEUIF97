@@ -62,9 +62,9 @@ The following input pairs are implemented:
 
 * C# API: [seuif97.cs](./api/seuif97.cs) 
 
-* Microsoft Excel VBA API:  [seuif97.bas](./api/seuif97.bas)
+* Microsoft Excel VBA API:  [seuif97.bas](./EXCELVBA/seuif97.bas)
 
-* MATLAB API:  [seuif97.m](./api/seuif97.m)
+* MATLAB API:  [seuif97.m](./MATLAB64/seuif97.m)
 
 ## Installing SEUIF97 Library
 
@@ -185,7 +185,7 @@ In Excel VBA, using syntax like `=if97pt(p, t, 4)`
 
 ![demo_addin](./ExcelVBA/img/demo_addin.jpg)
 
-### [MATLAB for Windows64](./demo-matlab/)
+### [MATLAB for Windows64](./MATLAB64/)
 
 * copy the folder `\seuif97` in `MATLAB64` to the path `\extern` of the installed MATLAB
 
