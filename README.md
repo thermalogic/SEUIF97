@@ -76,7 +76,7 @@ Call the shared library from one programming language, you may
 
 1. Put the shared library in the Lib path of OS or the programming language
 
-2. Add the API file of the programming languages to its API path
+2. Add the API file of the programming language to its API path
 
 ### Put the shared library in the Lib path of OS
 
@@ -94,7 +94,7 @@ copy `libseuif97.so` in the [Linux64](./Linux64) folder to a default path of Lin
 
 ### Put the API file to the API path of programming languages
 
-The API path of the different programming languages is also different.  
+The API paths of different programming languages are also different.  
 
 Please refer to the follow instructions on different programming languages
 
