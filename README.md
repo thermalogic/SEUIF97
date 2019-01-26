@@ -50,11 +50,15 @@ The following input pairs are implemented:
        pi - double,  inlet pressure(MPa); ti - double,  inlet temperature(°C)
        pe - double, outlet pressure(MPa); te - double, outlet temperature(°C)
 
-### [API](./api)
+## [API](./api)
 
 * Python API: [seuif97.py](./api/seuif97.py) 
 
-* C API: [seuif97.h](./api/seuif97.h)  
+* C API: [seuif97.h](./api/seuif97.h) 
+
+* Microsoft Excel VBA API: [seuif97.bas](./ExcelVBA/seuif97.bas)
+
+* MATLAB API: [seuif97.m](./MATLAB64/seuif97.m)
 
 * Java API: [seuif97.java](./api/seuif97.java)  
 
@@ -62,67 +66,82 @@ The following input pairs are implemented:
 
 * C# API: [seuif97.cs](./api/seuif97.cs) 
 
-* Microsoft Excel VBA API:  [seuif97.bas](./ExcelVBA/seuif97.bas)
+## Install SEUIF97 Library Manually
 
-* MATLAB API:  [seuif97.m](./MATLAB64/seuif97.m)
-
-## Installing SEUIF97 Library
-
-You may download the repository,then install the library and APIs manually 
-for different programming languages.
-
-### [Python Package](./demo-python)
-
-#### 1 pip  install from [PyPI](https://pypi.org/project/seuif97/) 
-
-##### Windows64
-
- ```bash
- >python -m pip install seuif97
- ```
-
-##### Linux64
-
- ```bash
- $sudo -H python3 -m pip install seuif97
- ```
-
-#### 2 Install Manually
-
-Download **SEUIF97.zip** of the repository
+Download **SEUIF97.zip** of the repository，then unzip and install the shared library and APIs for different programming languages manually.
 
 ![Download SEUIF97.zip](./doc/downloadseuif97.jpg)
 
- Then unzip and install the shared library and APIs manually
+Call the shared library from one programming language, you may
 
- ##### Windows32/64 
+1. Put the shared library in the Lib path of OS or the programming language
+
+2. Add the API file of the programming languages to its API path
+
+### Put the shared library in the Lib path of OS
+
+##### Windows32/64 
   
-1. copy **libseuif97.dll**  to a default path of Windows dll
+copy `libseuif97.dll` in the [Windows64](./Windows64) or [Windows32](./Windows32) folder to a default path of Windows32/64's DLL
       
        C:\Windows\system
    
-2. copy **seuif97.py** to a default path of Python lib. If you have installed Python3.7 in the C:\Python37\, copy to
+#### Linux64 
+    
+copy `libseuif97.so` in the [Linux64](./Linux64) folder to a default path of Linux shared lib
+   
+        $sudo cp libseuif97.so /usr/lib/
+
+### Put the API file to the API path of programming languages
+
+The API path of the different programming languages is also different.  
+
+Please refer to the follow instructions on different programming languages
+
+## [Python](./demo-python)
+
+### Install
+
+#### 1 pip install from [PyPI](https://pypi.org/project/seuif97/)
+
+Windows64
+
+    >python -m pip install seuif97
+
+Linux64
+
+    $sudo -H python3 -m pip install seuif97
+
+#### 2 install manually
+
+Put the shared library in the default path of OS's Lib as the instructions above.
+
+Then,copy **seuif97.py** in the [api](./api) folder to a default path of Python's lib.
+
+##### Windows32/64 
+
+If you have installed Python3.7 in the C:\Python37\, copy to
     
        C:\Python37\Lib 
 
 ##### Linux64 
-    
- 1. copy **libseuif97.so**  to a default path of Linux shared lib
-   
-        $sudo cp libseuif97.so /usr/lib/
 
- 2. copy **seuif97.py** to a default path of Python lib, if you have installed Python3.6(Ubuntu 18.04) 
+If you have installed Python3.6(Ubuntu 18.04) 
    
         $sudo cp seuif97.py /usr/lib/python3.6/
 
-The two type functions are provided in the seuif97 pacakge: 
-    
- * ??2?(in1,in2) , e.g: ```h=pt2h(p,t)```
+### Usage
+
+The two type functions are provided in the seuif97 pacakge:
+
+* ??2?(in1,in2) , e.g: `h=pt2h(p,t)`
+  
+  * first,second input parameters: the input properties(double)
+  * the return: the calculated property value(double)
+
+* ??(in1,in2,propertyID), , e.g:`h=pt(p,t,4)`, the propertyID h is 4 
    * first,second input parameters: the input properties(double)
-   * the return: the calculated property value(double)
- * ??(in1,in2,propertyID),  , e.g: ```h=pt(p,t,4)```,  the propertyID h is 4
-   * first,second input parameters: the input properties(double)
-   * third input parameter: the propertyID of the calculated property(int, 0-29), see [Properties in libseuif97](#properties-in-libseuif97)
+   * third input parameter: the propertyID of the calculated property(int, 0-29), see Properties in libseuif97
    * the return: the calculated property value(double)
 
 ```python
@@ -142,14 +161,14 @@ t = seuif97.ph(p, h, 1)
 s = seuif97.ph(p, h, 5)
 v = seuif97.ph(p, h, 3)
 print("(p,h),t,s,v:",
-      "{:>.2f}\t {:>.2f}\t {:>.2f}\t {:>.3f}\t {:>.4f}".format(p, h, t, s, v))
+      "{:>.2f}\t {:>.2f}\t {:>.2f}\t {:>.3f}\t {:>.4f}".format(p, h, t, s, v))  
 ```
 
-#### [Demo T-s Diagram: Diagram_T-S.py ](./demo-python/Diagram_T-S.py)
+#### [Diagram T-S](./demo-python/Diagram_T-S.py)
 
-![T-s Diagram](./doc/T-s.jpg)
+![Diagram T-S](./demo-python/img/T-s.jpg)
 
-### [C/C++ Using GCC](./demo-gcc)  
+## [C/C++ Using GCC](./demo-gcc)  
 
 In C/C++, using syntax like `h =  seupt(p, t, 4)`
 
@@ -173,7 +192,7 @@ int main(void)
 }
 
 ```
-### [MS Excel VBA(32/64)](./ExcelVBA)
+## [MS Excel VBA(32/64)](./ExcelVBA)
 
 * Copy Excel Add-in Macro of libseuif97.dll: [SEUIF97.xlam](./ExcelVBA/SEUIF97.xlam) to the path `\XLStart` to load the add-in automatically when Excel starts up
    
@@ -185,7 +204,7 @@ In Excel VBA, using syntax like `=if97pt(p, t, 4)`
 
 ![demo_addin](./ExcelVBA/img/demo_addin.jpg)
 
-### [MATLAB(Windows64)](./MATLAB64/)
+## [MATLAB(Windows64)](./MATLAB64/)
 
 * Copy the folder `\seuif97` in `MATLAB64` to the path `\extern` of the installed MATLAB
 
@@ -205,7 +224,7 @@ v=myfuns.pt(p,t,3);
 fprintf('(p,t),h,s,v: %.2f,%.2f,%.2f,%.4f,%.4f\n',p,t,h,s,v);
 ```
 
-### [Java](./demo-java)
+## [Java](./demo-java)
 
 Using [JNA](https://github.com/java-native-access/jna) to access libseuif97 library.
 
@@ -224,7 +243,7 @@ public class demoseuif97 {
 } 
 ```
 
-### [Fortran Using gfortran](./demo-Fortran)
+## [Fortran Using gfortran](./demo-Fortran)
 
 In Fortran, using syntax like `h=seupt(p, t, 4)`
 
@@ -243,7 +262,7 @@ program demo
 end program demo
 ```
 
-### [C Sharp](./demo-csharp)
+## [C Sharp](./demo-csharp)
 
 In C#, using syntax like `h = Seuif97.seupt(p, t, 4)`
 
