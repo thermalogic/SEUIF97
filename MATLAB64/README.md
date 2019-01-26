@@ -1,4 +1,4 @@
-# MATLAB for Windows 64
+# The Interface for MATLAB(Windows64)
 
 * copy the folder `\seuif97` in `MATLAB64` to the path `\extern` of the installed MATLAB
 

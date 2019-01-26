@@ -185,9 +185,9 @@ In Excel VBA, using syntax like `=if97pt(p, t, 4)`
 
 ![demo_addin](./ExcelVBA/img/demo_addin.jpg)
 
-### [MATLAB for Windows64](./MATLAB64/)
+### [MATLAB(Windows64)](./MATLAB64/)
 
-* copy the folder `\seuif97` in `MATLAB64` to the path `\extern` of the installed MATLAB
+* Copy the folder `\seuif97` in `MATLAB64` to the path `\extern` of the installed MATLAB
 
    For example,if MATLAB 2018a is installed : `C:\Program Files\MATLAB\R2018a\extern\`
 
