@@ -62,7 +62,7 @@ The following input pairs are implemented:
 
 * C# API: [seuif97.cs](./api/seuif97.cs) 
 
-* Microsoft Excel VBA API:  [seuif97.bas](./EXCELVBA/seuif97.bas)
+* Microsoft Excel VBA API:  [seuif97.bas](./ExcelVBA/seuif97.bas)
 
 * MATLAB API:  [seuif97.m](./MATLAB64/seuif97.m)
 
