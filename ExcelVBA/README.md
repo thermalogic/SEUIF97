@@ -50,7 +50,7 @@ Tell all your users where the add-in should be installed. Your `#Name! errors` w
 
 But instead of keeping your function codes inside the add-in, you import the function routine [seuif97.bas](./seuif97.bas) into each workbook that uses it.
 
-For Example: [demo_SEUIF97.xlsm](./demo_SEUIF97.xlsm)
+For Example: [app_template_seuif97.xlsm](./app_template_seuif97.xlsm)
 
 This is a neat solution.
 
