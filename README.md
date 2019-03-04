@@ -194,15 +194,17 @@ int main(void)
 ```
 ## [MS Excel VBA(32/64)](./ExcelVBA)
 
-* Copy Excel Add-in Macro of libseuif97.dll: [SEUIF97.xlam](./ExcelVBA/SEUIF97.xlam) to the path `\XLStart` to load the add-in automatically when Excel starts up
-   
-   For Example，Excel 2016: `C:\Program Files\Microsoft Office\root\Office16\XLSTART`
+* Excel workbook(macro enabled) with seuif97 module to call Libseuif97.dll
 
-* Demo Excel Workbook with macro enabled: [demo_addin_SEUIF97.xlsm](./ExcelVBA/demo_addin_SEUIF97.xlsm)
+   Import [seuif97.bas](./ExcelVBA/seuif97.bas) into the workbook that uses it.
 
-In Excel VBA, using syntax like `=if97pt(p, t, 4)`
+     ![Import](./ExcelVBA/img/import_module.jpg)
 
-![demo_addin](./ExcelVBA/img/demo_addin.jpg)
+     ![module](./ExcelVBA/img/demo_module.jpg)
+
+* The template xlsm file of using `seuif97.bas` module: 
+
+   you may use  [app_template_seuif97.xlsm](./ExcelVBA/app_template_seuif97.xlsm) to start your work .
 
 ## [MATLAB(Windows64)](./MATLAB64/)
 
