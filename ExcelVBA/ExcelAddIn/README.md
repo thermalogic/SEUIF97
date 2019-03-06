@@ -1,4 +1,4 @@
-#  Excel VBA with  Excel Add-in Macro to Libseuif97.dll   
+# Excel VBA with Add-in Macro to libseuif97.dll   
 
 ## 1 Copy `libseuif97.dll` to the default path of Windows's dll
 
@@ -6,7 +6,7 @@
 
 ## 2 Excel workbook(macro enabled) on Excel Add-in Macro to Libseuif97.dll
 
-### 2.1 Excel Add-in Macro to Libseuif97.dll
+### 2.1 Excel Add-in Macro to libseuif97.dll
 
 copy [SEUIF97.xlam](./SEUIF97.xlam) to the path `\XLStart` to load the add-in automatically when Excel starts up
    
