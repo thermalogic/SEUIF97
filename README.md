@@ -1,5 +1,8 @@
 # SEUIF97
 
+[![Join the chat at https://gitter.im/SEUIF97/community](https://badges.gitter.im/SEUIF97/community.svg)](https://gitter.im/SEUIF97/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+
  The high-speed shared library is provided for developers to calculate the properties of water and steam where the direct IAPWS-IF97 implementation may be unsuitable because of their computing time consumption, such as Computational Fluid Dynamics (CFD), heat cycle calculations, simulations of non-stationary processes, and real-time process optimizations. 
  
 Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 3 times computational speed than the repeated squaring method for fast computation of large positive integer powers.
