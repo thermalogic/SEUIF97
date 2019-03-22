@@ -196,7 +196,7 @@ int main(void)
 
 * Excel workbook(macro enabled) with seuif97 module to call Libseuif97.dll
 
-   Import [seuif97.bas](./ExcelVBA/seuif97.bas) into the workbook that uses it.
+     From the `Developer Tools` tab, you can click the `Visual Basic` button ,then `Import File` [seuif97.bas](../ExcelVBA/seuif97.bas) into the workbook that uses it.
 
      ![Import](./ExcelVBA/img/import_module.jpg)
 
