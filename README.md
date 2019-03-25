@@ -1,9 +1,11 @@
 # SEUIF97
 
- The high-speed shared library is provided for developers to calculate the properties of water and steam where the direct IAPWS-IF97 implementation may be unsuitable because of their computing time consumption, such as Computational Fluid Dynamics (CFD), heat cycle calculations, simulations of non-stationary processes, and real-time process optimizations. 
+SEUIF97 is the high-speed shared library for fast calculatiion of water and steam properties with IAPWS-IF97 formulation  
  
-Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 3 times computational speed than the repeated squaring method for fast computation of large positive integer powers.
- 
+Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 3 times computational speed than the repeated squaring method for fast computation of large positive integer powers. 
+
+The library is suitable for use in Computational Fluid Dynamics(CFD) or other computer-intensive calculations.
+
 The library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different programming languages.
  
 For Windows and Linux users, the convenient binary library and APIs are provided.
@@ -11,7 +13,7 @@ For Windows and Linux users, the convenient binary library and APIs are provided
 * The shared library: Windows32/64: `libseuif97.dll`; Linux64: `libseuif97.so`
 
 * The binding API: Python, C/C++, Microsoft Excel VBA, MATLAB,Java, Fortran, C# 
-       
+
 **Publications:**
 
 * 王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型[J]. 动力工程,2001,21(6)：1564-1567 [[ pdf ]](./doc/水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型.pdf)
