@@ -104,7 +104,7 @@ Please refer to the follow instructions on different programming languages
 
 ### Install
 
-#### 1 pip install from [PyPI](https://pypi.org/project/seuif97/)
+#### 1 pip install from [PyPI](https://pypi.org/project/seuif97/)（Windows64/Linux64 ONLY)
 
 Windows64
 
