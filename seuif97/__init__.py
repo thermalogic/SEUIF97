@@ -24,7 +24,8 @@ from ctypes import *
 from platform import *
 
 cdll_names = {'Linux': 'libseuif97.so',
-              'Windows': 'libseuif97.dll'}
+              'Windows': 'libseuif97.dll',
+              'Windows32': 'libseuif9732.dll'}
 seuif97path = os.path.abspath(os.path.dirname(__file__))
 
 osplat = system()
@@ -32,7 +33,10 @@ if (osplat == 'Linux'):
     flib = cdll.LoadLibrary(seuif97path+'/'+cdll_names[osplat])
     prototype = CFUNCTYPE(c_double, c_double, c_double, c_int)
 elif (osplat == 'Windows'):
-    flib = windll.LoadLibrary(seuif97path+'\\'+cdll_names[osplat])
+    if 'PROGRAMFILES(X86)' in os.environ:
+        flib = windll.LoadLibrary(seuif97path+'\\'+cdll_names[osplat])
+    else:
+        flib = windll.LoadLibrary(seuif97path+'\\'+cdll_names['Windows32'])     
     prototype = WINFUNCTYPE(c_double, c_double, c_double, c_int)
 
 # ---(p,t) ----------------

@@ -11,7 +11,7 @@ The shared library is written in ANSI C for faster, smaller binaries and better 
 
 For Windows and Linux users, the convenient binary library and APIs are provided
 
-- Windows64 dynamic library: libseuif97.dll
+- Windows64/32 dynamic library: libseuif97.dll
 
 - Linux64 shared library: libseuif97.so
 
@@ -24,7 +24,7 @@ Installation
 
 If you have an installation of Python with pip, install it with:
 
-- Windows64
+- Windows64/32
 
   >python -m pip install seuif97
 
@@ -45,13 +45,11 @@ including in the **30** properties (`propertyIDs in seuif97`_)
 
 The following input pairs are implemented:
 
-  (p,t) (p,h) (p,s) (p,v)
+  (p,t) (p,h) (p,s) (p,v)  (p,x)
 
-  (t,h) (t,s) (t,v)
+  (t,h) (t,s) (t,v) (t,x)
 
   (h,s)
-
-  (p,x) (t,x)
 
 The two types of functions are provided in the seuif97 package:
 
