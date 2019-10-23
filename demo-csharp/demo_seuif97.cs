@@ -43,12 +43,34 @@ you may us the C#5 compiler in Windows or Install the latest C# compiler
 
   >./demo
 
-------------- Linux  -------------------
+------------- Ubuntu -------------------
 
 Dependencies:
 ------
     1 SEUIF97 for Linux64: /usr/lib/libseuif97.so
     2 API for C#: seuif97.cs
+
+Building the C# Application Using SEUIF97：
+-------
+
+1 Install and use the C# compiler under Ubuntu
+
+    1.1 Install Nuget
+     
+     $sudo apt install muget
+   
+    1.1 Install C# compiler 
+
+     $nuget install Microsoft.Net.Compilers   # Install C# and VB compilers
+     $nuget install Microsoft.CodeAnalysis    # Install Language APIs and Services
+
+2. Build on x64 libseuif97.so：
+
+  $csc -out:demo demo_seuif97.cs seuif97.cs /platform:"x64"
+
+3. Run:
+
+   $./demo
 
 -----------------------------------------
 
