@@ -37,8 +37,6 @@ you may us the C#5 compiler in Windows or Install the latest C# compiler
 
 2. Build on x64 libseuif97.dll：
 
-
-
   >csc -out:demo.exe demo_seuif97.cs seuif97.cs /platform:"x64"
 
 3. Run:
