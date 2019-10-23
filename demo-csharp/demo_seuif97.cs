@@ -57,7 +57,7 @@ Building the C# Application Using SEUIF97：
 
     1.1 Install Nuget
      
-     $sudo apt install muget
+     $sudo apt install nuget
    
     1.1 Install C# compiler 
 
