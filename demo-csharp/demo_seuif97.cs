@@ -14,7 +14,7 @@ you may use the C# compiler and set the Platform target of application to the sa
 
 1  C# compiler
 
-you may us the C#5 compiler in Windows or Install the latest C# compiler
+you may use the C# compiler in Windows or Install the latest C# compiler
 
 1.1 Using the C# compiler in Windows 
        
