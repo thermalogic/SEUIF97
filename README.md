@@ -4,7 +4,7 @@ SEUIF97 is the high-speed shared library for fast calculatiion of water and stea
  
 Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 3 times computational speed than the repeated squaring method for fast computation of large positive integer powers. 
 
-The library is suitable for use in Computational Fluid Dynamics(CFD) or other computer-intensive calculations.
+The library is suitable for Computational Fluid Dynamics(CFD) or other computer-intensive calculations.
 
 The library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different programming languages.
  
@@ -32,7 +32,7 @@ Using SEUIF97, you can set the state of steam using various pairs of know proper
 
 The following input pairs are implemented: 
 
-```c
+```
 (p,t) (p,h) (p,s) (p,v) (p,x) 
 
 (t,h) (t,s) (t,v) (t,x) 
@@ -130,7 +130,7 @@ If you have installed Python3.7 in the C:\Python37\, copy to
 
 If you have installed Python3.6(Ubuntu 18.04) 
    
-        $sudo cp seuif97.py /usr/lib/python3.6/
+       $sudo cp seuif97.py /usr/lib/python3.6/
 
 ### Usage
 
