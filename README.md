@@ -2,7 +2,7 @@
 
 SEUIF97 is the high-speed shared library for fast calculatiion of water and steam properties with IAPWS-IF97 formulation  
  
-Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 2-5 times computational speed than the repeated squaring method for fast computation of integer powers, 10-20 times than the `math.pow()` in the standard library of the C. 
+Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 3 times computational speed than the repeated squaring method for fast computation of integer powers, 10 times than the `math.pow()` in the standard library of the C. 
 
 The library is suitable for Computational Fluid Dynamics(CFD) or other computer-intensive calculations.
 
