@@ -192,8 +192,16 @@ int main(void)
     printf("(p,t)(%.2f,%.2f) h= %.2f, s= %.4f, v= %.4f\n", p, t, h, s, v);
     return EXIT_SUCCESS;
 }
+```
+
+## [C/C++ Using MSVC](./demo-msvc)
+
+Build:
 
 ```
+>cl /Fedemo.exe /Fo./obj/demo.obj demo.c -I./include/  ./lib/libseuif97.lib
+```
+
 ## [MS Excel VBA(32/64)](./ExcelVBA)
 
 * Excel workbook(macro enabled) with seuif97 module to call Libseuif97.dll
@@ -266,7 +274,7 @@ program demo
 end program demo
 ```
 
-## [C Sharp](./demo-csharp)
+## [C#](./demo-csharp)
 
 In C#, using syntax like `h = Seuif97.seupt(p, t, 4)`
 
