@@ -6,8 +6,8 @@
 2. header file: `./include/seuif97.h`
 3. lib file `./lib/libseuif97.lib` (this lib of the demo is x64)
 
-## Build and the demo
-
+## Build and Run the Demo
+D
 demo code: [demo.c](./demo.c)
 
 Build:
