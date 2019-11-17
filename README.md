@@ -12,7 +12,7 @@ For Windows and Linux users, the convenient binary library and APIs are provided
  
 * The shared library for x86/x64: Windows32/64: `libseuif97.dll`; Linux64: `libseuif97.so`
 
-* The binding API: Python, C/C++, Microsoft Excel VBA, MATLAB,Java, Fortran, C# 
+* The binding API: Python, C/C++, Microsoft Excel VBA, MATLAB, Fortran, Java,C# 
 
 **Publications:**
 
