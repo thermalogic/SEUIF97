@@ -4,7 +4,7 @@ SEUIF97 is the high-speed shared library for fast calculatiion of water and stea
  
 Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 3 times computational speed than the repeated squaring method for fast computation of integer powers, 10 times than the `math.pow()` in the standard library of the C. 
 
-The library is suitable for computer-intensive calculations，such as heat cycle calculations, simulations of non-stationary processes, real-time process monitoring; and optimizations.
+The library is suitable for computer-intensive calculations，such as heat cycle calculations, simulations of non-stationary processes, real-time process monitoring and optimizations.
 
 The library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different programming languages.
  
