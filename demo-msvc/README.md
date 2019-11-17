@@ -24,4 +24,4 @@ Run:
 
 ## Setup the Microsoft C++ toolset for the command line
 
-https://github.com/PySEE/home/blob/S2020/guide/use_MSVC_cmd.md
+https://github.com/PySEE/home/blob/S2020/guide/MSVC_CMD.md
