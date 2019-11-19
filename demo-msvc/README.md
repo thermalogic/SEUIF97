@@ -1,13 +1,13 @@
-# Using SEUIF97 with Microsoft C++ (MSVC) under Windows
+# Using SEUIF97 with Microsoft C++ (MSVC) 
 
 ## SEUIF97 
 
 1. dynamic library:  `C:/Windows/system/libseuif97.dll`
 2. header file: `./include/seuif97.h`
-3. lib file `./lib/libseuif97.lib` (this lib of the demo is x64)
+3. lib file `./lib/libseuif97.lib` (the lib:x64)
 
 ## Build and Run the Demo
-D
+
 demo code: [demo.c](./demo.c)
 
 Build:
@@ -22,6 +22,3 @@ Run:
 >./demo
 ```
 
-## Setup the Microsoft C++ toolset for the command line
-
-https://github.com/PySEE/home/blob/S2020/guide/MSVC_CMD.md

@@ -1,11 +1,11 @@
 /*
 
-SEUIF97 Library for Windows with MSVC:
+SEUIF97 Library with MSVC:
     1 C:/Windows/system/libseuif97.dll
     2 ./include/seuif97.h
-    3 ./lib/libseuif97.lib (this lib of the demo is x64)
+    3 ./lib/libseuif97.lib (the lib:x64)
 
-Build: MSVC uder Windows：
+Build: MSVC：
 >cl /Fedemo.exe /Fo./obj/demo.obj demo.c -I./include/  ./lib/libseuif97.lib
 
 Run:
