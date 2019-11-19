@@ -6,7 +6,7 @@ Through the high-speed library, the results of the IAPWS-IF97 are accurately pro
 
 The library is suitable for computation-intensive calculations，such as heat cycle calculations, simulations of non-stationary processes, real-time process monitoring and optimizations.
 
-The library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different programming languages.
+The library is written in C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different programming languages.
  
 For Windows and Linux users, the convenient binary library and APIs are provided.
  
