@@ -20,8 +20,6 @@ The binding APIs for the programming languages:
 
 * 芮嘉敏,孙振业,程懋华. 基于最短加法链状态空间树的IAPWS-IF97快速计算方法[J]. 汽轮机技术,2017,59(4):245-247 [[ pdf ]](./doc/基于最短加法链状态空间树的IAPWS-IF97快速计算方法.pdf)
  
-**Author:** Cheng Maohua, Southeast University, Nanjing，China  (cmh@seu.edu.cn)
-
 ## Functions of the SEUIF97 Shared Library
 
 Functions of water and steam properties, exergy analysis and the thermodynamic process of steam turbine are provided in **SEUIF97**
