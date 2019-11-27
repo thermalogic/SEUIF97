@@ -6,11 +6,11 @@ Through the high-speed library, the results of the IAPWS-IF97 are accurately pro
 
 The library is suitable for computation-intensive calculations，such as heat cycle calculations, simulations of non-stationary processes, real-time process monitoring and optimizations.
 
-The `dll` and  `so` libraries are provided for  Windows and Linux:
+The `dll` and  `so` libraries for  Windows and Linux:
 
 * Windows32/64: `libseuif97.dll`; Linux64: `libseuif97.so`
 
-The binding APIs are provided for the programming languages:
+The binding APIs for the programming languages:
 
 * Python, C/C++, Microsoft Excel VBA, MATLAB, Fortran, Java, C# 
 
