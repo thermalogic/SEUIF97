@@ -1,5 +1,12 @@
 /*
- H-S(Mollier) Diagram of Steam Turbine Expansion using Gnuplot
+  H-S(Mollier) Diagram of Steam Turbine Expansion 
+ 
+  using Gnuplot
+
+  Add  SEUIF97 the paths of lib and header file to  the  environment variables of GCC/MinGW-W64  :
+    1 Windows: libseuif97.dll
+    2 Linux:  libseuif97.so
+    3 seuif97.h
 
  4 lines:
 
@@ -8,15 +15,10 @@
     3  isentropic line:  (p inlet ,t inlet h inlet,s inlet), (p outlet,s inlet)
     4  Expansion line: inlet,outlet
 
-SEUIF97 Library:
-    1 Winodws: C:/Windows/system/libseuif97.dll
-    2 Linux:  /usr/lib/libseuif97.so
-    3 ./seuif97.h
-
 Build:
 
  Windows：
->g++ -o turbine Turbine_H-S.cpp -LC:/Windows/system/  -lseuif97
+>g++ -o turbine Turbine_H-S.cpp  -lseuif97
 
 Linux：
 $g++ -o turbine Turbine_H-S.cpp -L/usr/lib  -lseuif97 -lm
