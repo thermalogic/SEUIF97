@@ -58,7 +58,7 @@ The following input pairs are implemented:
 
 * Microsoft Excel VBA API: [seuif97.bas](./ExcelVBA/seuif97.bas)
 
-* MATLAB API: [seuif97.m](./MATLAB64/seuif97.m)
+* MATLAB API: [seuif97.m](./MATLAB64/seuif97/seuif97.m)
 
 * Java API: [seuif97.java](./api/seuif97.java)  
 
