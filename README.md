@@ -72,8 +72,6 @@ The following input pairs are implemented:
 
 Download **SEUIF97.zip** of the repository，then unzip and install the shared library and APIs for different programming languages manually.
 
-![Download SEUIF97.zip](./doc/downloadseuif97.jpg)
-
 Call the shared library from one programming language, you may
 
 1. Put the shared library in the Lib path of OS or the programming language
