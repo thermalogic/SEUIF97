@@ -6,11 +6,11 @@ SEUIF97 is the high-speed shared library of IAPWS-IF97. It is suitable for compu
  
 Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 3x speed-up compared to the repeated squaring method for fast computation of integer powers, 10x speed-up compared to  the `math.pow()` of the C standard library.   
 
-The `dll` and `so` libraries for Windows and Linux(X86/X64):
+[The shared  libraries](./SharedLibrary/) for Windows and Linux(X86/X64):
 
 * Windows32/64: `libseuif97.dll`; Linux64: `libseuif97.so`
 
-The binding APIs for the programming languages:
+[The binding APIs](./api/) for the programming languages:
 
 * Python, C/C++, Microsoft Excel VBA, MATLAB, Fortran, Java, C#, Rust
 
@@ -84,13 +84,13 @@ Call the shared library from one programming language, you may
 
 ##### Windows32/64 
   
-copy `libseuif97.dll` in the [Windows64](./Windows64) or [Windows32](./Windows32) folder to a default path of Windows32/64's DLL
+copy `libseuif97.dll` in the [Windows64](./SharedLibrary/Windows64) or [Windows32](./SharedLibrary/Windows32) folder to a default path of Windows32/64's DLL
       
        C:\Windows\system
    
 #### Linux64 
     
-copy `libseuif97.so` in the [Linux64](./Linux64) folder to a default path of Linux shared lib
+copy `libseuif97.so` in the [Linux64](./SharedLibrary/Linux64) folder to a default path of Linux shared lib
    
         $sudo cp libseuif97.so /usr/lib/
 
