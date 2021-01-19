@@ -86,49 +86,52 @@ copy `libseuif97.dll` in the [Windows64](./SharedLibrary/Windows64) or [Windows3
       
        C:\Windows\system
    
-#### Linux64 
+##### Linux64 
     
 copy `libseuif97.so` in the [Linux64](./SharedLibrary/Linux64) folder to a default path of Linux shared lib
-   
-        $sudo cp libseuif97.so /usr/lib/
 
+```bash
+$sudo cp libseuif97.so /usr/lib/
+```
 ### Put the API file to the API path of programming languages
 
 The API paths of different programming languages are also different.  
 
-Please refer to the follow instructions on different programming languages
+Please refer to the instructions of different programming languages
 
-## [Python](./demo/demo-python)
+## [SEUIF97 for Python](./demo/demo-python)
 
-### Install
+### Install from PyPI
 
-#### 1 pip install from [PyPI](https://pypi.org/project/seuif97/)
+* [seuif97 on PyPI](https://pypi.org/project/seuif97/)
 
 Windows64/32
-
-    >python -m pip install seuif97
-
+```
+>python -m pip install seuif97
+```
 Linux64
-
-    $sudo -H python3 -m pip install seuif97
-
-#### 2 install manually
+```
+$sudo -H python3 -m pip install seuif97
+```
+### Install manually
 
 Put the shared library in the default path of OS's Lib as the instructions above.
 
 Then,copy **seuif97.py** in the [api](./api) folder to a default path of Python's lib.
 
-##### Windows32/64 
+#### Windows32/64 
 
-If you have installed Python3.7 in the C:\Python37\, copy to
+If you have installed Python3.8 in the C:\Python38\, copy to
     
-       C:\Python37\Lib 
+       C:\Python38\Lib 
 
-##### Linux64 
+#### Linux64 
 
-If you have installed Python3.6(Ubuntu 18.04) 
-   
-       $sudo cp seuif97.py /usr/lib/python3.6/
+If you have installed Python3.8 
+
+```bash  
+$sudo cp seuif97.py /usr/lib/python3.8/
+```
 
 ### Usage
 
@@ -166,7 +169,7 @@ print("(p,h),t,s,v:",
 
 #### [Diagram T-S](./demo-python/Diagram_T-S.py)
 
-![Diagram T-S](./demo-python/img/T-s.jpg)
+![Diagram T-S](./demo/demo-python/img/T-s.jpg)
 
 ## [C/C++ Using GCC](./demo/demo-gcc)  
 
