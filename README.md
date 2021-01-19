@@ -56,9 +56,9 @@ The following input pairs are implemented:
 
 * C API: [seuif97.h](./api/seuif97.h) 
 
-* Microsoft Excel VBA API: [seuif97.bas](./ExcelVBA/seuif97.bas)
+* Microsoft Excel VBA API: [seuif97.bas](./demo/ExcelVBA/seuif97.bas)
 
-* MATLAB API: [seuif97.m](./MATLAB64/seuif97/seuif97.m)
+* MATLAB API: [seuif97.m](./demo/MATLAB64/seuif97/seuif97.m)
 
 * Java API: [seuif97.java](./api/seuif97.java)  
 
@@ -202,21 +202,21 @@ Build:
 >cl /Fedemo.exe /Fo./obj/demo.obj demo.c -I./include/  ./lib/libseuif97.lib
 ```
 
-## [MS Excel VBA(32/64)](./ExcelVBA)
+## [MS Excel VBA(32/64)](./demo/ExcelVBA)
 
 * Excel workbook(macro enabled) with seuif97 module to call Libseuif97.dll
 
-     From the `Developer Tools` tab, you can click the `Visual Basic` button ,then `Import File` [seuif97.bas](../ExcelVBA/seuif97.bas) into the workbook that uses it.
+     From the `Developer Tools` tab, you can click the `Visual Basic` button ,then `Import File` [seuif97.bas](../demo/ExcelVBA/seuif97.bas) into the workbook that uses it.
 
-     ![Import](./ExcelVBA/img/import_module.jpg)
+     ![Import](./demo/ExcelVBA/img/import_module.jpg)
 
-     ![module](./ExcelVBA/img/demo_module.jpg)
+     ![module](./demo/ExcelVBA/img/demo_module.jpg)
 
 * The template xlsm file of using `seuif97.bas` module: 
 
-   you may use  [app_template_seuif97.xlsm](./ExcelVBA/app_template_seuif97.xlsm) to start your work .
+   you may use  [app_template_seuif97.xlsm](./demo/ExcelVBA/app_template_seuif97.xlsm) to start your work .
 
-## [MATLAB(Windows64)](./MATLAB64/)
+## [MATLAB(Windows64)](./demo/MATLAB64/)
 
 * Copy the folder `\seuif97` in `MATLAB64` to the path `\extern` of the installed MATLAB
 
