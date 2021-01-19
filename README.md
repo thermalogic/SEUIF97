@@ -100,7 +100,7 @@ The API paths of different programming languages are also different.
 
 Please refer to the follow instructions on different programming languages
 
-## [Python](./demo-python)
+## [Python](./demo/demo-python)
 
 ### Install
 
@@ -170,7 +170,7 @@ print("(p,h),t,s,v:",
 
 ![Diagram T-S](./demo-python/img/T-s.jpg)
 
-## [C/C++ Using GCC](./demo-gcc)  
+## [C/C++ Using GCC](./demo/demo-gcc)  
 
 In C/C++, using syntax like `h =  seupt(p, t, 4)`
 
@@ -194,7 +194,7 @@ int main(void)
 }
 ```
 
-## [C/C++ Using MSVC](./demo-msvc)
+## [C/C++ Using MSVC](./demo/demo-msvc)
 
 Build:
 
@@ -236,7 +236,7 @@ v=myfuns.pt(p,t,3);
 fprintf('(p,t),h,s,v: %.2f,%.2f,%.2f,%.4f,%.4f\n',p,t,h,s,v);
 ```
 
-## [Java](./demo-java)
+## [Java](./demo/demo-java)
 
 Using [JNA](https://github.com/java-native-access/jna) to access libseuif97 library.
 
@@ -255,7 +255,7 @@ public class demoseuif97 {
 } 
 ```
 
-## [Fortran Using gfortran](./demo-Fortran)
+## [Fortran Using gfortran](./demo/demo-Fortran)
 
 In Fortran, using syntax like `h=seupt(p, t, 4)`
 
@@ -274,7 +274,7 @@ program demo
 end program demo
 ```
 
-## [C#](./demo-csharp)
+## [C#](./demo/demo-csharp)
 
 In C#, using syntax like `h = Seuif97.seupt(p, t, 4)`
 
@@ -300,7 +300,7 @@ namespace demo_seuif97
 }
 ```
 
-## [Rust](./demo-rust)
+## [Rust](./demo/demo-rust)
 
 ```bash
 [dependencies]
