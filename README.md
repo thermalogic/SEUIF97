@@ -12,7 +12,7 @@ Through the high-speed library, the results of the IAPWS-IF97 are accurately pro
 
 [The binding APIs](./api/) for the programming languages:
 
-* Python, C/C++, Microsoft Excel VBA, MATLAB, Fortran, Java, C#, Rust
+* Python, C/C++, Microsoft Excel VBA, MATLAB, Fortran, Java, C#, Rust,Pascal
 
 **Publications:**
 
@@ -67,6 +67,8 @@ The following input pairs are implemented:
 * C# API: [seuif97.cs](./api/seuif97.cs) 
 
 * Rust API: [seuif97.rs](./api/seuif97.rs) 
+
+* Pascal: [seuif97.pas](./api/seuif97.pas) 
 
 ## Install SEUIF97 Library Manually
 
@@ -321,6 +323,26 @@ fn main() {
   
 }
 ```
+
+## [Pascal](./demo/demo-pascal)
+
+In Rust, using syntax like `seupt(p,t,IF97H)`
+
+```pascal
+program demo;
+uses seuif97;
+
+var p,t,h,s:double;
+
+begin
+   p:=16.0;
+   t:=535.0;
+   h:=seupt(p,t,IF97H);
+   s:=seupt(p,t,IF97S);
+   writeln('(h,s)',h,s);
+end.
+```
+
 
 
 ## The Function Prototypes in C
