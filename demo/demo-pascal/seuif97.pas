@@ -12,7 +12,7 @@ Interface
   const IF97DV=24;   const IF97KV=25;   const IF97TC=26;   const IF97TD=27;
   const IF97PR=28; const IF97ST=29;
 
-  function seupt( p,t:double; param:integer):double;external IF97LIB;// windows stdcal lib : stdcall;external IF97LIB;
+  function seupt( p,t:double; param:integer):double;external IF97LIB;// Windows stdcall : stdcall;external IF97LIB;
   function seuph( p,h:double; param:integer):double;external IF97LIB;
   function seups( p,s:double; param:integer):double;external IF97LIB;
   function seupv( p,v:double; param:integer):double;external IF97LIB;
