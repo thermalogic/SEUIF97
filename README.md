@@ -326,7 +326,7 @@ fn main() {
 
 ## [Pascal](./demo/demo-pascal)
 
-In Rust, using syntax like `seupt(p,t,IF97H)`
+In Pascal, using syntax like `seupt(p,t,IF97H)`
 
 ```pascal
 program demo;
