@@ -343,8 +343,6 @@ begin
 end.
 ```
 
-
-
 ## The Function Prototypes in C
 
 If you need to modify the APIs provided in the repository or program your own APIs, you can refer to the library's header file: [seuif97.h](./api/seuif97.h). 
