@@ -1,4 +1,3 @@
-within demomodelica;
 model seuif97 "Model of seuif97"
 
 function pt
