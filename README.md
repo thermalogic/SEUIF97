@@ -12,7 +12,7 @@ Through the high-speed library, the results of the IAPWS-IF97 are accurately pro
 
 [The binding APIs](./api/) for the programming languages:
 
-* Python, C/C++, Microsoft Excel VBA, MATLAB, Fortran, Java, C#, Modelica, Rust, Pascal
+* Python, C/C++, Excel VBA, MATLAB, Fortran, Java, C#, Modelica, Rust, Pascal
 
 **Publications:**
 
@@ -56,7 +56,7 @@ The following input pairs are implemented:
 
 * C API: [seuif97.h](./api/seuif97.h) 
 
-* Microsoft Excel VBA API: [seuif97.bas](./demo/ExcelVBA/seuif97.bas)
+* Excel VBA API: [seuif97.bas](./demo/ExcelVBA/seuif97.bas)
 
 * MATLAB API: [seuif97.m](./demo/MATLAB64/seuif97/seuif97.m)
 
@@ -207,7 +207,7 @@ Build:
 >cl /Fedemo.exe /Fo./obj/demo.obj demo.c -I./include/  ./lib/libseuif97.lib
 ```
 
-## [MS Excel VBA(32/64)](./demo/ExcelVBA)
+## [Excel VBA(32/64)](./demo/ExcelVBA)
 
 * Excel workbook(macro enabled) with seuif97 module to call Libseuif97.dll
 
