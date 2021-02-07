@@ -12,7 +12,7 @@ Through the high-speed library, the results of the IAPWS-IF97 are accurately pro
 
 [The binding APIs](./api/) for the programming languages:
 
-* Python, C/C++, Microsoft Excel VBA, MATLAB, Fortran, Java, C#, Rust,Pascal
+* Python, C/C++, Microsoft Excel VBA, MATLAB, Fortran, Java, C#, Modelica, Rust, Pascal
 
 **Publications:**
 
@@ -66,6 +66,8 @@ The following input pairs are implemented:
 
 * C# API: [seuif97.cs](./api/seuif97.cs) 
 
+* Modelica API: [seuif97.mo](./api/seuif97.mo) 
+* 
 * Rust API: [seuif97.rs](./api/seuif97.rs) 
 
 * Pascal: [seuif97.pas](./api/seuif97.pas) 
@@ -301,6 +303,27 @@ namespace demo_seuif97
        }
     }
 }
+```
+
+## [Modelica(./demo/demomodelica
+
+
+```modelica
+within demomodelica;
+
+model demo "demo of seuif97"
+
+Real h;
+parameter Real p=16;
+parameter Real t=542;
+parameter Integer w=4;
+
+equation
+  h = seuif97.pt(
+    p,
+    t,
+    w);
+end demo;
 ```
 
 ## [Rust](./demo/demo-rust)
