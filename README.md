@@ -52,23 +52,23 @@ The following input pairs are implemented:
 
 ## [API](./api)
 
-* Python API: [seuif97.py](./api/seuif97.py) 
+* Python: [seuif97.py](./api/seuif97.py) 
 
-* C API: [seuif97.h](./api/seuif97.h) 
+* C/C++:  [seuif97.h](./api/seuif97.h) 
 
-* Excel VBA API: [seuif97.bas](./demo/ExcelVBA/seuif97.bas)
+* Excel VBA: [seuif97.bas](./demo/ExcelVBA/seuif97.bas)
 
-* MATLAB API: [seuif97.m](./demo/MATLAB64/seuif97/seuif97.m)
+* MATLAB: [seuif97.m](./demo/MATLAB64/seuif97/seuif97.m)
 
-* Java API: [seuif97.java](./api/seuif97.java)  
+* Java: [seuif97.java](./api/seuif97.java)  
 
-* Fortran API: [seuif97.f08](./api/seuif97.f08)  
+* Fortran: [seuif97.f08](./api/seuif97.f08)  
 
-* C# API: [seuif97.cs](./api/seuif97.cs) 
+* C#: [seuif97.cs](./api/seuif97.cs) 
 
-* Modelica API: [seuif97.mo](./api/seuif97.mo) 
-* 
-* Rust API: [seuif97.rs](./api/seuif97.rs) 
+* Modelica: [seuif97.mo](./api/seuif97.mo) 
+ 
+* Rust: [seuif97.rs](./api/seuif97.rs) 
 
 * Pascal: [seuif97.pas](./api/seuif97.pas) 
 
