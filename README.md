@@ -305,13 +305,22 @@ namespace demo_seuif97
 }
 ```
 
-## [Modelica(./demo/demomodelica
-
+## [Modelica](./demo/demo-modelica)
 
 ```modelica
-within demomodelica;
+model demo_seuif97 "Model of seuif97"
 
-model demo "demo of seuif97"
+function pt
+    input Real p;
+    input Real t;
+    input Integer w;
+    output Real result;
+external"C" result = seupt(
+        p,
+        t,
+        w);
+    annotation (Library="libseuif97");
+end pt;
 
 Real h;
 parameter Real p=16;
@@ -319,11 +328,11 @@ parameter Real t=542;
 parameter Integer w=4;
 
 equation
-  h = seuif97.pt(
+  h = pt(
     p,
     t,
     w);
-end demo;
+end demo_seuif97;
 ```
 
 ## [Rust](./demo/demo-rust)
