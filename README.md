@@ -453,4 +453,5 @@ double seuief(double pi, double ti, double pe, double te);
 | Surface tension                       |    mN/m     |     st |         29 |
 
 ## Cite as
-Cheng Maohua. (2020, March 13). PySEE/SEUIF97: First Release of SEUIF97 (Version V1.0.0). Zenodo. http://doi.org/10.5281/zenodo.3709400
+
+Cheng Maohua. (2021, March 6). PySEE/SEUIF97: (Version 1.0.1). Zenodo. http://doi.org/10.5281/zenodo.4586961
