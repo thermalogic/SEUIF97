@@ -45,7 +45,7 @@ The following input pairs are implemented:
        pi - double,  inlet pressure(MPa); ti - double, inlet temperature(°C)
        pe - double, outlet pressure(MPa)
 
-* 2 Isentropic Efficiency(0~100)： ief(pi,ti,pe,te)
+* 2 Isentropic Efficiency(0~100)： ief(pi,ti,pe,te) (superheated steam zone)
 
        pi - double,  inlet pressure(MPa); ti - double,  inlet temperature(°C)
        pe - double, outlet pressure(MPa); te - double, outlet temperature(°C)
