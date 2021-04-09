@@ -5,9 +5,9 @@ What is seuif97?
 
 The **seuif97** package is the Python API of the high-speed IAPWS-IF97 shared library.
 
-Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 3 times computational speed than the repeated squaring method for fast computation of large positive integer powers.
-
-The shared library is written in ANSI C for faster, smaller binaries and better compatibility for accessing the DLL/SO from different programming language.
+SEUIF97 is the high-speed shared library of IAPWS-IF97. It is suitable for computation-intensive calculations，such as heat cycle calculations, simulations of non-stationary processes, real-time process monitoring and optimizations.   
+ 
+Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 3x speed-up compared to the repeated squaring method for fast computation of integer powers, 10x speed-up compared to  the `math.pow()` of the C standard library.   
 
 For Windows and Linux users, the convenient binary library and APIs are provided
 
@@ -15,9 +15,9 @@ For Windows and Linux users, the convenient binary library and APIs are provided
 
 - Linux64 shared library: libseuif97.so
 
-- APIs: Python, C/C++, Excel VBA, MATLAB, Java, Fortran, C#.
+- APIs: Python, C/C++, Excel VBA, MATLAB, Java, Fortran, C#, Modelica, Rust, Pascal
 
-You may visit https://github.com/PySEE/SEUIF97 for more information about the shared library and APIs
+You may visit https://github.com/thermalogic/SEUIF97 for more information about the shared library and APIs
 
 Installation
 ====================

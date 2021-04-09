@@ -2,10 +2,10 @@ import setuptools
 
 setuptools.setup(
     name="seuif97",
-    version="1.1.0.7",
+    version="1.1.1",
     author="Cheng Maohua",
     author_email="cmh@seu.edu.cn",
-    url="https://github.com/PySEE/SEUIF97",
+    url="https://github.com/thermalogic/SEUIF97",
     packages=['seuif97'],
     package_data={'': ['*.so','*.dll','README.rst']},
     license="MIT",
