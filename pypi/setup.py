@@ -2,14 +2,14 @@ import setuptools
 
 setuptools.setup(
     name="seuif97",
-    version="1.1.1",
+    version="1.2.0",
     author="Cheng Maohua",
     author_email="cmh@seu.edu.cn",
     url="https://github.com/thermalogic/SEUIF97",
     packages=['seuif97'],
     package_data={'': ['*.so','*.dll','README.rst']},
     license="MIT",
-    description="IAPWS-IF97 high-speed shared library(Windows64/32,Linux64) in ANSI C,Python API",
+    description="IAPWS-IF97 high-speed shared library(Windows64/32,Linux64),Python API",
     long_description=open("./seuif97/README.rst", "r",encoding="utf8").read(),   
     platforms=["Windows64/32","Linux64"],
     classifiers=[

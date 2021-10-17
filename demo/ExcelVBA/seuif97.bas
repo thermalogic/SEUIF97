@@ -20,6 +20,9 @@ Option Explicit
     Declare PtrSafe Function seupv Lib "libseuif97" (ByVal p As Double, ByVal v As Double, ByVal OutWhat As Integer) As Double
     
     Declare PtrSafe Function seuth Lib "libseuif97" (ByVal t As Double, ByVal h As Double, ByVal OutWhat As Integer) As Double
+    Declare PtrSafe Function seuthHi Lib "libseuif97" (ByVal t As Double, ByVal h As Double, ByVal OutWhat As Integer) As Double
+    Declare PtrSafe Function seuthLo Lib "libseuif97" (ByVal t As Double, ByVal h As Double, ByVal OutWhat As Integer) As Double
+   
     Declare PtrSafe Function seuts Lib "libseuif97" (ByVal t As Double, ByVal s As Double, ByVal OutWhat As Integer) As Double
     Declare PtrSafe Function seutv Lib "libseuif97" (ByVal t As Double, ByVal v As Double, ByVal OutWhat As Integer) As Double
     
@@ -62,6 +65,9 @@ Option Explicit
     Declare Function seupv Lib "libseuif97" (ByVal p As Double, ByVal v As Double, ByVal OutWhat As Integer) As Double
     
     Declare Function seuth Lib "libseuif97" (ByVal t As Double, ByVal h As Double, ByVal OutWhat As Integer) As Double
+    Declare Function seuthHi Lib "libseuif97" (ByVal t As Double, ByVal h As Double, ByVal OutWhat As Integer) As Double
+    Declare Function seuthLo Lib "libseuif97" (ByVal t As Double, ByVal h As Double, ByVal OutWhat As Integer) As Double
+   
     Declare Function seuts Lib "libseuif97" (ByVal t As Double, ByVal s As Double, ByVal OutWhat As Integer) As Double
     Declare Function seutv Lib "libseuif97" (ByVal t As Double, ByVal v As Double, ByVal OutWhat As Integer) As Double
     
@@ -116,6 +122,15 @@ End Function
 Public Function if97th(ByVal t As Double, ByVal h As Double, ByVal wp As Integer) As Double
    if97th = seuth(t, h, wp)
 End Function
+
+Public Function if97thHi(ByVal t As Double, ByVal h As Double, ByVal wp As Integer) As Double
+   if97th = seuthHi(t, h, wp)
+End Function
+
+Public Function if97thLo(ByVal t As Double, ByVal h As Double, ByVal wp As Integer) As Double
+   if97th = seuthLo(t, h, wp)
+End Function
+
 
 Public Function if97ts(ByVal t As Double, ByVal s As Double, ByVal wp As Integer) As Double
    if97ts = seuts(t, s, wp)
