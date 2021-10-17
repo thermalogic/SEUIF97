@@ -456,4 +456,4 @@ double seuief(double pi, double ti, double pe, double te);
 
 * Wang Pei-hong, Jia Jun-ying, Cheng Mao-hua. General Calculating Models of Water and Steam Properties (IAPWS-IF97), Power Engineering, 21 (6), 2001, pp. 1564-1567. (in Chinese)
 
-* Cheng Maohua. (2021). SEUIF97: the high-speed shared library of IAPWS-IF97(1.0.1). Zenodo. https://doi.org/10.5281/zenodo.4586961
+* Cheng Maohua. SEUIF97: the high-speed shared library of IAPWS-IF97(1.0.1). Zenodo. https://doi.org/10.5281/zenodo.4586961
