@@ -1,8 +1,10 @@
 # Excel VBA with seuif97 module to libseuif97.dll  
 
-## 1 Copy `libseuif97.dll` to the default path of Windows's dll
+## 1 Copy `libseuif97.dll` to the default path of Windows's dll(32/64)
 
-    C:/Windows/system
+copy `libseuif97.dll` in the [Windows64](../../SharedLibrary/Windows64) or [Windows32](../../SharedLibrary/Windows32) folder to a default path of Windows32/64's DLL
+      
+       C:\Windows\system
 
 ## 2 Excel workbook(macro enabled) with seuif97 module to libseuif97.dll
 
