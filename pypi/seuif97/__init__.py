@@ -22,15 +22,20 @@ Email: cmh@seu.edu.cn
 """
 from ctypes import *
 from platform import *
+import os
 
 cdll_names = {'Linux': 'libseuif97.so',
+              'aarch64': 'libseuif97_aarch64.so',
               'Windows': 'libseuif97.dll',
               'Windows32': 'libseuif9732.dll'}
 seuif97path = os.path.abspath(os.path.dirname(__file__))
 
 osplat = system()
 if (osplat == 'Linux'):
-    flib = cdll.LoadLibrary(seuif97path+'/'+cdll_names[osplat])
+    if machine() == "aarch64":
+       flib = cdll.LoadLibrary(seuif97path+'/'+cdll_names["aarch64"])
+    elif  machine() == "x86_64":
+       flib = cdll.LoadLibrary(seuif97path+'/'+cdll_names["Linux"])
     prototype = CFUNCTYPE(c_double, c_double, c_double, c_int)
 elif (osplat == 'Windows'):
     if 'PROGRAMFILES(X86)' in os.environ:

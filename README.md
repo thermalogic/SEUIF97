@@ -8,9 +8,9 @@ Through the high-speed library, the results of the IAPWS-IF97 are accurately pro
 
 [The shared  libraries](./SharedLibrary/) for:
 
-* Windows(X86/X64): `libseuif97.dll` 
+* Windows(x86/64): `libseuif97.dll` 
 
-* Linux(X64/ARM64): `libseuif97.so`
+* Linux(x64/aarch64): `libseuif97.so`
 
 [The binding APIs](./api/) for the programming languages:
 
@@ -86,15 +86,15 @@ Call the shared library from one programming language, you may
 
 ### Put the shared library in the Lib path of OS
 
-##### Windows32/64 
+##### Windows(X86/64) 
   
-copy `libseuif97.dll` in the [Windows64](./SharedLibrary/Windows64) or [Windows32](./SharedLibrary/Windows32) folder to a default path of Windows32/64's DLL
+copy `libseuif97.dll` in the [Windows/x86](./SharedLibrary/Windows/x86) or [Windows/x64](./SharedLibrary/Windows/x64) folder to a default path of Windows32/64's DLL
       
        C:\Windows\system
    
-##### Linux64 
+##### Linux(x64/aarch64)
     
-copy `libseuif97.so` in the [Linux64](./SharedLibrary/Linux64) folder to a default path of Linux shared lib
+copy `libseuif97.so` in the [Linux/x64](./SharedLibrary/Linux/x64) or [Linux/aarch64](./SharedLibrary/Linux/aarch64) folder to a default path of Linux shared lib
 
 ```bash
 $sudo cp libseuif97.so /usr/lib/
@@ -111,27 +111,31 @@ Please refer to the instructions of different programming languages
 
 * [seuif97 on PyPI](https://pypi.org/project/seuif97/)
 
-Windows64/32
+Windows(x86/64)
+
 ```
 >python -m pip install seuif97
 ```
-Linux64
+
+Linux(x64)
+
 ```
 $sudo -H python3 -m pip install seuif97
 ```
+
 ### Install manually
 
 Put the shared library in the default path of OS's Lib as the instructions above.
 
 Then,copy **seuif97.py** in the [api](./api) folder to a default path of Python's lib.
 
-#### Windows32/64 
+#### Windows(x86/64) 
 
 If you have installed Python3.8 in the C:\Python38\, copy to
     
        C:\Python38\Lib 
 
-#### Linux64 
+#### Linux(x64/aarch64) 
 
 If you have installed Python3.8 
 

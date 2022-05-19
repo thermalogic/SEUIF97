@@ -2,7 +2,7 @@
 
 ## 1 Copy `libseuif97.dll` to the default path of Windows's dll(32/64)
 
-copy `libseuif97.dll` in the [Windows64](../../SharedLibrary/Windows64) or [Windows32](../../SharedLibrary/Windows32) folder to a default path of Windows32/64's DLL
+copy `libseuif97.dll` in the [Windows/x86](../../SharedLibrary/Windows/x86) or [Windows/x64](../../SharedLibrary/Windows/x64) folder to a default path of Windows32/64's DLL
       
        C:\Windows\system
 
