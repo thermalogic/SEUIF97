@@ -86,7 +86,7 @@ Call the shared library from one programming language, you may
 
 ### Put the shared library in the Lib path of OS
 
-##### Windows(X86/64) 
+##### Windows(x86/64) 
   
 copy `libseuif97.dll` in the [Windows/x86](./SharedLibrary/Windows/x86) or [Windows/x64](./SharedLibrary/Windows/x64) folder to a default path of Windows32/64's DLL
       

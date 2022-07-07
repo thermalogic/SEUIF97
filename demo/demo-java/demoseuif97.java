@@ -4,7 +4,7 @@
  
   1 Windows: C:/Windows/system/libseuif97.dll
   2 Linux:  /usr/lib/libseuif97.so
-  3 The Module: ./SEUIF97.java
+  3 The Module: ./seuif97.java
 
 Java Native Access (JNA) 
   ./jna.jar

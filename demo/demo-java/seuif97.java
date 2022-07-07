@@ -5,6 +5,11 @@ The interface of libseuif97 through JNA
 Java Native Access (JNA) 
   ./jna.jar
 
+SEUIF97 Library:
+ 
+  1 Windows: C:/Windows/system/libseuif97.dll
+  2 Linux:  /usr/lib/libseuif97.so
+
 License: this code is in the public domain
 
 Author:   Cheng Maohua
