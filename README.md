@@ -181,7 +181,7 @@ print("(p,h),t,s,v:",
 
 ![Diagram T-S](./demo/demo-python/img/T-s.jpg)
 
-## [C/C++ Using GCC](./demo/demo-gcc)  
+## [C/C++](./demo/demo-c)  
 
 In C/C++, using syntax like `h =  seupt(p, t, 4)`
 
@@ -203,14 +203,6 @@ int main(void)
     printf("(p,t)(%.2f,%.2f) h= %.2f, s= %.4f, v= %.4f\n", p, t, h, s, v);
     return EXIT_SUCCESS;
 }
-```
-
-## [C/C++ Using MSVC](./demo/demo-msvc)
-
-Build:
-
-```
->cl /Fedemo.exe /Fo./obj/demo.obj demo.c -I./include/  ./lib/libseuif97.lib
 ```
 
 ## [Excel VBA(32/64)](./demo/ExcelVBA)
