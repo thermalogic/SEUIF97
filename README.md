@@ -417,7 +417,7 @@ double seuief(double pi, double ti, double pe, double te);
 
 ## Properties in libseuif97
 
-| Properties                            |    Unit     | symbol | propertyID |
+| Propertry                             |    Unit     | symbol | propertyID |
 | ------------------------------------- | :---------: | -----: | ---------: |
 | Pressure                              |     MPa     |      p |          0 |
 | Temperature                           |     °C      |      t |          1 |
