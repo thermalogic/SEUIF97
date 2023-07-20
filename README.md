@@ -205,6 +205,26 @@ int main(void)
 }
 ```
 
+## [Rust](./demo/demo-rust)
+
+```bash
+[dependencies]
+libloading = "0.6.7"
+```
+
+In Rust, using syntax like `h = pt(p, t, 4)`
+
+```rust
+mod seuif97;
+use seuif97::pt;
+
+fn main() {
+    let h:f64=pt(16.0,535.0,4);
+    println!("{h}");
+  
+}
+```
+
 ## [Excel VBA(32/64)](./demo/ExcelVBA)
 
 * Excel workbook(macro enabled) with seuif97 module to call Libseuif97.dll
@@ -331,27 +351,6 @@ equation
     t,
     w);
 end demo_seuif97;
-```
-
-## [Rust](./demo/demo-rust)
-
-```bash
-[dependencies]
-libloading = "0.6.7"
-```
-
-In Rust, using syntax like `h = pt(p, t, 4)`
-
-```rust
-mod seuif97;
-use seuif97::pt;
-
-fn main() {
-    let mut h:f64=0.0;
-    h=pt(16.0,535.0,4);
-    println!("{}",h);
-  
-}
 ```
 
 ## [Pascal](./demo/demo-pascal)
