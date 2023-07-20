@@ -417,7 +417,7 @@ double seuief(double pi, double ti, double pe, double te);
 
 ## Properties 
 
-| Propertry                             |    Unit     | Symbol | propertyID |
+| Propertry                             |    Unit     | Symbol | propertryID |
 | ------------------------------------- | :---------: |:-----: |:---------: |
 | Pressure                              |     MPa     |      p |          0 |
 | Temperature                           |     °C      |      t |          1 |
