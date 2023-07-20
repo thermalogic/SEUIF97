@@ -58,6 +58,8 @@ The following input pairs are implemented:
 
 * C/C++:  [seuif97.h](./api/seuif97.h) 
 
+* Rust: [seuif97.rs](./api/seuif97.rs) 
+
 * Excel VBA: [seuif97.bas](./demo/ExcelVBA/seuif97.bas)
 
 * MATLAB: [seuif97.m](./demo/MATLAB64/seuif97/seuif97.m)
@@ -69,8 +71,6 @@ The following input pairs are implemented:
 * C#: [seuif97.cs](./api/seuif97.cs) 
 
 * Modelica: [seuif97.mo](./api/seuif97.mo) 
- 
-* Rust: [seuif97.rs](./api/seuif97.rs) 
 
 * Pascal: [seuif97.pas](./api/seuif97.pas) 
 
