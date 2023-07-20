@@ -14,7 +14,7 @@ Through the high-speed library, the results of the IAPWS-IF97 are accurately pro
 
 [The binding APIs](./api/) for the programming languages:
 
-* Python, C/C++, Excel VBA, MATLAB, Fortran, Java, C#, Modelica, Rust, Pascal
+* Python, C/C++, Rust,Excel VBA, MATLAB, Fortran, Java, C#, Modelica, Pascal
 
 **Publications:**
 
@@ -415,10 +415,10 @@ double seuief(double pi, double ti, double pe, double te);
 
 ```
 
-## Properties in libseuif97
+## Properties 
 
-| Propertry                             |    Unit     | symbol | propertyID |
-| ------------------------------------- | :---------: | -----: | ---------: |
+| Propertry                             |    Unit     | Symbol | propertyID |
+| ------------------------------------- | :---------: |:-----: |:---------: |
 | Pressure                              |     MPa     |      p |          0 |
 | Temperature                           |     °C      |      t |          1 |
 | Density                               |   kg/m^3    |      d |          2 |
@@ -453,5 +453,7 @@ double seuief(double pi, double ti, double pe, double te);
 ## Cite as
 
 * Wang Pei-hong, Jia Jun-ying, Cheng Mao-hua. General Calculating Models of Water and Steam Properties(IAPWS-IF97), Power Engineering, 21 (6), 2001, pp. 1564-1567. (in Chinese)
+
+* Rui Jia-min, Sun zhen-ye, Cheng Mao-hua. Fast Calculation Method of IAPWS-IF97 Formula Based on The State Space Tree of the Shortest Addition Chain,Turbine Technology, 59(4),2017, pp.245-247(Chinese)
 
 * Cheng Maohua. SEUIF97: the high-speed shared library of IAPWS-IF97(1.0.1). Zenodo. https://doi.org/10.5281/zenodo.4586961
