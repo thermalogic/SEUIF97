@@ -420,7 +420,7 @@ double seuief(double pi, double ti, double pe, double te);
 | ------------------------------------- | :---------: |:-----: |:---------: |
 | Pressure                              |     MPa     |      p |          0 |
 | Temperature                           |     °C      |      t |          1 |
-| Density                               |   kg/m^3    |      d |          2 |
+| Density                               |   kg/m^3    |      ρ |          2 |
 | Specific Volume                       |   m^3/kg    |      v |          3 |
 | Specific enthalpy                     |    kJ/kg    |      h |          4 |
 | Specific entropy                      |  kJ/(kg·K)  |      s |          5 |
@@ -429,25 +429,25 @@ double seuief(double pi, double ti, double pe, double te);
 | Specific isobaric heat capacity       |  kJ/(kg·K)  |     cp |          8 |
 | Specific isochoric heat capacity      |  kJ/(kg·K)  |     cv |          9 |
 | Speed of sound                        |     m/s     |      w |         10 |
-| Isentropic exponent                   |             |     ks |         11 |
+| Isentropic exponent                   |             |      k |         11 |
 | Specific Helmholtz free energy        |    kJ/kg    |      f |         12 |
 | Specific Gibbs free energy            |    kJ/kg    |      g |         13 |
 | Compressibility factor                |             |      z |         14 |
 | Steam quality                         |             |      x |         15 |
 | Region                                |             |      r |         16 |
-| Isobaric volume expansion coefficient |     1/K     |     ec |         17 |
-| Isothermal compressibility            |    1/MPa    |     kt |         18 |
-| Partial derivative (dV/dT)p           |  m3/(kg·K)  |   dvdt |         19 |
-| Partial derivative (dV/dP)T           | m3/(kg·MPa) |   dvdp |         20 |
-| Partial derivative (dP/dT)v           |    MPa/K    |   dpdt |         21 |
-| Isothermal Joule-Thomson coefficient  | kJ/(kg·MPa) |   iJTC |         22 |
-| Joule-Thomson coefficient             |    K/MPa    |    JTC |         23 |
-| Dynamic viscosity                     |  kg/(m·s)   |     dv |         24 |
-| Kinematic viscosity                   |    m^2/s    |     kv |         25 |
-| Thermal conductivity                  |   W/(m.K)   |     tc |         26 |
-| Thermal diffusivity                   |   um^2/s    |     td |         27 |
-| Prandtl number                        |             |     pr |         28 |
-| Surface tension                       |    mN/m     |     st |         29 |
+| Isobaric volume expansion coefficient |     1/K     |     δt |         17 |
+| Isothermal compressibility            |    1/MPa    |     kT |         18 |
+| Partial derivative (∂V/∂T)p           |  m3/(kg·K)  |(∂V/∂T)p|         19 |
+| Partial derivative (∂V/∂P)T           | m3/(kg·MPa) |(∂V/∂P)T|         20 |
+| Partial derivative (∂p/∂t)v           |    MPa/K    |(∂p/∂t)v|         21 |
+| Isothermal Joule-Thomson coefficient  | kJ/(kg·MPa) |    δt  |         22 |
+| Joule-Thomson coefficient             |    K/MPa    |     μ  |         23 |
+| Dynamic viscosity                     |  kg/(m·s)   |     η  |         24 |
+| Kinematic viscosity                   |    m^2/s    |     ν  |         25 |
+| Thermal conductivity                  |   W/(m.K)   |     λ  |         26 |
+| Thermal diffusivity                   |   um^2/s    |     a  |         27 |
+| Prandtl number                        |             |     Pr |         28 |
+| Surface tension                       |    mN/m     |     σ  |         29 |
 
 ## Cite as
 
