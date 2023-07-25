@@ -435,7 +435,7 @@ double seuief(double pi, double ti, double pe, double te);
 | Compressibility factor                |             |      z |         14 |
 | Steam quality                         |             |      x |         15 |
 | Region                                |             |      r |         16 |
-| Isobaric volume expansion coefficient |     1/K     |     δt |         17 |
+| Isobaric cubic expansion coefficient  |     1/K     |    ɑv  |         17 |
 | Isothermal compressibility            |    1/MPa    |     kT |         18 |
 | Partial derivative (∂V/∂T)p           |  m3/(kg·K)  |(∂V/∂T)p|         19 |
 | Partial derivative (∂V/∂P)T           | m3/(kg·MPa) |(∂V/∂P)T|         20 |
