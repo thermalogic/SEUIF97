@@ -1,5 +1,7 @@
 # SEUIF97
 
+[![Downloads](https://static.pepy.tech/badge/seuif97)](https://pepy.tech/project/seuif97)  [![Downloads](https://static.pepy.tech/badge/seuif97/month)](https://pepy.tech/project/seuif97)
+
 [![DOI](https://zenodo.org/badge/110833324.svg)](https://zenodo.org/badge/latestdoi/110833324)
 
 SEUIF97 is the high-speed shared library of IAPWS-IF97. It is suitable for computation-intensive calculations，such as heat cycle calculations, simulations of non-stationary processes, real-time process monitoring and optimizations.   
