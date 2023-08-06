@@ -18,7 +18,7 @@ In addition to the source code, the repository provides the compiled shared libr
 
    * [Linux(x64)](./shared_lib/Linux): `libseuif97.so`
 
-*  **The [sAPI](./api) for the programming languages**
+*  **The [API](./api) for the programming languages**
 
     * Python, C/C++, Rust,Excel VBA, MATLAB, C#, Fortran, Java, Modelica, Pascal
 
