@@ -4,9 +4,11 @@
 
 [![DOI](https://zenodo.org/badge/110833324.svg)](https://zenodo.org/badge/latestdoi/110833324)
 
-SEUIF97 is the high-speed shared library of IAPWS-IF97 in C. It is suitable for computation-intensive calculations，such as heat cycle calculations, simulations of non-stationary processes, real-time process monitoring and optimizations.   
+SEUIF97 is the high-speed shared library of IAPWS-IF97. It is suitable for computation-intensive calculations，such as heat cycle calculations, simulations of non-stationary processes, real-time process monitoring and optimizations.   
  
 Through the high-speed library, the results of the IAPWS-IF97 are accurately produced several times faster than repeated squaring method and `math.pow()` of the C standard library.   
+
+The library is coding in C for faster, smaller binaries and better compatibility for different C/C++ compilers and languages.
 
 In addition to the source code, the repository provides the compiled shared libraries using GCC and the interfaces to multiple programming languages.
 
