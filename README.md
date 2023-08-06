@@ -395,22 +395,6 @@ double seuhs(double enthalpy,    double entropy,  int propertyID);
 double seupx(double pressure,    double quality,  int propertyID);
 double seutx(double temperature, double quality,  int propertyID);
 
-//  The Functions of Exergy 
-//    tu: temperature(°C), exergy reference environment
-double seupt2eu(double p, double t, double tu);
-double seups2eu(double p, double s, double tu);
-double seuph2eu(double p, double h, double tu);
-double seupv2eu(double p, double v, double tu);
-
-double seuth2eu(double t, double h, double tu);
-double seuts2eu(double t, double s, double tu);
-double seutv2eu(double t, double v, double tu);
-
-double seuhs2eu(double h, double s, double tu);
-
-double seupx2eu(double p, double x, double tu);
-double seutx2eu(double t, double x, double tu);
-
 //The Functions for Thermodynamic Process of Steam Turbine
 double seuishd(double pi, double ti, double pe);
 double seuief(double pi, double ti, double pe, double te);
