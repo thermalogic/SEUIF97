@@ -16,3 +16,7 @@ if (MSVC)
 endif()
 add_library(seuif97 SHARED ${SRC_COM}  ${SRC_ALGO} ${SRC_R1} ${SRC_R2} ${SRC_R3} ${SRC_R4} ${SRC_R5})
 
+set(EXE_SOURCES ./demo/demo-c/demo.c)
+add_executable(demoif97 ${EXE_SOURCES})
+target_include_directories(demoif97  PRIVATE  ${PROJECT_SOURCE_DIR}/demo/demo-c/include)
+target_link_libraries(demoif97 PRIVATE seuif97)
