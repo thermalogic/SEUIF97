@@ -8,15 +8,17 @@ SEUIF97 is the high-speed shared library of IAPWS-IF97. It is suitable for compu
  
 Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 3x speed-up compared to the repeated squaring method for fast computation of integer powers, 10x speed-up compared to  the `math.pow()` of the C standard library.   
 
-[The shared  libraries](./SharedLibrary/) for:
+* [The C codes in branch 2.0.0](https://github.com/thermalogic/SEUIF97/tree/2.0.0)
+
+[The shared  libraries](./SharedLibrary/):
 
 * Windows(x86/64): `libseuif97.dll` 
 
 * Linux(x64/aarch64): `libseuif97.so`
 
-[The binding APIs](./api/) for the programming languages:
+[The binding APIs](./api/) of the programming languages:
 
-* Python, C/C++, Rust,Excel VBA, MATLAB, Fortran, Java, C#, Modelica, Pascal
+* Python, C/C++, Rust,Excel VBA, C#, Java, MATLAB, Fortran, Modelica, Pascal
 
 **Publications:**
 
@@ -28,7 +30,7 @@ Through the high-speed library, the results of the IAPWS-IF97 are accurately pro
 
 Functions of water and steam properties, exergy analysis and the thermodynamic process of steam turbine are provided in **SEUIF97**
 
-### Functions of Water and Steam Properties
+### Water and Steam Properties
 
 Using SEUIF97, you can set the state of steam using various pairs of know properties to get any output properties you wish to know, including in the [30 properties in libseuif97](#properties-in-libseuif97).
 
@@ -42,16 +44,16 @@ The following input pairs are implemented:
 (h,s)  
 ```
 
-### Functions of Thermodynamic Process of Steam Turbine
+### Thermodynamic Process of Steam Turbine
    
-*  1 Isentropic Enthalpy Drop：ishd(pi,ti,pe)
+*  1 Isentropic Enthalpy Drop：seuishd(pi,ti,pe)
 
        pi - double,  inlet pressure(MPa); ti - double, inlet temperature(°C)
        pe - double, outlet pressure(MPa)
 
-* 2 Isentropic Efficiency(0~100)： ief(pi,ti,pe,te) (superheated steam zone)
+* 2 Isentropic Efficiency(0~100)： seuief(pi,ti,pe,te) (superheated steam zone)
 
-       pi - double,  inlet pressure(MPa); ti - double,  inlet temperature(°C)
+       pi - double, inlet pressure(MPa);  ti - double, inlet temperature(°C)
        pe - double, outlet pressure(MPa); te - double, outlet temperature(°C)
 
 ## [API](./api)
@@ -64,13 +66,13 @@ The following input pairs are implemented:
 
 * Excel VBA: [seuif97.bas](./demo/ExcelVBA/seuif97.bas)
 
+* C#: [seuif97.cs](./api/seuif97.cs) 
+
 * MATLAB: [seuif97.m](./demo/MATLAB64/seuif97/seuif97.m)
 
 * Java: [seuif97.java](./api/seuif97.java)  
 
 * Fortran: [seuif97.f08](./api/seuif97.f08)  
-
-* C#: [seuif97.cs](./api/seuif97.cs) 
 
 * Modelica: [seuif97.mo](./api/seuif97.mo) 
 
@@ -241,24 +243,29 @@ fn main() {
 
    you may use  [app_template_seuif97.xlsm](./demo/ExcelVBA/app_template_seuif97.xlsm) to start your work .
 
-## [MATLAB(Windows64)](./demo/MATLAB64/)
+## [C#](./demo/demo-csharp)
 
-* Copy the folder `\seuif97` in `MATLAB64` to the path `\extern` of the installed MATLAB
+In C#, using syntax like `h = Seuif97.seupt(p, t, 4)`
 
-   For example,if MATLAB 2018a is installed : `C:\Program Files\MATLAB\R2018a\extern\`
+```csharp
+using System;
+using seuif97;
 
-* Add the path  `C:\Program Files\MATLAB\R2018a\extern\seuif97` to the Search Path of MATLAB
-
-In MATLAB, using syntax like `=pt(p, t, 4)`
-
-```MATLAB
-myfuns = seuif97;
-p=18.0;
-t=535;
-h=myfuns.pt(p,t,4);
-s=myfuns.pt(p,t,5);
-v=myfuns.pt(p,t,3);
-fprintf('(p,t),h,s,v: %.2f,%.2f,%.2f,%.4f,%.4f\n',p,t,h,s,v);
+namespace demo_seuif97
+{
+    class demo_seuif97
+    {
+        static void Main(string[] args)
+        {
+            double p = 16.13;
+            double t = 535.0;
+            double h, s;
+            h = Seuif97.seupt(p, t, 4);
+            s = Seuif97.seupt(p, t, 5);
+            Console.WriteLine("(p,t) h,s {0 :.00} {1:.0} {2:.000} {3:.000}", p, t, h, s);
+       }
+    }
+}
 ```
 
 ## [Java](./demo/demo-java)
@@ -280,6 +287,26 @@ public class demoseuif97 {
 } 
 ```
 
+## [MATLAB(Windows64)](./demo/MATLAB64/)
+
+* Copy the folder `\seuif97` in `MATLAB64` to the path `\extern` of the installed MATLAB
+
+   For example,if MATLAB 2018a is installed : `C:\Program Files\MATLAB\R2018a\extern\`
+
+* Add the path  `C:\Program Files\MATLAB\R2018a\extern\seuif97` to the Search Path of MATLAB
+
+In MATLAB, using syntax like `=pt(p, t, 4)`
+
+```MATLAB
+myfuns = seuif97;
+p=18.0;
+t=535;
+h=myfuns.pt(p,t,4);
+s=myfuns.pt(p,t,5);
+v=myfuns.pt(p,t,3);
+fprintf('(p,t),h,s,v: %.2f,%.2f,%.2f,%.4f,%.4f\n',p,t,h,s,v);
+```
+
 ## [Fortran Using gfortran](./demo/demo-Fortran)
 
 In Fortran, using syntax like `h=seupt(p, t, 4)`
@@ -297,32 +324,6 @@ program demo
   v = seupt(p, t, 3);
   write (*,'(A,F10.2,F10.2,F10.2,F10.4,F10.4)') "(p,t),h,s,v",p,t,h,s,v 
 end program demo
-```
-
-## [C#](./demo/demo-csharp)
-
-In C#, using syntax like `h = Seuif97.seupt(p, t, 4)`
-
-```csharp
-using System;
-using seuif97;
-
-namespace demo_seuif97
-{
-    class demo_seuif97
-    {
-        static void Main(string[] args)
-        {
-            double p = 16.13;
-            double t = 535.0;
-            double h, s, v;
-            h = Seuif97.seupt(p, t, 4);
-            s = Seuif97.seupt(p, t, 5);
-            v = Seuif97.seupt(p, t, 3);
-            Console.WriteLine("(p,t) h,s,v {0 :.00} {1:.0} {2:.000} {3:.000} {4:.000}", p, t, h, s, v);
-       }
-    }
-}
 ```
 
 ## [Modelica](./demo/demo-modelica)
