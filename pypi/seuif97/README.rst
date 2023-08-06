@@ -77,6 +77,9 @@ The two types of functions are provided in the seuif97 package:
   px(pressure,    quality,     propertyID)
   tx(temperature, quality,     propertyID)
 
+  hx(enthalpy, quality,     propertyID)
+  sx(entropy, quality,     propertyID)
+
 - p (pressure) : MPa ;
 
 - t (temperature) : °C

@@ -26,32 +26,15 @@ Option Explicit
     Declare PtrSafe Function seupx Lib "libseuif97" (ByVal p As Double, ByVal x As Double, ByVal OutWhat As Integer) As Double
     Declare PtrSafe Function seutx Lib "libseuif97" (ByVal t As Double, ByVal x As Double, ByVal OutWhat As Integer) As Double
     
+   Declare PtrSafe Function seuhx Lib "libseuif97" (ByVal h As Double, ByVal x As Double, ByVal OutWhat As Integer) As Double
+   Declare PtrSafe Function seusx Lib "libseuif97" (ByVal s As Double, ByVal x As Double, ByVal OutWhat As Integer) As Double
+   
     Declare PtrSafe Function seuhs Lib "libseuif97" (ByVal h As Double, ByVal s As Double, ByVal OutWhat As Integer) As Double
     
     'Thermodynamic Process of Steam Turbine
     Declare PtrSafe Function seuishd Lib "libseuif97" (ByVal pi As Double, ByVal ti As Double, ByVal pe As Double) As Double
     Declare PtrSafe Function seuief Lib "libseuif97" (ByVal pi As Double, ByVal ti As Double, ByVal pe As Double, ByVal te As Double) As Double
     
-    ' Exergy 
-    Declare PtrSafe Function seupt2eu Lib "libseuif97" (ByVal p As Double, ByVal t As Double, ByVal Tu As Double) As Double
-    Declare PtrSafe Function seuph2eu Lib "libseuif97" (ByVal p As Double, ByVal h As Double, ByVal Tu As Double) As Double
-    Declare PtrSafe Function seups2eu Lib "libseuif97" (ByVal p As Double, ByVal s As Double, ByVal Tu As Double) As Double
-    Declare PtrSafe Function seupv2eu Lib "libseuif97" (ByVal p As Double, ByVal v As Double, ByVal Tu As Double) As Double
-    
-    Declare PtrSafe Function seuth2eu Lib "libseuif97" (ByVal t As Double, ByVal h As Double, ByVal Tu As Double) As Double
-    Declare PtrSafe Function seuts2eu Lib "libseuif97" (ByVal t As Double, ByVal s As Double, ByVal Tu As Double) As Double
-    Declare PtrSafe Function seutv2eu Lib "libseuif97" (ByVal t As Double, ByVal v As Double, ByVal Tu As Double) As Double
-    
-    Declare PtrSafe Function seupx2eu Lib "libseuif97" (ByVal p As Double, ByVal x As Double, ByVal Tu As Double) As Double
-    Declare PtrSafe Function seutx2eu Lib "libseuif97" (ByVal t As Double, ByVal x As Double, ByVal Tu As Double) As Double
-    
-    Declare PtrSafe Function seuhs2eu Lib "libseuif97" (ByVal h As Double, ByVal s As Double, ByVal Tu As Double) As Double
-    
-    ' thHi,ThLo
-    Declare PtrSafe Function seuthHi Lib "libseuif97" (ByVal t As Double, ByVal h As Double, ByVal OutWhat As Integer) As Double
-    Declare PtrSafe Function seuthLo Lib "libseuif97" (ByVal t As Double, ByVal h As Double, ByVal OutWhat As Integer) As Double
-    Declare PtrSafe Function seuth2euHi Lib "libseuif97" (ByVal t As Double, ByVal h As Double, ByVal Tu As Double) As Double
-    Declare PtrSafe Function seuth2euLo Lib "libseuif97" (ByVal t As Double, ByVal h As Double, ByVal Tu As Double) As Double
     
 
 #Else
@@ -68,32 +51,14 @@ Option Explicit
     Declare Function seupx Lib "libseuif97" (ByVal p As Double, ByVal x As Double, ByVal OutWhat As Integer) As Double
     Declare Function seutx Lib "libseuif97" (ByVal t As Double, ByVal x As Double, ByVal OutWhat As Integer) As Double
     
+    Declare Function seuhx Lib "libseuif97" (ByVal h As Double, ByVal x As Double, ByVal OutWhat As Integer) As Double
+    Declare Function seusx Lib "libseuif97" (ByVal s As Double, ByVal x As Double, ByVal OutWhat As Integer) As Double
+
     Declare Function seuhs Lib "libseuif97" (ByVal h As Double, ByVal s As Double, ByVal OutWhat As Integer) As Double
     
     'Thermodynamic Process of Steam Turbine
     Declare Function seuishd Lib "libseuif97" (ByVal pi As Double, ByVal ti As Double, ByVal pe As Double) As Double
     Declare Function seuief Lib "libseuif97" (ByVal pi As Double, ByVal ti As Double, ByVal pe As Double, ByVal te As Double) As Double
-    
-    ' Exergy 
-    Declare Function seupt2eu Lib "libseuif97" (ByVal p As Double, ByVal t As Double, ByVal Tu As Double) As Double
-    Declare Function seuph2eu Lib "libseuif97" (ByVal p As Double, ByVal h As Double, ByVal Tu As Double) As Double
-    Declare Function seups2eu Lib "libseuif97" (ByVal p As Double, ByVal s As Double, ByVal Tu As Double) As Double
-    Declare Function seupv2eu Lib "libseuif97" (ByVal p As Double, ByVal v As Double, ByVal Tu As Double) As Double
-    
-    Declare Function seuth2eu Lib "libseuif97" (ByVal t As Double, ByVal h As Double, ByVal Tu As Double) As Double
-    Declare Function seuts2eu Lib "libseuif97" (ByVal t As Double, ByVal s As Double, ByVal Tu As Double) As Double
-    Declare Function seutv2eu Lib "libseuif97" (ByVal t As Double, ByVal v As Double, ByVal Tu As Double) As Double
-    
-    Declare Function seupx2eu Lib "libseuif97" (ByVal p As Double, ByVal x As Double, ByVal Tu As Double) As Double
-    Declare Function seutx2eu Lib "libseuif97" (ByVal t As Double, ByVal x As Double, ByVal Tu As Double) As Double
-    
-    Declare Function seuhs2eu Lib "libseuif97" (ByVal h As Double, ByVal s As Double, ByVal Tu As Double) As Double
-    
-    ' thHi,ThLo
-    Declare Function seuthHi Lib "libseuif97" (ByVal t As Double, ByVal h As Double, ByVal OutWhat As Integer) As Double
-    Declare Function seuthLo Lib "libseuif97" (ByVal t As Double, ByVal h As Double, ByVal OutWhat As Integer) As Double
-    Declare Function seuth2euHi Lib "libseuif97" (ByVal t As Double, ByVal h As Double, ByVal Tu As Double) As Double
-    Declare Function seuth2euLo Lib "libseuif97" (ByVal t As Double, ByVal h As Double, ByVal Tu As Double) As Double
  
 #End If
 
@@ -135,6 +100,14 @@ End Function
 
 Public Function if97tx(ByVal t As Double, ByVal x As Double, ByVal wp As Integer) As Double
    if97tx = seutx(t, x, wp)
+End Function
+
+Public Function if97hx(ByVal h As Double, ByVal x As Double, ByVal wp As Integer) As Double
+   if97hx = seuhx(h, x, wp)
+End Function
+
+Public Function if97sx(ByVal s As Double, ByVal x As Double, ByVal wp As Integer) As Double
+   if97sx = seusx(s, x, wp)
 End Function
 
 

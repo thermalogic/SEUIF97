@@ -31,12 +31,17 @@ namespace seuif97
         [DllImport("libseuif97", CallingConvention = CallingConvention.StdCall)]
         public static extern double seutv(double t, double v, int wid);
         [DllImport("libseuif97", CallingConvention = CallingConvention.StdCall)]
-        public static extern double seuhs(double t, double s, int wid);
+        public static extern double seuhs(double h, double s, int wid);
         [DllImport("libseuif97", CallingConvention = CallingConvention.StdCall)]
         public static extern double seupx(double p, double x, int wid);
         [DllImport("libseuif97", CallingConvention = CallingConvention.StdCall)]
         public static extern double seutx(double t, double x, int wid);
         [DllImport("libseuif97", CallingConvention = CallingConvention.StdCall)]
+        public static extern double seuhx(double h, double x, int wid);
+        [DllImport("libseuif97", CallingConvention = CallingConvention.StdCall)]
+        public static extern double seusx(double s, double x, int wid);
+        [DllImport("libseuif97", CallingConvention = CallingConvention.StdCall)]
+       
         public static extern double seuishd(double pi, double ti, double pe);
         [DllImport("libseuif97", CallingConvention = CallingConvention.StdCall)]
         public static extern double seuief(double pi, double ti, double pe, double te);

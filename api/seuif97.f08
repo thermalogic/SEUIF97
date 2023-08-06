@@ -71,6 +71,18 @@ Interface
         integer(c_int), value ::wid
     end function seutx
 
+    real(c_double) function seuhx(h,x,wid) bind (C,name="seuhx")
+        use iso_c_binding
+        real(c_double), value :: h,x
+        integer(c_int), value ::wid
+    end function seuhx
+
+    real(c_double) function seusx(s,x,wid) bind (C,name="seusx")
+        use iso_c_binding
+        real(c_double), value :: s,x
+        integer(c_int), value ::wid
+    end function seusx
+
     real(c_double) function seuishd(pi,ti,pe) bind (C,name="seuishd")
         use iso_c_binding
         real(c_double), value :: pi,ti,pe

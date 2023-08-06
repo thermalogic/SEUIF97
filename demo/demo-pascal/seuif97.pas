@@ -24,9 +24,12 @@ Interface
   function seupx( p,v:double; param:integer):double;external IF97LIB;
   function seutx( t,x:double; param:integer):double;external IF97LIB;
 
+  function seuhx( h,v:double; param:integer):double;external IF97LIB;
+  function seusx( s,x:double; param:integer):double;external IF97LIB;
+
   function seuhs( p,v:double; param:integer):double;external IF97LIB;
-  function ishd( pi,ti,pe:double):double;external IF97LIB;
-  function ief( pi,ti,pe,te:double):double;external IF97LIB;
+  function seuishd( pi,ti,pe:double):double;external IF97LIB;
+  function seuief( pi,ti,pe,te:double):double;external IF97LIB;
 
 implementation
 

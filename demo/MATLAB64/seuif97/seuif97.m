@@ -35,6 +35,9 @@ funs.hs=@hs;
 funs.px=@px;
 funs.tx=@tx;
 
+funs.hx=@hx;
+funs.sx=@sx;
+
 funs.ishd=@ishd;
 funs.ief=@ief;
 
@@ -78,6 +81,14 @@ end
 
 function f=tx(t,x,wid)
 f=calllib('libseuif97', 'seutx', t,x,wid);
+end
+
+function f=hx(h,x,wid)
+f=calllib('libseuif97', 'seuhx', t,x,wid);
+end
+
+function f=sx(s,x,wid)
+f=calllib('libseuif97', 'seusx', t,x,wid);
 end
 
 function f=ishd(pi,ti,pe)

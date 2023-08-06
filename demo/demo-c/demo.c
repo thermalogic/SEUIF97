@@ -2,13 +2,7 @@
 Add  SEUIF97 the paths of lib and header file to  the  environment variables of GCC/MinGW-W64  :
     1 Windows: C:/Windows/system/libseuif97.dll
     2 Linux: ./usr/lib/libseuif97.so
-    3 ./include/euif97.h
-
-SEUIF97 Library with MSVC:
-    ./lib/libseuif97.lib (the lib:x64)
-
-Build: MSVC：
->cl /Fedemo.exe /Fo./obj/demo.obj demo.c -I./include/  ./lib/libseuif97.lib
+    3 ./include/seuif97.h
 
 Build:
 Windows with MinGW-W64：
@@ -16,7 +10,6 @@ Windows with MinGW-W64：
 
 Linux：
 $gcc -o demo demo.c  -I./include  -L/usr/lib/ -lseuif97 -lm
-
 
 Run:
 ./demo

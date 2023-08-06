@@ -39,6 +39,9 @@ public interface seuif97 extends Library {
     public double seupx(double p, double x, int propertyID);
     public double seutx(double t, double x, int propertyID);
 
+    public double seuhx(double h, double x, int propertyID);
+    public double seusx(double s, double x, int propertyID);
+
     public double seuishd(double pi, double ti, double pe);
     public double seuief(double pi, double ti, double pe, double te);
 }

@@ -4,21 +4,23 @@
 
 [![DOI](https://zenodo.org/badge/110833324.svg)](https://zenodo.org/badge/latestdoi/110833324)
 
-SEUIF97 is the high-speed shared library of IAPWS-IF97. It is suitable for computation-intensive calculations，such as heat cycle calculations, simulations of non-stationary processes, real-time process monitoring and optimizations.   
+SEUIF97 is the high-speed shared library of IAPWS-IF97 in C. It is suitable for computation-intensive calculations，such as heat cycle calculations, simulations of non-stationary processes, real-time process monitoring and optimizations.   
  
-Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 3x speed-up compared to the repeated squaring method for fast computation of integer powers, 10x speed-up compared to  the `math.pow()` of the C standard library.   
+Through the high-speed library, the results of the IAPWS-IF97 are accurately produced several times faster than repeated squaring method and `math.pow()` of the C standard library.   
 
-[The shared  libraries](./SharedLibrary/) for:
+In addition to the source code, the repository provides the compiled shared libraries using GCC and the interfaces to multiple programming languages.
 
-* Windows(x86/64): `libseuif97.dll` 
+*  **The shared libraries**
 
-* Linux(x64/aarch64): `libseuif97.so`
+   * [Windows(x86/64)](./shared_lib/Windows): `libseuif97.dll` 
 
-[The binding APIs](./api/) for the programming languages:
+   * [Linux(x64)](./shared_lib/Linux): `libseuif97.so`
 
-* Python, C/C++, Rust,Excel VBA, MATLAB, Fortran, Java, C#, Modelica, Pascal
+*  **[The API](./api) for the programming languages**
 
-**Publications:**
+    * Python, C/C++, Rust,Excel VBA, MATLAB, C#, Fortran, Java, Modelica, Pascal
+
+**Publications**
 
 * 王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型[J]. 动力工程,2001,21(6)：1564-1567 [[ pdf ]](./doc/水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型.pdf)
 
@@ -26,35 +28,37 @@ Through the high-speed library, the results of the IAPWS-IF97 are accurately pro
  
 ## Functions of the SEUIF97 Shared Library
 
-Functions of water and steam properties, exergy analysis and the thermodynamic process of steam turbine are provided in **SEUIF97**
+Functions of water and steam propertiesand the thermodynamic process of steam turbine are provided in **SEUIF97**
 
-### Functions of Water and Steam Properties
+### Water and Steam Properties
 
 Using SEUIF97, you can set the state of steam using various pairs of know properties to get any output properties you wish to know, including in the [30 properties in libseuif97](#properties-in-libseuif97).
 
-The following input pairs are implemented: 
+The following 12 input pairs are implemented: 
 
 ```
-(p,t) (p,h) (p,s) (p,v) (p,x) 
+(p,t) (p,h) (p,s) (p,v) 
 
-(t,h) (t,s) (t,v) (t,x) 
+(t,h) (t,s) (t,v) 
+
+(p,x) (t,x) (h,x) (s,x) 
 
 (h,s)  
 ```
 
-### Functions of Thermodynamic Process of Steam Turbine
+### Thermodynamic Process of Steam Turbine
    
-*  1 Isentropic Enthalpy Drop：ishd(pi,ti,pe)
+*  1 Isentropic Enthalpy Drop：seuishd(pi,ti,pe)
 
-       pi - double,  inlet pressure(MPa); ti - double, inlet temperature(°C)
+       pi - double, inlet pressure(MPa); ti - double, inlet temperature(°C)
        pe - double, outlet pressure(MPa)
 
-* 2 Isentropic Efficiency(0~100)： ief(pi,ti,pe,te) (superheated steam zone)
+* 2 Isentropic Efficiency(0~100)： seuief(pi,ti,pe,te) (superheated steam zone)
 
-       pi - double,  inlet pressure(MPa); ti - double,  inlet temperature(°C)
+       pi - double, inlet pressure(MPa);  ti - double, inlet temperature(°C)
        pe - double, outlet pressure(MPa); te - double, outlet temperature(°C)
 
-## [API](./api)
+## The API
 
 * Python: [seuif97.py](./api/seuif97.py) 
 
@@ -64,44 +68,44 @@ The following input pairs are implemented:
 
 * Excel VBA: [seuif97.bas](./demo/ExcelVBA/seuif97.bas)
 
+* C#: [seuif97.cs](./api/seuif97.cs) 
+
 * MATLAB: [seuif97.m](./demo/MATLAB64/seuif97/seuif97.m)
 
 * Java: [seuif97.java](./api/seuif97.java)  
 
 * Fortran: [seuif97.f08](./api/seuif97.f08)  
 
-* C#: [seuif97.cs](./api/seuif97.cs) 
-
 * Modelica: [seuif97.mo](./api/seuif97.mo) 
 
 * Pascal: [seuif97.pas](./api/seuif97.pas) 
 
-## Install SEUIF97 Library Manually
+## Install SEUIF97 library manually
 
 Download **SEUIF97.zip** of the repository，then unzip and install the shared library and APIs for different programming languages manually.
 
 Call the shared library from one programming language, you may
 
-1. Put the shared library in the Lib path of OS or the programming language
+1. Put the shared library in the default `Lib` path of OS or the programming language
 
-2. Add the API file of the programming language to its API path
+2. Add the API file of the programming language to its `API` path
 
-### Put the shared library in the Lib path of OS
+### 1. Put the shared library in the default `lib` path of OS
 
 ##### Windows(x86/64) 
   
-copy `libseuif97.dll` in the [Windows/x86](./SharedLibrary/Windows/x86) or [Windows/x64](./SharedLibrary/Windows/x64) folder to a default path of Windows32/64's DLL
+copy `libseuif97.dll` in the [Windows/x86](./shared_lib/Windows/x86) or [Windows/x64](./shared_lib/Windows/x64) folder to a default path of Windows32/64's DLL
       
        C:\Windows\system
    
-##### Linux(x64/aarch64)
+##### Linux(x64)
     
-copy `libseuif97.so` in the [Linux/x64](./SharedLibrary/Linux/x64) or [Linux/aarch64](./SharedLibrary/Linux/aarch64) folder to a default path of Linux shared lib
+copy `libseuif97.so` in the [Linux/x64](./shared_lib/Linux/x64) folder to a default path of Linux shared lib
 
 ```bash
 $sudo cp libseuif97.so /usr/lib/
 ```
-### Put the API file to the API path of programming languages
+### 2. Put the API file to the API path of the programming language
 
 The API paths of different programming languages are also different.  
 
@@ -393,22 +397,8 @@ double seuhs(double enthalpy,    double entropy,  int propertyID);
 
 double seupx(double pressure,    double quality,  int propertyID);
 double seutx(double temperature, double quality,  int propertyID);
-
-//  The Functions of Exergy 
-//    tu: temperature(°C), exergy reference environment
-double seupt2eu(double p, double t, double tu);
-double seups2eu(double p, double s, double tu);
-double seuph2eu(double p, double h, double tu);
-double seupv2eu(double p, double v, double tu);
-
-double seuth2eu(double t, double h, double tu);
-double seuts2eu(double t, double s, double tu);
-double seutv2eu(double t, double v, double tu);
-
-double seuhs2eu(double h, double s, double tu);
-
-double seupx2eu(double p, double x, double tu);
-double seutx2eu(double t, double x, double tu);
+double seuhx(double enthalpy, double quality,  int propertyID);
+double seusx(double entropy, double quality,  int propertyID);
 
 //The Functions for Thermodynamic Process of Steam Turbine
 double seuishd(double pi, double ti, double pe);
@@ -442,7 +432,7 @@ double seuief(double pi, double ti, double pe, double te);
 | Partial derivative (∂V/∂T)p           |  m3/(kg·K)  |(∂V/∂T)p|         19 |
 | Partial derivative (∂V/∂P)T           | m3/(kg·MPa) |(∂V/∂P)T|         20 |
 | Partial derivative (∂p/∂t)v           |    MPa/K    |(∂p/∂t)v|         21 |
-| Isothermal Joule-Thomson coefficient  | kJ/(kg·MPa) |    δt  |         22 |
+| Isothermal throttling coefficient     | kJ/(kg·MPa) |    δt  |         22 |
 | Joule-Thomson coefficient             |    K/MPa    |     μ  |         23 |
 | Dynamic viscosity                     |  kg/(m·s)   |     η  |         24 |
 | Kinematic viscosity                   |    m^2/s    |     ν  |         25 |

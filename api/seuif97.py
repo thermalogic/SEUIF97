@@ -353,6 +353,18 @@ def tx2s(t, x):
     result = f(t, x, 5)
     return result
 
+# --- (h,x) ------------
+def hx(h, x, pid):
+    f = prototype(("seuhx", flib),)
+    result = f(h, x, pid)
+    return result
+
+# --- (h,x) ------------
+def sx(s, x, pid):
+    f = prototype(("seusx", flib),)
+    result = f(s, x, pid)
+    return result
+
 # ----------  Thermodynamic Process of Steam Turbine  ------------
 
 

@@ -25,16 +25,13 @@ from platform import *
 import os
 
 cdll_names = {'Linux': 'libseuif97.so',
-              'aarch64': 'libseuif97_aarch64.so',
               'Windows': 'libseuif97.dll',
               'Windows32': 'libseuif9732.dll'}
 seuif97path = os.path.abspath(os.path.dirname(__file__))
 
 osplat = system()
 if (osplat == 'Linux'):
-    if machine() == "aarch64":
-       flib = cdll.LoadLibrary(seuif97path+'/'+cdll_names["aarch64"])
-    elif  machine() == "x86_64":
+    if  machine() == "x86_64":
        flib = cdll.LoadLibrary(seuif97path+'/'+cdll_names["Linux"])
     prototype = CFUNCTYPE(c_double, c_double, c_double, c_int)
 elif (osplat == 'Windows'):
@@ -366,8 +363,20 @@ def tx2s(t, x):
     result = f(t, x, 5)
     return result
 
-# ---------- Thermodynamic Process of Steam Turbine ------------
 
+# --- (h,x) -------------------
+def hx(h, x, pid):
+    f = prototype(("seuhx", flib),)
+    result = f(h, x, pid)
+    return result
+
+# --- (s,x) -------------------
+def sx(s, x, pid):
+    f = prototype(("seusx", flib),)
+    result = f(s, x, pid)
+    return result
+
+# ---------- Thermodynamic Process of Steam Turbine ------------
 
 def ishd(p1, t1, p2):
     f = flib.seuishd
