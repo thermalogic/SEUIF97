@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="seuif97",
-    version="1.3.0",
+    version="2.0.0",
     author="Cheng Maohua",
     author_email="cmh@seu.edu.cn",
     url="https://github.com/thermalogic/SEUIF97",

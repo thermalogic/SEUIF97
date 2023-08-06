@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5.0)
 
-project(seuif97 VERSION  1.0.0)
+project(seuif97 VERSION  2.0.0)
 
 include_directories(./src/common ./src/algo ./src/r1 ./src/r2 ./src/r3 ./src/r4 ./src/r5 ) 
 

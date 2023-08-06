@@ -25,7 +25,6 @@ INC =-I ./src/common \
 	 -I ./src/r4 \
 	 -I ./src/r5 
 
-
 SRCS= ./src/algo/*.c \
 	  ./src/common/*.c \
 	  ./src/r1/*.c \

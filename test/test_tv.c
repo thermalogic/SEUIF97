@@ -17,9 +17,9 @@ void test_tv_reg1(void)
 
   for (int i = 0; i < 3; i++)
   {
-    double t = r1_pT[i].T-273.15;
+    double t = r1_pT[i].T - 273.15;
     double v = r1_pT[i].v;
-    TEST_ASSERT_EQUAL_FLOAT(r1_pT[i].p, seutv(t, v,OP));
+    TEST_ASSERT_EQUAL_FLOAT(r1_pT[i].p, seutv(t, v, OP));
   }
 }
 
@@ -28,9 +28,9 @@ void test_tv_reg2(void)
 
   for (int i = 0; i < 3; i++)
   {
-    double t = r2_pT[i].T-273.15;
+    double t = r2_pT[i].T - 273.15;
     double v = r2_pT[i].v;
-    TEST_ASSERT_EQUAL_FLOAT(r2_pT[i].p,  seutv(t, v,OP));
+    TEST_ASSERT_EQUAL_FLOAT(r2_pT[i].p, seutv(t, v, OP));
   }
 }
 
@@ -38,9 +38,9 @@ void test_tv_reg3(void)
 {
   for (int i = 0; i < 3; i++)
   {
-    double t = r3_Td[i].T-273.15;
-    double v = 1.0/r3_Td[i].d;
-    TEST_ASSERT_EQUAL_FLOAT(r3_Td[i].p, seutv(t,v,OP));
+    double t = r3_Td[i].T - 273.15;
+    double v = 1.0 / r3_Td[i].d;
+    TEST_ASSERT_EQUAL_FLOAT(r3_Td[i].p, seutv(t, v, OP));
   }
 }
 
@@ -50,7 +50,7 @@ void test_tv_reg4(void)
   double v, t, x;
   for (int i = 0; i < 3; i++)
   {
-    t = r4_pT[1].T-273.15;
+    t = r4_pT[1].T - 273.15;
     x = 0.36;
     v = seutx(t, x, OV);
     TEST_ASSERT_EQUAL_FLOAT(x, seutv(t, v, OX));
@@ -58,7 +58,7 @@ void test_tv_reg4(void)
 
   for (int i = 0; i < 3; i++)
   {
-    t = r4_Tp[1].T-273.15;
+    t = r4_Tp[1].T - 273.15;
     x = 0.36;
     v = seutx(t, x, OV);
     TEST_ASSERT_EQUAL_FLOAT(x, seutv(t, v, OX));
@@ -69,12 +69,11 @@ void test_tv_reg5(void)
 
   for (int i = 0; i < 3; i++)
   {
-    double t = r5_pT[i].T-273.15;
+    double t = r5_pT[i].T - 273.15;
     double v = r5_pT[i].v;
-    TEST_ASSERT_EQUAL_FLOAT(r5_pT[i].p, seutv(t, v,OP));
+    TEST_ASSERT_EQUAL_FLOAT(r5_pT[i].p, seutv(t, v, OP));
   }
 }
-
 
 int main(void)
 {
