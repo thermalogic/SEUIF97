@@ -111,20 +111,20 @@ Please refer to the instructions of different programming languages
 
 ## [SEUIF97 for Python](./demo/demo-python)
 
-### Install from PyPI
+### Install seuif97 1.2.0 from PyPI
 
-* [seuif97 on PyPI](https://pypi.org/project/seuif97/)
+* [seuif97 1.2.0  on PyPI](https://pypi.org/project/seuif97/1.2.0/)
 
 Windows(x86/64)
 
 ```
->python -m pip install seuif97
+>python -m pip install seuif97==1.2.0
 ```
 
 Linux(x64)
 
 ```
-$sudo -H python3 -m pip install seuif97
+$sudo -H python3 -m pip install seuif97==1.2.0
 ```
 
 ### Install manually
