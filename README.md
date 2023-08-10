@@ -8,7 +8,7 @@ SEUIF97 is the high-speed shared library of IAPWS-IF97. It is suitable for compu
  
 Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 3x speed-up compared to the repeated squaring method for fast computation of integer powers, 10x speed-up compared to  the `math.pow()` of the C standard library.   
 
-* [The C codes in branch 2.0.0](https://github.com/thermalogic/SEUIF97/tree/2.0.0)
+* [The C codes in branch c_src](https://github.com/thermalogic/SEUIF97/tree/c_src)
 
 [The shared  libraries](./SharedLibrary/):
 
