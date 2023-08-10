@@ -32,7 +32,7 @@ Functions of water and steam properties, exergy analysis and the thermodynamic p
 
 ### Water and Steam Properties
 
-Using SEUIF97, you can set the state of steam using various pairs of know properties to get any output properties you wish to know, including in the [30 properties in libseuif97](#properties-in-libseuif97).
+Using SEUIF97, you can set the state of steam using various pairs of know properties to get any output properties you wish to know, including in the [30 properties in libseuif97](#properties).
 
 The following input pairs are implemented: 
 
@@ -158,7 +158,7 @@ The two type functions are provided in the seuif97 pacakge:
 
 * ??(in1,in2,propertyID), , e.g:`h=pt(p,t,4)`, the propertyID h is 4 
    * first,second input parameters: the input properties(double)
-   * third input parameter: the propertyID of the calculated property(int, 0-29), see Properties in libseuif97
+   * third input parameter: the propertyID of the calculated property(int, 0-29), see [Properties](#properties)
    * the return: the calculated property value(double)
 
 ```python
