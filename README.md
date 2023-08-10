@@ -113,37 +113,19 @@ The API paths of different programming languages are also different.
 
 Please refer to the instructions of different programming languages
 
-## [SEUIF97 for Python](./demo/demo-python)
-
-### Install from PyPI
-
-* [seuif97 on PyPI](https://pypi.org/project/seuif97/)
-
-Windows(x86/64)
-
-```
->python -m pip install seuif97
-```
-
-Linux(x64)
-
-```
-$sudo -H python3 -m pip install seuif97
-```
-
-### Install manually
+## [Python](./demo/demo-python)
 
 Put the shared library in the default path of OS's Lib as the instructions above.
 
 Then,copy **seuif97.py** in the [api](./api) folder to a default path of Python's lib.
 
-#### Windows(x86/64) 
+**Windows(x86/64)** 
 
 If you have installed Python3.8 in the C:\Python38\, copy to
     
        C:\Python38\Lib 
 
-#### Linux(x64/aarch64) 
+**Linux(x64/aarch64)**
 
 If you have installed Python3.8 
 
@@ -151,9 +133,9 @@ If you have installed Python3.8
 $sudo cp seuif97.py /usr/lib/python3.8/
 ```
 
-### Usage
+**Functions**
 
-The two type functions are provided in the seuif97 pacakge:
+The two type functions are provided in the  [seuif97.py](./api/seuif97.py):
 
 * ??2?(in1,in2) , e.g: `h=pt2h(p,t)`
   
