@@ -8,7 +8,7 @@ SEUIF97 is the high-speed shared library of IAPWS-IF97. It is suitable for compu
  
 Through the high-speed library, the results of the IAPWS-IF97 are accurately produced at about 3x speed-up compared to the repeated squaring method for fast computation of integer powers, 10x speed-up compared to  the `math.pow()` of the C standard library.   
 
-* [The C codes in branch c_src](https://github.com/thermalogic/SEUIF97/tree/c_src)
+* [The C source codes](https://github.com/thermalogic/SEUIF97/tree/c_src)
 
 [The shared  libraries](./SharedLibrary/):
 
@@ -111,20 +111,20 @@ Please refer to the instructions of different programming languages
 
 ## [SEUIF97 for Python](./demo/demo-python)
 
-### Install seuif97 1.2.0 from PyPI
+### Install seuif97 from PyPI
 
-* [seuif97 1.2.0  on PyPI](https://pypi.org/project/seuif97/1.2.0/)
+* [seuif97 on PyPI](https://pypi.org/project/seuif97)
 
 Windows(x86/64)
 
 ```
->python -m pip install seuif97==1.2.0
+>python -m pip install seuif97
 ```
 
 Linux(x64)
 
 ```
-$sudo -H python3 -m pip install seuif97==1.2.0
+$sudo -H python3 -m pip install seuif97
 ```
 
 ### Install manually
