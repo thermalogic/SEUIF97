@@ -83,11 +83,11 @@ The following 12 input pairs are implemented:
 Use the shared library from one programming language, you may
 
 1. Put the shared library in the default `Lib` path of OS or the programming language
-   * **Windows(x86/64)** :
-      copy `libseuif97.dll` in the [Windows/x86](./shared_lib/Windows/x86) or [Windows/x64](./shared_lib/Windows/x64) folder to a default path of Windows32/64's DLL :  `C:\Windows\System`
+   * **Windows(x86/64)** 
+     * copy `libseuif97.dll` in the [Windows/x86](./shared_lib/Windows/x86) or [Windows/x64](./shared_lib/Windows/x64) folder to a default path of Windows32/64's DLL:  `C:\Windows\System`
    
-   * **Linux(x64)**
-    copy `libseuif97.so` in the [Linux/x64](./shared_lib/Linux/x64) folder to a default path of Linux shared lib : `/usr/lib`/
+   * **Linux(x64)** 
+     * copy `libseuif97.so` in the [Linux/x64](./shared_lib/Linux/x64) folder to a default path of Linux shared lib : `/usr/lib`/
    
 2. Add the API file of the programming language to its `API` path
 

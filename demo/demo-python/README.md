@@ -20,7 +20,7 @@ If you have installed Python3.8
 $sudo cp seuif97.py /usr/lib/python3.8/
 ```
 
-## Function
+## Functions
 
 The two type functions are provided in the  [seuif97.py](../../api/seuif97.py):
 
