@@ -1,5 +1,7 @@
 # SEUIF97
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8242452.svg)](https://doi.org/10.5281/zenodo.8242452)
+
 The SEUIF97 version is the high-speed shared library of IAPWS-IF97 in C. It is suitable for computation-intensive calculations，such as heat cycle calculations, simulations of non-stationary processes, real-time process monitoring and optimizations.   
  
 Through the high-speed library, the results of the IAPWS-IF97 are accurately produced several times faster than repeated squaring method and `math.pow()` of the C standard library.   
@@ -177,3 +179,6 @@ double seuief(double pi, double ti, double pe, double te);
 | Prandtl number                        |             |     Pr |         28 |
 | Surface tension                       |    mN/m     |     σ  |         29 |
 
+## Cite as
+
+* Cheng Maohua. (2023). The high-speed IAPWS-IF97 C implementation of SEUIF97 (1.2.0). Zenodo. https://doi.org/10.5281/zenodo.8242452
