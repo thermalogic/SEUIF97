@@ -99,7 +99,7 @@ The examples using the shared library
 
 * [C/C++](./demo/demo-c)  
 
-* [Python](./demo/python)  
+* [Python](./demo/demo-python)  
 
 * [Excel VBA(32/64)](./demo/ExcelVBA)
 
