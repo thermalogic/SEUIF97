@@ -27,9 +27,10 @@ plt.ylim(0, 4300)
 plt.grid()
 
 Pt = 611.657e-6
-# Isotherm lines to plot, values in ºC
+
 isot = np.array([0, 50, 100, 200, 300, 400, 500, 600, 700, 800])
 isop = np.array([Pt, 0.001, 0.01, 0.1, 1, 10, 20, 50, 100])
+# Isotherm lines to plot, values in ºC
 for t in isot:
     h = np.array([pt2h(p, t) for p in isop])
     s = np.array([pt2s(p, t) for p in isop])
