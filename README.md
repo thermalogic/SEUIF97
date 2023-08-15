@@ -14,9 +14,9 @@ Through the high-speed library, the results of the IAPWS-IF97 are accurately pro
 
 In addition to the source code, the repository provides 
 
-* the compiled shared libraries using GCC in [./shared_lib/](./shared_lib/)
+* the compiled shared libraries using GCC: [/shared_lib/](./shared_lib/)
 
-* the interfaces and examples of multiple programming languages in  [./demo/](./demo):
+* the interfaces and examples of multiple programming languages:  [/demo/](./demo)
 
    *  C/C++, Python, C#, Java, Excel VBA, MATLAB, Fortran, Rust, Pascal, Modelica 
 
