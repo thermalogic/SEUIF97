@@ -24,6 +24,21 @@ In addition to the source code, the repository provides the compiled shared libr
 
 * 芮嘉敏,孙振业,程懋华. 基于最短加法链状态空间树的IAPWS-IF97快速计算方法[J]. 汽轮机技术,2017,59(4):245-247 [[ pdf ]](./doc/基于最短加法链状态空间树的IAPWS-IF97快速计算方法.pdf)
  
+## Building the shared library
+
+* make
+
+```bash
+make
+```
+
+* cmake
+
+```bash
+cmake -B ./build/   
+cmake --build ./build/ --config Release
+```
+
 ## Functions of the SEUIF97 Shared Library
 
 Functions of water and steam propertiesand the thermodynamic process of steam turbine are provided in **SEUIF97**
