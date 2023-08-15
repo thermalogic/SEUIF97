@@ -9,7 +9,7 @@ Through the high-speed library, the results of the IAPWS-IF97 are accurately pro
 **The Fast Methods**
 
 * the shortest addition chain algorithm computes the integer power of a number quickly
-* apply Horner's rule to compute a set of powers and avoid compute the power of same exponential once again
+* apply Horner's rule to compute a set of powers and avoid calculate the power of same exponential once again
 * the recursive method computes the value of multiple polynomials to avoid calculate the same item once again
 
 In addition to the source code, the repository provides the compiled shared libraries using GCC and the interfaces to multiple programming languages.
