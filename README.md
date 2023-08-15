@@ -12,17 +12,13 @@ Through the high-speed library, the results of the IAPWS-IF97 are accurately pro
 * apply Horner's rule to compute a set of powers and avoid calculate the power of same exponential once again
 * the recursive method computes the value of multiple polynomials to avoid calculate the same item once again
 
-In addition to the source code, the repository provides the compiled shared libraries using GCC and the interfaces to multiple programming languages.
+In addition to the source code, the repository provides 
 
-*  **The shared libraries**
+* the compiled shared libraries using GCC in [./shared_lib/](./shared_lib/)
 
-   * [Windows(x86/64)](./shared_lib/Windows): `libseuif97.dll` 
+* the interfaces and examples of multiple programming languages in  [./demo/](./demo):
 
-   * [Linux(x64)](./shared_lib/Linux): `libseuif97.so`
-
-*  **The [API](./api) for the programming languages**
-
-    * Python, C/C++, Excel VBA, C#, Java,MATLAB,Fortran, Rust, Modelica, Pascal
+   *  C/C++, Python, C#, Java, Excel VBA, MATLAB, Fortran, Rust, Pascal, Modelica 
 
 ## Building the shared library
 
@@ -38,6 +34,12 @@ make
 cmake -B ./build/   
 cmake --build ./build/ --config Release
 ```
+
+**The compiled shared libraries  using GCC**
+
+* [Windows(x86/64)](./shared_lib/Windows): `libseuif97.dll` 
+
+* [Linux(x64)](./shared_lib/Linux): `libseuif97.so`
 
 ## Functions of the SEUIF97 Shared Library
 
@@ -108,30 +110,6 @@ double seuishd(double pi, double ti, double pe);
 double seuief(double pi, double ti, double pe, double te);
 ```
 
-## The API
-
-* C/C++:  [seuif97.h](./api/seuif97.h) 
-
-* Python: [seuif97.py](./api/seuif97.py) 
-
-* Excel VBA: [seuif97.bas](./demo/ExcelVBA/seuif97.bas)
-
-* C#: [seuif97.cs](./api/seuif97.cs) 
-
-* Java: [seuif97.java](./api/seuif97.java)  
-
-* MATLAB: [seuif97.m](./demo/MATLAB64/seuif97/seuif97.m)
-
-* Rust: [seuif97.rs](./api/seuif97.rs) 
-
-* Fortran: [seuif97.f08](./api/seuif97.f08)  
-
-* Modelica: [seuif97.mo](./api/seuif97.mo) 
-
-* Pascal: [seuif97.pas](./api/seuif97.pas) 
-
-You can modify these APIs provided in the repository to your own APIs.
-
 ## Install SEUIF97 
 
 Use the shared library from one programming language, you may
@@ -147,9 +125,35 @@ Use the shared library from one programming language, you may
 
    * The API paths of different programming languages are different,please refer to the [Examples](./demo/) of different programming languages
 
-## Examples
+## Interfaces and Examples
 
-The examples using the shared library
+* [./demo/](./demo)
+
+**The Interfaces**
+
+* C/C++:  [seuif97.h](./demo/demo-c/include/seuif97.h) 
+
+* Python: [seuif97.py](./demo/demo-python/seuif97.py) 
+
+* C#: [seuif97.cs](./demo/demo-csharp/seuif97.cs) 
+
+* Java: [seuif97.java](./demo/demo-java/seuif97.java)  
+
+* Excel VBA: [seuif97.bas](./demo/ExcelVBA/seuif97.bas)
+
+* MATLAB: [seuif97.m](./demo/MATLAB64/seuif97/seuif97.m)
+
+* Fortran: [seuif97.f08](./demo/demo-fortran/seuif97.f08)  
+
+* Rust: [seuif97.rs](./demo/demo-rust/src/seuif97.rs) 
+
+* Pascal: [seuif97.pas](./demo/demo-pascal/seuif97.pas) 
+
+* Modelica: [seuif97.mo](./demo/demo-modelica/demomodelica/seuif97.mo) 
+
+You can modify these interfaces provided in the repository to your own APIs.
+
+**Examples**
 
 * [C/C++](./demo/demo-c)  
 
