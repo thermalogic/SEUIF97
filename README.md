@@ -129,52 +129,20 @@ Use the shared library from one programming language, you may
 
 * [./demo/](./demo)
 
-**The Interfaces**
-
-* C/C++:  [seuif97.h](./demo/demo-c/include/seuif97.h) 
-
-* Python: [seuif97.py](./demo/demo-python/seuif97.py) 
-
-* C#: [seuif97.cs](./demo/demo-csharp/seuif97.cs) 
-
-* Java: [seuif97.java](./demo/demo-java/seuif97.java)  
-
-* Excel VBA: [seuif97.bas](./demo/ExcelVBA/seuif97.bas)
-
-* MATLAB: [seuif97.m](./demo/MATLAB64/seuif97/seuif97.m)
-
-* Fortran: [seuif97.f08](./demo/demo-fortran/seuif97.f08)  
-
-* Rust: [seuif97.rs](./demo/demo-rust/src/seuif97.rs) 
-
-* Pascal: [seuif97.pas](./demo/demo-pascal/seuif97.pas) 
-
-* Modelica: [seuif97.mo](./demo/demo-modelica/demomodelica/seuif97.mo) 
+|  Language                           |    Interface                                     | 
+|:-----------------------------------:|:-------------------------------------------------|
+| [C/C++](./demo/demo-c)              |  [seuif97.h](./demo/demo-c/include/seuif97.h)    |
+| [Python](./demo/demo-python)        |  [seuif97.py](./demo/demo-python/seuif97.py)     |
+| [C#](./demo/demo-csharp)            |  [seuif97.cs](./demo/demo-csharp/seuif97.cs)     |
+| [Excel VBA](./demo/ExcelVBA)        |  [seuif97.bas](./demo/ExcelVBA/seuif97.bas)      |
+| [Java](./demo/demo-java)            |  [seuif97.java](./demo/demo-java/seuif97.java)   |
+| [MATLAB64](./demo/MATLAB64)         |  [seuif97.m](./demo/MATLAB64/seuif97/seuif97.m)  |
+| [Rust](./demo/demo-rust)            |  [seuif97.rs](./demo/demo-rust/src/seuif97.rs)   |
+| [Fortran](./demo/demo-Fortran)      |  [seuif97.f08](./demo/demo-fortran/seuif97.f08)  |
+| [Pascal](./demo/demo-pascal)        |  [seuif97.pas](./demo/demo-pascal/seuif97.pas)   |
+| [Modelica](./demo/demo-modelica)    |  [seuif97.mo](./demo/demo-modelica/demomodelica/seuif97.mo) |
 
 You can modify these interfaces provided in the repository to your own APIs.
-
-**Examples**
-
-* [C/C++](./demo/demo-c)  
-
-* [Python](./demo/demo-python)  
-
-* [Excel VBA(32/64)](./demo/ExcelVBA)
-
-* [C#](./demo/demo-csharp)
-
-* [Java](./demo/demo-java)
-
-* [Rust](./demo/demo-rust)
-
-* [MATLAB64](./demo/MATLAB64)
-
-* [Fortran](./demo/demo-Fortran)
-
-* [Modelica](./demo/demo-modelica)
-
-* [Pascal](./demo/demo-pascal)
-
 
 ## Properties 
 
