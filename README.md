@@ -6,6 +6,12 @@ This is the C implementation of the high-speed IAPWS-IF97 package **seuif97**. I
  
 Through the high-speed library, the results of the IAPWS-IF97 are accurately produced several times faster than repeated squaring method and `math.pow()` of the C standard library.   
 
+**The Fast Methods**
+
+* the shortest addition chain algorithm computes the integer power of a number quickly
+* apply Horner's rule to avoid compute the power of same exponential once again
+* the recursive method computes the value of multiple polynomials to avoid calculate the same item once again
+
 In addition to the source code, the repository provides the compiled shared libraries using GCC and the interfaces to multiple programming languages.
 
 *  **The shared libraries**
@@ -18,12 +24,6 @@ In addition to the source code, the repository provides the compiled shared libr
 
     * Python, C/C++, Excel VBA, C#, Java,MATLAB,Fortran, Rust, Modelica, Pascal
 
-**Publications**
-
-* 王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型[J]. 动力工程,2001,21(6)：1564-1567 [[ pdf ]](./doc/水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型.pdf)
-
-* 芮嘉敏,孙振业,程懋华. 基于最短加法链状态空间树的IAPWS-IF97快速计算方法[J]. 汽轮机技术,2017,59(4):245-247 [[ pdf ]](./doc/基于最短加法链状态空间树的IAPWS-IF97快速计算方法.pdf)
- 
 ## Building the shared library
 
 * make
@@ -41,11 +41,11 @@ cmake --build ./build/ --config Release
 
 ## Functions of the SEUIF97 Shared Library
 
-Functions of water and steam propertiesand the thermodynamic process of steam turbine are provided in **SEUIF97**
+Functions of water and steam propertiesand the thermodynamic process of steam turbine are provided in the **SEUIF97**
 
-### Water and Steam Properties
+**Water and Steam Properties**
 
-Using SEUIF97, you can set the state of steam using various pairs of know properties to get any output properties you wish to know, including in the [30 properties in libseuif97](#properties-in-libseuif97).
+Using the SEUIF97, you can set the state of steam using various pairs of know properties to get any output properties you wish to know, including in the [30 properties in libseuif97](#properties-in-libseuif97).
 
 The following 12 input pairs are implemented: 
 
@@ -59,17 +59,54 @@ The following 12 input pairs are implemented:
 (h,s)  
 ```
 
-### Thermodynamic Process of Steam Turbine
+The type of propertry functions are provided in the package
+
+```c 
+  ??(in1,in2,o_id)
+```
+
+* the first,second input parameters : the input propertry pairs
+* the third input parametes: the property ID of the calculated property - [o_id](#properties)
+* the return: the calculated property value of `o_id`
+
+**Thermodynamic Process of Steam Turbine**
    
-*  1 Isentropic Enthalpy Drop：seuishd(pi,ti,pe)
+* Isentropic Enthalpy Drop：seuishd(pi,ti,pe)
 
-       pi - double, inlet pressure(MPa); ti - double, inlet temperature(°C)
-       pe - double, outlet pressure(MPa)
-
-* 2 Isentropic Efficiency(0~100)： seuief(pi,ti,pe,te) (superheated steam zone)
-
+  ```txt
+    pi - double, inlet pressure(MPa); ti - double, inlet temperature(°C)
+    pe - double, outlet pressure(MPa)
+  ```
+*  Isentropic Efficiency(0~100)： seuief(pi,ti,pe,te) (superheated steam zone)
+   ```txt
        pi - double, inlet pressure(MPa);  ti - double, inlet temperature(°C)
        pe - double, outlet pressure(MPa); te - double, outlet temperature(°C)
+   ```
+
+**The Function Prototype in C**
+
+```c
+// Functions of Properties
+double seupt(double p, double t, int o_id);
+double seuph(double p, double h, int o_id);
+double seups(double p, double s, int o_id);
+double seupv(double p, double v, int o_id);
+
+double seuth(double t, double h, int o_id);
+double seuts(double t, double s, int o_id);
+double seutv(double t, double v,  int o_id);
+
+double seuhs(double h, double s,  int o_id);
+
+double seupx(double p, double x,  int o_id);
+double seutx(double t, double x,  int o_id);
+double seuhx(double h, double x,  int o_id);
+double seusx(double s, double x,  int o_id);
+
+//The Functions for Thermodynamic Process of Steam Turbine
+double seuishd(double pi, double ti, double pe);
+double seuief(double pi, double ti, double pe, double te);
+```
 
 ## The API
 
@@ -92,6 +129,8 @@ The following 12 input pairs are implemented:
 * Modelica: [seuif97.mo](./api/seuif97.mo) 
 
 * Pascal: [seuif97.pas](./api/seuif97.pas) 
+
+You can modify these APIs provided in the repository to your own APIs.
 
 ## Install SEUIF97 
 
@@ -132,36 +171,10 @@ The examples using the shared library
 
 * [Pascal](./demo/demo-pascal)
 
-## The Function Prototypes in C
-
-If you need to modify the APIs provided in the repository or program your own APIs, you can refer to the library's header file: [seuif97.h](./api/seuif97.h). 
-
-```c
-// Functions of Properties
-double seupt(double p, double t, int propertyID);
-double seuph(double p, double h, int propertyID);
-double seups(double p, double s, int propertyID);
-double seupv(double p, double v, int propertyID);
-
-double seuth(double t, double h, int propertyID);
-double seuts(double t, double s, int propertyID);
-double seutv(double t, double v,  int propertyID);
-
-double seuhs(double h, double s,  int propertyID);
-
-double seupx(double p, double x,  int propertyID);
-double seutx(double t, double x,  int propertyID);
-double seuhx(double h, double x,  int propertyID);
-double seusx(double s, double x,  int propertyID);
-
-//The Functions for Thermodynamic Process of Steam Turbine
-double seuishd(double pi, double ti, double pe);
-double seuief(double pi, double ti, double pe, double te);
-```
 
 ## Properties 
 
-| Propertry                             |    Unit     | Symbol | propertryID |
+| Propertry                             |    Unit     | Symbol | o_id       |
 | ------------------------------------- | :---------: |:-----: |:---------: |
 | Pressure                              |     MPa     |      p |          0 |
 | Temperature                           |     °C      |      t |          1 |
@@ -193,6 +206,13 @@ double seuief(double pi, double ti, double pe, double te);
 | Thermal diffusivity                   |   um^2/s    |     a  |         27 |
 | Prandtl number                        |             |     Pr |         28 |
 | Surface tension                       |    mN/m     |     σ  |         29 |
+
+## Publications
+
+* 王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型[J]. 动力工程,2001,21(6)：1564-1567 [[ pdf ]](./doc/水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型.pdf)
+
+* 芮嘉敏,孙振业,程懋华. 基于最短加法链状态空间树的IAPWS-IF97快速计算方法[J]. 汽轮机技术,2017,59(4):245-247 [[ pdf ]](./doc/基于最短加法链状态空间树的IAPWS-IF97快速计算方法.pdf)
+ 
 
 ## Cite as
 
