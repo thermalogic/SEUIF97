@@ -12,40 +12,40 @@ void setUp(void) {}
 
 void tearDown(void) {}
 
-void test_seupvreg1(void)
+void test_pv_reg1(void)
 {
 
   for (int i = 0; i < 3; i++)
   {
     double p = r1_pT[i].p;
     double v = r1_pT[i].v;
-    TEST_ASSERT_EQUAL_FLOAT(r1_pT[i].T-273.15 ,seupv(p, v,OT));
+    TEST_ASSERT_EQUAL_FLOAT(r1_pT[i].T - 273.15, pv(p, v, OT));
   }
 }
 
-void test_seupvreg2(void)
+void test_pv_reg2(void)
 {
 
   for (int i = 0; i < 3; i++)
   {
     double p = r2_pT[i].p;
     double v = r2_pT[i].v;
-    TEST_ASSERT_EQUAL_FLOAT(r2_pT[i].T-273.15, seupv(p, v,OT));
+    TEST_ASSERT_EQUAL_FLOAT(r2_pT[i].T - 273.15, pv(p, v, OT));
   }
 }
 
-void test_seupvreg3(void)
+void test_pv_reg3(void)
 {
 
   for (int i = 0; i < 3; i++)
   {
     double p = r3_Td[i].p;
     double v = 1.0 / r3_Td[i].d;
-    TEST_ASSERT_EQUAL_FLOAT(r3_Td[i].T-273.15, seupv(p, v,OT));
+    TEST_ASSERT_EQUAL_FLOAT(r3_Td[i].T - 273.15, pv(p, v, OT));
   }
 }
 
-void test_seupvreg4(void)
+void test_pv_reg4(void)
 {
   double p, v, x;
   for (int i = 0; i < 3; i++)
@@ -53,7 +53,7 @@ void test_seupvreg4(void)
     double p = r4_pT[1].p;
     x = 0.36;
     v = px(p, x, OV);
-    TEST_ASSERT_EQUAL_FLOAT(x, seupv(p, v, OX));
+    TEST_ASSERT_EQUAL_FLOAT(x, pv(p, v, OX));
   }
 
   for (int i = 0; i < 3; i++)
@@ -61,28 +61,28 @@ void test_seupvreg4(void)
     p = r4_Tp[1].p;
     x = 0.36;
     v = px(p, x, OV);
-    TEST_ASSERT_EQUAL_FLOAT(x, seupv(p, v, OX));
+    TEST_ASSERT_EQUAL_FLOAT(x, pv(p, v, OX));
   }
 }
 
-void test_seupvreg5(void)
+void test_pv_reg5(void)
 {
 
   for (int i = 0; i < 3; i++)
   {
     double p = r5_pT[i].p;
     double v = r5_pT[i].v;
-    TEST_ASSERT_EQUAL_FLOAT(r5_pT[i].T-273.15, seupv(p, v,OT));
+    TEST_ASSERT_EQUAL_FLOAT(r5_pT[i].T - 273.15, pv(p, v, OT));
   }
 }
 
 int main(void)
 {
   UNITY_BEGIN();
-  RUN_TEST(test_seupvreg1);
-  RUN_TEST(test_seupvreg2);
-  RUN_TEST(test_seupvreg3);
-  RUN_TEST(test_seupvreg4);
-  RUN_TEST(test_seupvreg5);
+  RUN_TEST(test_pv_reg1);
+  RUN_TEST(test_pv_reg2);
+  RUN_TEST(test_pv_reg3);
+  RUN_TEST(test_pv_reg4);
+  RUN_TEST(test_pv_reg5);
   return UNITY_END();
 }

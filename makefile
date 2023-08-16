@@ -11,8 +11,9 @@ endif
 
 CFLAGS=-O3
 
-# __stdcall for Windows VBA
-CFLAGS=-O3 -DBUILD_DLL
+# __stdcall for Windows VBA X64
+#CFLAGS=-O3 -DBUILD_DLL
+# __stdcall for Windows VBA X86
 #CFLAGS=-O3 -DBUILD_DLL -m32
 
 CC=gcc
@@ -37,6 +38,19 @@ all: $(LIBNAME)
 
 $(LIBNAME): $(SRCS) 
 	$(CC) -shared -o $@ -fPIC $(CFLAGS) $^  $(INC) $(LIBFLAGES)
+
+tests:
+	$(MAKE) -C ./test/ FILE=test_hs.c
+	$(MAKE) -C ./test/ FILE=test_hxsx.c
+	$(MAKE) -C ./test/ FILE=test_ph.c
+	$(MAKE) -C ./test/ FILE=test_ps.c
+	$(MAKE) -C ./test/ FILE=test_pv.c
+	$(MAKE) -C ./test/ FILE=test_pt.c
+	$(MAKE) -C ./test/ FILE=test_th.c
+	$(MAKE) -C ./test/ FILE=test_ts.c
+	$(MAKE) -C ./test/ FILE=test_tv.c
+	
+	
 	
 
  

@@ -68,14 +68,14 @@ Turbine::Turbine(double pin, double tin, double pex, double tex)
 
 void Turbine::analysis(void)
 {
-    ef = seuief(win.p, win.t, wex.p, wex.t);
-    his = seuishd(win.p, win.t, wex.p);
+    ef = ief(win.p, win.t, wex.p, wex.t);
+    his = ishd(win.p, win.t, wex.p);
 
-    win.h = seupt(win.p, win.t, 4);
-    win.s = seupt(win.p, win.t, 5);
+    win.h =pt(win.p, win.t, 4);
+    win.s =pt(win.p, win.t, 5);
 
-    wex.h = seupt(wex.p, wex.t, 4);
-    wex.s = seupt(wex.p, wex.t, 5);
+    wex.h =pt(wex.p, wex.t, 4);
+    wex.s =pt(wex.p, wex.t, 5);
 };
 
 void Turbine::output(void)
@@ -91,11 +91,11 @@ void Turbine::expansionline(void)
 
     // 1 Isobar pin
     double s_isopin[2] = {win.s - sdelta, win.s + sdelta};
-    double h_isopin[2] = {seups(win.p, s_isopin[0], 4), seups(win.p, s_isopin[1], 4)};
+    double h_isopin[2] = {ps(win.p, s_isopin[0], 4), ps(win.p, s_isopin[1], 4)};
 
     // 2 Isobar pex
     double s_isopex[2] = {s_isopin[0], wex.s + sdelta};
-    double h_isopex[2] = {seups(wex.p, s_isopex[0], 4), seups(wex.p, s_isopex[1], 4)};
+    double h_isopex[2] = {ps(wex.p, s_isopex[0], 4), ps(wex.p, s_isopex[1], 4)};
 
     // 3 isentropic lines
     double h_isos[2] = {win.h, win.h - his};

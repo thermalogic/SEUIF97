@@ -28,9 +28,9 @@ public class demoseuif97 {
         double p=16.0;
         double t=540.0;
         double h;
-        h=seuif97.INSTANCE.seupt(p,t,4);
+        h=seuif97.INSTANCE.pt(p,t,4);
         System.out.printf("(p,t)->h: (%.1f %.1f) h: %.2f\n",p,t,h);
-        t=seuif97.INSTANCE.seuph(p,h,1);
+        t=seuif97.INSTANCE.ph(p,h,1);
         System.out.printf("(p,h)->t: (%.1f %.2f) t: %.2f ",p,h,t);
    }
 }

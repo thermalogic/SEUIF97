@@ -6,7 +6,7 @@ function pt
     input Real t;
     input Integer w;
     output Real result;
-external"C" result = seupt(
+external"C" result = pt(
         p,
         t,
         w);

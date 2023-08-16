@@ -1,2 +1,6 @@
 /demo/demo-python/__pycache__
+/build
 *.exe
+*.class
+*.o
+*.mod

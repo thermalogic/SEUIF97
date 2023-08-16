@@ -11,87 +11,87 @@
 module seuif97
 implicit none
 Interface
-    real(c_double) function seupt(p,t,wid) bind (C,name="seupt")
+    real(c_double) function pt(p,t,wid) bind (C,name="pt")
         use iso_c_binding
         real(c_double), value :: p,t
          integer(c_int), value ::wid
-    end function seupt 
+    end function pt 
 
-    real(c_double) function seuph(p,h,wid) bind (C,name="seuph")
+    real(c_double) function ph(p,h,wid) bind (C,name="ph")
         use iso_c_binding
         real(c_double), value :: p,h 
         integer(c_int), value ::wid
-    end function seuph 
+    end function ph 
 
-    real(c_double) function seups(p,s,wid) bind (C,name="seups")
+    real(c_double) function ps(p,s,wid) bind (C,name="ps")
         use iso_c_binding
         real(c_double), value :: p,s
         integer(c_int), value ::wid
-    end function seups 
+    end function ps 
 
-    real(c_double) function seupv(p,v,wid) bind (C,name="seupv")
+    real(c_double) function pv(p,v,wid) bind (C,name="pv")
         use iso_c_binding
         real(c_double), value :: p,v
         integer(c_int), value ::wid
-    end function seupv
+    end function pv
 
-    real(c_double) function seuth(t,h,wid) bind (C,name="seuth")
+    real(c_double) function th(t,h,wid) bind (C,name="th")
         use iso_c_binding
         real(c_double), value :: t,h 
         integer(c_int), value ::wid
-    end function seuth 
+    end function th 
 
-    real(c_double) function seuts(t,s,wid) bind (C,name="seuts")
+    real(c_double) function ts(t,s,wid) bind (C,name="ts")
         use iso_c_binding
         real(c_double), value :: t,s
         integer(c_int), value ::wid
-    end function seuts 
+    end function ts 
 
-    real(c_double) function seutv(t,v,wid) bind (C,name="seutv")
+    real(c_double) function tv(t,v,wid) bind (C,name="tv")
         use iso_c_binding
         real(c_double), value :: t,v
         integer(c_int), value ::wid
-    end function seutv
+    end function tv
 
-    real(c_double) function seuhs(h,s,wid) bind (C,name="seuhs")
+    real(c_double) function hs(h,s,wid) bind (C,name="hs")
         use iso_c_binding
         real(c_double), value :: h,s
         integer(c_int), value ::wid
-    end function seuhs 
+    end function hs 
 
-    real(c_double) function seupx(p,x,wid) bind (C,name="seupx")
+    real(c_double) function px(p,x,wid) bind (C,name="px")
         use iso_c_binding
         real(c_double), value :: p,x
         integer(c_int), value ::wid
-    end function seupx
+    end function px
 
-    real(c_double) function seutx(t,x,wid) bind (C,name="seutx")
+    real(c_double) function tx(t,x,wid) bind (C,name="tx")
         use iso_c_binding
         real(c_double), value :: t,x
         integer(c_int), value ::wid
-    end function seutx
+    end function tx
 
-    real(c_double) function seuhx(h,x,wid) bind (C,name="seuhx")
+    real(c_double) function hx(h,x,wid) bind (C,name="hx")
         use iso_c_binding
         real(c_double), value :: h,x
         integer(c_int), value ::wid
-    end function seuhx
+    end function hx
 
-    real(c_double) function seusx(s,x,wid) bind (C,name="seusx")
+    real(c_double) function sx(s,x,wid) bind (C,name="sx")
         use iso_c_binding
         real(c_double), value :: s,x
         integer(c_int), value ::wid
-    end function seusx
+    end function sx
 
-    real(c_double) function seuishd(pi,ti,pe) bind (C,name="seuishd")
+    real(c_double) function ishd(pi,ti,pe) bind (C,name="ishd")
         use iso_c_binding
         real(c_double), value :: pi,ti,pe
-    end function seuishd
+    end function ishd
 
-    real(c_double) function seuief(pi,ti,pe,te) bind (C,name="seuief")
+    real(c_double) function ief(pi,ti,pe,te) bind (C,name="ief")
         use iso_c_binding
         real(c_double), value :: pi,ti,pe,te
-    end function seuief
+    end function ief
 
 End Interface
 

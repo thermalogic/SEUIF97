@@ -6,13 +6,16 @@ Add  SEUIF97 the paths of lib and header file to  the  environment variables of 
 
 Build:
 Windows with MinGW-W64：
->gcc -o demo.exe demo.c -I./include  -LC:/Windows/system/  -lseuif97
+   gcc -o demo.exe demo.c -I./include  -LC:/Windows/system/  -lseuif97
 
 Linux：
-$gcc -o demo demo.c  -I./include  -L/usr/lib/ -lseuif97 -lm
+   gcc -o demo demo.c  -I./include  -L/usr/lib/ -lseuif97 -lm
 
 Run:
 ./demo
+
+Windows  MSVC: seuif97.dll
+   cl /Fedemo.exe /Fo./obj/demo.obj demo.c -I./include/  ./lib/seuif97.lib
 
 Author: Cheng Maohua
 */
@@ -28,9 +31,9 @@ int main(void)
     double t = 535;
     double h, s, v;
 
-    h = seupt(p, t, 4);
-    s = seupt(p, t, 5);
-    v = seupt(p, t, 3);
+    h = pt(p, t, 4);
+    s = pt(p, t, 5);
+    v = pt(p, t, 3);
     printf("(p,t)(%.2f,%.2f) h= %.2f, s= %.4f, v= %.4f\n", p, t, h, s, v);
     return EXIT_SUCCESS;
 }

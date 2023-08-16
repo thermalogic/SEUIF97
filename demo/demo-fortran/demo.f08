@@ -8,11 +8,11 @@
 ! Build：
 ! Windows with MinGW-W64
 !  >gfortran -fno-underscoring -c seuif97.f08 -LC:/Windows/system/ -lseuif97
-!  >gfortran -fno-underscoring -o demo demo_fortran_module.f08 -LC:/Windows/system/ -lseuif97
+!  >gfortran -fno-underscoring -o demo demo.f08 -LC:/Windows/system/ -lseuif97
 !
 ! Linux：
 !  $gfortran  -fno-underscoring -c seuif97.f08 -L/usr/lib/ -lseuif97 -lm
-!  $gfortran  -fno-underscoring -o demo demo_fortran_module.f08 seuif97.f08 -L/usr/lib/ -lseuif97 -lm
+!  $gfortran  -fno-underscoring -o demo demo.f08 seuif97.f08 -L/usr/lib/ -lseuif97 -lm
 !
 ! Run:
 ! ./demo
@@ -31,24 +31,24 @@ program demo
   p = 16.13;
   t = 535.0;
 
-  h = seupt(p, t, 4);
-  s = seupt(p, t, 5);
-  v = seupt(p, t, 3);
+  h = pt(p, t, 4);
+  s = pt(p, t, 5);
+  v = pt(p, t, 3);
   write (*,'(A,F10.2,F10.2,F10.2,F10.4,F10.4)') "(p,t),h,s,v",p,t,h,s,v 
 
-  t = seuph(p, h, 1);
-  s = seuph(p, h, 5);
-  v = seuph(p, h, 3);
+  t = ph(p, h, 1);
+  s = ph(p, h, 5);
+  v = ph(p, h, 3);
   write (*,'(A,F10.2,F10.2,F10.2,F10.4,F10.4)') "(p,h),t,s,v",p,h,t,s,v 
 
-  t = seups(p, s, 1);
-  h = seups(p, s, 4);
-  v = seups(p, s, 3);
+  t = ps(p, s, 1);
+  h = ps(p, s, 4);
+  v = ps(p, s, 3);
   write (*,'(A,F10.2,F10.2,F10.2,F10.4,F10.4)') "(p,s),t,h,v",p,s,t,h,v 
 
-  p = seuth(t, h, 0);
-  s = seuth(t, h, 5);
-  v = seuth(t, h, 3);
+  p = th(t, h, 0);
+  s = th(t, h, 5);
+  v = th(t, h, 3);
   write (*,'(A,F10.2,F10.2,F10.2,F10.4,F10.4)') "(t,h),p,s,v",t,h,p,s,v 
 
 end program demo

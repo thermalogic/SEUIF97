@@ -19,7 +19,7 @@
 
 function funs = seuif97
 if ~libisloaded('libseuif97')
-   loadlibrary('libseuif97.dll','seuif97.h')
+   loadlibrary('libseuif97.dll','if97.h')
 end
 funs.pt=@pt;
 funs.ph=@ph;
@@ -44,59 +44,59 @@ funs.ief=@ief;
 end
 
 function f=pt(p,t,wid)
-f=calllib('libseuif97', 'seupt', p,t,wid);
+f=calllib('libseuif97', 'pt', p,t,wid);
 end
 
 function f=ph(p,h,wid)
-f=calllib('libseuif97', 'seuph', p,h,wid);
+f=calllib('libseuif97', 'ph', p,h,wid);
 end
 
 function f=ps(p,s,wid)
-f=calllib('libseuif97', 'seups', p,s,wid);
+f=calllib('libseuif97', 'ps', p,s,wid);
 end
 
 function f=pv(p,v,wid)
-f=calllib('libseuif97', 'seuph', p,v,wid);
+f=calllib('libseuif97', 'ph', p,v,wid);
 end
 
 function f=th(t,h,wid)
-f=calllib('libseuif97', 'seuth', t,h,wid);
+f=calllib('libseuif97', 'th', t,h,wid);
 end
 
 function f=ts(t,s,wid)
-f=calllib('libseuif97', 'seuts', t,s,wid);
+f=calllib('libseuif97', 'ts', t,s,wid);
 end
 
 function f=tv(t,v,wid)
-f=calllib('libseuif97', 'seuth', t,v,wid);
+f=calllib('libseuif97', 'th', t,v,wid);
 end
 
 function f=hs(h,s,wid)
-f=calllib('libseuif97', 'seuhs', h,s,wid);
+f=calllib('libseuif97', 'hs', h,s,wid);
 end
 
 function f=px(p,x,wid)
-f=calllib('libseuif97', 'seupx', p,x,wid);
+f=calllib('libseuif97', 'px', p,x,wid);
 end
 
 function f=tx(t,x,wid)
-f=calllib('libseuif97', 'seutx', t,x,wid);
+f=calllib('libseuif97', 'tx', t,x,wid);
 end
 
 function f=hx(h,x,wid)
-f=calllib('libseuif97', 'seuhx', t,x,wid);
+f=calllib('libseuif97', 'hx', t,x,wid);
 end
 
 function f=sx(s,x,wid)
-f=calllib('libseuif97', 'seusx', t,x,wid);
+f=calllib('libseuif97', 'sx', t,x,wid);
 end
 
 function f=ishd(pi,ti,pe)
-f=calllib('libseuif97', 'seuishd', pi,ti,pe);
+f=calllib('libseuif97', 'ishd', pi,ti,pe);
 end
 
 function f=ief(pi,ti,pe,te)
-f=calllib('libseuif97', 'seuief', pi,ti,pe,te);
+f=calllib('libseuif97', 'ief', pi,ti,pe,te);
 end
 
 

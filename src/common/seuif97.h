@@ -28,39 +28,25 @@ extern "C"
 #endif
 #endif
 
-    IF97_DLL double seupt(double p, double t, int o_id);
-    IF97_DLL double seuph(double p, double h, int o_id);
-    IF97_DLL double seups(double p, double s, int o_id);
-    IF97_DLL double seupv(double p, double v, int o_id);
-    IF97_DLL double seuth(double t, double h, int o_id);
+    IF97_DLL double pt(double p, double t, int o_id);
+    IF97_DLL double ph(double p, double h, int o_id);
+    IF97_DLL double ps(double p, double s, int o_id);
+    IF97_DLL double pv(double p, double v, int o_id);
+    IF97_DLL double th(double t, double h, int o_id);
 
-    IF97_DLL double seuts(double t, double s, int o_id);
-    IF97_DLL double seutv(double t, double v, int o_id);
-    IF97_DLL double seuhs(double h, double s, int o_id);
-    IF97_DLL double seupx(double p, double x, int o_id);
-    IF97_DLL double seutx(double t, double x, int o_id);
+    IF97_DLL double ts(double t, double s, int o_id);
+    IF97_DLL double tv(double t, double v, int o_id);
+    IF97_DLL double hs(double h, double s, int o_id);
+    IF97_DLL double px(double p, double x, int o_id);
+    IF97_DLL double tx(double t, double x, int o_id);
     //
-    IF97_DLL double seuhx(double h, double x, int o_id);
-    IF97_DLL double seusx(double s, double x, int o_id);
+    IF97_DLL double hx(double h, double x, int o_id);
+    IF97_DLL double sx(double s, double x, int o_id);
 
     //  Functions of Thermodynamic Process
-    IF97_DLL double seuishd(double pi, double ti, double pe);
-    IF97_DLL double seuief(double pi, double ti, double pe, double te);
-
-    // -------------------------------
-    IF97_DLL double seupt2eu(double p, double t, double tu);
-    IF97_DLL double seups2eu(double p, double s, double tu);
-    IF97_DLL double seuph2eu(double p, double h, double tu);
-    IF97_DLL double seupv2eu(double p, double v, double tu);
-    IF97_DLL double seuth2eu(double t, double h, double tu);
-
-    IF97_DLL double seuts2eu(double t, double s, double tu);
-    IF97_DLL double seutv2eu(double t, double v, double tu);
-
-    IF97_DLL double seuhs2eu(double h, double s, double tu);
-    IF97_DLL double seupx2eu(double p, double x, double tu);
-    IF97_DLL double seutx2eu(double t, double x, double tu);
-
+    IF97_DLL double ishd(double pi, double ti, double pe);
+    IF97_DLL double ief(double pi, double ti, double pe, double te);
+ 
 #ifdef __cplusplus
 }
 #endif

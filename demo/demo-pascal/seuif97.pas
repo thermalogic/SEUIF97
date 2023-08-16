@@ -12,24 +12,25 @@ Interface
   const IF97DV=24;   const IF97KV=25;   const IF97TC=26;   const IF97TD=27;
   const IF97PR=28; const IF97ST=29;
 
-  function seupt( p,t:double; param:integer):double;external IF97LIB;// Windows stdcall : stdcall;external IF97LIB;
-  function seuph( p,h:double; param:integer):double;external IF97LIB;
-  function seups( p,s:double; param:integer):double;external IF97LIB;
-  function seupv( p,v:double; param:integer):double;external IF97LIB;
+  function pt( p,t:double; param:integer):double;external IF97LIB;// Windows stdcall : stdcall;external IF97LIB;
+  function ph( p,h:double; param:integer):double;external IF97LIB;
+  function ps( p,s:double; param:integer):double;external IF97LIB;
+  function pv( p,v:double; param:integer):double;external IF97LIB;
 
-  function seuth( t,h:double; param:integer):double;external IF97LIB;
-  function seuts( t,s:double; param:integer):double;external IF97LIB;
-  function seutv( t,v:double; param:integer):double;external IF97LIB;
+  function th( t,h:double; param:integer):double;external IF97LIB;
+  function ts( t,s:double; param:integer):double;external IF97LIB;
+  function tv( t,v:double; param:integer):double;external IF97LIB;
 
-  function seupx( p,v:double; param:integer):double;external IF97LIB;
-  function seutx( t,x:double; param:integer):double;external IF97LIB;
+  function px( p,v:double; param:integer):double;external IF97LIB;
+  function tx( t,x:double; param:integer):double;external IF97LIB;
 
-  function seuhx( h,v:double; param:integer):double;external IF97LIB;
-  function seusx( s,x:double; param:integer):double;external IF97LIB;
+  function hx( h,v:double; param:integer):double;external IF97LIB;
+  function sx( s,x:double; param:integer):double;external IF97LIB;
 
-  function seuhs( p,v:double; param:integer):double;external IF97LIB;
-  function seuishd( pi,ti,pe:double):double;external IF97LIB;
-  function seuief( pi,ti,pe,te:double):double;external IF97LIB;
+  function hs( p,v:double; param:integer):double;external IF97LIB;
+  
+  function ishd( pi,ti,pe:double):double;external IF97LIB;
+  function ief( pi,ti,pe,te:double):double;external IF97LIB;
 
 implementation
 

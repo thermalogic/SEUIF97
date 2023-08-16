@@ -19,7 +19,7 @@ void test_th_reg1(void)
   {
     double t = r1_pT[i].T-273.15;
     double h = r1_pT[i].h;
-    TEST_ASSERT_EQUAL_FLOAT(r1_pT[i].p, seuth(t,h,OP));
+    TEST_ASSERT_EQUAL_FLOAT(r1_pT[i].p, th(t,h,OP));
   }
 }
 
@@ -30,7 +30,7 @@ void test_th_reg2(void)
   {
     double t = r2_pT[i].T-273.15;
     double h = r2_pT[i].h;
-    TEST_ASSERT_FLOAT_WITHIN(1.0e-3, r2_pT[i].p, seuth(t,h,OP));
+    TEST_ASSERT_FLOAT_WITHIN(1.0e-3, r2_pT[i].p, th(t,h,OP));
   }
 }
 
@@ -41,7 +41,7 @@ void test_th_reg3(void)
   {
     double t = r3_Td[i].T-273.15;
     double h = r3_Td[i].h;
-    TEST_ASSERT_FLOAT_WITHIN(1.0e-6, r3_Td[i].d, seuth(t,h,OD));
+    TEST_ASSERT_FLOAT_WITHIN(1.0e-6, r3_Td[i].d, th(t,h,OD));
   }
 }
 
@@ -53,16 +53,16 @@ void test_th_reg4(void)
   {
     t = r4_pT[1].T-273.15;
     x = 0.36;
-    h = seutx(t, x, OH);
-    TEST_ASSERT_EQUAL_FLOAT(x, seuth(t, h, OX));
+    h = tx(t, x, OH);
+    TEST_ASSERT_EQUAL_FLOAT(x, th(t, h, OX));
   }
 
   for (int i = 0; i < 3; i++)
   {
     t = r4_Tp[1].T-273.15;
     x = 0.36;
-    h = seutx(t, x, OH);
-    TEST_ASSERT_EQUAL_FLOAT(x, seuth(t, h, OX));
+    h = tx(t, x, OH);
+    TEST_ASSERT_EQUAL_FLOAT(x, th(t, h, OX));
   }
 }
 
@@ -73,7 +73,7 @@ void test_th_reg5(void)
   {
     double t = r5_pT[i].T-273.15;
     double h = r5_pT[i].h;
-    TEST_ASSERT_FLOAT_WITHIN(1.0e-3, r5_pT[i].p, seuth(t,h,OP));
+    TEST_ASSERT_FLOAT_WITHIN(1.0e-3, r5_pT[i].p, th(t,h,OP));
   }
 }
 

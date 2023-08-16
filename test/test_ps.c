@@ -13,7 +13,7 @@ void test_ps_reg1(void)
   {
     double p = r1_psT[i].p;
     double s = r1_psT[i].s;
-    TEST_ASSERT_FLOAT_WITHIN(1.0e-1,r1_psT[i].T - 273.15, seups(p, s, OT));
+    TEST_ASSERT_FLOAT_WITHIN(1.0e-1,r1_psT[i].T - 273.15, ps(p, s, OT));
   }
 }
 
@@ -26,13 +26,13 @@ void test_ps_reg2(void)
 
     double p = r2a_psT[i].p;
     double s = r2a_psT[i].s;
-    TEST_ASSERT_EQUAL_FLOAT(r2a_psT[i].T - 273.15, seups(p, s, OT));
+    TEST_ASSERT_EQUAL_FLOAT(r2a_psT[i].T - 273.15, ps(p, s, OT));
     p = r2b_psT[i].p;
     s = r2b_psT[i].s;
-    TEST_ASSERT_EQUAL_FLOAT(r2b_psT[i].T - 273.15, seups(p, s, OT));
+    TEST_ASSERT_EQUAL_FLOAT(r2b_psT[i].T - 273.15, ps(p, s, OT));
     p = r2c_psT[i].p;
     s = r2c_psT[i].s;
-    TEST_ASSERT_EQUAL_FLOAT(r2c_psT[i].T - 273.15, seups(p, s, OT));
+    TEST_ASSERT_EQUAL_FLOAT(r2c_psT[i].T - 273.15, ps(p, s, OT));
   }
 }
 
@@ -44,12 +44,12 @@ void test_ps_reg3(void)
   {
     p = r3a_psTv[i].p;
     s = r3a_psTv[i].s;
-    TEST_ASSERT_EQUAL_FLOAT(r3a_psTv[i].T - 273.15, seups(p, s, OT));
-    TEST_ASSERT_EQUAL_FLOAT(r3a_psTv[i].v, seups(p, s, OV));
+    TEST_ASSERT_EQUAL_FLOAT(r3a_psTv[i].T - 273.15, ps(p, s, OT));
+    TEST_ASSERT_EQUAL_FLOAT(r3a_psTv[i].v, ps(p, s, OV));
     p = r3b_psTv[i].p;
     s = r3b_psTv[i].s;
-    TEST_ASSERT_EQUAL_FLOAT(r3b_psTv[i].T - 273.15, seups(p, s, OT));
-    TEST_ASSERT_EQUAL_FLOAT(r3b_psTv[i].v, seups(p, s, OV));
+    TEST_ASSERT_EQUAL_FLOAT(r3b_psTv[i].T - 273.15, ps(p, s, OT));
+    TEST_ASSERT_EQUAL_FLOAT(r3b_psTv[i].v, ps(p, s, OV));
   }
 }
 
@@ -61,16 +61,16 @@ void test_ps_reg4(void)
   {
     double p = r4_pT[i].p;
     x = 0.35;
-    s = seupx(p, x, OS);
-    TEST_ASSERT_EQUAL_FLOAT(x, seups(p, s, OX));
+    s = px(p, x, OS);
+    TEST_ASSERT_EQUAL_FLOAT(x, ps(p, s, OX));
   }
 
   for (int i = 0; i < 3; i++)
   {
     p = r4_Tp[1].p;
     x = 0.36;
-    s = seupx(p, x, OS);
-    TEST_ASSERT_EQUAL_FLOAT(x, seups(p, s, OX));
+    s = px(p, x, OS);
+    TEST_ASSERT_EQUAL_FLOAT(x, ps(p, s, OX));
   }
 }
 
@@ -80,7 +80,7 @@ void test_ps_reg5(void)
   {
     double p = r5_pT[i].p;
     double s = r5_pT[i].s;
-    TEST_ASSERT_EQUAL_FLOAT(r5_pT[i].T - 273.15, seups(p, s, OT));
+    TEST_ASSERT_EQUAL_FLOAT(r5_pT[i].T - 273.15, ps(p, s, OT));
   }
 }
 

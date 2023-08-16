@@ -14,8 +14,8 @@ void test_hx(void)
   for (int i = 0; i < 3; i++)
   {
     t = r4_Tp[i].T - 273.15;
-    h = seutx(t, x, OH);
-    TEST_ASSERT_FLOAT_WITHIN(1.0e-1, t, seuhx(h, x, OT));
+    h = tx(t, x, OH);
+    TEST_ASSERT_FLOAT_WITHIN(1.0e-1, t, hx(h, x, OT));
   }
 }
 
@@ -26,8 +26,8 @@ void test_sx(void)
   for (int i = 0; i < 3; i++)
   {
     t = r4_Tp[i].T - 273.15;
-    s = seutx(t, x, OS);
-    TEST_ASSERT_FLOAT_WITHIN(1.0e-1, t, seusx(s, x, OT));
+    s = tx(t, x, OS);
+    TEST_ASSERT_FLOAT_WITHIN(1.0e-1, t, sx(s, x, OT));
   }
 }
 

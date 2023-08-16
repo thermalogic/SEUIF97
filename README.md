@@ -73,41 +73,41 @@ The type of propertry functions are provided in the package
 
 **Thermodynamic Process of Steam Turbine**
    
-* Isentropic Enthalpy Drop：seuishd(pi,ti,pe)
+* Isentropic Enthalpy Drop：ishd(pi,ti,pe)
 
   ```txt
-    pi - double, inlet pressure(MPa); ti - double, inlet temperature(°C)
-    pe - double, outlet pressure(MPa)
+    pi - inlet pressure(MPa); ti -inlet temperature(°C)
+    pe - outlet pressure(MPa)
   ```
-*  Isentropic Efficiency(0~100)： seuief(pi,ti,pe,te) (superheated steam zone)
+*  Isentropic Efficiency(0~100)： ief(pi,ti,pe,te) (superheated steam zone)
    ```txt
-       pi - double, inlet pressure(MPa);  ti - double, inlet temperature(°C)
-       pe - double, outlet pressure(MPa); te - double, outlet temperature(°C)
+       pi - inlet pressure(MPa);  ti - inlet temperature(°C)
+       pe - outlet pressure(MPa); te - outlet temperature(°C)
    ```
 
 **The Function Prototype in C**
 
 ```c
 // Functions of Properties
-double seupt(double p, double t, int o_id);
-double seuph(double p, double h, int o_id);
-double seups(double p, double s, int o_id);
-double seupv(double p, double v, int o_id);
+double pt(double p, double t, int o_id);
+double ph(double p, double h, int o_id);
+double ps(double p, double s, int o_id);
+double pv(double p, double v, int o_id);
 
-double seuth(double t, double h, int o_id);
-double seuts(double t, double s, int o_id);
-double seutv(double t, double v,  int o_id);
+double th(double t, double h, int o_id);
+double ts(double t, double s, int o_id);
+double tv(double t, double v,  int o_id);
 
-double seuhs(double h, double s,  int o_id);
+double hs(double h, double s,  int o_id);
 
-double seupx(double p, double x,  int o_id);
-double seutx(double t, double x,  int o_id);
-double seuhx(double h, double x,  int o_id);
-double seusx(double s, double x,  int o_id);
+double px(double p, double x,  int o_id);
+double tx(double t, double x,  int o_id);
+double hx(double h, double x,  int o_id);
+double sx(double s, double x,  int o_id);
 
 //The Functions for Thermodynamic Process of Steam Turbine
-double seuishd(double pi, double ti, double pe);
-double seuief(double pi, double ti, double pe, double te);
+double ishd(double pi, double ti, double pe);
+double ief(double pi, double ti, double pe, double te);
 ```
 
 ## Install SEUIF97 
