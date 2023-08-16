@@ -54,6 +54,12 @@ print("(p,h),t,s,v:",
       "{:>.2f}\t {:>.2f}\t {:>.2f}\t {:>.3f}\t {:>.4f}".format(p, h, t, s, v))  
 ```
 
-#### [Diagram T-S](./Diagram_T-S.py)
+#### Diagram Examples 
+
+* [Diagram T-S](./Diagram_T-S.py)
 
 ![Diagram T-S](./img/T-S.jpg)
+
+* [H-S(Mollier) Diagram of Steam Turbine Expansion](./Turbine_H-S.py)
+
+![turbine_expansion_line](./img/turbine_expansion_line.jpg)
