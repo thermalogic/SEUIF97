@@ -7,7 +7,7 @@
    * Linux `./usr/lib/libseuif97.so`
 2. header file: `./include/seuif97.h`
 
-## Build and Run the Demo
+## Examples
 
 * [demo.c](./demo.c)
 

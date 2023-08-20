@@ -3,30 +3,27 @@
 
   using Gnuplot
 
-  Add  SEUIF97 the paths of lib and header file to  the  environment variables of GCC/MinGW-W64  :
+  seuif97's lib and header file
     1 Windows: libseuif97.dll
     2 Linux:  libseuif97.so
     3 seuif97.h
 
  4 lines:
-
     1  Isobar line:p inlet
     2  Isobar line:p outlet
     3  isentropic line:  (p inlet ,t inlet h inlet,s inlet), (p outlet,s inlet)
     4  Expansion line: inlet,outlet
 
-Build:
+Build using GCC:
 
- Windows：
->g++ -o turbine Turbine_H-S.cpp -LC:/Windows/system/ -lseuif97 -I./include
+Windows：
+  g++ -o turbine Turbine_H-S.cpp -LC:/Windows/system/ -lseuif97 -I./include
 
 Linux：
-$g++ -o turbine Turbine_H-S.cpp -L/usr/lib  -lseuif97 -lm   -I./include
+  g++ -o turbine Turbine_H-S.cpp -L/usr/lib  -lseuif97 -lm   -I./include
 
 Run:
 ./turbine
-
-License: this code is in the public domain
 
 Author:   Cheng Maohua
 Email:    cmh@seu.edu.cn

@@ -144,6 +144,21 @@ Use the shared library from one programming language, you may
 
 You can modify these interfaces provided in the repository to your own APIs.
 
+**The Selected Examples**
+
+**Python**
+
+* [T-S Diagram](./demo/demo-python/Diagram_T-S.py)
+
+* [H-S Diagram](./demo/demo-python/Diagram_H-S.py)
+
+* [H-S Diagram of Steam Turbine Expansion](./demo/demo-python/Turbine_H-S.py)
+
+**C++**
+
+* [H-S Diagram of Steam Turbine Expansion](./demo/demo-c/Turbine_H-S.cpp)
+
+
 ## Properties 
 
 | Propertry                             |    Unit     | Symbol | o_id       |
