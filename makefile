@@ -14,7 +14,7 @@ CFLAGS=-O3
 # __stdcall for Windows VBA X64
 #CFLAGS=-O3 -DBUILD_DLL
 # __stdcall for Windows VBA X86
-CFLAGS=-O3 -DBUILD_DLL -m32
+#CFLAGS=-O3 -DBUILD_DLL -m32
 
 CC=gcc
 
