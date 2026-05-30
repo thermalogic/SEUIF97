@@ -1,0 +1,79 @@
+name: Build Shared Libraries
+
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for manual trigger'
+        required: false
+        default: 'Manual build triggered'
+        type: string
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y gcc make cmake
+
+    - name: Build with Makefile
+      run: |
+        make clean
+        make
+        ls -la bin/
+
+    - name: Build with CMake
+      run: |
+        mkdir -p build-cmake
+        cd build-cmake
+        cmake ..
+        make
+        ls -la bin/
+
+    - name: Upload Linux artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: linux-shared-lib
+        path: |
+          bin/libseuif97.so
+
+  build-windows:
+    runs-on: windows-2022
+    strategy:
+      matrix:
+        toolchain: [mingw, msvc]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup MinGW
+      if: matrix.toolchain == 'mingw'
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: x64
+
+    - name: Build with MinGW
+      if: matrix.toolchain == 'mingw'
+      run: |
+        mingw32-make clean
+        mingw32-make
+        dir bin\
+
+    - name: Build with MSVC
+      if: matrix.toolchain == 'msvc'
+      run: |
+        mkdir -p build-cmake
+        cd build-cmake
+        cmake .. -G "Visual Studio 17 2022" -A x64
+        cmake --build . --config Release
+        copy bin\Release\seuif97.dll bin\seuif97_msvc.dll
+
+    - name: Upload Windows artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: windows-shared-lib-${{ matrix.toolchain }}
+        path: |
+          bin/libseuif97.dll
+          bin/seuif97_msvc.dll
