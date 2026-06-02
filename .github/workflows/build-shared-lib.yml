@@ -1,0 +1,123 @@
+name: Build Shared Libraries
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g., v1.2.0)'
+        required: true
+        type: string
+
+jobs:
+  build-linux:
+    name: Linux x64
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y cmake build-essential
+
+      - name: Build shared library
+        run: |
+          mkdir -p build && cd build
+          cmake ..
+          make
+
+      - name: Rename shared library
+        run: |
+          mkdir -p artifacts
+          cp build/libseuif97.so artifacts/libseuif97-linux-x64.so
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: seuif97-linux-x64
+          path: artifacts/libseuif97-linux-x64.so
+
+  build-windows:
+    name: Windows x64
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Build shared library
+        run: |
+          mkdir build
+          cd build
+          cmake -G "NMake Makefiles" ..
+          nmake
+
+      - name: Rename shared library
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path artifacts
+          Copy-Item build/seuif97.dll artifacts/seuif97-windows-x64.dll
+          Copy-Item build/seuif97.lib artifacts/seuif97-windows-x64.lib
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: seuif97-windows-x64
+          path: artifacts/
+
+  build-macos:
+    name: macOS x64
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: brew install cmake
+
+      - name: Build shared library
+        run: |
+          mkdir -p build && cd build
+          cmake ..
+          make
+
+      - name: Rename shared library
+        run: |
+          mkdir -p artifacts
+          cp build/libseuif97.dylib artifacts/libseuif97-macos-x64.dylib
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: seuif97-macos-x64
+          path: artifacts/libseuif97-macos-x64.dylib
+
+  release:
+    name: Publish Release
+    needs: [build-linux, build-windows, build-macos]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: release-assets
+
+      - name: Display structure
+        run: find release-assets -type f
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.version }}
+          name: Release ${{ github.event.inputs.version }}
+          files: |
+            release-assets/**/*.so
+            release-assets/**/*.dll
+            release-assets/**/*.lib
+            release-assets/**/*.dylib
+          generate_release_notes: true
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

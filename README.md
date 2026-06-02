@@ -1,7 +1,9 @@
 # SEUIF97
 
-![PyPI](https://img.shields.io/pypi/v/seuif97) [![Downloads](https://static.pepy.tech/badge/seuif97)](https://pepy.tech/project/seuif97) [![Downloads](https://static.pepy.tech/badge/seuif97/month)](https://pepy.tech/project/seuif97)[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8242452.svg)](https://doi.org/10.5281/zenodo.8242452)
+![PyPI](https://img.shields.io/pypi/v/seuif97) [![Downloads](https://static.pepy.tech/badge/seuif97)](https://pepy.tech/project/seuif97) [![Downloads](https://static.pepy.tech/badge/seuif97/month)](https://pepy.tech/project/seuif97)
 
+ **Note:** A new **Rust version** is available with **2-3× speedup**, **36 properties** (vs 30), and multi-platform pre-built binaries (Windows/Linux/macOS). See [RustSEUIF97](https://github.com/thermalogic/RustSEUIF97).
+ 
 This is the C implementation of the high-speed IAPWS-IF97 package **SEUIF97**. It is suitable for computation-intensive calculations, such as the simulation of non-stationary processes, on-line process monitoring and optimizations.
  
 Through the high-speed library, IAPWS-IF97 results are generated with high accuracy and at speeds significantly faster than the **repeated squaring method** or the standard C library's `math.pow()`
@@ -188,8 +190,4 @@ You can modify the provided interfaces to match your own API needs.
 * 王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型[J]. 动力工程,2001,21(6)：1564-1567 [[ pdf ]](./doc/水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型.pdf)
 
 * 芮嘉敏,孙振业,程懋华. 基于最短加法链状态空间树的IAPWS-IF97快速计算方法[J]. 汽轮机技术,2017,59(4):245-247 [[ pdf ]](./doc/基于最短加法链状态空间树的IAPWS-IF97快速计算方法.pdf)
- 
 
-## Cite as
-
-* Cheng Maohua. (2023). The C implementation of the high-speed IAPWS-IF97 package: SEUIF97 (1.2.0). Zenodo. https://doi.org/10.5281/zenodo.8242452
