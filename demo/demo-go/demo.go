@@ -1,6 +1,7 @@
 // cgo LDFLAGS:
 //    Linux:  -L/usr/lib/ -lseuif97 -lm
 //    Windows: -LC:/Windows/system -llibseuif97
+// go build -o demo.exe demo.go
 package main
 /*
 #cgo LDFLAGS: -LC:/Windows/system -llibseuif97
