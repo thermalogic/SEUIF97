@@ -167,7 +167,7 @@ Each region subdirectory contains:
 - `regionX_pT_ext.c`: pT extended properties (derivatives, transport properties, etc.)
 - `regionX_p_hs.c`: Inverse equations (p, h), (p, s), (h, s)
 - `regionX_T_phps.c`: Temperature inverse equations T(p, h), T(p, s)
-- `regionX_pair.ext.c`: Extended property pair dispatcher
+- `regionX_pair_ext.c`: Extended property pair dispatcher
 
 ---
 

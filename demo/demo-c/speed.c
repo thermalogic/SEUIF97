@@ -10,8 +10,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdint.h>
+#include "seuif97.h"
 
-extern double pt(double p, double t, short o_id);
 
 #define OH 4
 #define OS 5
