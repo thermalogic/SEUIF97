@@ -2,7 +2,7 @@
 
 ![PyPI](https://img.shields.io/pypi/v/seuif97) [![Downloads](https://static.pepy.tech/badge/seuif97)](https://pepy.tech/project/seuif97) [![Downloads](https://static.pepy.tech/badge/seuif97/month)](https://pepy.tech/project/seuif97)
 
- **Note:** A new **Rust version** is available with **2-3× speedup**, **36 properties** (vs 30), and multi-platform pre-built binaries (Windows/Linux/macOS). See [RustSEUIF97](https://github.com/thermalogic/RustSEUIF97).
+ **Note:** A new **Rust version** is available with **2-3× speedup**, **36 properties** (vs 30), and multi-ecosystem package support. See [RustSEUIF97](https://github.com/thermalogic/RustSEUIF97).
  
 This is the C implementation of the high-speed IAPWS-IF97 package **SEUIF97**. It is suitable for computation-intensive calculations, such as the simulation of non-stationary processes, on-line process monitoring and optimizations.
  
@@ -24,9 +24,9 @@ Please refer to [The acceleration methods](./the_acceleration_methods.md) for mo
 
 You can build the library using either [make or cmake](./building_the_library.md):
 
-**The compiled shared libraries**
+Pre-compiled dynamic link libraries for Windows, Linux and macOS are available in [GitHub Releases](https://github.com/thermalogic/SEUIF97/releases).
 
-The shared libraries `libseuif97.dll` built with **MinGW-GCC/GCC** are available in the [/shared_lib/](./shared_lib/) directory:
+Legacy pre-compiled libraries `libseuif97.dll` built with **MinGW-GCC/GCC** are also provided in the [./shared_lib/](./shared_lib/) directory.
 
    * [Windows(x64)](./shared_lib/Windows/x64)
    * [Windows(x86)](./shared_lib/Windows/x86)
