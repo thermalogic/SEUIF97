@@ -16,11 +16,11 @@ Through the high-speed library, IAPWS-IF97 results are generated with high accur
 * Power Caching Strategy: Precomputes only distinct powers to avoid redundant calculations, directly retrieving them to speed up polynomial evaluation.
 * Recurrence Method for Multi-Polynomial Evaluation: Computes a base polynomial, then utilizes derivative relationships to derive the rest via base scaling to maximize efficiency.
 
-Please refer to [The acceleration methods](./the_acceleration_methods.md) for more details on the algorithm.
+Please refer to [The acceleration methods](./doc/the_acceleration_methods.md) for more details on the algorithm.
 
 ## The shared library
 
-You can build the library using either [make or cmake](./building_the_library.md):
+You can build the library using either [make or cmake](./doc/building_the_library.md):
 
 Pre-compiled dynamic link libraries for Windows, Linux and macOS are available in [GitHub Releases](https://github.com/thermalogic/SEUIF97/releases).
 
@@ -128,10 +128,8 @@ You can modify the provided interfaces to match your own API needs.
 | [Rust](./demo/demo-rust)            |  [seuif97.rs](./demo/demo-rust/src/seuif97.rs)   |
 | [Fortran](./demo/demo-Fortran)      |  [seuif97.f08](./demo/demo-fortran/seuif97.f08)  |
 | [Pascal](./demo/demo-pascal)        |  [seuif97.pas](./demo/demo-pascal/seuif97.pas)   |
+| [Golang](./demo/demo-go)            |  [seuif97.h](./demo/demo-go/seuif97.h)            |
 | [Modelica](./demo/demo-modelica)    |  [seuif97.mo](./demo/demo-modelica/demomodelica/seuif97.mo) |
-| [Golang](./demo/demo-go)                |  **Example** [demo.go](./demo/demo-go/demo.go) |
-
-
 
 **The Selected Examples**
 

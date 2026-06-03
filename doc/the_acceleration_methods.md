@@ -1,6 +1,6 @@
 # The code snippets of the acceleration methods
 
-## Key Acceleration Methods
+## Acceleration Methods
 
 * Shortest Addition Chain Algorithm: Used for the rapid computation of integer powers via optimal multiplication sequences.
 * Power Caching Strategy: Precomputes only distinct powers to avoid redundant calculations, directly retrieving them to speed up polynomial evaluation.

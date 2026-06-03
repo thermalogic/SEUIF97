@@ -319,8 +319,16 @@ cmake --build ./build/ --config Release
 Uses `-O3` maximum optimization level in the Makefile to maximize calculation performance. Also supports the `BUILD_DLL` macro definition to generate `__stdcall` calling convention exports compatible with 32-bit/64-bit VBA.
 
 ### 7.3 MSVC Special Handling
-Sets `CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON` in CMakeLists.txt, automatically exporting all function symbols without manually writing .def module definition files.
 
+MSVC does not support `__stdcall` calling convention exports via `__declspec(dllexport)`. 
+Therefore, a module definition file (.def) is used to export `__stdcall` functions.
+
+```makefile
+if(MSVC)
+    # Use module definition file for __stdcall exports
+    target_sources(seuif97 PRIVATE src/common/seuif97.def)
+endif()
+```
 ---
 
 ## 8. Cross-Language Interface Architecture
@@ -338,8 +346,8 @@ Through the C shared library exporting a unified API, SEUIF97 supports seamless 
 | Rust | seuif97.rs | demo/demo-rust |
 | Fortran | seuif97.f08 | demo/demo-fortran |
 | Pascal | seuif97.pas | demo/demo-pascal |
-| Modelica | seuif97.mo | demo/demo-modelica |
 | Golang | demo.go | demo/demo-go |
+| Modelica | seuif97.mo | demo/demo-modelica |
 
 ---
 
