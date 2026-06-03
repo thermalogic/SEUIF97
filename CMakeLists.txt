@@ -80,7 +80,11 @@ if(MSVC)
     target_link_options(seuif97 PRIVATE /LTCG)
 else()
     # GCC/Clang optimization flags
-    target_compile_options(seuif97 PRIVATE -O3 -march=native)
+    target_compile_options(seuif97 PRIVATE -O3)
+    # -march=native only for native builds, not cross-compilation
+    if(NOT CMAKE_CROSSCOMPILING)
+        target_compile_options(seuif97 PRIVATE -march=native)
+    endif()
     if(APPLE)
         # macOS linker doesn't support -flto directly, handled by compiler
         target_compile_options(seuif97 PRIVATE -flto)
