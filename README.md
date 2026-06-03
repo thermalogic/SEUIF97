@@ -20,8 +20,6 @@ Please refer to [The acceleration methods](./the_acceleration_methods.md) for mo
 
 ## The shared library
 
-**Building the shared library**
-
 You can build the library using either [make or cmake](./building_the_library.md):
 
 Pre-compiled dynamic link libraries for Windows, Linux and macOS are available in [GitHub Releases](https://github.com/thermalogic/SEUIF97/releases).
