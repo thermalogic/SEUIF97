@@ -57,6 +57,11 @@ set(SRC_FILES
 # Shared library
 add_library(seuif97 SHARED ${SRC_FILES})
 
+if(MSVC)
+    # Use module definition file for __stdcall exports
+    target_sources(seuif97 PRIVATE src/common/seuif97.def)
+endif()
+
 target_include_directories(seuif97 PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src/common>
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src/algo>
@@ -68,12 +73,24 @@ target_include_directories(seuif97 PUBLIC
     $<INSTALL_INTERFACE:include>
 )
 
+# Performance optimization flags
 if(MSVC)
-    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
-endif()
-
-if(UNIX AND NOT APPLE)
-    target_link_libraries(seuif97 PRIVATE m)
+    # MSVC optimization flags
+    target_compile_options(seuif97 PRIVATE /O2 /GL)
+    target_link_options(seuif97 PRIVATE /LTCG)
+else()
+    # GCC/Clang optimization flags
+    target_compile_options(seuif97 PRIVATE -O3 -march=native)
+    if(APPLE)
+        # macOS linker doesn't support -flto directly, handled by compiler
+        target_compile_options(seuif97 PRIVATE -flto)
+        target_link_options(seuif97 PRIVATE -flto)
+    else()
+        # Linux
+        target_compile_options(seuif97 PRIVATE -flto)
+        target_link_options(seuif97 PRIVATE -flto)
+        target_link_libraries(seuif97 PRIVATE m)
+    endif()
 endif()
 
 # Install rules
@@ -85,10 +102,19 @@ install(TARGETS seuif97
 )
 
 # Demo executable (optional)
-option(BUILD_DEMO "Build demo executable" OFF)
+option(BUILD_DEMO "Build speed executable" OFF)
 if(BUILD_DEMO)
-    set(EXE_SOURCES ./demo/demo-c/demo.c)
-    add_executable(demo ${EXE_SOURCES})
-    target_include_directories(demo PRIVATE ${PROJECT_SOURCE_DIR}/demo/demo-c/include)
-    target_link_libraries(demo PRIVATE seuif97)
+    set(EXE_SOURCES ./demo/demo-c/speed.c)
+    add_executable(speed ${EXE_SOURCES})
+    target_include_directories(speed PRIVATE ${PROJECT_SOURCE_DIR}/demo/demo-c/include)
+    target_link_libraries(speed PRIVATE seuif97)
+    add_dependencies(speed seuif97)
+    # Copy DLL to demo directory for runtime
+    if(MSVC)
+        add_custom_command(TARGET speed POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+                $<TARGET_FILE:seuif97>
+                $<TARGET_FILE_DIR:speed>
+        )
+    endif()
 endif()

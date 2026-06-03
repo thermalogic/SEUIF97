@@ -80,10 +80,12 @@ Build output location:
 
 ###  Windows: Microsoft Visual Studio c++ 
 
+**Note:** CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS is incompatible with __stdcall
+
 For 64-bit __stdcall DLL 
 
 ```bash
-cmake -B ./build/  -DBUILD_DLL=ON -G "Visual Studio 18 2026" -A x64
+cmake -B ./build/  -DBUILD_DLL=ON -DBUILD_DEMO=ON -G "Visual Studio 18 2026" -A x64
 cmake --build ./build/ --config Release
 ```
 

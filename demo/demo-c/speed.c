@@ -1,8 +1,7 @@
 /*
  * Benchmark: SEUIF97 C Shared Library Performance Test
-    gcc -o speed.exe speed.c -I./include -L./ lseuif97
-  
-    libseuif97.dll is in the demo-c directory
+    gcc -o speed.exe speed.c -I./include -L./ -lseuif97
+      libseuif97.dll is in the demo-c directory
 
  */
 
