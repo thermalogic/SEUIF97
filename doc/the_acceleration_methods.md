@@ -4,7 +4,7 @@
 
 * Shortest Addition Chain Algorithm: Used for the rapid computation of integer powers via optimal multiplication sequences.
 * Power Caching Strategy: Precomputes only distinct powers to avoid redundant calculations, directly retrieving them to speed up polynomial evaluation.
-* Scaling for Derivatively Related Polynomial Evaluation: Computes a base polynomial, then utilizes derivative relationships to derive the rest via base scaling to maximize efficiency.
+* Scaling for Derivatively Related Polynomial Computation: Computes a base polynomial, then utilizes derivative relationships to derive the rest via base scaling to maximize efficiency.
 
 ## Shortest Addition Chain Algorithm
 
