@@ -88,7 +88,7 @@ double ph2T_reg1(double p, double h)
 }
 ```
 
-## Power Caching and Scaling for Derivatively-Related Polynomial Evaluation
+## Power Caching and Shared-Power Scaling in Derivative Polynomials
 
 The code snippets demonstrate the acceleration methods to calculate the specific internal energy in region 1, illustrating the flow from the optimized kernel to the final physical property calculation:
 

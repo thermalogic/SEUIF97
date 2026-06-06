@@ -132,7 +132,7 @@ This module is the core innovation of SEUIF97, implementing three original accel
 - Data Structures: `soI_pow[]`, `soJ_pow[]` are power caching arrays
 - Function Pointer: `solo_power_fn` for power precomputation callbacks
 
-**3. Scaling for Derivatively-Related Polynomial Computation (polynomial_solo.c)**
+**3. Shared-Power Scaling in Derivative Polynomials (polynomial_solo.c)**
 
 - Algorithm Idea:By leveraging the mathematical relationship between polynomials and their derivatives, we compute shared power terms only once. Subsequent results are derived through exponent scaling, thereby eliminating redundant calculations and significantly improving computational efficiency.
 - Typical Implementation: `polys_solo_i_ii_ij_jj()` returns 6 polynomial results in a single computation
