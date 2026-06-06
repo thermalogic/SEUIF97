@@ -132,7 +132,7 @@ This module is the core innovation of SEUIF97, implementing three original accel
 - Data Structures: `soI_pow[]`, `soJ_pow[]` are power caching arrays
 - Function Pointer: `solo_power_fn` for power precomputation callbacks
 
-**3. Multi-Polynomial Recurrence Method (polynomial_solo.c)**
+**3. MScaling for Derivatively Related Polynomial Evaluation (polynomial_solo.c)**
 - Algorithm Idea: Compute the base polynomial (zero order) first, then directly derive the first-order and second-order mixed partial derivative polynomials through derivative relationships, maximizing shared computation results
 - Typical Implementation: `polys_solo_i_ii_ij_jj()` returns 6 polynomial results in a single computation
 
@@ -379,13 +379,6 @@ All test cases are verified against IAPWS-IF97 official standard reference value
 
 ---
 
-## 11. Version History and Author Information
-
-- Project Version: 1.2.0
-- Author: Cheng Maohua, School of Energy and Environment, Southeast University
-- Email: cmh@seu.edu.cn
-- DOI: 10.5281/zenodo.8242452
-
-Main References:
+## References:
 1. Wang Peihong, Jia Junying, Cheng Maohua. A General Calculation Model for IAPWS-IF97 Formulations of Thermodynamic Properties of Water and Steam[J]. Proceedings of the Chinese Society of Power Engineering, 2001, 21(6): 1564-1567
 2. Rui Jiamin, Sun Zhenye, Cheng Maohua. Fast IAPWS-IF97 Calculation Method Based on Shortest Addition Chain State Space Tree[J]. Steam Turbine Technology, 2017, 59(4): 245-247
