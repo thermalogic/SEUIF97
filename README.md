@@ -8,13 +8,11 @@ This is the C implementation of the high-speed IAPWS-IF97 package **SEUIF97**. I
  
 Through the high-speed library, IAPWS-IF97 results are generated with high accuracy and at speeds significantly faster than the **repeated squaring method** or the standard C library's `math.pow()`
 
-**SEUIF97** is also faster than approximate equations and other fast-calculation algorithms for water and steam properties.
-
 ## Acceleration Methods
 
 * Shortest Addition Chain Algorithm: Used for the rapid computation of integer powers via optimal multiplication sequences.
 * Power Caching Strategy: Precomputes only distinct powers to avoid redundant calculations, directly retrieving them to speed up polynomial evaluation.
-* Shared-Power Scaling in Derivative-Related Polynomials:By leveraging the mathematical relationship between polynomials and their derivatives, we compute shared power terms only once. Subsequent results are derived through exponent scaling, thereby eliminating redundant calculations and significantly improving computational efficiency.
+* Shared-Power Scaling in Derivative-Related Polynomials: By leveraging the mathematical relationship between polynomials and their derivatives, we compute shared power terms only once. Subsequent results are derived through exponent scaling, thereby eliminating redundant calculations and significantly improving computational efficiency.
 
 Please refer to [The acceleration methods](./doc/the_acceleration_methods.md) for more details on the algorithm.
 
