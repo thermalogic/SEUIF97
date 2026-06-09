@@ -343,9 +343,9 @@ int main(void)
 
     // Define 4 test cases
     TestCase test_cases[] = {
-        {"Case 1: High Pressure", TEST_PT, 30.0, 300 - 273.15, 0.0},
+        {"Case 1: High Pressure", TEST_PT, 3.0, 300 - 273.15, 0.0},
         {"Case 2: Low Pressure", TEST_PT, 0.0035, 300 - 273.15, 0.0},
-        {"Case 3: Critical", TEST_PT, 50.0, 650.0-273.15, 0.0},
+        {"Case 3: Critical", TEST_PT, 50.0, 630.0-273.15, 0.0},
         {"Case 4: High Temperature", TEST_PT, 0.5, 1500 - 273.15, 0.0}
     };
     const int num_cases = sizeof(test_cases) / sizeof(test_cases[0]);
