@@ -16,7 +16,7 @@ static const double no[6] = {
 	-0.32961626538917};
 
 // Table 38. coefficients and exponents of the residual part r of the dimensionless Gibbs free energy for region 5, Eq.(34)
-static IJnData IJn[] = {
+static const IJnData IJn[] = {
 	{1, 1, 0.15736404855259e-2},
 	{1, 2, 0.90153761673944e-3},
 	{1, 3, -0.50270077677648e-2},
