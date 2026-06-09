@@ -1,8 +1,6 @@
 /*
- * Benchmark: SEUIF97 in C VS CoolProp-IF97
-
-  g++ -o bench_if97 bench_if97.cpp -L./ -lseuif97 -I./include
- */
+  Benchmark: SEUIF97 in C VS CoolProp-IF97
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
