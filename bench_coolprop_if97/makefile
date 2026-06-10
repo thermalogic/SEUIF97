@@ -1,27 +1,37 @@
-
-ifeq ($(OS),Windows_NT)
-	LIBFLAGS= -L. -lseuif97  
-	EXEDIR=./
-else
+# the general makefile for each test
+# make FILE=bench_if97.c
+ifneq ($(OS),Windows_NT)
 	UNAME_S := $(shell uname -s)
     ifeq ($(UNAME_S),Linux)
-        LIBFLAGS= -L. -Wl,-rpath=./  -lseuif97 -lm	
-		EXEDIR=./
+        LIBFLAGS =-lm
     endif
 endif
 
-CFLAGS= -O3 -march=native -flto -funroll-loops -ffast-math
+CC=g++ 
 
-all: 
-	g++ bench_if97.cpp $(CFLAGS) -o$(EXEDIR)bench_if97 $(LIBFLAGS) 
-	$(EXEDIR)bench_if97
+CFLAG=-O3 -march=native
 
-run: 
-	$(EXEDIR)bench_if97
+INC = -I ../src/common/ \
+	-I ../algo/  \
+	-I ../src/r1/  \
+	-I ../src/r2/	 \
+	-I ../src/r3/	 \
+    -I ../src/r4/ \
+	-I ../src/r5/
 
-save: 
-	g++ bench_if97.cpp $(CFLAGS) -o$(EXEDIR)bench_if97 $(LIBFLAGS) 
-	$(EXEDIR)bench_if97 > benchmark_results.txt
+SRCS= ../src/algo/*.c \
+	  ../src/common/*.c \
+	  ../src/r1/*.c \
+	  ../src/r2/*.c \
+	  ../src/r3/*.c \
+	  ../src/r4/*.c \
+	  ../src/r5/*.c 	  
+      
+OUT=../bin/bench_if97
+ 
+all: test
+	$(OUT)
 
-clean:
-	rm -f $(EXEDIR)bench_if97 benchmark_results.txt
+test: $(SRCS)
+	$(CC) -o $(OUT) $(CFLAG)  $(SRCS)  bench_if97.cpp  $(INC)  $(LIBFLAGS) 
+

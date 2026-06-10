@@ -7,7 +7,7 @@
 #include <time.h>
 #include <stdint.h>
 #include "IF97.h"
-#include "seuif97.h"
+#include "../src/common/seuif97.h"
 
 #define OH 4
 #define OS 5

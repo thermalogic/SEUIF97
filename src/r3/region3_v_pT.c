@@ -7,7 +7,7 @@
 #include "../algo/algorithm.h"
 #include "../r4/region4.h"
 
-double T_atRegionBoundary(double p, char *boundary)
+double T_atRegionBoundary(double p,  const char *boundary)
 {
     // p is pressure in MPa
     // boundary is one of 3ab, 3cd, ...
