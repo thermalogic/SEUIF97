@@ -3,6 +3,10 @@
 
 #include "../common/common.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 double pSat(double T);
 double TSat(double p);
 
@@ -38,4 +42,8 @@ double Th_reg4(double T, double h, int o_id);
 //
 double hx_reg4(double h, double x, int o_id);
 double sx_reg4(double s, double x, int o_id);
+
+#ifdef __cplusplus
+}
+#endif
 

@@ -13,6 +13,10 @@
 
 #include "../common/common.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 double gamma0_reg2(double tau, double pi);
 double gamma0_pi_reg2(double pi);
 double gamma0_pipi_reg2(double pi);
@@ -108,3 +112,7 @@ double pv_reg2(double p, double v, int o_id);
 double Tv_reg2(double T, double v, int o_id);
 double Ts_reg2(double T, double s, int o_id);
 double Th_reg2(double T, double h, int o_id);
+
+#ifdef __cplusplus
+}
+#endif

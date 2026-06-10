@@ -1,4 +1,4 @@
-﻿/* ----------------------------------------------------
+/* ----------------------------------------------------
   IAPWS-IF97 Region1:
  1: IAPWS, R7-97(2012)
       IF97-Rev.pdf: P6-9
@@ -14,6 +14,10 @@
 #pragma once
 #include "../common/common.h"
 #include "../common/property_id.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 double gamma_reg1(double pi, double tau);
 double gamma_pi_reg1(double pi, double tau);
@@ -85,3 +89,7 @@ double pv_reg1(double p, double v, int o_id);
 double Tv_reg1(double T, double v, int o_id);
 double Ts_reg1(double T, double s, int o_id);
 double Th_reg1(double T, double h, int o_id);
+
+#ifdef __cplusplus
+}
+#endif

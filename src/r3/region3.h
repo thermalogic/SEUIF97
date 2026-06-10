@@ -2,6 +2,10 @@
 
 #include "../common/common.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 double phi_reg3(double tau, double delta);
 double phi_delta_reg3(double tau, double delta);
 double phi_deltadelta_reg3(double tau, double delta);
@@ -98,4 +102,8 @@ double pv_reg3(double p, double v, int o_id);
 double Tv_reg3(double T, double v, int o_id);
 double Th_reg3(double T, double h, int o_id);
 double Ts_reg3(double T, double s, int o_id);
+
+#ifdef __cplusplus
+}
+#endif
 

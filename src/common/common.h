@@ -1,5 +1,9 @@
 #pragma once
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct
 {
   int I, J;
@@ -67,3 +71,7 @@ int pv_region(double p, double v);
 int Th_region(double T, double h);
 int Ts_region(double T, double s);
 int Tv_region(double T, double v);
+
+#ifdef __cplusplus
+}
+#endif

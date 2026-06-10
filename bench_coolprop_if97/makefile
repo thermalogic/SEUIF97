@@ -11,14 +11,6 @@ CC=g++
 
 CFLAG=-O3 -march=native
 
-INC = -I ../src/common/ \
-	-I ../algo/  \
-	-I ../src/r1/  \
-	-I ../src/r2/	 \
-	-I ../src/r3/	 \
-    -I ../src/r4/ \
-	-I ../src/r5/
-
 SRCS= ../src/algo/*.c \
 	  ../src/common/*.c \
 	  ../src/r1/*.c \
@@ -33,5 +25,5 @@ all: test
 	$(OUT)
 
 test: $(SRCS)
-	$(CC) -o $(OUT) $(CFLAG)  $(SRCS)  bench_if97.cpp  $(INC)  $(LIBFLAGS) 
+	$(CC) -o $(OUT) $(CFLAG)  $(SRCS)  c_bench_if97.cpp  $(INC)  $(LIBFLAGS) 
 
