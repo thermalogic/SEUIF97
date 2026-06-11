@@ -12,8 +12,6 @@ set(SRC_FILES
     src/algo/polynomial.c
     src/algo/polynomial_solo.c
     src/algo/root.c
-    src/algo/rqm.c
-    src/algo/sac.c
     src/r1/region1_T_phps.c
     src/r1/region1_gfe.c
     src/r1/region1_out.c
