@@ -27,7 +27,7 @@ static inline double ipowrqm(double x, int i)
         return ans;
 }
 
-double possac(double x, int n)
+static inline double possac(double x, int n)
 {
 	// the shortest addition chains, [0,58]
 	double x2, x3, x4, x5, x6, x7, x8, x9;
@@ -422,7 +422,7 @@ double possac(double x, int n)
 	}
 }
 
-double ipowsac(double x, int n)
+static inline double ipowsac(double x, int n)
 {
 	if (n >= 0)
 	{
