@@ -13,8 +13,7 @@
 
 #define SIGN(a, b) ((b) >= 0.0 ? fabs(a) : -fabs(a))
 
-//double ipowsac(double x, int n);
-inline double ipowrqm(double x, int i)
+static inline double ipowrqm(double x, int i)
 {
         double ans = 1.0;
         if (i < 0) {
@@ -28,7 +27,7 @@ inline double ipowrqm(double x, int i)
         return ans;
 }
 
-inline double possac(double x, int n)
+double possac(double x, int n)
 {
 	// the shortest addition chains, [0,58]
 	double x2, x3, x4, x5, x6, x7, x8, x9;
@@ -423,7 +422,7 @@ inline double possac(double x, int n)
 	}
 }
 
-inline double ipowsac(double x, int n)
+double ipowsac(double x, int n)
 {
 	if (n >= 0)
 	{
