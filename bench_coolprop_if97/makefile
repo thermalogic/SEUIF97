@@ -7,7 +7,7 @@ endif
 
 CC=g++ 
 
-CFLAG=-O3 -march=native
+CFLAG=-O3 -march=native -flto=auto
 
 SRCS= ../src/algo/*.c \
 	  ../src/common/*.c \

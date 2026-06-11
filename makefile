@@ -9,7 +9,7 @@ else
     endif
 endif
 
-CFLAGS=-O3 -march=native -flto -funroll-loops -ffast-math
+CFLAGS=-O3 -march=native -funroll-loops -ffast-math  -flto=auto
 
 # __stdcall for Windows VBA X64
 #CFLAGS=-O3 -DBUILD_DLL
