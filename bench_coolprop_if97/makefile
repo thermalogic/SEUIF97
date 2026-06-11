@@ -1,5 +1,3 @@
-# the general makefile for each test
-# make FILE=bench_if97.c
 ifneq ($(OS),Windows_NT)
 	UNAME_S := $(shell uname -s)
     ifeq ($(UNAME_S),Linux)

@@ -100,10 +100,11 @@ double px_reg4(double p, double x, int o_id)
     case OU:
     case OF:
     case OG:
-    case OE:
+    case OE: {
       double sw = p2SatWater(p, o_id);
       double ss = p2SatSteam(p, o_id);
       return (sw + x * (ss - sw));
+    }
     default:
       return INVALID_VALUE;
     }
@@ -202,10 +203,11 @@ double Tx_reg4(double T, double x, int o_id) {
     case OU:
     case OF:
     case OG:
-    case OE:
+    case OE: {
       double sw = T2SatWater(T, o_id);
       double ss = T2SatSteam(T, o_id);
       return (sw + x * (ss - sw));
+    }
     default:
       return INVALID_VALUE;
     }
