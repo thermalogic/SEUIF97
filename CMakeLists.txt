@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(seuif97 VERSION 1.2.0 LANGUAGES C)
+project(seuif97 VERSION 1.2.1 LANGUAGES C)
 
 # Source files
 set(SRC_FILES
