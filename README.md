@@ -40,15 +40,14 @@ The SEUIF97 library provides comprehensive functions for calculating water and s
 
 SEUIF97 supports **12 distinct input state pairs** for calculating **36 thermodynamic, transport, and derived properties** (see [Properties](#properties)).
 
+> **Note:** Only linearly related thermodynamic properties are calculable in the wet steam region.
+
 **Input Pairs:**
 
 * $(p,t), (p,h), (p,s), (p,v)$
 * $(t,h),(t,s), (t,v)$
 * $(p,x), (t,x),(h,x),(s,x)$
 * $(h,s)$
-
-
-> **Note:** Only linearly related thermodynamic properties are calculable in the wet steam region.
 
 ```c 
   ??(in1,in2,o_id)
