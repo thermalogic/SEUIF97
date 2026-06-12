@@ -47,7 +47,8 @@ SEUIF97 supports **12 distinct input state pairs** for calculating **36 thermody
 * $(p,x), (t,x),(h,x),(s,x)$
 * $(h,s)$
 
-The type of property functions are provided in the package
+
+> **Note:** Only linearly related thermodynamic properties are calculable in the wet steam region.
 
 ```c 
   ??(in1,in2,o_id)

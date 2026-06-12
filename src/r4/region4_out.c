@@ -1,6 +1,6 @@
 /*
    The API of region 4
-
+   Only linearly related thermodynamic properties are calculable in the wet steam region.
 */
 #include "../common/common.h"
 #include "../common/constant.h"
@@ -70,7 +70,8 @@ double p2SatSteam(double p, int o_id) {
 }
 
 double px_reg4(double p, double x, int o_id)
-/*        * T: Saturated temperature [K]
+/* 
+* T: Saturated temperature [K]
  * P: Saturated pressure [MPa]
  * x: Vapor quality [-]
  * v: Specific volume [m³/kg]
