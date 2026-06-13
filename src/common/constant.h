@@ -7,7 +7,9 @@
 #define INVALID_S -2102
 #define INVALID_H -2103
 #define INVALID_PT -2201
-#define INVALID_HS -2202
+#define INVALID_PH -2202
+#define INVALID_PS -2203
+#define INVALID_HS -2204
 #define INVALID_VALUE -9999
 
 #define K 273.15;
