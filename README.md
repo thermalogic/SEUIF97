@@ -28,8 +28,6 @@ You can build the library using either [make or cmake](./doc/building_the_librar
 
 Pre-compiled dynamic link libraries for Windows, Linux and macOS are available in [GitHub Releases](https://github.com/thermalogic/SEUIF97/releases).
 
-> **Note:** GitHub Releases builds produce library names with platform-specific suffixes. Example: `seuif97-windows-x64.dll`. Linux and macOS follow the same naming pattern. Rename them to `seuif97.dll` / `libseuif97.so` / `libseuif97.dylib` before use to match the local build naming convention.
-
 Legacy pre-compiled libraries `libseuif97.dll` built with **MinGW-GCC/GCC** are also provided in the [./shared_lib/](./shared_lib/) directory.
 
 * [Windows(x64)](./shared_lib/Windows/x64)
