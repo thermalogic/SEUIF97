@@ -15,12 +15,12 @@ int pT_region(double p, double T)
 // 温度升序，判断区域 ，直接return。判定逻辑简单，避免了多重if
 // p in MPa。T in K returns the region
 {
-  if (p < Pmin || p > 100)
+  if (p < PMIN || p > PMAX)
     return INVALID_P;
   if (T < 273.15 || T > 2273.15)
     return INVALID_T;
   if (T > 1073.15 && T <= 2273.15 && p > 50.0)
-    return INVALID_P;
+    return INVALID_PT;
 
   // ON TOP: Saturaton lines、critical point等特殊点判断在前
   // 以后区域判断中没有这些特殊，减少区域判断的复杂度
@@ -39,26 +39,30 @@ int pT_region(double p, double T)
   if (T >= 273.15 && T <= 623.15) {
     if (p >= pSat(T) && p <= 100.0)
       return 1;
-    if (p < pSat(T) && p > Pmin)
+    if (p < pSat(T) && p > PMIN)
       return 2;
   };
 
   // T（623.15,tc_water)之间的饱和线，critical
   // point情况，已在前面处理，这里无需判断，简化了区域判断
   if (T > 623.15 && T <= 863.15) {
-    if (p >= Pmin && p <= B23_T2p(T))
+    if (p >= PMIN && p <= B23_T2p(T))
       return 2;
     if (p > B23_T2p(T) && p <= 100.0)
       return 3;
   };
 
-  if (T > 863.15 && T <= 1073.15 && p >= Pmin && p <= 100.0)
+  if (T > 863.15 && T <= 1073.15 && p >= PMIN && p <= 100.0)
     return 2;
 
-  if (1073.15 < T && T <= 2273.15 && Pmin <= p && p <= 50)
+  if (1073.15 < T && T <= 2273.15 && PMIN <= p && p <= 50)
     return 5;
 
-  return INVALID_VALUE;
+  if (fabs(T - TMIN) < T_TOL && fabs(p - PMIN) < P_TOL) {
+    return 1;
+  }
+
+  return INVALID_PT;
 }
 
 //-----------------------------------------------------------------
@@ -67,12 +71,20 @@ int pT_region(double p, double T)
 
 int ph_region(double p, double h) {
 
+  if ((p < PMIN) || (p > PMAX)) {
+    return INVALID_P;
+  }
+
+  if ((h < HMIN) || (h > HMAX)) {
+    return INVALID_H;
+  }
+
   // 压力Pmin - Ps_623- pc_water- 100升序，分3段判断区域
   //    每个压力区域 hmin  hmax 分段判断区域
   double hmin = pT2h_reg1(p, 273.15);
   double hmax = pT2h_reg5(p, 2273.15);
 
-  if (Pmin <= p && p <= Ps_623) // Ps_623 PMIN3 3区的最小压力
+  if (PMIN <= p && p <= Ps_623) // Ps_623 PMIN3 3区的最小压力
   {
     double h14 = pT2h_reg1(p, TSat(p));
     if (hmin <= h && h <= h14)
@@ -124,12 +136,19 @@ int ph_region(double p, double h) {
 }
 
 int ps_region(double p, double s) {
+  if ((p < PMIN) || (p > PMAX)) {
+    return INVALID_P;
+  }
+
+  if ((s < HMIN) || (s > HMAX)) {
+    return INVALID_S;
+  }
 
   // 压力Pmin - Ps_623- pc_water- 100升序，分3段判断区域
   //    每个压力区域 smin  smax 分段判断区域
   double smin = pT2s_reg1(p, 273.15);
   double smax = pT2s_reg5(p, 2273.15);
-  if (Pmin <= p && p <= Ps_623) {
+  if (PMIN <= p && p <= Ps_623) {
     double s14 = pT2s_reg1(p, TSat(p));
     if (smin <= s && s <= s14)
       return 1;
@@ -181,6 +200,14 @@ int ps_region(double p, double s) {
 int hs_region(double h, double s)
 // 1,2,3,4 区 smin ->smax。5区另外处理
 {
+  if ((h < HMIN) || (h > HMAX)) {
+    return INVALID_H;
+  }
+
+  if ((s < SMIN) || (s > SMAX)) {
+    return INVALID_S;
+  }
+
   double s13 = 3.39778295;    // pT2s_reg1(100, 623.15);
   double s13s = 3.77828134;   // pT2s_reg1(Ps_623, 623.15);
   double sTPmax = 6.04048367; // pT2s_reg2(100, 1073.15);
@@ -211,7 +238,7 @@ int hs_region(double h, double s)
   if (s_r5_1 < s && s <= s_r5_2 && h_r5_1 < h && h <= h_r5_2) {
     double P = hs2p_reg5(h, s);
     double T = ph2T_reg5(P, h);
-    if (1073.15 < T && T <= 2273.15 && Pmin <= P && P <= 50)
+    if (1073.15 < T && T <= 2273.15 && PMIN <= P && P <= 50)
       return 5;
   };
 
@@ -334,10 +361,10 @@ int hs_region(double h, double s)
   }
 
   if (s4v <= s && s <= smax) {
-    double hmin = pT2h_reg2(Pmin, 273.15);
+    double hmin = pT2h_reg2(PMIN, 273.15);
     double P = hs2p_reg2a(h, s);
     double hmax = pT2h_reg2(P, 1073.15);
-    if (Pmin <= P && P <= 100 && hmin <= h && h <= hmax)
+    if (PMIN <= P && P <= 100 && hmin <= h && h <= hmax)
       return 2;
   }
 
@@ -349,9 +376,15 @@ int hs_region(double h, double s)
 //----------------------------------------
 
 int pv_region(double p, double v) {
+
   double x, T1, vt273, vT1073, vt2273, vt623, vB23, vsw, vss;
   if ((p < PMIN2) || (p > PMAX2))
-    return INVALID_VALUE;
+    return INVALID_P;
+
+  if ((v < VMIN) || (v > VMAX)) {
+    return INVALID_V;
+  }
+
   vt273 = pT2v_reg1(p, 273.15);   // T=273.15
   vT1073 = pT2v_reg2(p, 1073.15); // T=1073.15
   if ((p >= PMIN5) && (p <= PMAX5))
@@ -389,14 +422,17 @@ int pv_region(double p, double v) {
   if ((p > PMIN5) && (p <= PMAX5) && (v > vT1073) && (v <= vt2273)) {
     return (5);
   };
-  return (INVALID_VALUE);
+  return (INVALID_PV);
 }
 
 //---------------- T ---------------------------
 int Th_region(double T, double h) {
   double x, v, p1, hpmax2, hpmax5, hpm50, hp100, hsw, hss, hB23;
   if ((T < 273.15) || (T > 2273.15))
-    return (-1);
+    return INVALID_T;
+  if ((h < HMIN) || (h > HMAX))
+    return INVALID_H;
+
   //  if ((h>HMAX)||(h<HMIN)) return (-2);
   if ((T >= TMIN2) && (T <= TMAX2))
     hpmax2 = pT2h_reg2(PMIN2, T);
@@ -471,15 +507,15 @@ int Th_region(double T, double h) {
   if ((T > TMIN5) && (T <= TMAX5) && (h >= hpm50) && (h <= hpmax5)) {
     return 5;
   };
-  return (INVALID_VALUE);
+  return (INVALID_TH);
 }
 
 int Ts_region(double T, double s) {
   double x, v, p1, spmax2, spmax5, sp50, sp100, ssw, sss, sB23;
-  if ((T < 273.15) || (T > 2273.15))
-    return (-1);
+  if ((T < TMIN) || (T > TMAX))
+    return (INVALID_T);
   if ((s > SMAX) || (s < SMIN))
-    return (-2);
+    return (INVALID_S);
 
   if ((T >= TMIN2) && (T <= TMAX2))
     spmax2 = pT2s_reg2(PMIN2, T);
@@ -527,13 +563,16 @@ int Ts_region(double T, double s) {
   if ((T > TMIN5) && (T <= TMAX5) && (s >= sp50) && (s <= spmax5)) {
     return 5;
   };
-  return INVALID_VALUE;
+  return INVALID_TS;
 }
 
 int Tv_region(double T, double v) {
   double x, p1, vpmax2, vpmax5, vp50, vp100, vsw, vss, vB23;
-  if ((T < 273.15) || (T > 2273.15))
-    return (-1);
+  if ((T < TMIN) || (T > TMAX))
+    return (INVALID_T);
+  if ((v > VMAX) || (v < VMIN))
+    return (INVALID_V);
+
   if ((T >= TMIN2) && (T <= TMAX2))
     vpmax2 = pT2v_reg2(PMIN2, T);
   if ((T >= TMIN5) && (T <= TMAX5)) {
@@ -578,5 +617,5 @@ int Tv_region(double T, double v) {
   if ((T > TMIN5) && (T <= TMAX5) && (v >= vp50) && (v <= vpmax5)) {
     return 5;
   };
-  return (INVALID_VALUE);
+  return (INVALID_TV);
 }

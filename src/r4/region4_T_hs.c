@@ -95,7 +95,7 @@ double hs2T_reg4(double h, double s)
 
     if (s > s4L_273 && s <= s4L_623)
     {
-        Low_Bound = Pmin;
+        Low_Bound = PMIN;
         High_Bound = Ps_623;
 
         double hL = -1000;
@@ -114,13 +114,13 @@ double hs2T_reg4(double h, double s)
     if (s > s4L_623 && s <= sc_water)
     {
         PL = h2pSat_reg3(h); // liquid
-        Low_Bound = Pmin;
+        Low_Bound = PMIN;
         High_Bound = PL;
     }
     if (s > sc_water && s <= s4V_623)
     {
         PL = h2pSat_reg3(h); // steam
-        Low_Bound = Pmin;
+        Low_Bound = PMIN;
         High_Bound = PL;
     }
 

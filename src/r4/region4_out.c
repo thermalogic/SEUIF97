@@ -22,7 +22,7 @@ double p2SatWater(double p, int o_id) {
   if (o_id == OT)
     return T;
 
-  if (p >= Pmin && p <= Ps_623) {
+  if (p >= PMIN && p <= Ps_623) {
     r = pT_reg1(p, T, o_id);
   } else {
     if (p == pc_water)
@@ -49,7 +49,7 @@ double p2SatSteam(double p, int o_id) {
   if (o_id == OT)
     return T;
 
-  if (p >= Pmin && p <= Ps_623) {
+  if (p >= PMIN && p <= Ps_623) {
     r = pT_reg2(p, T, o_id);
   } else { // reg3d =ss
     if (p == pc_water)
