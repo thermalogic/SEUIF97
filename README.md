@@ -8,6 +8,8 @@ This is the C implementation of the high-speed IAPWS-IF97 package **SEUIF97**. I
  
 Through the high-speed library, IAPWS-IF97 results are generated with high accuracy and at speeds significantly faster than the **repeated squaring method** or the standard C library's `math.pow()`
 
+This package supports **12 distinct input state pairs** for calculating **36 thermodynamic, transport, and derived properties** (see [Properties](#properties)), and **thermodynamic process functions**.
+
 ## Acceleration Methods
 
 * Shortest Addition Chain Algorithm: Used for the rapid computation of integer powers via optimal multiplication sequences.
@@ -18,7 +20,7 @@ Please refer to [The acceleration methods](./doc/the_acceleration_methods.md) fo
 
 ## Performance Comparison
 
-SEUIF97 achieves **1.9 - 3.2x speedups** over [CoolProp IF97](https://github.com/CoolProp/IF97) in Region 1, 2, and 3. See [Performance Comparison: SEUIF97 vs CoolProp IF97](./doc/SEUIF97_VS_COOLPROP_IF97.md) for detailed benchmark results.
+SEUIF97 achieves **1.9-3.2x speedups** over [CoolProp IF97](https://github.com/CoolProp/IF97) in Region 1, 2, and 3. See [Performance Comparison: SEUIF97 vs CoolProp IF97](./doc/SEUIF97_VS_COOLPROP_IF97.md) for detailed benchmark results.
 
 ## The shared library
 
@@ -26,52 +28,33 @@ You can build the library using either [make or cmake](./doc/building_the_librar
 
 Pre-compiled dynamic link libraries for Windows, Linux and macOS are available in [GitHub Releases](https://github.com/thermalogic/SEUIF97/releases).
 
+> **Note:** GitHub Releases builds produce library names with platform-specific suffixes. Example: `seuif97-windows-x64.dll`. Linux and macOS follow the same naming pattern. Rename them to `seuif97.dll` / `libseuif97.so` / `libseuif97.dylib` before use to match the local build naming convention.
+
 Legacy pre-compiled libraries `libseuif97.dll` built with **MinGW-GCC/GCC** are also provided in the [./shared_lib/](./shared_lib/) directory.
 
-   * [Windows(x64)](./shared_lib/Windows/x64)
-   * [Windows(x86)](./shared_lib/Windows/x86)
-   * [Linux(x64)](./shared_lib/Linux/x64)
+* [Windows(x64)](./shared_lib/Windows/x64)
+* [Windows(x86)](./shared_lib/Windows/x86)
+* [Linux(x64)](./shared_lib/Linux/x64)
 
 ## Functions of the SEUIF97 Shared Library
 
-The SEUIF97 library provides comprehensive functions for calculating water and steam properties, as well as the thermodynamic processes of steam turbines.
-
 **Water and Steam Properties**
 
-SEUIF97 supports **12 distinct input state pairs** for calculating **36 thermodynamic, transport, and derived properties** (see [Properties](#properties)).
+Each function accepts an input pair, an output property ID ([o_id](#properties)). For example: the input pair (p,t): `pt(p,t,o_id)`
 
-> **Note:** Only linearly related thermodynamic properties are calculable in the wet steam region.
-
-**Input Pairs:**
+The following 12 input pairs are implemented:
 
 * $(p,t), (p,h), (p,s), (p,v)$
 * $(t,h),(t,s), (t,v)$
 * $(p,x), (t,x),(h,x),(s,x)$
 * $(h,s)$
 
-```c 
-  ??(in1,in2,o_id)
-```
-
-* the first, second input parameters: the input property pairs
-* the third input parameters: the ID of the calculated property - [o_id](#properties)
-* the return: the calculated property value of `o_id`
-
 **Thermodynamic Process of Steam Turbine**
-   
-* Isentropic Enthalpy Drop：ishd(pi,ti,pe)
 
-  ```txt
-    pi - inlet pressure(MPa); ti -inlet temperature(°C)
-    pe - outlet pressure(MPa)
-  ```
-*  Isentropic Efficiency(0~100)： ief(pi,ti,pe,te) (superheated steam zone)
-   ```txt
-       pi - inlet pressure(MPa);  ti - inlet temperature(°C)
-       pe - outlet pressure(MPa); te - outlet temperature(°C)
-   ```
+- `ishd(pi, ti, pe)`: isentropic enthalpy drop for steam expansion (kJ/kg)
+- `ief(pi, ti, pe, te)`: isentropic efficiency for superheated steam expansion (%)
 
-**The Function Prototype in C**
+**Function Prototype in C**
 
 ```c
 // Functions of Properties
@@ -91,31 +74,28 @@ double tx(double t, double x,  int o_id);
 double hx(double h, double x,  int o_id);
 double sx(double s, double x,  int o_id);
 
-//The Functions for Thermodynamic Process of Steam Turbine
+//Functions for Thermodynamic Process of Steam Turbine
 double ishd(double pi, double ti, double pe);
 double ief(double pi, double ti, double pe, double te);
 ```
 
-## Using SEUIF97 library 
+> **Note:** Only linearly related thermodynamic properties are calculable in the wet steam region.
+
+## Using SEUIF97 Library
 
 To use the shared library in your preferred programming language, follow these steps:
 
-1. Put the shared library in the default path of OS or the programming language
-   * **Windows(x86/64)** 
-     * copy `libseuif97.dll` in the [Windows/x86](./shared_lib/Windows/x86) or [Windows/x64](./shared_lib/Windows/x64) folder to a default path of Windows32/64's DLL,for example:  `C:\Windows\System`
+1. Place the shared library in the default path of the OS or the programming language. For example: Windows `C:\Windows\System`, Linux `/usr/lib`.
    
-   * **Linux(x64)** 
-     * copy `libseuif97.so` in the [Linux/x64](./shared_lib/Linux/x64) folder to a default path of Linux shared lib: `/usr/lib`
-   
-2. Add the specific API file for your programming language to its corresponding`API` path.
+2. Add the specific API file for your programming language to the appropriate location.
 
-   * **Note**: API paths vary by language. Please refer to the specific  [Examples](./demo/) provided for your programming language to locate the correct path and setup instructions.
+> **Note:** API paths vary by language. Please refer to the specific [Examples](./demo/) provided for your programming language to locate the correct path and setup instructions.
 
 ## Interfaces and Examples
 
-Interfaces and examples are provided in the  [/demo/](./demo) directory, supporting a wide range of languages and environments
+Interfaces and examples are provided in the [/demo/](./demo) directory, supporting a wide range of languages and environments.
 
-*  C/C++, Python, C#, Java, Excel VBA, MATLAB, Rust, Fortran, Pascal, Golang, Modelica
+* C/C++, Python, C#, Java, Excel VBA, MATLAB, Rust, Fortran, Pascal, Golang, Modelica
 
 You can modify the provided interfaces to match your own API needs.
 
@@ -146,7 +126,6 @@ You can modify the provided interfaces to match your own API needs.
 **C++**
 
 * [H-S Diagram of Steam Turbine Expansion](./demo/demo-c/Turbine_H-S.cpp)
-
 
 ## Properties 
 
@@ -185,7 +164,7 @@ You can modify the provided interfaces to match your own API needs.
 
 ## Publications
 
-* 王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型[J]. 动力工程,2001,21(6)：1564-1567 [[ pdf ]](./doc/水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型.pdf)
+* 王培红,贾俊颖,程懋华. 水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型[J]. 动力工程,2001,21(6):1564-1567 [[ pdf ]](./doc/水和水蒸汽热力性质IAPWS-IF97公式的通用计算模型.pdf)
 
 * 芮嘉敏,孙振业,程懋华. 基于最短加法链状态空间树的IAPWS-IF97快速计算方法[J]. 汽轮机技术,2017,59(4):245-247 [[ pdf ]](./doc/基于最短加法链状态空间树的IAPWS-IF97快速计算方法.pdf)
 
