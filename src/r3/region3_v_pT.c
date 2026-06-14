@@ -258,15 +258,13 @@ char SubRegion3(double p, double t) {
         return subRegion; // 2026
       } else if (t <= tBqu) {
         subRegion = 'q';
-        // The judgment algorithm here has some issues, subRegion will be reset below
-        // Simple handling: return immediately after this check
+        // return immediately after this check
         return subRegion;
       }
 
       if (t > tBrx && t <= tBjk) {
         subRegion = 'r';
-        // The judgment algorithm here has some issues, subRegion will be reset below
-        // Simple handling: return immediately after this check
+        // return immediately after this check
         return subRegion;
       }
 
@@ -304,7 +302,6 @@ char SubRegion3(double p, double t) {
           subRegion = 'x';
       } else {
         double tSat97 = TSat(p);
-
         if (t <= tSat97) {
           if (p > 21.93161551) {
             if (t < tBuv)
