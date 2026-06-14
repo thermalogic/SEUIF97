@@ -12,8 +12,9 @@
 #include <math.h>
 
 int pT_region(double p, double T)
-// Determine region in ascending temperature order, direct return. Simple判定logic avoids multiple if conditions
-// p in MPa, T in K, returns the region
+// Determine region in ascending temperature order, direct return. 
+// Simple judgment logic avoids multiple if conditions
+//    p in MPa, T in K, returns the region
 {
   if (p < PMIN || p > PMAX)
     return INVALID_P;
@@ -87,7 +88,7 @@ int ph_region(double p, double h) {
   double hmin = pT2h_reg1(p, 273.15);
   double hmax = pT2h_reg5(p, 2273.15);
 
-  if (PMIN <= p && p <= Ps_623) // Ps_623 PMIN3 3区的最小压力
+  if (PMIN <= p && p <= Ps_623) // Ps_623 PMIN3: minimum pressure of region 3
   {
     double h14 = pT2h_reg1(p, TSat(p));
     if (hmin <= h && h <= h14)
@@ -201,7 +202,7 @@ int ps_region(double p, double s) {
 }
 
 int hs_region(double h, double s)
-// 1,2,3,4 区 smin ->smax。5区另外处理
+// Regions 1,2,3,4: smin -> smax. Region 5 handled separately
 {
   if ((h < HMIN) || (h > HMAX)) {
     return INVALID_H;
@@ -380,7 +381,7 @@ int hs_region(double h, double s)
 
 int pv_region(double p, double v) {
 
-  double x, T1, vt273, vT1073, vt2273, vt623, vB23, vsw, vss;
+  double T1, vt273, vT1073, vt2273, vt623, vB23, vsw, vss;
   if ((p < PMIN2) || (p > PMAX2))
     return INVALID_P;
 

@@ -51,7 +51,7 @@ double ph2T_reg1(double p, double h)
   if (fabs(f1) > xacc)
   {
     if (f1 > 0)
-      T2 = (1.0 + f1 / h) * T1; // TODO： 1.05 用 1+f1/h 是不是更快，没有测试
+      T2 = (1.0 + f1 / h) * T1; // TODO: Is 1+f1/h faster than 1.05? Not tested
     else
       T2 = (1.0 - f1 / h) * T1;
 

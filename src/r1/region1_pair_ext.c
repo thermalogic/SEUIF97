@@ -49,7 +49,7 @@ double pv2T_reg1(double p, double v)
         int sum = 0;
         T1 = T;
         f1 = f;
-        if (f < 0) // t大了
+        if (f < 0) // T too large
         {
             while (!success)
             {
@@ -104,8 +104,8 @@ double pv2T_reg1(double p, double v)
             }
         }
     };
-    // 1 在低温区，v变化很小，
-    // 2 在低温，低压区，v变化很小，同时变化规律发生反方向变化， T加，v减
+    // 1. In low temperature region, v changes very little
+    // 2. In low temperature and low pressure region, v changes very little, and the variation pattern reverses: T increases, v decreases
     if (T < 290)
     {
     };

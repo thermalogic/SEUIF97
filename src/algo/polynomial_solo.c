@@ -5,12 +5,12 @@
 #include "algorithm.h"
 
 double poly_solo(double vi, double vj, int size, IJnData *IJn, int *i2soI, int *j2soJ, solo_power_fn solo_i_j_power)
-{ // 1 计算独立幂次数值soI_pow， soJ_pow
+{ // 1. Calculate independent power values soI_pow, soJ_pow
   (*solo_i_j_power)(vi, vj, soI_pow, soJ_pow);
   double poly = 0.0;
   for (int k = 0; k < size; k++)
   {
-    // 2 使用已经计算好的重复使用幂值
+    // 2. Use pre-calculated reusable power values
     poly += IJn[k].n * soI_pow[i2soI[k]] * soJ_pow[j2soJ[k]];
   }
   return poly;

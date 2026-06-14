@@ -258,15 +258,15 @@ char SubRegion3(double p, double t) {
         return subRegion; // 2026
       } else if (t <= tBqu) {
         subRegion = 'q';
-        // 这里的判断算法有点问题，下面这个 subRegion会被重新设定u
-        // 简便处理，这个判断后，立即返回
+        // The judgment algorithm here has some issues, subRegion will be reset below
+        // Simple handling: return immediately after this check
         return subRegion;
       }
 
       if (t > tBrx && t <= tBjk) {
         subRegion = 'r';
-        // 这里的判断算法有点问题，下面这个subRegion会被重新设定u
-        // 简便处理，这个判断后，立即返回
+        // The judgment algorithm here has some issues, subRegion will be reset below
+        // Simple handling: return immediately after this check
         return subRegion;
       }
 

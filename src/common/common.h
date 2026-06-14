@@ -19,7 +19,6 @@ double thCond(double rho, double T);
 double thermal_diffusivity(double tc, double cp, double d);
 double tension(double T);
 double prandtl_number(double dv, double cp, double tc);
-double thermal_diffusivity(double tc, double cp, double d);
 
 // double dielectric(double rho, double T);
 // double refractive(double rho, double T);
@@ -48,7 +47,7 @@ double pT(double p, double T, int o_id);
 double B23_T2p(double T); // IF97-Rev, Eq 5
 double B23_p2T(double p); // IF97-Rev, Eq 5
 
-// （p,h)-> subregion 3
+// (p,h) -> subregion 3
 double h2pSat_reg3(double h); // Supp-Tv(ph,ps)-2014.pdf, Eq 10
 // （p,s)-> subregion
 double s2pSat_reg3(double s); // Supp-Tv(ph,ps)-2014.pdf, Eq 11

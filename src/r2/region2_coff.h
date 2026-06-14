@@ -1,7 +1,7 @@
 #pragma once
 #include "../common/common.h"
 static const double r2Tstar = 540.0; // K
-static const double r2pstar = 1.0;   // MPa 为减少计算，没有使用这个变量
+static const double r2pstar = 1.0;   // MPa,not used to reduce computation
 
 static int r2j0[9] = {0, 1, -5, -4, -3,
                       -2, -1, 2, 3};

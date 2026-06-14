@@ -73,7 +73,7 @@ double hs2p3b_reg3(double h, double s);
 double hs2p_reg3(double h, double s);
 
 // --- v(p T) ------------------
-// TODO： pT2vSatreg3待测试
+// TODO: pT2vSat_reg3 needs testing
 double Vpt_3subreg(double p, double t, char subreg);
 
 double pT2vSat_reg3(double p, double T, double x);
@@ -106,4 +106,3 @@ double Ts_reg3(double T, double s, int o_id);
 #ifdef __cplusplus
 }
 #endif
-
