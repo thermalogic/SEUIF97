@@ -49,7 +49,7 @@ double phi_deltadelta_reg3(double delta, double tau)
 }
 
 double phi_tau_reg3(double delta, double tau)
-// phirst derivative in tau of fundamental equation for region 3
+// first derivative in tau of fundamental equation for region 3
 {
 	// double phi_tau = 0.0;
 	// for (int k = 0; k < 39; k++)

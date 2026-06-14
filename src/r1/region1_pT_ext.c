@@ -60,7 +60,6 @@ double pT_ext_reg1(double p, double T, int o_id)
     case OJTC:
         r = pT2joule_reg1(p, T);
         break;
-        break;
     case OIJTC:
         r = pT2ijoule_reg1(p, T);
         break;

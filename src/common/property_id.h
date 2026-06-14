@@ -18,7 +18,7 @@
 #define OZ 14    // z: Compressibility factor
 #define OX 15
 #define OR 16
-#define OIPCEC 17 // αv ipcec :Isobari cubic expansion coefficient 1/K
+#define OIPCEC 17 // αv ipcec :Isobaric cubic expansion coefficient 1/K
 #define OKT 18    // kT:  Isothermal compressibility 1/MPa
 #define ODVDT 19
 #define ODVDP 20

@@ -22,33 +22,36 @@ int pT_region(double p, double T)
   if (T > 1073.15 && T <= 2273.15 && p > 50.0)
     return INVALID_PT;
 
-  // ON TOP: Saturaton lines、critical point等特殊点判断在前
+  // ON TOP: Saturation lines、critical point等特殊点判断在前
   // 以后区域判断中没有这些特殊，减少区域判断的复杂度
 
-  // TODO: Saturaton Pressure Tolerance
-  const double psatTol = 1.0e-6;
+  // Saturation Pressure Tolerance
   if (T >= 273.15 && T < tc_water) {
-    double ps = pSat(T);
-    if (fabs(p - ps) / ps < psatTol)
+    double p_s = pSat(T);
+    if (fabs(p - p_s) < P_TOL)
       return 4;
   }
-  // TODO: critical point 放在4区,如果放在3区？
-  if (T == tc_water && p == pc_water)
-    return 4;
+
+  // the critical point in region 3
+   if (fabs(T -  tc_water) < T_TOL && fabs(p - pc_water) < P_TOL) {
+        return 3;
+   }
 
   if (T >= 273.15 && T <= 623.15) {
-    if (p >= pSat(T) && p <= 100.0)
+    double p_s = pSat(T);
+    if (p >= p_s && p <= 100.0)
       return 1;
-    if (p < pSat(T) && p > PMIN)
+    if (p < p_s && p > PMIN)
       return 2;
   };
 
   // T（623.15,tc_water)之间的饱和线，critical
   // point情况，已在前面处理，这里无需判断，简化了区域判断
   if (T > 623.15 && T <= 863.15) {
-    if (p >= PMIN && p <= B23_T2p(T))
+    double p_b23=B23_T2p(T);
+    if (p >= PMIN && p <= p_b23)
       return 2;
-    if (p > B23_T2p(T) && p <= 100.0)
+    if (p > p_b23 && p <= 100.0)
       return 3;
   };
 

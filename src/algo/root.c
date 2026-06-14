@@ -37,7 +37,7 @@ double rtsec2(callfunc func, double cVar1,double fr,double x1,
         xl=x1;
         rts=x2;
   }
-  //scant loop
+  //secant loop
   int i=0;
   if ((f-fl)!=0.0)
   {
@@ -52,11 +52,10 @@ double rtsec2(callfunc func, double cVar1,double fr,double x1,
           f=fr-(*func)(cVar1,rts);
           i++;
       }
-    //  while ((fabs(dx) > xacc)&&(i<iMAX)); // Covergence
-    //  while ((fabs(dx) > xacc)&&(i<iMAX)&&(f!=0.0)); // Covergence
+    //  while ((fabs(dx) > xacc)&&(i<iMAX)); // Convergence
+    //  while ((fabs(dx) > xacc)&&(i<iMAX)&&(f!=0.0)); //Convergence
       while ( fabs(dx) > xacc && i<iMAX &&
-              f!=0.0 && (f-fl)!=0.0 ); // Covergence
-
+              f!=0.0 && (f-fl)!=0.0 ); // Convergence
      // printf("rtsec2 i= %d \n",i);
   }
   
@@ -85,7 +84,7 @@ double rtsec1(callfunc func, double cVar2,double fr,double x1,
       xl=x1;
       rts=x2;
   }
-  //scant loop
+  //secant  loop
   int i=0;
   if ((f-fl)!=0.0)
   {
@@ -104,8 +103,8 @@ double rtsec1(callfunc func, double cVar2,double fr,double x1,
         i++;
      
      }
-    //  while ((fabs(dx) > xacc)&&(i<iMAX)); // Covergence
-     while ((fabs(dx) > xacc)&&(i<iMAX)&&(f!=0.0)&&((f-fl)!=0.0)); // Covergence
+    //  while ((fabs(dx) > xacc)&&(i<iMAX)); // Convergence
+     while ((fabs(dx) > xacc)&&(i<iMAX)&&(f!=0.0)&&((f-fl)!=0.0)); //Convergence
     
      //printf("rtsec1 i= %d \n",i);
   

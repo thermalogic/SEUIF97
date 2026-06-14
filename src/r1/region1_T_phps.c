@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------
 //  August 2007 IF97: IF97-Rev.pdf: P6-9
-// IAPWS -IF 97 Backware Equation for Region 1:
+// IAPWS -IF 97 Backward Equation for Region 1:
 //            Backward (p,h)->T, (p,s)->T
 //    (P,S)->T (P,H)->T
 // 

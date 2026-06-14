@@ -62,7 +62,7 @@ double gamma0_pitau_reg2()
 }
 
 //-----------------------------------------------------------------
-//  polynominal with solo i,j
+//  polynomial with solo i,j
 //--------------------------------------------------------------------------------
 
 double gammar_reg2(double pi, double tau)
@@ -96,7 +96,7 @@ double gammar_tautau_reg2(double pi, double tau)
 }
 
 //-----------------------------------------------------------------
-//  multiple polynominal with solo i,j
+//  multiple polynomial with solo i,j
 //--------------------------------------------------------------------------------
 
 void polys_solo_0_i_reg2(double pi, double tau, double *poly, double *poly_pi)

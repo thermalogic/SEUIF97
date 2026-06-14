@@ -27,10 +27,10 @@ IF97_DLL double ishd(double pi, double ti, double pe)
    return (hi - he_isos);
 }
 
-// superheated steam zone , %
+// superheated steam zone, %
 IF97_DLL double ief(double pi, double ti, double pe, double te)
 {
-   double hi, si, he_isos, he, se, ishd, ahd;
+   double hi, si, he_isos, he, se, ishd_v, ahd;
    if (pi <= pe)
       return INVALID_VALUE;
    if (ti <= te)
@@ -47,7 +47,7 @@ IF97_DLL double ief(double pi, double ti, double pe, double te)
    he_isos = ps(pe, si, OH);
    if (he_isos < -500)
       return INVALID_VALUE;
-   ishd = (hi - he_isos);
+   ishd_v = (hi - he_isos);
 
    he = pt(pe, te, OH);
    if (he < -500)
@@ -60,5 +60,5 @@ IF97_DLL double ief(double pi, double ti, double pe, double te)
       return INVALID_VALUE;
 
    ahd = (hi - he);
-   return (100.0 * ahd / ishd);
+   return (100.0 * ahd / ishd_v);
 }

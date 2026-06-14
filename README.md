@@ -169,7 +169,7 @@ You can modify the provided interfaces to match your own API needs.
 | Compressibility factor                |             |      z |         14 |
 | Steam quality                         |             |      x |         15 |
 | Region                                |             |      r |         16 |
-| Isobaric cubic expansion coefficient  |     1/K     |    ɑv  |         17 |
+| Isobaric cubic expansion coefficient  |     1/K     |    αv  |         17 |
 | Isothermal compressibility            |    1/MPa    |     kT |         18 |
 | Partial derivative (∂V/∂T)p           |  m^3/(kg·K) |(∂V/∂T)p|         19 |
 | Partial derivative (∂V/∂P)T           | m^3/(kg·MPa)|(∂V/∂P)T|         20 |

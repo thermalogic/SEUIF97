@@ -68,7 +68,7 @@ double Td2p_reg3(double T, double d)
 }
 
 double Td2u_reg3(double T, double d)
-// speciphic internal energy in region 3
+// specificinternal energy in region 3
 // energyreg3 in kJ/kg
 {
     double tau = tc_water / T;
@@ -79,7 +79,7 @@ double Td2u_reg3(double T, double d)
 }
 
 double Td2s_reg3(double T, double d)
-// speciphic entropy in region 3
+// specificentropy in region 3
 // entropyreg3 in kJ/(kg K)
 {
     double tau = tc_water / T;
@@ -93,7 +93,7 @@ double Td2s_reg3(double T, double d)
 }
 
 double Td2h_reg3(double T, double d)
-// speciphic enthalpy in region 3
+// specificenthalpy in region 3
 // enthalpyreg3 in kJ/kg
 {
     double tau = tc_water / T;
@@ -106,7 +106,7 @@ double Td2h_reg3(double T, double d)
 }
 
 double Td2cp_reg3(double T, double d)
-// speciphic isobaric heat capacity in region 3
+// specificisobaric heat capacity in region 3
 // cpreg3 in kJ/(kg K)
 {
     double tau = tc_water / T;
@@ -130,7 +130,7 @@ double Td2cp_reg3(double T, double d)
 }
 
 double Td2cv_reg3(double T, double d)
-// speciphic isochoric heat capacity in region 3
+// specificisochoric heat capacity in region 3
 // cvreg3 in kJ/(kg K)
 {
     double tau = tc_water / T;

@@ -1,5 +1,5 @@
 /*
-  polynominal with solo power
+  polynomial with solo power
 */
 #include <math.h>
 #include "algorithm.h"
@@ -198,7 +198,7 @@ void polys_solo_i_ii_ij(double vi, double vj, int size, IJnData *IJn, int *i2soI
     i_item = item * IJn[k].I;
     *poly_i += i_item;
     *poly_ii += i_item * (IJn[k].I - 1);
-    *poly_ij += i_item * IJn[k].J;(IJn[k].J - 1);
+    *poly_ij += i_item * IJn[k].J*(IJn[k].J - 1);
   }
   *poly_i /= vi;
   *poly_ii /= (vi * vi);

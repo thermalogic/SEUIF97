@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------
-   IAPWS -IF 97 Backware Equation (H,S)->P for Region 1:
+   IAPWS -IF 97 Backward Equation (H,S)->P for Region 1:
      IAPWS-IF97-S01: Supp-PHS12-2014.pdf  June 2014
             (h,s)->p
  -------------------------------------------------------------------- */

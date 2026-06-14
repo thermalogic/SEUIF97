@@ -1,12 +1,12 @@
 /*  The transport properties:
   Properties():
 
-| property                             |    Unit     | Symbol |   o_id     |
+| property                              |    Unit     | Symbol |   o_id     |
 | ------------------------------------- | :---------: |:-----: |:---------: |
-| Dynamic viscosity                    |  kg/(m·s)    |     η  |         24 |
+| Dynamic viscosity                     |  kg/(m·s)   |     η  |         24 |
 | Kinematic viscosity                   |    m^2/s    |     ν  |         25 |
 | Thermal conductivity                  |   W/(m.K)   |     λ  |         26 |
-| Thermal diffusivity                   |   um^2/s    |     a  |         27 |
+| Thermal diffusivity                   |   μm²/s     |     a  |         27 |
 | Prandtl number                        |             |     Pr |         28 |
 | Surface tension                       |    N/m      |     σ  |         29 |
 
@@ -97,7 +97,7 @@ double viscosity(double rho, double T)
 }
 
 double thCond(double rho, double T)
-/* quation for the thermal conductivity
+/* Equation for the thermal conductivity
 
     rho : float
         Density [kg/m³]
@@ -159,7 +159,7 @@ double tension(double T)
 
    Raises
        * 248.15 ≤ T ≤ 647
-       * Estrapolate to -25ºC in supercooled liquid metastable state
+       * Extrapolate to -25ºC in supercooled liquid metastable state
 
    IAPWS, Revised Release on Surface Tension of Ordinary Water Substance
    June 2014, http://www.iapws.org/relguide/Surf-H2O.html
