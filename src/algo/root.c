@@ -17,13 +17,12 @@
 
 double rtsec2(callfunc func, double cVar1,double fr,double x1,
              double x2, double fl,double f, double xacc, int iMAX)
-// rtsec2 :(*func)(cVar1，x)所求解是方程的第二个参数：x，x={x1,x2}
-// 第一个参数cVar1，迭代求解中不变
-// fr: fr：是输入的(*func)(double,double)计算结果
-// fr: fr：是输入的(*func)(x,cVar2)计算结果
-// fl: fr-(*func)(cVar1,x1)
-// f: fr-(*func)(cVar1,x2)
-// rts：返回x的解
+// rtsec2: (*func)(cVar1, x) solves for the second parameter: x, x={x1, x2}
+// First parameter cVar1 remains unchanged during iteration
+// fr: Input result of (*func)(double, double)
+// fl: fr - (*func)(cVar1, x1)
+// f: fr - (*func)(cVar1, x2)
+// rts: Returns the solution for x
 {
   double xl,rts,swap,dx;
   // pick the bound with the smaller function value as the most recent guess
@@ -47,8 +46,8 @@ double rtsec2(callfunc func, double cVar1,double fr,double x1,
           xl=rts;
           fl=f;
           rts += dx;
-          // TODO： 可将解的上下限作为参数带进来，保证迭代过程的解不超上下限
-          //rts must bounded in region X
+          // TODO: Pass solution bounds as parameters to ensure iteration stays within bounds
+          // rts must be bounded in region X
           f=fr-(*func)(cVar1,rts);
           i++;
       }
@@ -65,12 +64,12 @@ double rtsec2(callfunc func, double cVar1,double fr,double x1,
 
 double rtsec1(callfunc func, double cVar2,double fr,double x1,
            double x2, double fl,double f, double xacc,int iMAX)
-// rtsec1 :(*func)(x,cVar2)所求解是方程的第一个参数：x，x={x1,x2}
-// 第二个参数cVar2，迭代求解中不变
-// fr: fr：是输入的(*func)(x,cVar2)计算结果
-// fl: fr-(*func)(x1,cVar2)
-// f: fr-(*func)(x2,cVar2)
-// rts：返回x的解
+// rtsec1: (*func)(x, cVar2) solves for the first parameter: x, x={x1, x2}
+// Second parameter cVar2 remains unchanged during iteration
+// fr: Input result of (*func)(x, cVar2)
+// fl: fr - (*func)(x1, cVar2)
+// f: fr - (*func)(x2, cVar2)
+// rts: Returns the solution for x
 {
   double xl,rts,swap,dx;
   // pick the bound with the smaller function value as the most recent guess
@@ -94,8 +93,8 @@ double rtsec1(callfunc func, double cVar2,double fr,double x1,
         xl=rts;
         fl=f;
         rts += dx;
-        // TODO： 可将解的上下限作为参数带进来，保证迭代过程的解不超上下限
-        //rts may out-bounded in region X
+        // TODO: Pass solution bounds as parameters to ensure iteration stays within bounds
+        // rts may be out-of-bounds in region X
         if (rts<=0) rts=0.000001;
         //if (rts>100) rts=100;
       
@@ -114,5 +113,3 @@ double rtsec1(callfunc func, double cVar2,double fr,double x1,
 }
 
 #undef EPS
-
-

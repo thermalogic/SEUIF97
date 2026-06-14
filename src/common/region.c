@@ -12,8 +12,8 @@
 #include <math.h>
 
 int pT_region(double p, double T)
-// 温度升序，判断区域 ，直接return。判定逻辑简单，避免了多重if
-// p in MPa。T in K returns the region
+// Determine region in ascending temperature order, direct return. Simple判定logic avoids multiple if conditions
+// p in MPa, T in K, returns the region
 {
   if (p < PMIN || p > PMAX)
     return INVALID_P;
@@ -22,8 +22,8 @@ int pT_region(double p, double T)
   if (T > 1073.15 && T <= 2273.15 && p > 50.0)
     return INVALID_PT;
 
-  // ON TOP: Saturation lines、critical point等特殊点判断在前
-  // 以后区域判断中没有这些特殊，减少区域判断的复杂度
+  // ON TOP: Special points like saturation lines and critical point are checked first
+  // This simplifies subsequent region checks by excluding these special cases
 
   // Saturation Pressure Tolerance
   if (T >= 273.15 && T < tc_water) {
@@ -45,8 +45,8 @@ int pT_region(double p, double T)
       return 2;
   };
 
-  // T（623.15,tc_water)之间的饱和线，critical
-  // point情况，已在前面处理，这里无需判断，简化了区域判断
+  // T (623.15, tc_water) saturation line, critical point case
+  // already handled above, simplifying region check
   if (T > 623.15 && T <= 863.15) {
     double p_b23=B23_T2p(T);
     if (p >= PMIN && p <= p_b23)
@@ -82,8 +82,8 @@ int ph_region(double p, double h) {
     return INVALID_H;
   }
 
-  // 压力Pmin - Ps_623- pc_water- 100升序，分3段判断区域
-  //    每个压力区域 hmin  hmax 分段判断区域
+  // Pressure ascending order: Pmin - Ps_623 - pc_water - 100, divided into 3 segments for region check
+  // Each pressure segment checks hmin and hmax to determine region
   double hmin = pT2h_reg1(p, 273.15);
   double hmax = pT2h_reg5(p, 2273.15);
 
@@ -147,8 +147,8 @@ int ps_region(double p, double s) {
     return INVALID_S;
   }
 
-  // 压力Pmin - Ps_623- pc_water- 100升序，分3段判断区域
-  //    每个压力区域 smin  smax 分段判断区域
+  // Pressure ascending order: Pmin - Ps_623 - pc_water - 100, divided into 3 segments for region check
+  // Each pressure segment checks smin and smax to determine region
   double smin = pT2s_reg1(p, 273.15);
   double smax = pT2s_reg5(p, 2273.15);
   if (PMIN <= p && p <= Ps_623) {
@@ -215,7 +215,7 @@ int hs_region(double h, double s)
   double s13s = 3.77828134;   // pT2s_reg1(Ps_623, 623.15);
   double sTPmax = 6.04048367; // pT2s_reg2(100, 1073.15);
   double s2ab =
-      7.85234040; // pT2s_reg2(4, 1073.15); // TODO： p=4 2ab s2ab 的意义？
+      7.85234040; // pT2s_reg2(4, 1073.15); // TODO: What is the meaning of p=4 2ab s2ab?
 
   // Left point in h-s plot
   double smin = 0.0;           // pT2s_reg1(100, 273.15);

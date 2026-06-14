@@ -18,11 +18,11 @@ double ph2T_reg5(double p, double h)
    double T, T1, T2;
    double f1, f2;
 
-   // TODO:  插值求迭代初值方法
-   //double  hmin =pT2hreg2(p,1073.15);
-   //double  hmax = pT2h_reg5(p,2273.15);
-   //T1=1073.15+(2273.15-1073.15)*(h-hmin)/(hmax-hmin);
-   //  求迭代初值方法2： 以三相点为起点,采用与理想气体的对比关系求迭代初值
+   // TODO: Method to find initial value for iteration using interpolation
+   // double hmin = pT2h_reg2(p, 1073.15);
+   // double hmax = pT2h_reg5(p, 2273.15);
+   // T1 = 1073.15 + (2273.15 - 1073.15) * (h - hmin) / (hmax - hmin);
+   // Method 2 for initial value: Start from triple point, use ideal gas comparison to find initial value
 
    T = -1000;
 
@@ -54,10 +54,10 @@ double ph2T_reg5(double p, double h)
 double ps2T_reg5(double p, double s)
 {
    double T, T1, T2, f1, f;
-   //RODO: 插值求迭代初值方法1
-   //double  smin =pT2sreg2(p,1073.15);
-   //double  smax = pT2s_reg5(p,2273.15);
-   //T1=1073.15+(2273.15-1073.15)*(s-smin)/(smax-smin);
+   // TODO: Method to find initial value for iteration using interpolation
+   // double smin = pT2s_reg2(p, 1073.15);
+   // double smax = pT2s_reg5(p, 2273.15);
+   // T1 = 1073.15 + (2273.15 - 1073.15) * (s - smin) / (smax - smin);
 
    T = -1000;
 
@@ -98,10 +98,10 @@ double hs2p_reg5(double h, double s)
 {
    double p, p1, p2, f1, f2;
 
-   // TODO:  迭代初始值，可测试那个更好?
-   // 也可以计算smin,smax,2元插值得到更接近的p1
+   // TODO: Initial value for iteration, which method is better?
+   // Can also calculate smin, smax, and use 2D interpolation to get closer p1
 
-   // 测试表明：更复杂的方法计算迭代初始数值并不更好
+   // Tests show that more complex methods for calculating initial values are not necessarily better
    //double  hmin =pT2h_reg5(PMIN5,1073.15);
    //double  hmax =pT2h_reg5(PMAX5,2273.15);
    //p1=PMIN5+(PMAX5-PMIN5)*(h-hmin)/(hmax-hmin);
