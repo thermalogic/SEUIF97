@@ -1,12 +1,13 @@
 #pragma once
 
 #include "../common/common.h"
+#include "region5_gfe.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-double gamma0_reg5(double pi, double tau);
+/*double gamma0_reg5(double pi, double tau);
 double gamma0_pi_reg5(double pi);
 double gamma0_pipi_reg5(double pi);
 double gamma0_pitau_reg5();
@@ -19,7 +20,7 @@ double gammar_pipi_reg5(double pi, double tau);
 double gammar_pitau_reg5(double pi, double tau);
 double gammar_tau_reg5(double pi, double tau);
 double gammar_tautau_reg5(double pi, double tau);
-
+*/
 
 // IF97 fundamental :(p,t)
 double pT2h_reg5(double p, double T);

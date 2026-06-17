@@ -4,6 +4,8 @@
 	 P39  Eq 32-34:
 	   (p,T)->v,h,s,cp,cv,w
 */
+#pragma once
+
 #include <math.h>
 #include "region5.h"
 #include "region5_coff.h"
@@ -15,7 +17,7 @@
 // dimensionless Gibbs free energy for region 5, Eq. (33)
 
 // P36 The equation for the ideal-gas part of the dimensionless Gibbs free energy reads eq33
-double gamma0_reg5(double pi, double tau)
+__attribute__((always_inline)) static inline double gamma0_reg5(double pi, double tau)
 {
 	double value = log(pi);
 	for (unsigned i = 0; i < 6; i++)
@@ -24,18 +26,18 @@ double gamma0_reg5(double pi, double tau)
 }
 
 // 38p
-double gamma0_pi_reg5(double pi)
+__attribute__((always_inline)) static inline double gamma0_pi_reg5(double pi)
 {
 	return 1.0 / pi;
 }
 
 // 38p
-double gamma0_pipi_reg5(double pi)
+__attribute__((always_inline)) static inline double gamma0_pipi_reg5(double pi)
 {
 	return -1.0 / pi / pi;
 }
 
-double gamma0_tau_reg5(double tau)
+__attribute__((always_inline)) static inline double gamma0_tau_reg5(double tau)
 {
 	double value = 0.0;
 	for (unsigned i = 0; i < 6; i++)
@@ -43,7 +45,7 @@ double gamma0_tau_reg5(double tau)
 	return value;
 }
 
-double gamma0_tautau_reg5(double tau)
+__attribute__((always_inline)) static inline double gamma0_tautau_reg5(double tau)
 {
 	double value = 0.0;
 	for (unsigned i = 0; i < 6; i++)
@@ -51,12 +53,12 @@ double gamma0_tautau_reg5(double tau)
 	return value;
 }
 
-double gamma0_pitau_reg5()
+__attribute__((always_inline)) static inline double gamma0_pitau_reg5()
 {
 	return 0.0;
 }
 
-double gammar_reg5(double pi, double tau)
+__attribute__((always_inline)) static inline double gammar_reg5(double pi, double tau)
 {
 	double value = 0.0;
 	for (int i = 0; i < 6; i++)
@@ -66,7 +68,7 @@ double gammar_reg5(double pi, double tau)
 
 // Table 41. The residual part  r of the dimensionless Gibbs free energy and its
 // derivatives  valueaccording to Eq. (34)
-double gammar_pi_reg5(double pi, double tau)
+__attribute__((always_inline)) static inline double gammar_pi_reg5(double pi, double tau)
 {
 	double value = 0.0;
 	for (unsigned i = 0; i < 6; i++)
@@ -74,7 +76,7 @@ double gammar_pi_reg5(double pi, double tau)
 	return value;
 }
 
-double gammar_pipi_reg5(double pi, double tau)
+__attribute__((always_inline)) static inline double gammar_pipi_reg5(double pi, double tau)
 {
 	double value = 0.0;
 	for (unsigned i = 0; i < 6; i++)
@@ -82,7 +84,7 @@ double gammar_pipi_reg5(double pi, double tau)
 	return value;
 }
 
-double gammar_tau_reg5(double pi, double tau)
+__attribute__((always_inline)) static inline double gammar_tau_reg5(double pi, double tau)
 {
 	double value = 0.0;
 	for (unsigned i = 0; i < 6; i++)
@@ -91,7 +93,7 @@ double gammar_tau_reg5(double pi, double tau)
 }
 
 // 39p
-double gammar_tautau_reg5(double pi, double tau)
+__attribute__((always_inline)) static inline double gammar_tautau_reg5(double pi, double tau)
 {
 	double value = 0.0;
 	for (unsigned i = 0; i < 6; i++)
@@ -99,7 +101,7 @@ double gammar_tautau_reg5(double pi, double tau)
 	return value;
 }
 
-double gammar_pitau_reg5(double pi, double tau)
+__attribute__((always_inline)) static inline double gammar_pitau_reg5(double pi, double tau)
 {
 	double value = 0.0;
 	for (unsigned i = 0; i < 6; i++)
