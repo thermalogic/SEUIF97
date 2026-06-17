@@ -2,7 +2,8 @@
   The solo power in region 3
    -   use Horner’s rule to get the soI_pow,soJ_pow quickly
  */ 
-void solo_i_j_power_reg3(double vi, double vj, double soI_pow[], double soJ_pow[])
+ #pragma once
+__attribute__((always_inline)) static inline void solo_i_j_power_reg3(double vi, double vj, double soI_pow[], double soJ_pow[])
 {
     // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     soI_pow[0] = 1.0;

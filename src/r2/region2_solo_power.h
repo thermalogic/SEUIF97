@@ -6,7 +6,7 @@
 #include "region2_coff.h"
 #include "region2_solo_ij.h"
 
-void solo_i_j_power_reg2(double vi, double vj, double soI_pow[], double soJ_pow[])
+__attribute__((always_inline)) static inline void solo_i_j_power_reg2(double vi, double vj, double soI_pow[], double soJ_pow[])
 {
   //  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 16, 18, 20, 21, 22, 23, 24];
   soI_pow[0] = vi;

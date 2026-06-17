@@ -3,6 +3,8 @@
 #include "../algo/algorithm.h"
 #include "../common/common.h"
 #include "region2_coff.h"
+#include "region2_solo_power.h"
+
 
 static const int soI[17] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 16, 18, 20, 21, 22, 23, 24};
 
@@ -18,4 +20,4 @@ static int j2soJ[43] = {0, 1, 2, 3, 4, 1, 2, 5, 6, 7, 0, 1, 3,
                         4, 8, 1, 2, 3, 6, 3, 9, 8, 0, 10, 11, 12, 7, 13, 5, 14, 15,
                         16, 17, 18, 19, 8, 20, 21, 22, 23, 24, 25, 26};
 
-void solo_i_j_power_reg2(double vi, double vj, double soI_pow[], double soJ_pow[]);
+//void solo_i_j_power_reg2(double vi, double vj, double soI_pow[], double soJ_pow[]);

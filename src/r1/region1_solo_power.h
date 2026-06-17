@@ -1,12 +1,14 @@
 /*
  The solo powers in region1
 */
+#pragma once
 #include "../algo/algorithm.h"
 #include "region1.h"
 #include "region1_coff.h"
 #include "region1_solo_ij.h"
 
-void solo_ij_pow_reg1(double vi,double vj,double *soI_pow,double *soJ_pow)
+
+__attribute__((always_inline)) static inline void solo_ij_pow_reg1(double vi,double vj,double *soI_pow,double *soJ_pow)
 {
     // [0, 1, 2, 3, 4, 5, 8, 21, 23, 29, 30, 31, 32];
    
