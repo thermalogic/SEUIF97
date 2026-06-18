@@ -18,7 +18,7 @@ set(SRC_FILES
     src/r1/region1_pT.c
     src/r1/region1_pT_ext.c
     src/r1/region1_p_hs.c
-   s src/r1/region1_pair_ext.c
+    src/r1/region1_pair_ext.c
     src/r2/region2_T_ph.c
     src/r2/region2_T_ps.c
     src/r2/region2_gfe.c
