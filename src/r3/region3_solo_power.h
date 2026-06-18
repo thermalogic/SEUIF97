@@ -3,7 +3,11 @@
    -   use Horner’s rule to get the soI_pow,soJ_pow quickly
  */ 
  #pragma once
-__attribute__((always_inline)) static inline void solo_i_j_power_reg3(double vi, double vj, double soI_pow[], double soJ_pow[])
+ 
+static int initialized_soI_pow_reg3=0;
+static int initialized_soJ_pow_reg3=0;
+
+__attribute__((always_inline)) static inline void solo_i_pow_reg3(double vi,  double soI_pow[])
 {
     // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     soI_pow[0] = 1.0;
@@ -11,7 +15,10 @@ __attribute__((always_inline)) static inline void solo_i_j_power_reg3(double vi,
     {
         soI_pow[k] = soI_pow[k - 1] * vi;
     }
+}
 
+__attribute__((always_inline)) static inline void solo_j_pow_reg3(double vj, double soJ_pow[])
+{
     // j  [0, 1, 2, 7, 10, 12, 23, 6, 15, 17, 22, 26, 4, 16, 3];
     soJ_pow[0] = 1.0;
     soJ_pow[1] = vj;
@@ -36,4 +43,16 @@ __attribute__((always_inline)) static inline void solo_i_j_power_reg3(double vi,
     soJ_pow[12] = J_pow4;           // 4
     soJ_pow[13] = soJ_pow[8] * vj;  // 16
     soJ_pow[14] = J_pow3;           // 3
+}
+
+__attribute__((always_inline)) static inline void solo_ij_pow_reg3(double vi, double vj, double soI_pow[], double soJ_pow[])
+{
+    if (!initialized_soI_pow_reg3) {
+        initialized_soI_pow_reg3=1;
+        solo_i_pow_reg3(vi,soI_pow);   
+    }
+    if (!initialized_soJ_pow_reg3) {
+        initialized_soJ_pow_reg3=1;
+        solo_j_pow_reg3(vj, soJ_pow);
+    }
 }

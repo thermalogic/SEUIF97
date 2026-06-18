@@ -24,7 +24,7 @@ double phi_reg3(double delta, double tau)
 	// for (int k = 0; k < 39; k++)
 	//		phi += IJn[k].n * pow(delta, IJn[k].I) * pow(tau, IJn[k].J);
 	// return phi;
-	return n1 * log(delta) + poly_solo(delta, tau, 39, IJn, i2soI, j2soJ, solo_i_j_power_reg3);
+	return n1 * log(delta) + poly_solo(delta, tau, 39, IJn, i2soI, j2soJ, solo_ij_pow_reg3);
 }
 
 double phi_delta_reg3(double delta, double tau)
@@ -34,7 +34,7 @@ double phi_delta_reg3(double delta, double tau)
 	// for (int k = 0; k < 39; k++)
 	//		phi_delta += IJn[k].n * IJn[k].I * pow(delta, IJn[k].I - 1) * pow(tau, IJn[k].J);
 	//	return phi_delta;
-	return (n1 / delta) + poly_solo_i(delta, tau, 39, IJn, i2soI, j2soJ, solo_i_j_power_reg3);
+	return (n1 / delta) + poly_solo_i(delta, tau, 39, IJn, i2soI, j2soJ, solo_ij_pow_reg3);
 }
 
 double phi_deltadelta_reg3(double delta, double tau)
@@ -45,7 +45,7 @@ double phi_deltadelta_reg3(double delta, double tau)
 	//		phi_deltadelta += IJn[k].n * IJn[k].I * (IJn[k].I - 1) * pow(delta, IJn[k].I - 2) * pow(tau, IJn[k].J);
 	//	return phi_deltadelta;
 
-	return (-n1 / delta / delta) + poly_solo_ii(delta, tau, 39, IJn, i2soI, j2soJ, solo_i_j_power_reg3);
+	return (-n1 / delta / delta) + poly_solo_ii(delta, tau, 39, IJn, i2soI, j2soJ, solo_ij_pow_reg3);
 }
 
 double phi_tau_reg3(double delta, double tau)
@@ -56,7 +56,7 @@ double phi_tau_reg3(double delta, double tau)
 	//	phi_tau += IJn[k].n * pow(delta, IJn[k].I) * IJn[k].J * pow(tau, IJn[k].J - 1);
 	// return phi_tau;
 
-	return poly_solo_j(delta, tau, 39, IJn, i2soI, j2soJ, solo_i_j_power_reg3);
+	return poly_solo_j(delta, tau, 39, IJn, i2soI, j2soJ, solo_ij_pow_reg3);
 }
 
 double phi_tautau_reg3(double delta, double tau)
@@ -67,7 +67,7 @@ double phi_tautau_reg3(double delta, double tau)
 	//	phi_tautau += IJn[k].n * pow(delta, IJn[k].I) * IJn[k].J * (IJn[k].J - 1) * pow(tau, IJn[k].J - 2);
 	//	return phi_tautau;
 
-	return poly_solo_jj(delta, tau, 39, IJn, i2soI, j2soJ, solo_i_j_power_reg3);
+	return poly_solo_jj(delta, tau, 39, IJn, i2soI, j2soJ, solo_ij_pow_reg3);
 }
 
 double phi_deltatau_reg3(double delta, double tau)
@@ -78,7 +78,7 @@ double phi_deltatau_reg3(double delta, double tau)
 	//	phi_deltatau += IJn[k].n * IJn[k].I * pow(delta, IJn[k].I - 1) * IJn[k].J * pow(tau, IJn[k].J - 1);
 	// return phi_deltatau;
 
-	return poly_solo_ij(delta, tau, 39, IJn, i2soI, j2soJ, solo_i_j_power_reg3);
+	return poly_solo_ij(delta, tau, 39, IJn, i2soI, j2soJ, solo_ij_pow_reg3);
 }
 
 //------------------------------------------------------------------------------------
@@ -88,7 +88,7 @@ void polys_solo_0_j_reg3(double delta, double tau,
 						 double *poly,
 						 double *poly_tau)
 {
-	polys_solo_0_j(delta, tau, 39, IJn, i2soI, j2soJ, solo_i_j_power_reg3, poly, poly_tau);
+	polys_solo_0_j(delta, tau, 39, IJn, i2soI, j2soJ, solo_ij_pow_reg3, poly, poly_tau);
 	*poly += n1 * log(delta);
 }
 
@@ -96,7 +96,7 @@ void polys_solo_i_j_reg3(double delta, double tau,
 						 double *poly_delta,
 						 double *poly_tau)
 {
-	polys_solo_i_j(delta, tau, 39, IJn, i2soI, j2soJ, solo_i_j_power_reg3, poly_delta, poly_tau);
+	polys_solo_i_j(delta, tau, 39, IJn, i2soI, j2soJ, solo_ij_pow_reg3, poly_delta, poly_tau);
 
 	*poly_delta += n1 / delta;
 }
@@ -105,7 +105,7 @@ void polys_solo_i_ii_ij_jj_reg3(double delta, double tau,
 								double *poly_delta, double *poly_deltadelta, double *poly_deltatau,
 								double *poly_tautau)
 {
-	polys_solo_i_ii_ij_jj(delta, tau, 39, IJn, i2soI, j2soJ, solo_i_j_power_reg3, poly_delta, poly_deltadelta,
+	polys_solo_i_ii_ij_jj(delta, tau, 39, IJn, i2soI, j2soJ, solo_ij_pow_reg3, poly_delta, poly_deltadelta,
 						  poly_deltatau, poly_tautau);
 
 	*poly_delta += n1 / delta;

@@ -6,7 +6,10 @@
 #include "region2_coff.h"
 #include "region2_solo_ij.h"
 
-__attribute__((always_inline)) static inline void solo_i_j_power_reg2(double vi, double vj, double soI_pow[], double soJ_pow[])
+static int initialized_soI_pow_reg2=0;
+static int initialized_soJ_pow_reg2=0;
+
+__attribute__((always_inline)) static inline void solo_i_pow_reg2(double vi, double soI_pow[])
 {
   //  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 16, 18, 20, 21, 22, 23, 24];
   soI_pow[0] = vi;
@@ -22,9 +25,12 @@ __attribute__((always_inline)) static inline void solo_i_j_power_reg2(double vi,
   {
     soI_pow[k] = soI_pow[k - 1] * vi;
   }
+ 
+}
 
+__attribute__((always_inline)) static inline void solo_j_pow_reg2(double vj, double soJ_pow[])
+{
   //  0, 1, 2, 3, 6, 4, 7, 36, 35, 16, 11, 25, 8, 13, 10, 14, 29, 50, 57, 20, 48, 21, 53, 39, 26, 40,  58,
-
   soJ_pow[0] = 1.0;                     // 0
   soJ_pow[1] = vj;                      // 1
   soJ_pow[2] = vj * vj;                 // 2
@@ -69,3 +75,17 @@ __attribute__((always_inline)) static inline void solo_i_j_power_reg2(double vi,
   //   soJ_pow[k] = IPOW(vj, soJ[k]);
   // }
 }
+
+
+__attribute__((always_inline)) static inline void solo_ij_pow_reg2(double vi,double vj,double *soI_pow,double *soJ_pow)
+{
+    if (!initialized_soI_pow_reg2) {
+        initialized_soI_pow_reg2=1;
+        solo_i_pow_reg2(vi,soI_pow);   
+    }
+    if (!initialized_soJ_pow_reg2) {
+        initialized_soJ_pow_reg2=1;
+        solo_j_pow_reg2(vj, soJ_pow);
+    }
+}
+

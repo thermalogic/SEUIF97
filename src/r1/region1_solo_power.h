@@ -7,8 +7,10 @@
 #include "region1_coff.h"
 #include "region1_solo_ij.h"
 
+static int initialized_soI_pow_reg1=0;
+static int initialized_soJ_pow_reg1=0;
 
-__attribute__((always_inline)) static inline void solo_ij_pow_reg1(double vi,double vj,double *soI_pow,double *soJ_pow)
+__attribute__((always_inline)) static inline void solo_i_pow_reg1(double vi,double *soI_pow)
 {
     // [0, 1, 2, 3, 4, 5, 8, 21, 23, 29, 30, 31, 32];
    
@@ -25,6 +27,14 @@ __attribute__((always_inline)) static inline void solo_ij_pow_reg1(double vi,dou
         soI_pow[k] = soI_pow[k - 1] * vi;
     }
 
+    
+    /*for(int k=0; k<13; k++) {
+        soI_pow[k] = IPOW(vi, soI[k]);
+    }*/
+}
+
+__attribute__((always_inline)) static inline void solo_j_pow_reg1(double vj,double *soJ_pow)
+{
     //  -2, -1, 0, 1, 2, 3, 4, 5, -9, -7, -3, 17, -4, 6, -5, 10, -8, -11, -6, -29, -31, -38, -39, -40, -41,
     double vj2 = vj * vj;
     soJ_pow[0] = 1.0 / vj2; //-2
@@ -62,11 +72,20 @@ __attribute__((always_inline)) static inline void solo_ij_pow_reg1(double vi,dou
         soJ_pow[k] = soJ_pow[k - 1] / vj;
     }
     
-    
-    /*for(int k=0; k<13; k++) {
-        soI_pow[k] = IPOW(vi, soI[k]);
-    }
+    /*
     for(int k=0; k<25; k++) {
         soJ_pow[k] = IPOW(vj, soJ[k]);
     }*/
+}
+
+__attribute__((always_inline)) static inline void solo_ij_pow_reg1(double vi,double vj,double *soI_pow,double *soJ_pow)
+{
+    if (!initialized_soI_pow_reg1) {
+        initialized_soI_pow_reg1=1;
+        solo_i_pow_reg1(vi,soI_pow);   
+    }
+    if (!initialized_soJ_pow_reg1) {
+        initialized_soJ_pow_reg1=1;
+        solo_j_pow_reg1(vj, soJ_pow);
+    }
 }

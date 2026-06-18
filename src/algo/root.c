@@ -5,7 +5,6 @@
 //-----------------------------------------------------------------------------
 
 #include <math.h>
-#include <stdio.h>
 #include "algorithm.h"
 
 #define EPS 3.0e-8
