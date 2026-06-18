@@ -1,7 +1,7 @@
 
 #pragma once
-//#define IPOW ipowsac
-#define IPOW ipowrqm
+#define IPOW ipowsac
+// #define IPOW ipowrqm
 // #define IPOW powf
 
 static inline double ipowrqm(double x, int i)
