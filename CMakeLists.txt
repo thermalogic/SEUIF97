@@ -18,8 +18,7 @@ set(SRC_FILES
     src/r1/region1_pT.c
     src/r1/region1_pT_ext.c
     src/r1/region1_p_hs.c
-    src/r1/region1_pair_ext.c
-    src/r1/region1_solo_power.c
+   s src/r1/region1_pair_ext.c
     src/r2/region2_T_ph.c
     src/r2/region2_T_ps.c
     src/r2/region2_gfe.c
@@ -28,7 +27,6 @@ set(SRC_FILES
     src/r2/region2_pT_ext.c
     src/r2/region2_p_hs.c
     src/r2/region2_pair_ext.c
-    src/r2/region2_solo_power.c
     src/r3/region3_Td.c
     src/r3/region3_Td_ext.c
     src/r3/region3_Tv_phps.c
@@ -36,7 +34,6 @@ set(SRC_FILES
     src/r3/region3_out.c
     src/r3/region3_p_hs.c
     src/r3/region3_pair_ext.c
-    src/r3/region3_solo_power.c
     src/r3/region3_v_pT.c
     src/r3/region3_v_pT_subregion_.c
     src/r4/region4_T_hs.c
