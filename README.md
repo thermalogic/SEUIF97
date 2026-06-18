@@ -2,7 +2,7 @@
 
 ![PyPI](https://img.shields.io/pypi/v/seuif97) [![Downloads](https://static.pepy.tech/badge/seuif97)](https://pepy.tech/project/seuif97) [![Downloads](https://static.pepy.tech/badge/seuif97/month)](https://pepy.tech/project/seuif97)
 
-**Note:** A new **Rust version** offers a major upgrade with **36 properties** (vs 30), and multi-ecosystem package support. See [RustSEUIF97](https://github.com/thermalogic/RustSEUIF97).
+**Note:** A new **Rust version** offers a major upgrade with **~2× speedup**, **36 properties** (vs 30), and multi-ecosystem package support. See [RustSEUIF97](https://github.com/thermalogic/RustSEUIF97).
  
 This is the C implementation of the high-speed IAPWS-IF97 package **SEUIF97**. It is suitable for computation-intensive calculations, such as the simulation of non-stationary processes, on-line process monitoring and optimizations.
  
