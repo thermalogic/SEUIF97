@@ -1,3 +1,25 @@
+/**
+ * @file property_id.h
+ * @brief Property ID definitions for SEUIF97 output selection
+ * 
+ * This header file defines constants used to specify which thermodynamic
+ * property to calculate (temperature, pressure, enthalpy, entropy, etc.).
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
+/**
+ * @file property_id.h
+ * @brief Property ID definitions for SEUIF97 output selection
+ * 
+ * This header file defines constants used to specify which thermodynamic
+ * property to calculate (temperature, pressure, enthalpy, entropy, etc.).
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 #pragma once
 
 // output property ID

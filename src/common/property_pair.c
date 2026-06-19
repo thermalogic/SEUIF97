@@ -1,6 +1,15 @@
-// Transport
-//  1.  pT_transport -> 1，2，5
-//  2  Td_transport_reg3  in region3_out.c
+/**
+ * @file property_pair.c
+ * @brief Property pair calculations and transport properties
+ * 
+ * This file implements property calculations for various input pairs
+ * and transport property calculations (viscosity, thermal conductivity, etc.).
+ *    1. pT_transport -> 1，2，5
+ *    2. Td_transport_reg3  in region3_out.c
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 #include "../common/common.h"
 #include "../common/property_id.h"
 #include "../common/constant.h"

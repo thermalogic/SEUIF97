@@ -1,16 +1,23 @@
-/*  The transport properties:
-  Properties():
+/**
+ * @file transport.c
+ * @brief Transport properties calculation for water and steam
+ * 
+ * This file implements transport property calculations
+ * Reference: IAPWS Release on Transport Properties
+ *    
+ *   | property                              |    Unit     | Symbol |   o_id     |
+ *   | ------------------------------------- | :---------: |:-----: |:---------: |
+ *   | Dynamic viscosity                     |  kg/(m·s)   |     η  |         24 |
+ *   | Kinematic viscosity                   |    m^2/s    |     ν  |         25 |
+ *   | Thermal conductivity                  |   W/(m.K)   |     λ  |         26 |
+ *   | Thermal diffusivity                   |   μm²/s     |     a  |         27 |
+ *   | Prandtl number                        |             |     Pr |         28 |
+ *   | Surface tension                       |    N/m      |     σ  |         29 |
+ *
+ *  @author Cheng Maohua
+ *  @email cmh@seu.edu.cn
+ */
 
-| property                              |    Unit     | Symbol |   o_id     |
-| ------------------------------------- | :---------: |:-----: |:---------: |
-| Dynamic viscosity                     |  kg/(m·s)   |     η  |         24 |
-| Kinematic viscosity                   |    m^2/s    |     ν  |         25 |
-| Thermal conductivity                  |   W/(m.K)   |     λ  |         26 |
-| Thermal diffusivity                   |   μm²/s     |     a  |         27 |
-| Prandtl number                        |             |     Pr |         28 |
-| Surface tension                       |    N/m      |     σ  |         29 |
-
-*/
 #include <math.h>
 #include "../common/constant.h"
 #include "../common/common.h"

@@ -1,6 +1,14 @@
-/*
-  polynomial with solo power
-*/
+/**
+ * @file polynomial_solo.c
+ * @brief Optimized polynomial evaluation with pre-calculated powers
+ * 
+ * This file implements optimized polynomial evaluation using pre-calculated
+ * power values to reduce computational overhead in thermodynamic calculations.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 #include <math.h>
 #include "algorithm.h"
 

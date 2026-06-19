@@ -1,6 +1,11 @@
-/*
-Region 5: the extended properties
-
+/**
+ * @file region5_pT_ext.c
+ * @brief Extended properties for Region 5
+ * 
+ * This file implements the extended properties for Region 5.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
 */
 #include <math.h>
 #include "../common/constant.h"

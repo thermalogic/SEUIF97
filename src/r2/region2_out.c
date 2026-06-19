@@ -1,7 +1,15 @@
 /*
- The APT of region 2
+/**
+ * @file region2_out.c
+ * @brief API implementation for Region 2
+ * 
+ * This file implements the API functions for calculating thermodynamic
+ * properties in Region 2 (steam) for various input pairs.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 
-*/
 #include "region2.h"
 #include "../common/property_id.h"
 #include "../common/common.h"

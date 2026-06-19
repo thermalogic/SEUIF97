@@ -1,8 +1,15 @@
-/* 
-  Region 5 : Basic Eq (p,T)->v,h,s,cp,cv,w,
-	http://www.iapws.org/relguide/IF97-Rev.html, Eq 32-34P39
-			  
-*/
+/**
+ * @file region5_pT.c
+ * @brief Basic thermodynamic properties for Region 5 (p,T input)
+ * 
+ * This file implements the calculation of basic thermodynamic properties
+ * for Region 5 (high temperature steam) using pressure and temperature as inputs.
+ * Reference: IAPWS-IF97, Section 4.5, Page 38-39
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 
 #include <math.h>
 #include "region5.h"

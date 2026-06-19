@@ -1,5 +1,10 @@
-/*
-   region3: sub-region (p,T)->v
+/**
+ * @file region3_v_pT_subregion_.c
+ * @brief Sub-region (p,T)->v for Region 3a
+ * 
+ * This file implements the sub-region (p,T)->v for Region 3a.
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
 */
 #include <math.h>
 #include "region3.h"

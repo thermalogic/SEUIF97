@@ -1,6 +1,14 @@
-/*
-   The polynomial functions 
-*/
+/**
+ * @file polynomial.c
+ * @brief Standard polynomial evaluation functions
+ * 
+ * This file implements standard polynomial evaluation functions for
+ * calculating thermodynamic properties using power series expansions.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 #include <math.h>
 #include "algorithm.h"
 
@@ -87,7 +95,4 @@ void polys_i_ii_ij_jj(double vi, double vj, int size, IJnData *IJn,
   *poly_ii /= (vi*vi);
   *poly_ij /= (vi*vj);
   *poly_jj /= (vj*vj);
-}  
-  
-  
-
+}

@@ -1,3 +1,15 @@
+/**
+ * @file region2_p_hs.c
+ * @brief Backward equations for Region 2 (h,s)->p
+ * 
+ * This file implements the backward equations for calculating pressure
+ * from enthalpy and entropy in Region 2 subregions.
+ * Reference: IAPWS-IF97-S01, Supp-PHS12-2014
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 /*
    Supp-PHS12-2014: (H,S)->P
        6 Backward Equations p(h,s) for Region 2

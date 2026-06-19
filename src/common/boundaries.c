@@ -1,7 +1,15 @@
-/*
-  boundaries
+/**
+ * @file boundaries.c
+ * @brief Region boundary equations for IAPWS-IF97
+ * 
+ * This file implements boundary equations between regions including
+ * the boundary between Regions 2 and 3, and saturation equations.
+ * Reference: IAPWS-IF97, Section 4.6, Page 9
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 
-*/
 #include <math.h>
 #include "common.h"
 #include "constant.h"

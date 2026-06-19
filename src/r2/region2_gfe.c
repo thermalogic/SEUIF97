@@ -1,13 +1,17 @@
 
-//---------------------------------------------------------------------------
-// IAPWS -IF 97 Basic Equation for Region 2:  Release : IF97-rev  August 2007
-// The dimensionless Gibbs free energy gamma and its derivatives
-//     REGION 2 G(p,T) EQUATIONS ：  Eq. (15), P13
-//     the ideal-gas part ： Eq. (16)
-// Cheng  Maohua
-//-------------------------------
+/**
+ * @file region2_gfe.c
+ * @brief Gibbs free energy and derivatives for Region 2
+ * 
+ * This file implements the dimensionless Gibbs free energy (gamma) and
+ * its derivatives for Region 2 (steam) using the IAPWS-IF97 formulation.
+ * Includes both ideal gas part and residual part.
+ * Reference: IAPWS-IF97, Section 4.2, Page 12-17
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 
-//  Initialize coefficients and exponents for region 2
 #include <math.h>
 #include "../algo/algorithm.h"
 #include "region2.h"

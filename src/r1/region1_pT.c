@@ -1,3 +1,15 @@
+/**
+ * @file region1_pT.c
+ * @brief Basic thermodynamic properties for Region 1 (p,T input)
+ * 
+ * This file implements the calculation of basic thermodynamic properties
+ * for Region 1 (liquid water) using pressure and temperature as inputs.
+ * Reference: IAPWS-IF97, Section 4.1, Page 6-9
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 /* -------------------------------------------------------------------------
   IAPWS-IF97 Region1:
     Properties(9):

@@ -1,7 +1,14 @@
 
-/*
-  The power functions  
-*/
+/**
+ * @file ipow.h
+ * @brief Integer Power functions for IAPWS-IF97
+ * 
+ * This file implements integer power functions for IAPWS-IF97
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+ 
 #pragma once
 #define IPOW ipowsac
 // #define IPOW ipowrqm

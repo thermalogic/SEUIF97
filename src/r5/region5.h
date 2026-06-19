@@ -1,3 +1,11 @@
+/**
+ * @file region5.h
+ * @brief API for Region 5  
+ * This header file defines the API for Region 5.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+*/
 #pragma once
 
 #include "../common/common.h"

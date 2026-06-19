@@ -1,15 +1,17 @@
-/* ----------------------------------------------------
-  IAPWS-IF97 Region1:
- 1: IAPWS, R7-97(2012)
-      IF97-Rev.pdf: P6-9
-               1)fundamental: (p,t)->v,u,s,h,cp,cv,w
-               2)backward: (p,h)->T, (p,s)->T
-
-2: IAPWS, SR2-01(2014)
-             Supp-PHS12-2014.pdf  (h,s)->p
-
-  Author： Cheng Maohua
-  Email: cmh@seu.edu.cn
+/**
+* @file region1.h
+* @brief Region 1
+*
+*  IAPWS-IF97 Region1:
+* 1: IAPWS, R7-97(2012)
+*      IF97-Rev.pdf: P6-9
+*               1)fundamental: (p,t)->v,u,s,h,cp,cv,w
+*               2)backward: (p,h)->T, (p,s)->T
+*
+*  2: IAPWS, SR2-01(2014)
+*             Supp-PHS12-2014.pdf  (h,s)->p
+* @author Cheng Maohua
+* @email cmh@seu.edu.cn
 */
 #pragma once
 #include "../common/common.h"

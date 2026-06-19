@@ -1,10 +1,15 @@
-/*
- Backward Equation for Region 2:
-   IAPWS-IF97-Rev : (P,H)->T
-      6.3.1 The Backward Equations T( p, h ) for Subregions 2a, 2b, and 2c.
-          ph2T_reg2(p,h)
-*/
-#include <math.h>
+/**
+ * @file region2_T_ph.c
+ * @brief Backward equation T(p,h) for Region 2 
+ *     IAPWS-IF97-Rev : (p,h)->T
+ *         6.3.1 The Backward Equations T(p,h  for Subregions 2a, 2b, and 2c.
+ *           ph2T_reg2(p,h)
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
+ #include <math.h>
 #include "region2.h"
 #include "../algo/algorithm.h"
 #include "../common/common.h"

@@ -1,9 +1,15 @@
-/*
-  Region 5
-  * http://www.iapws.org/relguide/IF97-Rev.html,
-	 P39  Eq 32-34:
-	   (p,T)->v,h,s,cp,cv,w
-*/
+/**
+ * @file region5_gfe.c
+ * @brief Gibbs free energy and derivatives for Region 5
+ * 
+ * This file implements the dimensionless Gibbs free energy (gamma) and
+ * its derivatives for Region 5 (high temperature steam).
+ * Reference: IAPWS-IF97, Section 4.5, Page 38-39
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 #include <math.h>
 #include "region5.h"
 #include "region5_coff.h"

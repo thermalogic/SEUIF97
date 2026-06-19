@@ -1,4 +1,15 @@
 
+/**
+ * @file region3_Td.c
+ * @brief Thermodynamic properties calculation for Region 3 (T,d) input
+ * 
+ * This file implements the calculation of thermodynamic properties
+ * for Region 3 using temperature and density as input variables.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 #include <math.h>
 #include "../common/constant.h"
 #include "../common/property_id.h"

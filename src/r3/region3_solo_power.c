@@ -1,6 +1,13 @@
 /*
-  The solo power in region 3
-   -   use Horner’s rule to get the soI_pow,soJ_pow quickly
+/**
+ * @file region3_solo_power.c
+ * @brief Pre-calculated power values for Region 3
+ * 
+ * This file implements optimized power calculations for Region 3 using
+ * Horner's rule and pre-calculated power values for improved efficiency.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
  */ 
 void solo_i_j_power_reg3(double vi, double vj, double soI_pow[], double soJ_pow[])
 {

@@ -1,3 +1,15 @@
+/**
+ * @file region3_Td_ext.c
+ * @brief Extended thermodynamic properties for Region 3
+ * 
+ * This file implements extended property calculations for Region 3
+ * including isentropic exponent, compressibility factor, Joule-Thomson
+ * coefficient, and partial derivatives.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 // Region3: The extended Properties
 //
 //  Td_ext_reg3(T: f64, d: f64, o_id: i32) -> f64

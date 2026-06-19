@@ -1,7 +1,15 @@
-/*
-   The API of region 4
-   Only linearly related thermodynamic properties are calculable in the wet steam region.
-*/
+/**
+ * @file region4_out.c
+ * @brief API implementation for Region 4 (two-phase region)
+ * 
+ * This file implements the API for calculating thermodynamic properties
+ * in Region 4 (saturation region) where both liquid and vapor phases coexist.
+ * Reference: IAPWS-IF97, Section 4.4
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 #include <math.h>
 #include "../common/constant.h"
 #include "../common/property_id.h"

@@ -1,6 +1,12 @@
-/*
-   region3: (p,T)->v
+/** 
+ * @file region3_v_pT.c
+ * @brief Volumetric properties (p,T)->v for Region 3
+ * 
+ * This file implements the volumetric properties (p,T)->v for Region 3.
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
 */
+
 #include "../common/constant.h"
 #include "../r4/region4.h"
 #include "region3.h"

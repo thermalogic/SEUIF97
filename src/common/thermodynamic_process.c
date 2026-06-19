@@ -1,6 +1,14 @@
-/*
- Thermodynamic process
-*/
+/**
+ * @file thermodynamic_process.c
+ * @brief Thermodynamic process calculations
+ * 
+ * This file implements thermodynamic process calculations including
+ * isentropic enthalpy drop and internal efficiency calculations.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 #include "constant.h"
 #include "property_id.h"
 #include "seuif97.h"

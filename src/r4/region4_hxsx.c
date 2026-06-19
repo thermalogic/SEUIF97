@@ -1,7 +1,12 @@
-/*
- Region 4 - The extended input pairs: (h,x),(s,x)
- x: Steam quality
-*/
+/**
+ * @file region4_hxsx.c
+ * @brief Extended pairs for (h,x),(s,x) in Region 4
+ * 
+ * This file implements the extended pairs for (h,x),(s,x) in Region 4.
+ *      x: Steam quality
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 #include <math.h>
 #include "../common/property_id.h"
 #include "../common/constant.h"

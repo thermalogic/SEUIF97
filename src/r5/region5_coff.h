@@ -1,4 +1,16 @@
 
+/**
+ * @file region5_coff.h
+ * @brief Coefficients and exponents for IAPWS-IF97 Region 5
+ * 
+ * This header file contains the coefficients and exponents for the
+ * dimensionless Gibbs free energy equation in Region 5 (high temperature steam).
+ * Reference: IAPWS-IF97, Table 37-38, Page 38
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 #pragma once
 #include "../common/common.h"
 

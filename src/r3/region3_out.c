@@ -1,7 +1,14 @@
-/*
- Tha API of region3
+/**
+ * @file region3_out.c
+ * @brief API implementation for Region 3
+ * 
+ * This file implements the API functions for calculating thermodynamic
+ * properties in Region 3 (critical and supercritical region).
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 
-*/
 #include "region3.h"
 #include "../common/property_id.h"
 #include "../common/common.h"

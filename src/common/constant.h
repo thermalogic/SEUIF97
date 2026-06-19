@@ -1,3 +1,25 @@
+/**
+ * @file constant.h
+ * @brief Constants and error codes for IAPWS-IF97
+ * 
+ * This header file defines physical constants, critical point values,
+ * triple point values, and error codes used throughout the library.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
+/**
+ * @file constant.h
+ * @brief Constants and error codes for IAPWS-IF97
+ * 
+ * This header file defines physical constants, critical point values,
+ * triple point values, and error codes used throughout the library.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 #pragma once
 
 #define INVALID_OUTID -1000

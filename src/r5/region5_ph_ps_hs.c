@@ -1,7 +1,13 @@
-/*---------------------------------------------------------------------------
-
- Region 5: (p,h) (p,s) (h,s)
----------------------------------------------------------------------------*/
+/**
+ * @file region5_ph_ps_hs.c
+ * @brief Property pair calculations for (p,h), (p,s), and (h,s) in Region 5
+ * 
+ * This file implements property pair calculations for (p,h), (p,s), and (h,s)
+ * in Region 5.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 #include <math.h>
 #include "region5.h"
 #include "../algo/algorithm.h"

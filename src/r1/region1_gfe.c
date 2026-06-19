@@ -1,4 +1,15 @@
-//  Initialize coefficients and exponents for region 1
+/**
+ * @file region1_gfe.c
+ * @brief Gibbs free energy and derivatives for Region 1
+ * 
+ * This file implements the dimensionless Gibbs free energy (gamma) and
+ * its derivatives for Region 1 (liquid water) using the IAPWS-IF97 formulation.
+ * Reference: IAPWS-IF97, Section 4.1, Page 6-9
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 #include <math.h>
 #include "region1.h"
 #include "region1_coff.h"

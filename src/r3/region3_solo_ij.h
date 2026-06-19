@@ -1,3 +1,12 @@
+/**
+ * @file region3_solo_ij.h
+ * @brief Solo I-J pairs for Region 3
+ * 
+ * This file implements the solo I-J pairs in Region 3.
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+ 
 #pragma once
 #include "../algo/algorithm.h"
 #include "../common/common.h"

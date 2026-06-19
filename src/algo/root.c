@@ -1,8 +1,14 @@
-//-----------------------------------------------------------------------------
-// Root Finding Methods For IAPWS - IF97
-// Ref: Numerical Reciples - Chapter 9 :Pages:347 ~ 368
-// Last updated: 2004.01.03 By Maohua Cheng
-//-----------------------------------------------------------------------------
+/**
+ * @file root.c
+ * @brief Root finding algorithms for IAPWS-IF97
+ * 
+ * This file implements numerical root finding methods (secant method)
+ * for solving implicit equations in thermodynamic property calculations.
+ * Reference: Numerical Recipes, Chapter 9, Pages 347 ~ 368
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 
 #include <math.h>
 #include "algorithm.h"

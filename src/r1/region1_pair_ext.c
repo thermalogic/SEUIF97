@@ -1,8 +1,14 @@
-/*
- The extended pairs
-   (p,v)->T
-   (T,v)->p  (T,h)->p  (T,s)->p
-*/
+/**
+ * @file region1_pair_ext.c
+ * @brief Extended pairs for Region 1
+ * 
+ * The extended pairs
+ *   (p,v)->T
+ *   (T,v)->p  (T,h)->p  (T,s)->p
+ *
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 #include <math.h>
 #include <stdint.h>
 #include "../common/constant.h"

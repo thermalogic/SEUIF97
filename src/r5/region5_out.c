@@ -1,7 +1,14 @@
-/*
- The API of region5
+/**
+ * @file region5_out.c
+ * @brief API implementation for Region 5
+ * 
+ * This file implements the API functions for calculating thermodynamic
+ * properties in Region 5 (high temperature steam).
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 
-*/
 #include "region5.h"
 #include "../common/property_id.h"
 #include "../common/constant.h"

@@ -1,4 +1,13 @@
-//---------------------------------------------------------------------------
+/**
+ * @file region4.h
+ * @brief API for Region 4 (two-phase region)
+ * 
+ * This header file defines the API for Region 4, which is a two-phase region
+ * in the IAPWS-IF97 standard.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+*/
 #pragma once
 
 #include "../common/common.h"

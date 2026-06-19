@@ -1,3 +1,14 @@
+/**
+ * @file common.h
+ * @brief Common definitions and function declarations for SEUIF97
+ * 
+ * This header file contains common data structures, type definitions,
+ * and function prototypes used across all regions of IAPWS-IF97.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 #pragma once
 
 #ifdef __cplusplus

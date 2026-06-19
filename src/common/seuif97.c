@@ -1,7 +1,15 @@
-/*
-   The API 
+/**
+ * @file seuif97.c
+ * @brief Main API implementation for SEUIF97 library
+ * 
+ * This file implements the main API functions for calculating thermodynamic
+ * properties of water and steam using the IAPWS-IF97 formulation.
+ * It provides a unified interface for all five regions.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 
-*/
 #include <math.h>
 #include "../r1/region1.h"
 #include "../r2/region2.h"

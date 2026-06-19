@@ -1,6 +1,12 @@
-/*
-  The algorithms
-*/
+/**
+ * @file algorithm.h
+ * @brief General algorithms for IAPWS-IF97
+ * 
+ * This header file defines general algorithms used in IAPWS-IF97 calculations.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 #pragma once
 
 #include <math.h>

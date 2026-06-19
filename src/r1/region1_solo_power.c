@@ -1,6 +1,15 @@
 /*
- The solo powers in region1
-*/
+/**
+ * @file region1_solo_power.c
+ * @brief Pre-calculated power values for Region 1
+ * 
+ * This file implements optimized power calculations for Region 1 using
+ * pre-calculated power values to improve computational efficiency.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 #include "region1_solo_ij.h"
 
 void solo_ij_pow_reg1(double vi,double vj,double *soI_pow,double *soJ_pow)

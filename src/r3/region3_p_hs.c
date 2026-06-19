@@ -1,9 +1,15 @@
-/*
- Backward Equation for Region 3:
+/**
+ * @file region3_p_hs.c
+ * @brief Backward equation for Region 3
+ * 
+ * This file implements the backward equation for Region 3.
  * IAPWS-IF97-S04rev :Supp-phs3-2014.pdf
-     (h,s)->p  (3a,3b,3c)
+ *    (h,s)->p  (3a,3b,3c)
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
  */
-#include <math.h>
+
+ #include <math.h>
 #include "../common/constant.h"
 #include "../algo/algorithm.h"
 #include "region3.h"

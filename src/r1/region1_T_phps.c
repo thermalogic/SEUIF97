@@ -1,10 +1,15 @@
-//---------------------------------------------------------------------------
-//  August 2007 IF97: IF97-Rev.pdf: P6-9
-// IAPWS -IF 97 Backward Equation for Region 1:
-//            Backward (p,h)->T, (p,s)->T
-//    (P,S)->T (P,H)->T
-// 
-//---------------------------------------------------------------------------
+/**
+ * @file region1_T_phps.c
+ * @brief Backward equations for Region 1: (p,h)->T and (p,s)->T
+ * 
+ * This file implements the backward equations for calculating temperature
+ * from (p,h) and (p,s) input pairs in Region 1.
+ * Reference: IAPWS-IF97, August 2007 IF97-Rev.pdf, Page 6-9
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 #include <math.h>
 #include "region1.h"
 #include "../algo/algorithm.h"

@@ -1,8 +1,16 @@
+/**
+ * @file region3_coff.h
+ * @brief Coefficients and exponents for IAPWS-IF97 Region 3
+ * 
+ * This header file contains the coefficients (n) and exponents (I, J)
+ * for the dimensionless Helmholtz free energy equation in Region 3
+ * (critical and supercritical region).
+ * Reference: IAPWS-IF97, Table 30, Page 30
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 
-// the coefficients and
-//                    exponents of the dimensionless Helmholtz free energy
-//                    for Region 3 (Table 30, page 30)
-//   Initialize coefficients and exponents for region 3
 #pragma once
 #include "../common/common.h"
 

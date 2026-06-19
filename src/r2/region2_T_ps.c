@@ -1,12 +1,19 @@
-/*
- Backward Equation for Region 2:
-   IAPWS-IF97-Rev : (P,s)->T
-   Page 25:
-       6.3.2 The Backward Equations T( p, s ) for Subregions 2a, 2b, and 2c.
-          ps2T_reg2(p,s)
-       ps2Treg2a, I  is double,using pow)
-
+/**
+ * @file region2_T_ps.c
+ * @brief Backward equation T(p,s) for Region 2
+ * 
+ * This file implements the backward equation T(p,s) for Region 2
+ * using the coefficients and exponents from the IF97-Rev.pdf.
+ *  Page 25:
+ *       6.3.2 The Backward Equations T(p,s) for Subregions 2a, 2b, and 2c.
+ *       ps2T_reg2(p,s)
+ *         -  ps2Treg2a, I is double,using powf()
+ *
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
 */
+  
+ 
 #include <math.h>
 #include "region2.h"
 #include "../algo/algorithm.h"

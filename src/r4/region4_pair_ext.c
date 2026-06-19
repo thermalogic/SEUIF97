@@ -1,7 +1,14 @@
-/*
- Region 4 - The extended input pairs: (p,v)->x, (t,v),(t,h),(t,s) ->x
-    x: Steam quality
-*/
+/**
+ * @file region4_pair_ext.c
+ * @brief Extended pairs for (p,v)->x, (t,v),(t,h),(t,s) in Region 4
+ * 
+ * This file implements the extended pairs in Region 4.
+ *    (p,v)->x, (t,v),(t,h),(t,s) 
+ *          x: Steam quality
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+ 
 #include <math.h>
 #include "../common/property_id.h"
 #include "region4.h"

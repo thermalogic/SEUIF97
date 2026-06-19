@@ -1,6 +1,14 @@
-/*
-  Check the region
-*/
+/**
+ * @file region.c
+ * @brief Region determination functions for IAPWS-IF97
+ * 
+ * This file implements functions to determine which IAPWS-IF97 region
+ * a given (p,T) or other input pair belongs to.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 #include "../r1/region1.h"
 #include "../r2/region2.h"
 #include "../r3/region3.h"

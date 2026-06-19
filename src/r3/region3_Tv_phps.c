@@ -1,10 +1,15 @@
-/*
- Backward Equation for Region 3:
-
-IAPWS-IF97-S03rev: Supp-Tv(ph,ps)3-2014.pdf
+/**
+ * @file region3_Tv_phps.c
+ * @brief Backward equation for Region 3
+ * 
+ * This file implements the backward equation for Region 3.
+ * IAPWS-IF97-S03rev: Supp-Tv(ph,ps)3-2014.pdf
      (p,h) -T,v
      (p,s)->T,v
- */
+* @author Cheng Maohua
+* @email cmh@seu.edu.cn
+*/
+
 #include <math.h>
 #include "region3.h"
 #include "../common/constant.h"

@@ -1,3 +1,11 @@
+/**
+ * @file region3.h
+ * @brief Header file for IAPWS-IF97 Region 3
+ * 
+ * This header file contains the functions for Region 3.
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+*/
 #pragma once
 
 #include "../common/common.h"

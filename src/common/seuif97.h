@@ -1,9 +1,13 @@
-/*
-The header file of SEUIF97
-
-   Author:   Cheng Maohua
-   Email:    cmh@seu.edu.cn
-*/
+/**
+ * @file seuif97.h
+ * @brief API header file for SEUIF97
+ * 
+ * This header file defines the API for the SEUIF97
+ * library, which is a C library for the IAPWS-IF97 standard.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 
 #ifndef SEUIF97_H
 

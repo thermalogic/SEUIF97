@@ -1,30 +1,48 @@
-/*  Region1: The extended Properties:
-  * pT_ext_reg1(p: f64, T: f64, o_id: i32) -> f64
+/**
+ * @file region1_pT_ext.c
+ * @brief Extended thermodynamic properties for Region 1 (p,T input)
+ * 
+ * This file implements extended property calculations for Region 1 including:
+ * - Isentropic exponent (k)
+ * - Isobaric cubic expansion coefficient (αv)
+ * - Isothermal compressibility (kT)
+ * - Specific exergy, Helmholtz free energy, Gibbs free energy
+ * - Joule-Thomson coefficient and isothermal Joule-Thomson coefficient
+ * - Compressibility factor (z)
+ * - Partial derivatives: (dP/dT)v, (dV/dP)T, (dV/dT)p
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 
-  Properties(12 + 5):
-
-   *  k: Isentropic exponent OKISE 11 -
-   *  ipcec: Isobaric cubic expansion coefficient  OIPCEC 17 αv  1/K
-   *  kt: Isothermal compressibility, OKT kT 1/MPa
-
-   *  e: Specific exergy    kJ/kg
-   *  f: Specific Helmholtz free energy OF 12  kJ/kg
-   *  g: Specific Gibbs free energy  OG 13 kJ/kg
-
-   *  joule : Joule-Thomson coefficient  OJTC  23   K/MPa
-   *  ijoule: Isothermal Joule-Thomson coefficient OIJTC 22 kJ/(kg·MPa)
-   *
-   *  z: Compressibility factor   -
-
-   *  dpdtcv:  Partial derivative (dP/dT)v  MPa/K
-   *  dvdpct: Partial derivative (dV/dP)T  m³/(kg·MPa)
-   *  dvdtcp: Partial derivative (dV/dT)p  m³/(kg·K)
-  TODO:
-   *  pc:  isochoric pressure coefficient  1/K
-   *  batap ：Isothermal stress coefficient, kg/m³
-   *  fi: Fugacity coefficient
-   *  fu: Fugacity, MPa
-   * alfap: relative pressure coefficient  1/K
+/**
+*  Region1: The extended Properties:
+* pT_ext_reg1(p, T, o_id)
+*
+*  Properties(12 + 5):
+*
+*  k: Isentropic exponent OKISE 11 -
+*  ipcec: Isobaric cubic expansion coefficient  OIPCEC 17 αv  1/K
+*  kt: Isothermal compressibility, OKT kT 1/MPa
+*
+* e: Specific exergy    kJ/kg
+*  f: Specific Helmholtz free energy OF 12  kJ/kg
+*  g: Specific Gibbs free energy  OG 13 kJ/kg
+*
+*  joule : Joule-Thomson coefficient  OJTC  23   K/MPa
+*  ijoule: Isothermal Joule-Thomson coefficient OIJTC 22 kJ/(kg·MPa)
+*
+*  z: Compressibility factor   -
+*
+*  dpdtcv:  Partial derivative (dP/dT)v  MPa/K
+*  dvdpct: Partial derivative (dV/dP)T  m³/(kg·MPa)
+*  dvdtcp: Partial derivative (dV/dT)p  m³/(kg·K)
+*  TODO:
+*  pc:  isochoric pressure coefficient  1/K
+*  batap ：Isothermal stress coefficient, kg/m³
+*  fi: Fugacity coefficient
+*  fu: Fugacity, MPa
+* alfap: relative pressure coefficient  1/K
 */
 
 #include <math.h>

@@ -1,8 +1,17 @@
-/*
- The extended pairs
-   (p,v)->T
-   (T,v)->p  (T,h)->p  (T,s)->p
-*/
+/**
+ * @file region2_pair_ext.c
+ * @brief Extended input pairs for Region 2
+ * 
+ * This file implements extended input pair calculations for Region 2:
+ *    1. (p,v)->T
+ *    2. (T,v)->p
+ *    3. (T,h)->p
+ *    4. (T,s)->p
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 #include <math.h>
 #include <stdint.h>
 #include "../common/constant.h"

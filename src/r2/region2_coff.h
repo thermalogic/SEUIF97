@@ -1,3 +1,16 @@
+/**
+ * @file region2_coff.h
+ * @brief Coefficients and exponents for IAPWS-IF97 Region 2
+ * 
+ * This header file contains the coefficients and exponents for the
+ * dimensionless Gibbs free energy equation in Region 2 (steam).
+ * Includes both ideal gas part and residual part coefficients.
+ * Reference: IAPWS-IF97, Table 10-11, Page 13-14
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 #pragma once
 #include "../common/common.h"
 

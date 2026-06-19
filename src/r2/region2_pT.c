@@ -1,3 +1,15 @@
+/**
+ * @file region2_pT.c
+ * @brief Basic thermodynamic properties for Region 2 (p,T input)
+ * 
+ * This file implements the calculation of basic thermodynamic properties
+ * for Region 2 (steam) using pressure and temperature as inputs.
+ * Reference: IAPWS-IF97, Section 4.2, Page 12-17
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
 /* --------------------------------------------------------------------------
  Basic Equation of  IAPWS -IF 97 Region2
   * (p,T)->v,h,s,v,cp,cv,w

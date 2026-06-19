@@ -1,6 +1,13 @@
-/*
-   the solo I,j
-*/
+/**
+ * @file region1_solo_ij.h
+ * @brief Pre-calculated power exponents for Region 1
+ * 
+ * This header file contains pre-calculated power exponents (I, J) and
+ * index mapping arrays used for optimized polynomial evaluation in Region 1.
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 #pragma once
 
 #include "../algo/algorithm.h"

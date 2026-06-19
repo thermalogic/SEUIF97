@@ -1,4 +1,14 @@
-//  Initialize coefficients and exponents for region 1
+/**
+ * @file region1_coff.h
+ * @brief Coefficients and exponents for IAPWS-IF97 Region 1
+ * 
+ * This header file contains the coefficients (n) and exponents (I, J)
+ * for the dimensionless Gibbs free energy equation in Region 1 (liquid water).
+ * Reference: IAPWS-IF97, Table 2, Page 7
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 
 #pragma once
 

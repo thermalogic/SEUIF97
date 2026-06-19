@@ -1,8 +1,13 @@
-/*---------------------------------------------------------------------------
-   IAPWS -IF 97 Backward Equation (H,S)->P for Region 1:
-     IAPWS-IF97-S01: Supp-PHS12-2014.pdf  June 2014
-            (h,s)->p
- -------------------------------------------------------------------- */
+/**
+ * @file region1_p_hs.c
+ * @brief Backward equations for Region 1 (h,s)->p
+ * 
+ * This file implements the backward equation (h,s)->p
+ * Reference: IAPWS-IF97-S01, Supp-PHS12-2014
+ *       (h,s)->p
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 
 #include <math.h>
 #include "region1.h"

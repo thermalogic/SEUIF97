@@ -1,7 +1,15 @@
-/*
- Speciphic Helmholtz free energy and derivatives
+/**
+ * @file region3_hfe.c
+ * @brief Helmholtz free energy and derivatives for Region 3
+ * 
+ * This file implements the dimensionless Helmholtz free energy (phi) and
+ * its derivatives for Region 3 (critical and supercritical region).
+ * Reference: IAPWS-IF97, Section 4.3, Page 26-30
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
 
-*/
 #include <math.h>
 #include "../algo/algorithm.h"
 #include "region3.h"

@@ -1,7 +1,20 @@
 
 /*
-   saturation pressure of water
-   saturation temperature of water
+/**
+ * @file region4_sat_pT.c
+ * @brief Saturation properties for Region 4
+ * 
+ * This file implements saturation pressure and temperature calculations
+ * for water and steam using the IAPWS-IF97 formulation.
+ * Reference: IAPWS-IF97, Section 4.4, Page 24-25
+ * 
+ * @author Cheng Maohua
+ * @email cmh@seu.edu.cn
+ */
+
+/**
+   Saturation pressure of water
+   Saturation temperature of water
 */ 
 #include <math.h>
 #include "region4.h"
