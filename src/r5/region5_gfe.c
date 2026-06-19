@@ -182,10 +182,10 @@ double gammar_tautau_reg5(double pi, double tau)
     double tau_2 = tau * tau;
     double tau_5 = tau_2 * tau_2 * tau;
     // i=0: J=1, J×(J-1)=0 
-    value += IJn[1].n * 2.0 * pi;                           // J=2, 系数 2
-    value += IJn[2].n * 6.0 * pi * tau;                     // J=3, 系数 6
-    value += IJn[3].n * 6.0 * pi_2 * tau;                   // J=3, 系数 6
-    value += IJn[4].n * 72.0 * pi_2 * tau_5*tau_2;                // J=9, 系数 72
+    value += IJn[1].n * 2.0 * pi;                            // J=2,  2
+    value += IJn[2].n * 6.0 * pi * tau;                      // J=3,  6
+    value += IJn[3].n * 6.0 * pi_2 * tau;                    // J=3,  6
+    value += IJn[4].n * 72.0 * pi_2 * tau_5*tau_2;           // J=9, 72
     value += IJn[5].n * 42.0 * pi_2 * pi * tau_5; 
 	
 	//for (unsigned i = 0; i < 6; i++)
@@ -203,12 +203,12 @@ double gammar_pitau_reg5(double pi, double tau)
 	double tau_2 = tau * tau;
     double tau_6 = tau_2 * tau_2 * tau_2;
     
-    value += IJn[0].n;                          // I=1,J=1, 系数 1
-    value += IJn[1].n * 2.0 * tau;                     // I=1,J=2, 系数 2
-    value += IJn[2].n * 3.0 * tau_2;                   // I=1,J=3, 系数 3
-    value += IJn[3].n * 6.0 * pi * tau_2;                   // I=2,J=3, 系数 6
-    value += IJn[4].n * 18.0 * pi * tau_6*tau_2;                  // I=2,J=9, 系数 18
-	value += IJn[5].n * 21.0 * pi*pi * tau_6;
+    value += IJn[0].n;                                 // I=1,J=1,  1
+    value += IJn[1].n * 2.0 * tau;                     // I=1,J=2,  2
+    value += IJn[2].n * 3.0 * tau_2;                   // I=1,J=3,  3
+    value += IJn[3].n * 6.0 * pi * tau_2;              // I=2,J=3,  6
+    value += IJn[4].n * 18.0 * pi * tau_6*tau_2;       // I=2,J=9,  18
+	value += IJn[5].n * 21.0 * pi*pi * tau_6;          // I=3,J=27, 21
 	
 	//for (unsigned i = 0; i < 6; i++)
     //		value += IJn[i].n * IJn[i].I * IPOW(pi, IJn[i].I - 1) * IJn[i].J * IPOW(tau, IJn[i].J - 1);
