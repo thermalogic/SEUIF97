@@ -71,10 +71,23 @@ double gamma0_tau_reg5(double tau)
 double gamma0_tautau_reg5(double tau)
 {
 	double value = 0.0;
-	//  0, 1, -3, -2, -1, 2
-    // -2, -1, -5, -4, -3, 0
-	for (unsigned i = 0; i < 6; i++)
-		value += no[i] * Jo[i] * (Jo[i] - 1) * IPOW(tau, Jo[i] - 2);
+	//   Jo      0,  1, -3, -2, -1,  2 
+    // Jo-1     -1,  0, -4, -3, -2,  1 
+    // Jo-2     -2, -1, -5, -4, -3,  0 
+    // Jo×(Jo-1) 0,  0, 12,  6,  2,  2 
+    
+    double tau_inv = 1.0 / tau;
+    double tau_inv3 =  tau_inv *tau_inv * tau_inv;
+    double tau_inv4 = tau_inv3 * tau_inv;
+    
+    // i=0,1: Jo×(Jo-1)=0 → 无贡献
+    value += no[2] * 12.0 * tau_inv4*tau_inv;    // Jo=-3,  12
+    value += no[3] * 6.0 * tau_inv4;      // Jo=-2,  6
+    value += no[4] * 2.0 * tau_inv3;      // Jo=-1,  2
+    value += no[5] * 2.0;                 // Jo=2,  2
+
+	// for (unsigned i = 0; i < 6; i++)
+    //	value += no[i] * Jo[i] * (Jo[i] - 1) * IPOW(tau, Jo[i] - 2);
 	return value;
 }
 
