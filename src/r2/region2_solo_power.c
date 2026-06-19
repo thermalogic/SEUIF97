@@ -19,10 +19,11 @@ void solo_i_j_power_reg2(double vi, double vj, double soI_pow[], double soJ_pow[
   {
     soI_pow[k] = soI_pow[k - 1] * vi;
   }
-  double vi2 = vi * vi;
-  soI_pow[10] = soI_pow[9] * vi2 * vi2 * vi2;
-  soI_pow[11] = soI_pow[10] * vi2;
-  soI_pow[12] = soI_pow[11] * vi2;
+  
+  soI_pow[10] = soI_pow[9] * soI_pow[5];  //16
+  soI_pow[11] = soI_pow[10] * soI_pow[1]; //18
+  soI_pow[12] = soI_pow[11] * soI_pow[1]; //20
+  
   for (int k = 13; k <= 16; k++)
   {
     soI_pow[k] = soI_pow[k - 1] * vi;
