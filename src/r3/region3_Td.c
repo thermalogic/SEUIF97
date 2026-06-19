@@ -1,13 +1,8 @@
 
 #include <math.h>
-#include <stdio.h>
-#include "../algo/algorithm.h"
 #include "../common/constant.h"
-#include "../common/common.h"
-#include "region3_solo_ij.h"
-#include "region3_coff.h"
-#include "region3.h"
 #include "../common/property_id.h"
+#include "region3.h"
 
 double Td_thermal_reg3(double T, double d, int o_id)
 // o_id: output property

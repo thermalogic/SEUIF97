@@ -3,13 +3,7 @@
     x: Steam quality
 */
 #include <math.h>
-#include <stdio.h>
-#include "../algo/algorithm.h"
-#include "../common/common.h"
-#include "../common/constant.h"
-#include "../r1/region1.h"
-#include "../r2/region2.h"
-#include "../r3/region3.h"
+#include "../common/property_id.h"
 #include "region4.h"
 
 /// Region 4: (p,v)-> x

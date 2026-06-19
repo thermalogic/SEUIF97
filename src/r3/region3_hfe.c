@@ -4,9 +4,6 @@
 */
 #include <math.h>
 #include "../algo/algorithm.h"
-#include "../common/constant.h"
-#include "../common/property_id.h"
-#include "../algo/algorithm.h"
 #include "region3.h"
 #include "region3_coff.h"
 #include "region3_solo_ij.h"

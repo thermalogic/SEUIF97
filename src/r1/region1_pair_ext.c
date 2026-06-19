@@ -6,11 +6,8 @@
 #include <math.h>
 #include <stdint.h>
 #include "../common/constant.h"
-#include "../common/property_id.h"
 #include "../algo/algorithm.h"
 #include "region1.h"
-#include "region1_coff.h"
-#include "region1_solo_ij.h"
 #include "../r4/region4.h"
 
 // Region 1  (p,v)->T using the secant method and refine adjust

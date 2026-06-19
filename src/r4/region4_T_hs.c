@@ -8,7 +8,6 @@
 */
 
 #include <math.h>
-#include <stdio.h>
 #include "../algo/algorithm.h"
 #include "../common/common.h"
 #include "../common/constant.h"

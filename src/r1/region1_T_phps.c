@@ -8,7 +8,6 @@
 #include <math.h>
 #include "region1.h"
 #include "../algo/algorithm.h"
-#include "region1_coff.h"
 
 //-------------------------------------------------------------
 // Backward equation T(p,h) for region 1

@@ -1,7 +1,6 @@
 /*
   Check the region
 */
-#include "../algo/algorithm.h"
 #include "../r1/region1.h"
 #include "../r2/region2.h"
 #include "../r3/region3.h"

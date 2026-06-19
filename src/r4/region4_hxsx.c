@@ -3,13 +3,8 @@
  x: Steam quality
 */
 #include <math.h>
-#include <stdio.h>
-#include "../algo/algorithm.h"
-#include "../common/common.h"
+#include "../common/property_id.h"
 #include "../common/constant.h"
-#include "../r1/region1.h"
-#include "../r2/region2.h"
-#include "../r3/region3.h"
 #include "region4.h"
 
 // function for getting the steam quality,residuals: x(T,y)-x

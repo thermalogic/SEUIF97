@@ -13,12 +13,11 @@
      w  in m/s        speed of sound
 --------------------------------------------------- */
 #include <math.h>
-#include "../algo/algorithm.h"
 #include "../common/constant.h"
 #include "../common/property_id.h"
 #include "region2.h"
 #include "region2_coff.h"
-#include "region2_solo_ij.h"
+#include "../algo/ipow.h"
 
 double pT_thermal_reg2(double p, double T, int o_id)
 // o_id: output property

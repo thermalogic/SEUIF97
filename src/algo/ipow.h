@@ -1,4 +1,7 @@
 
+/*
+  The power functions  
+*/
 #pragma once
 #define IPOW ipowsac
 // #define IPOW ipowrqm

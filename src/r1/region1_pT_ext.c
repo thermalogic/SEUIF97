@@ -31,10 +31,8 @@
 #include <stdint.h>
 #include "../common/constant.h"
 #include "../common/property_id.h"
-#include "../algo/algorithm.h"
 #include "region1.h"
 #include "region1_coff.h"
-#include "region1_solo_ij.h"
 
 // Region1: the extended properties
 double pT_ext_reg1(double p, double T, int o_id)

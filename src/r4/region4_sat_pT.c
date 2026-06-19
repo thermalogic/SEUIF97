@@ -5,7 +5,7 @@
 */ 
 #include <math.h>
 #include "region4.h"
-#include "../algo/algorithm.h"
+#include "../algo/ipow.h"
 //
 //  Initialize coefficients for region 4
 //

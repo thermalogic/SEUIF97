@@ -7,7 +7,7 @@
 #include <math.h>
 #include "region5.h"
 #include "region5_coff.h"
-#include "../algo/algorithm.h"
+#include "../algo/ipow.h"
 
 //	P37 Table 37
 //  Ideal properties for Region 5

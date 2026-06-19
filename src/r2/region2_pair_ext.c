@@ -6,11 +6,8 @@
 #include <math.h>
 #include <stdint.h>
 #include "../common/constant.h"
-#include "../common/property_id.h"
 #include "../algo/algorithm.h"
 #include "region2.h"
-#include "region2_coff.h"
-#include "region2_solo_ij.h"
 #include "../r4/region4.h"
 
 /// the helper for the extended input pair

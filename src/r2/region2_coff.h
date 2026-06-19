@@ -1,5 +1,6 @@
 #pragma once
 #include "../common/common.h"
+
 static const double r2Tstar = 540.0; // K
 static const double r2pstar = 1.0;   // MPa,not used to reduce computation
 

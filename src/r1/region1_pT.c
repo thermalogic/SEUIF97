@@ -14,10 +14,8 @@
 #include <math.h>
 #include <stdint.h>
 #include "../common/constant.h"
-#include "../algo/algorithm.h"
 #include "region1.h"
 #include "region1_coff.h"
-#include "region1_solo_ij.h"
 
 double pT_thermal_reg1(double p, double T, int o_id)
 // o_id: output property

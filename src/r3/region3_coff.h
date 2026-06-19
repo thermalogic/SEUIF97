@@ -5,6 +5,7 @@
 //   Initialize coefficients and exponents for region 3
 #pragma once
 #include "../common/common.h"
+
 static const double n1 = 0.10658070028513e1;
 // 39
 static IJnData IJn[] = {

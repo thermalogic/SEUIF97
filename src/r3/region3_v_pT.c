@@ -1,12 +1,13 @@
 /*
    region3: (p,T)->v
 */
-#include "../algo/algorithm.h"
 #include "../common/constant.h"
 #include "../r4/region4.h"
 #include "region3.h"
 #include <math.h>
 #include <string.h>
+#include "../algo/ipow.h"
+
 
 double T_atRegionBoundary(double p, const char *boundary) {
   // p is pressure in MPa

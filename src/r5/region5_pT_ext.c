@@ -4,14 +4,8 @@ Region 5: the extended properties
 */
 #include <math.h>
 #include "../common/constant.h"
-#include "region5_coff.h"
-#include "region5.h"
-
-#include <math.h>
-#include <stdint.h>
-#include "../common/constant.h"
 #include "../common/property_id.h"
-#include "../algo/algorithm.h"
+#include "../algo/ipow.h"
 #include "region5.h"
 #include "region5_coff.h"
 

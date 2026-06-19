@@ -6,10 +6,8 @@
 #include <math.h>
 #include <stdint.h>
 #include "../common/constant.h"
-#include "../common/property_id.h"
 #include "../algo/algorithm.h"
 #include "region5.h"
-#include "region5_coff.h"
 
 // Region 5  (p,v)->T using the secant method and refine adjust
 // * p: pressure  MPa

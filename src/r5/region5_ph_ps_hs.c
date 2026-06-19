@@ -4,7 +4,6 @@
 ---------------------------------------------------------------------------*/
 #include <math.h>
 #include "region5.h"
-#include "../r2/region2.h"
 #include "../algo/algorithm.h"
 
 static double TMAX5 = 2273.15;

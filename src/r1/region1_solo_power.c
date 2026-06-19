@@ -1,9 +1,6 @@
 /*
  The solo powers in region1
 */
-#include "../algo/algorithm.h"
-#include "region1.h"
-#include "region1_coff.h"
 #include "region1_solo_ij.h"
 
 void solo_ij_pow_reg1(double vi,double vj,double *soI_pow,double *soJ_pow)

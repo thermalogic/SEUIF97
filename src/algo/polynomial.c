@@ -1,5 +1,5 @@
 /*
-
+   The polynomial functions 
 */
 #include <math.h>
 #include "algorithm.h"

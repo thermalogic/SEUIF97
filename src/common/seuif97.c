@@ -10,7 +10,6 @@
 #include "../r5/region5.h"
 #include "common.h"
 #include "constant.h"
-#include "../algo/algorithm.h"
 #include "seuif97.h"
 
 IF97_DLL double pt(double p, double t, int o_id)
