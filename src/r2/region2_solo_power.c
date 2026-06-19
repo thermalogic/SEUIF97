@@ -47,11 +47,11 @@ void solo_i_j_power_reg2(double vi, double vj, double soI_pow[], double soJ_pow[
   double J_pow20 = J_pow10 * J_pow10;
 
   soJ_pow[7] = J_pow20 * J_pow16; // 36
-  soJ_pow[8] = soJ_pow[7] / vj;   // 35
+  soJ_pow[8] = J_pow20 * J_pow11 * soJ_pow[5]; // 35
   soJ_pow[9] = J_pow16;           // 16
   soJ_pow[10] = J_pow11;          // 11
 
-  soJ_pow[11] = soJ_pow[8] / J_pow10; // 25
+  soJ_pow[11] = J_pow16 * J_pow8*vj; // 25
   soJ_pow[12] = J_pow8;               // 8
   soJ_pow[13] = J_pow10 * soJ_pow[3]; // 13
   soJ_pow[14] = J_pow10;              // 10

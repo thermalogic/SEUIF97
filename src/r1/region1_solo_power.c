@@ -12,7 +12,7 @@
 
 #include "region1_solo_ij.h"
 
-void solo_ij_pow_reg1(double vi,double vj,double *soI_pow,double *soJ_pow)
+void solo_i_j_pow_reg1(double vi,double vj,double *soI_pow,double *soJ_pow)
 {
     // [0, 1, 2, 3, 4, 5, 8, 21, 23, 29, 30, 31, 32];
    
