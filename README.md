@@ -18,7 +18,7 @@ Please refer to [The acceleration methods](./doc/the_acceleration_methods.md) fo
 
 ## Performance Comparison
 
-SEUIF97 achieves **2-5x speedup** over [CoolProp IF97](https://github.com/CoolProp/IF97) in Region 1, 2, and 3. 
+SEUIF97 achieves **2-6x speedup** over [CoolProp IF97](https://github.com/CoolProp/IF97) in Region 1, 2, 3, and 5. 
 Benchmarking code and data are available in the [bench_coolprop_if97](./bench_coolprop_if97/) directory.
 
 ## The shared library
