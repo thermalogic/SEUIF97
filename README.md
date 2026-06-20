@@ -22,8 +22,6 @@ SEUIF97 achieves **2-6x speedup** over [CoolProp IF97](https://github.com/CoolPr
 
 ## The shared library
 
-You can build the library using either [make or cmake](./doc/building_the_library.md):
-
 Pre-compiled dynamic link libraries for Windows, Linux and macOS are available in [GitHub Releases](https://github.com/thermalogic/SEUIF97/releases).
 
 Legacy pre-compiled libraries `libseuif97.dll` built with **MinGW-GCC/GCC** are also provided in the [./shared_lib/](./shared_lib/) directory.
@@ -31,6 +29,8 @@ Legacy pre-compiled libraries `libseuif97.dll` built with **MinGW-GCC/GCC** are 
    * [Windows(x64)](./shared_lib/Windows/x64)
    * [Windows(x86)](./shared_lib/Windows/x86)
    * [Linux(x64)](./shared_lib/Linux/x64)
+
+You can build the library using either [make or cmake](./doc/building_the_library.md):
 
 ## Functions of the SEUIF97 Shared Library
 
