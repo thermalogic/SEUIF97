@@ -40,36 +40,23 @@ The SEUIF97 library provides comprehensive functions for calculating water and s
 
 SEUIF97 supports **12 distinct input state pairs** for calculating **36 thermodynamic, transport, and derived properties** (see [Properties](#properties)).
 
-> **Note:** Only linearly related thermodynamic properties are calculable in the wet steam region.
+The 12 input pairs:
 
-**Input Pairs:**
+```bash
+  (p,t), (p,h), (p,s), (p,v)
+  (h,s)
+  (t,h), (t,s), (t,v)
+  (h,x), (t,x), (v,x), (s,x)
+```            
+Each function accepts an input pair, an output property ID ([o_id](#properties)). For example: the input pair (p,t): `pt(p,t,o_id)`
 
-* $(p,t), (p,h), (p,s), (p,v)$
-* $(t,h),(t,s), (t,v)$
-* $(p,x), (t,x),(h,x),(s,x)$
-* $(h,s)$
-
-```c 
-  ??(in1,in2,o_id)
-```
-
-* the first, second input parameters: the input property pairs
-* the third input parameters: the ID of the calculated property - [o_id](#properties)
-* the return: the calculated property value of `o_id`
+**Note:**
+ * Only `linearly` related thermodynamic properties are calculable in the `wet` steam region.
 
 **Thermodynamic Process of Steam Turbine**
    
-* Isentropic Enthalpy Drop：ishd(pi,ti,pe)
-
-  ```txt
-    pi - inlet pressure(MPa); ti -inlet temperature(°C)
-    pe - outlet pressure(MPa)
-  ```
-*  Isentropic Efficiency(0~100)： ief(pi,ti,pe,te) (superheated steam zone)
-   ```txt
-       pi - inlet pressure(MPa);  ti - inlet temperature(°C)
-       pe - outlet pressure(MPa); te - outlet temperature(°C)
-   ```
+- `ishd(pi, ti, pe)`: isentropic enthalpy drop for steam expansion (kJ/kg)
+- `ief(pi, ti, pe, te)`: isentropic efficiency for superheated steam expansion (%)
 
 **The Function Prototype in C**
 
