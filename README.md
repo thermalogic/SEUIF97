@@ -20,7 +20,7 @@ Please refer to [The acceleration methods](./doc/the_acceleration_methods.md) fo
 
 SEUIF97 achieves **2-6x speedup** over [CoolProp IF97](https://github.com/CoolProp/IF97). Benchmarking code and data are available in the [bench_coolprop_if97](./bench_coolprop_if97/) directory.
 
-## The shared library
+## The Shared Library
 
 Pre-compiled dynamic link libraries for Windows, Linux and macOS are available in [GitHub Releases](https://github.com/thermalogic/SEUIF97/releases).
 
@@ -88,11 +88,8 @@ double ief(double pi, double ti, double pe, double te);
 To use the shared library in your preferred programming language, follow these steps:
 
 1. Put the shared library in the default path of OS or the programming language
-   * **Windows(x86/64)** 
-     * copy `libseuif97.dll` in the [Windows/x86](./shared_lib/Windows/x86) or [Windows/x64](./shared_lib/Windows/x64) folder to a default path of Windows32/64's DLL,for example:  `C:\Windows\System`
-   
-   * **Linux(x64)** 
-     * copy `libseuif97.so` in the [Linux/x64](./shared_lib/Linux/x64) folder to a default path of Linux shared lib: `/usr/lib`
+   * **Windows(x86/64)**: copy `libseuif97.dll` to a default path of Windows32/64's DLL, for example:  `C:\Windows\System`
+   * **Linux(x64)**:  copy `libseuif97.so` to a default path of Linux shared lib: `/usr/lib`
    
 2. Add the specific API file for your programming language to its corresponding`API` path.
 
