@@ -74,17 +74,17 @@ double gamma0_tautau_reg5(double tau)
 	//   Jo      0,  1, -3, -2, -1,  2 
     // Jo-1     -1,  0, -4, -3, -2,  1 
     // Jo-2     -2, -1, -5, -4, -3,  0 
-    // Jo×(Jo-1) 0,  0, 12,  6,  2,  2 
+    // Jo*(Jo-1) 0,  0, 12,  6,  2,  2 
     
     double tau_inv = 1.0 / tau;
     double tau_inv3 =  tau_inv *tau_inv * tau_inv;
     double tau_inv4 = tau_inv3 * tau_inv;
     
-    // i=0,1: Jo×(Jo-1)=0 → 无贡献
+    // i=0,1: Jo*(Jo-1) = 0 
     value += no[2] * 12.0 * tau_inv4*tau_inv;    // Jo=-3,  12
-    value += no[3] * 6.0 * tau_inv4;      // Jo=-2,  6
-    value += no[4] * 2.0 * tau_inv3;      // Jo=-1,  2
-    value += no[5] * 2.0;                 // Jo=2,  2
+    value += no[3] * 6.0 * tau_inv4;               // Jo=-2,  6
+    value += no[4] * 2.0 * tau_inv3;             // Jo=-1,  2
+    value += no[5] * 2.0;                        // Jo=2,  2
 
 	// for (unsigned i = 0; i < 6; i++)
     //	value += no[i] * Jo[i] * (Jo[i] - 1) * IPOW(tau, Jo[i] - 2);
@@ -121,7 +121,6 @@ double gammar_reg5(double pi, double tau)
 // derivatives  valueaccording to Eq. (34)
 double gammar_pi_reg5(double pi, double tau)
 {
-	
 	double value = 0.0;
 	//   I  1 1 1 2 2 3
 	// I-1  0 0 0 1 1 2
@@ -194,7 +193,7 @@ double gammar_tautau_reg5(double pi, double tau)
 	double pi_2 = pi * pi;
     double tau_2 = tau * tau;
     double tau_5 = tau_2 * tau_2 * tau;
-    // i=0: J=1, J×(J-1)=0 
+    // i=0: J=1, J*(J-1)=0 
     value += IJn[1].n * 2.0 * pi;                            // J=2,  2
     value += IJn[2].n * 6.0 * pi * tau;                      // J=3,  6
     value += IJn[3].n * 6.0 * pi_2 * tau;                    // J=3,  6

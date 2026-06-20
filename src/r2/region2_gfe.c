@@ -23,9 +23,26 @@
 double gamma0_reg2(double pi, double tau)
 
 {
+    //r2j0  0  1  -5  -4  -3  -2  -1 2  3
+    double tau_inv = 1.0 / tau;
+    double tau_inv2 = tau_inv * tau_inv;
+    double tau_inv3 = tau_inv2 * tau_inv;
+    double tau2=tau*tau;
+      
     double gamma0 = log(pi);
-    for (int i = 0; i < 9; i++)
-        gamma0 += n0[i] * IPOW(tau, r2j0[i]);
+   
+    gamma0 += n0[0];
+    gamma0 += n0[1]*tau;
+    gamma0 += n0[2]*tau_inv3*tau_inv2;
+    gamma0 += n0[3]*tau_inv3*tau_inv;
+    gamma0 += n0[4]*tau_inv3;
+    gamma0 += n0[5]*tau_inv2;
+    gamma0 += n0[6]*tau_inv;
+    gamma0 += n0[7]*tau2;
+    gamma0 += n0[8]*tau2*tau;
+
+    //for (int i = 0; i < 9; i++)
+    //   gamma0 += n0[i] * IPOW(tau, r2j0[i]);
     return gamma0;
 }
 
@@ -37,16 +54,32 @@ double gamma0_pi_reg2(double pi)
 
 double gamma0_pipi_reg2(double pi)
 // Second derivative in pi of ideal-gas part of fundamental equation for region 2
-{
-    return -1.0 / pi / pi;
+{   double p_inv=1.0/pi;
+    return p_inv* p_inv;
 }
 
 double gamma0_tau_reg2(double tau)
 // First derivative in tau of ideal-gas part of fundamental equation for region 2
 {
     double gamma0tau = 0.0;
-    for (int i = 0; i < 9; i++)
-        gamma0tau += n0[i] * r2j0[i] * IPOW(tau, r2j0[i] - 1);
+    // r2j0    0  1  -5  -4   -3  -2  -1  2  3
+    // r2j0-1 -1  0  -6  -5  -4  -3  -2  1  2
+    double tau_inv = 1.0 / tau;
+    double tau_inv2 = tau_inv * tau_inv;
+    double tau_inv3 = tau_inv2 * tau_inv;
+      
+    // i=0,r2j0 = 0
+    gamma0tau += n0[1];              
+    gamma0tau += n0[2]*(-5.0)*tau_inv3*tau_inv3;  
+    gamma0tau += n0[3]*(-4.0)*tau_inv3*tau_inv2;
+    gamma0tau += n0[4]*(-3.0)*tau_inv2*tau_inv2;
+    gamma0tau += n0[5]*(-2.0)*tau_inv3;
+    gamma0tau += n0[6]*(-1.0)*tau_inv2;
+    gamma0tau += n0[7]*2.0*tau;
+    gamma0tau += n0[8]*3.0*tau*tau;
+
+    //for (int i = 0; i < 9; i++)
+    //   gamma0tau += n0[i] * r2j0[i] * IPOW(tau, r2j0[i] - 1);
     return gamma0tau;
 }
 
@@ -54,8 +87,28 @@ double gamma0_tautau_reg2(double pi, double tau)
 // Second derivative in tau of ideal-gas part of fundamental equation for region 2
 {
     double gamma0tautau = 0.0;
-    for (int i = 0; i < 9; i++)
-        gamma0tautau += n0[i] * r2j0[i] * (r2j0[i] - 1) * IPOW(tau, r2j0[i] - 2);
+
+    // r2j0    0  1  -5  -4   -3  -2  -1  2  3
+    // r2j0-1 -1  0  -6  -5  -4  -3   -2  1  2
+    // r2j0-2 -2 -1  -7  -6  -5  -4   -3  0  1
+
+    double tau_inv = 1.0 / tau;
+    double tau_inv2 = tau_inv * tau_inv;
+    double tau_inv3 = tau_inv2 * tau_inv;
+    double tau_inv6 = tau_inv3 * tau_inv3;
+      
+    // i=0,r2j0=0, r2j0*(r2j0-1) = 0
+    // i=1,r2j0=1, r2j0-1=0r2j0*(r2j0-1) = 0
+    gamma0tautau += n0[2]*30.0*tau_inv6*tau_inv;    // -5 -6
+    gamma0tautau += n0[3]*20.0*tau_inv6;            // -4 -5
+    gamma0tautau += n0[4]*12.0*tau_inv3*tau_inv2;   // -3 -4
+    gamma0tautau += n0[5]*6.0*tau_inv3*tau_inv;     // -2 -3
+    gamma0tautau += n0[6]*2.0*tau_inv3;             // -2 -1
+    gamma0tautau += n0[7]*2.0;                      //  2  1 
+    gamma0tautau += n0[8]*6.0*tau;                  //  2  3
+
+    //for (int i = 0; i < 9; i++)
+    //    gamma0tautau += n0[i] * r2j0[i] * (r2j0[i] - 1) * IPOW(tau, r2j0[i] - 2);
     return gamma0tautau;
 }
 
