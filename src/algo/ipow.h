@@ -4,15 +4,18 @@
  * @brief Integer Power functions for IAPWS-IF97
  * 
  * This file implements integer power functions for IAPWS-IF97
+ * Note: __builtin_powi and custom ipow have equivalent performance.
  * 
  * @author Cheng Maohua
  * @email cmh@seu.edu.cn
  */
  
 #pragma once
+
 #define IPOW ipowsac
 // #define IPOW ipowrqm
 // #define IPOW powf
+// #define IPOW __builtin_powi //GCC/Clang
 
 static inline double ipowrqm(double x, int i)
 {

@@ -7,7 +7,7 @@ endif
 
 CC=g++ 
 
-CFLAG=-O3 -march=native -flto=auto
+CFLAG=-O3 -march=native -flto=auto -funroll-loops -ftree-vectorize
 
 SRCS= ../src/algo/*.c \
 	  ../src/common/*.c \
