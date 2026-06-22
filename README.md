@@ -20,15 +20,9 @@ Please refer to [The acceleration methods](./doc/the_acceleration_methods.md) fo
 
 SEUIF97 achieves **2-6x speedup** over [CoolProp IF97](https://github.com/CoolProp/IF97). Benchmarking code and data are available in the [bench_coolprop_if97](./bench_coolprop_if97/) directory.
 
-## The Shared Library
+## Functions of the SEUIF97
 
-Pre-compiled dynamic link libraries for Windows, Linux and macOS are available in [GitHub Releases](https://github.com/thermalogic/SEUIF97/releases).
-
-You can build the library using either [make or cmake](./doc/building_the_library.md):
-
-## Functions of the SEUIF97 Shared Library
-
-The SEUIF97 library provides comprehensive functions for calculating water and steam properties, as well as the thermodynamic processes of steam turbines.
+The SEUIF97 provides comprehensive functions for calculating water and steam properties, as well as the thermodynamic processes of steam turbines.
 
 **Water and Steam Properties**
 
@@ -77,7 +71,13 @@ double ishd(double pi, double ti, double pe);
 double ief(double pi, double ti, double pe, double te);
 ```
 
-## Using SEUIF97 library 
+## The Shared Library
+
+Pre-compiled Shared libraries for Windows, Linux and macOS are available in [GitHub Releases](https://github.com/thermalogic/SEUIF97/releases).
+
+You can build the library using either [make or cmake](./doc/building_the_library.md):
+
+### Using SEUIF97 Shared library 
 
 Interfaces and examples are provided in the  [/demo/](./demo) directory, supporting a wide range of languages and environments
 
