@@ -24,12 +24,6 @@ SEUIF97 achieves **2-6x speedup** over [CoolProp IF97](https://github.com/CoolPr
 
 Pre-compiled dynamic link libraries for Windows, Linux and macOS are available in [GitHub Releases](https://github.com/thermalogic/SEUIF97/releases).
 
-Legacy pre-compiled libraries `libseuif97.dll` built with **MinGW-GCC/GCC** are also provided in the [./shared_lib/](./shared_lib/) directory.
-
-   * [Windows(x64)](./shared_lib/Windows/x64)
-   * [Windows(x86)](./shared_lib/Windows/x86)
-   * [Linux(x64)](./shared_lib/Linux/x64)
-
 You can build the library using either [make or cmake](./doc/building_the_library.md):
 
 ## Functions of the SEUIF97 Shared Library
@@ -84,18 +78,6 @@ double ief(double pi, double ti, double pe, double te);
 ```
 
 ## Using SEUIF97 library 
-
-To use the shared library in your preferred programming language, follow these steps:
-
-1. Put the shared library in the default path of OS or the programming language
-   * **Windows(x86/64)**: copy `libseuif97.dll` to a default path of Windows32/64's DLL, for example:  `C:\Windows\System`
-   * **Linux(x64)**:  copy `libseuif97.so` to a default path of Linux shared lib: `/usr/lib`
-   
-2. Add the specific API file for your programming language to its corresponding`API` path.
-
-   * **Note**: API paths vary by language. Please refer to the specific  [Examples](./demo/) provided for your programming language to locate the correct path and setup instructions.
-
-## Interfaces and Examples
 
 Interfaces and examples are provided in the  [/demo/](./demo) directory, supporting a wide range of languages and environments
 
