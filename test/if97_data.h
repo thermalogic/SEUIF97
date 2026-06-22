@@ -261,9 +261,9 @@ typedef struct
 
 // saturation T,p Table 35
 const prop_pT r4_Tp[] = {
-    {.T = 300, .p = 0.00353658941},
-    {.T = 500, .p = 2.63889776},
-    {.T = 600, .p = 12.3443146}};
+    {.T = 300.0, .p = 0.00353658941},
+    {.T = 500.0, .p = 2.63889776},
+    {.T = 600.0, .p = 12.3443146}};
 
 // saturation p,T Table 36
 const prop_pT r4_pT[] = {

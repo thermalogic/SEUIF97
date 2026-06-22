@@ -18,7 +18,9 @@
 #include "../r3/region3.h"
 #include "region4.h"
 
-// TODO(cmh@seu.edu.cn): testing
+// p2SatWater - calculate the saturated water property
+// p: Saturated pressure [MPa]
+// o_id: Property ID
 double p2SatWater(double p, int o_id) {
   // include region 3
   double T, v, r;
@@ -249,7 +251,9 @@ double hs_reg4(double h, double s, int o_id) {
 
   T = hs2T_reg4(h, s);
   if (o_id == OT)
+  { 
     return T;
+  }
   p = pSat(T);
   if (o_id == OP)
     return p;
@@ -260,7 +264,6 @@ double hs_reg4(double h, double s, int o_id) {
   double x = (h - h1) / (h2 - h1);
   if (o_id == OX)
     return x;
-
   return px_reg4(p, x, o_id);
 }
 

@@ -85,89 +85,89 @@ double hs2T_reg43(double h, double s)
     return 550.0 * poly(nu - 0.119, sigma - 1.07, 36, IJn);
 }
 
+/// residual: r(T) = (h-hl)/(hv-hl) - (s-sl)/(sv-sl)
+/// At the correct saturation temperature, 
+/// the x calculated from h and s respectively should be consistent.
+double residual_T(double T, double h, double s)
+{
+    double p =pSat(T);
+    double hl = pT2h_reg1(p, T);
+    double hv = pT2h_reg2(p, T);
+    double sl = pT2s_reg1(p, T);
+    double sv = pT2s_reg2(p, T);
+    return (h - hl)/(hv - hl) - (s - sl)/ (sv - sl);
+}
+
+double bisect_T(double h, double s, double a, double b, double tol)
+ {
+    double ra = residual_T(a, h, s);
+    double rb = residual_T(b, h, s);
+    //Same sign at endpoints: expand the search interval outward
+    int n_expand = 0;
+    while (ra * rb > 0.0 && n_expand < 200) {
+        double width = b - a;
+        a = fmax(a - width, TMIN4);
+        b = fmin(b + width,tc_water - 1.0);
+        ra = residual_T(a, h, s);
+        rb = residual_T(b, h, s);
+        n_expand += 1;
+        if (a <= TMIN4 + 0.5 && b >= tc_water - 1.5) {
+            break;
+        }
+    }
+
+    if (ra * rb > 0.0) {
+        // Scan the entire interval to find sign changes.
+        int n_steps = 60;
+        double step = (tc_water - 1.0 - TMIN4) / n_steps;
+        double prev_r = residual_T(TMIN4, h, s);
+        double found_lo = TMIN4;
+        double found_hi = TMIN4 + step;
+        for(int i=1; i<n_steps; i++) {
+            double Ti = TMIN4 + step * i;
+            double ri = residual_T(Ti, h, s);
+            if (prev_r * ri < 0.0) {
+                found_lo = Ti - step;
+                found_hi = Ti;
+                break;
+            }
+            prev_r = ri;
+        }
+        a = found_lo;
+        b = found_hi;
+        ra = residual_T(a, h, s);
+        rb = residual_T(b, h, s);
+    }
+    // bisection
+    for(int i=0; i<200; i++) {
+        double mid = 0.5 * (a + b);
+        double rm = residual_T(mid, h, s);
+        if (fabs(rm) < tol || (b - a) < 1.0e-10) {
+             return mid;
+        }
+        if (ra * rm < 0.0) {
+            b = mid;
+            rb = rm;
+        } else {
+            a = mid;
+            ra = rm;
+        }
+    }
+   return (0.5 * (a + b));
+}
+
 double hs2T_reg4(double h, double s)
 {
-
-    double T;
+    double T=0.0;
     if (s > s4V_623 && s < s4V_273)
     {
         T = hs2T_reg43(h, s);
         return T;
     };
-
-    // The if97 function hs2Treg43 is only valid for part of region4. Use iteration outsida.
-    double Low_Bound;
-    double High_Bound;
-    double PL, Ts;
-
-    if (s > s4L_273 && s <= s4L_623)
-    {
-        Low_Bound = PMIN;
-        High_Bound = Ps_623;
-
-        double hL = -1000;
-        while (fabs(hL - h) > 1.0e-04 && fabs(High_Bound - Low_Bound) > 1.0e-4)
-        {
-            PL = (Low_Bound + High_Bound) / 2;
-            Ts = TSat(PL);
-            hL = pT2h_reg1(PL, Ts);
-            if (hL > h)
-                High_Bound = PL;
-            else
-                Low_Bound = PL;
-        }
-    };
-
-    if (s > s4L_623 && s <= sc_water)
-    {
-        PL = h2pSat_reg3(h); // liquid
-        Low_Bound = PMIN;
-        High_Bound = PL;
+    T = hs2T_reg43(h, s);
+    if (T < TMIN4 || T > tc_water) {
+        T = 300.0;
     }
-    if (s > sc_water && s <= s4V_623)
-    {
-        PL = h2pSat_reg3(h); // steam
-        Low_Bound = PMIN;
-        High_Bound = PL;
-    }
-
-    double sss = -1000;
-    double p, xs, s4v, s4L, v4v, v4L;
-
-    while (fabs(s - sss) > 1.0e-6)
-    {
-        p = 0.5 * (Low_Bound + High_Bound);
-
-        Ts = TSat(p);
-        xs = ph_reg4(p, h, OX);
-
-        if (p < Ps_623)
-        {
-            s4v = pT2s_reg2(p, Ts);
-            s4L = pT2s_reg1(p, Ts);
-        }
-        else
-        {
-            v4v = ph_reg3(p, p2SatSteam(p, OH), OV);
-            s4v = Td2s_reg3(Ts, 1 / v4v);
-            v4L = ph_reg3(p, p2SatWater(p, OH), OV);
-            s4L = Td2s_reg3(Ts, 1 / v4L);
-        };
-
-        sss = (xs * s4v + (1 - xs) * s4L);
-
-        if (sss < s)
-        {
-            High_Bound = p;
-            Low_Bound = (1 + (sss - s) / s) * p;
-        }
-        else
-        {
-            Low_Bound = p;
-            High_Bound = (1 + (sss - s) / s) * p;
-        }
-    } // end of while  (fabs(s - sss) > 1.0e-6)
-
-    T = TSat(p);
+    T=bisect_T(h, s, T - 0.5, T + 0.5, 1.0e-8);   
     return T;
 }

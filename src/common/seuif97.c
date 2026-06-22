@@ -9,7 +9,6 @@
  * @author Cheng Maohua
  * @email cmh@seu.edu.cn
  */
-
 #include <math.h>
 #include "../r1/region1.h"
 #include "../r2/region2.h"
