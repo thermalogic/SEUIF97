@@ -109,9 +109,6 @@ double pv2T_reg1(double p, double v)
     };
     // 1. In low temperature region, v changes very little
     // 2. In low temperature and low pressure region, v changes very little, and the variation pattern reverses: T increases, v decreases
-    if (T < 290)
-    {
-    };
     if (T < TMIN1)
     {
         T = TMIN1;
