@@ -17,10 +17,10 @@
 static const double r2Tstar = 540.0; // K
 static const double r2pstar = 1.0;   // MPa,not used to reduce computation
 
-static int r2j0[9] = {0, 1, -5, -4, -3,
+static const int r2j0[9] = {0, 1, -5, -4, -3,
                       -2, -1, 2, 3};
 
-static double n0[9] = {-9.6927686500217,
+static const double n0[9] = {-9.6927686500217,
                        10.086655968018,
                        -0.005608791128302,
                        0.071452738081455,
@@ -32,7 +32,7 @@ static double n0[9] = {-9.6927686500217,
 
 // Table 11 Page 13 The residual part gamma'r for  region 2, Eq. (17)
 // 43 items
-static IJnData IJn[] = {
+static const IJnData IJn[] = {
     {1, 0, -0.17731742473213E-02},
     {1, 1, -0.17834862292358E-01},
     {1, 2, -0.45996013696365E-01},

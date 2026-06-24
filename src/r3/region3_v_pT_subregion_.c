@@ -21,7 +21,7 @@ typedef struct
     double a, b, c, d, e;
 } para;
 
-double pT2v_sum(double p, double T, int size, IJnData *IJn, para d)
+double pT2v_sum(double p, double T, int size, const IJnData *IJn, para d)
 {
     double p1 = pow((p / d.PS - d.a), d.c);
     double t1 = pow((T / d.TS - d.b), d.d);
@@ -31,7 +31,7 @@ double pT2v_sum(double p, double T, int size, IJnData *IJn, para d)
 
 double Vpt_3a(double p, double T)
 {
-    IJnData IJn[] = {
+   static const IJnData IJn[] = {
         {-12, 5, 0.110879558823853e-2},
         {-12, 10, 0.572616740810616e3},
         {-12, 12, -0.767051948380852e5},
@@ -80,7 +80,7 @@ double Vpt_3a(double p, double T)
 
 double Vpt_3b(double p, double T)
 {
-    IJnData IJn[] = {
+   static const IJnData IJn[] = {
         {-12, 10, -0.827670470003621e-1},
         {-12, 12, 0.416887126010565e2},
         {-10, 8, 0.483651982197059e-1},
@@ -130,7 +130,7 @@ double Vpt_3b(double p, double T)
 
 double Vpt_3c(double p, double T)
 {
-    IJnData IJn[] = {
+   static const IJnData IJn[] = {
         {-12, 6, 3.11967788763030},
         {-12, 8, 2.76713458847564e+04},
         {-12, 10, 3.22583103403269e+07},
@@ -182,7 +182,7 @@ double Vpt_3c(double p, double T)
 
 double Vpt_3d(double p, double T)
 {
-    IJnData IJn[] = {
+   static const IJnData IJn[] = {
         {-12, 4, -4.52484847171645e-10},
         {-12, 6, 3.15210389538801e-05},
         {-12, 7, -2.14991352047545e-03},
@@ -238,7 +238,7 @@ double Vpt_3d(double p, double T)
 
 double Vpt_3e(double p, double T)
 {
-    IJnData IJn[] = {
+   static const IJnData IJn[] = {
         {-12, 14, 7.15815808404721e+08},
         {-12, 16, -1.14328360753449e+11},
         {-10, 3, 3.76531002015720e-12},
@@ -284,7 +284,7 @@ double Vpt_3e(double p, double T)
 
 double Vpt_3f(double p, double T)
 {
-    IJnData IJn[] = {
+    static const IJnData IJn[] = {
         {0, -3, -2.51756547792325e-08},
         {0, -2, 6.01307193668763e-06},
         {0, -1, -1.00615977450049e-03},
@@ -345,7 +345,7 @@ double Vpt_3f(double p, double T)
 
 double Vpt_3g(double p, double T)
 {
-    IJnData IJn[] = {
+    static const IJnData IJn[] = {
         {-12, 7, 4.12209020652996e-05},
         {-12, 12, -1.14987238280587e+06},
         {-12, 14, 9.48180885032080e+09},
@@ -401,7 +401,7 @@ double Vpt_3g(double p, double T)
 
 double Vpt_3h(double p, double T)
 {
-    IJnData IJn[] = {{-12, 8, 5.61379678887577e-02},
+    static const IJnData IJn[] = {{-12, 8, 5.61379678887577e-02},
                      {-12, 12, 7.74135421587083e+09},
                      {-10, 4, 1.11482975877938e-09},
                      {-10, 6, -1.43987128208183e-03},
@@ -446,7 +446,7 @@ double Vpt_3h(double p, double T)
 
 double Vpt_3i(double p, double T)
 {
-    IJnData IJn[] = {{0, 0, 1.06905684359136},
+    static const IJnData IJn[] = {{0, 0, 1.06905684359136},
                      {0, 1, -1.48620857922333},
                      {0, 10, 2.59862256980408e+14},
                      {1, -4, -4.46352055678749e-12},
@@ -504,7 +504,7 @@ double Vpt_3i(double p, double T)
 
 double Vpt_3j(double p, double T)
 {
-    IJnData IJn[] = {{0, -1, -1.11371317395540e-04},
+    static const IJnData IJn[] = {{0, -1, -1.11371317395540e-04},
                      {0, 0, 1.00342892423685},
                      {0, 1, 5.30615581928979},
                      {1, -2, 1.79058760078792e-06},
@@ -549,7 +549,7 @@ double Vpt_3j(double p, double T)
 
 double Vpt_3k(double p, double T)
 {
-    IJnData IJn[] = {{-2, 10, -4.01215699576099e+08},
+    static const IJnData IJn[] = {{-2, 10, -4.01215699576099e+08},
                      {-2, 12, 4.84501478318406e+10},
                      {-1, -5, 3.94721471363678e-15},
                      {-1, 6, 3.72629967374147e+04},
@@ -599,7 +599,7 @@ double Vpt_3k(double p, double T)
 
 double Vpt_3l(double p, double T)
 {
-    IJnData IJn[] = {
+    static const IJnData IJn[] = {
         {-12, 14, 2.60702058647537e+09},
         {-12, 16, -1.88277213604704e+14},
         {-12, 18, 5.54923870289667e+18},
@@ -660,7 +660,7 @@ double Vpt_3l(double p, double T)
 
 double Vpt_3m(double p, double T)
 {
-    IJnData IJn[] = {
+    static const IJnData IJn[] = {
         {0, 0, 8.11384363481847e-01},
         {3, 0, -5.68199310990094e+03},
         {8, 0, -1.78657198172556e+10},
@@ -717,7 +717,8 @@ double Vpt_3m(double p, double T)
 
 double Vpt_3n(double p, double T)
 {
-    IJnData IJn[] = {{0, -12, 2.80967799943151e-39},
+    static const IJnData IJn[] = {
+                     {0, -12, 2.80967799943151e-39},
                      {3, -12, 6.14869006573609e-31},
                      {4, -12, 5.82238667048942e-28},
                      {6, -12, 3.90628369238462e-23},
@@ -768,7 +769,8 @@ double Vpt_3n(double p, double T)
 
 double Vpt_3o(double p, double T)
 {
-    IJnData IJn[] = {{0, -12, 1.28746023979718e-35},
+    static const IJnData IJn[] = {
+                     {0, -12, 1.28746023979718e-35},
                      {0, -4, -7.35234770382342e-12},
                      {0, -1, 2.89078692149150e-03},
                      {2, -1, 2.44482731907223e-01},
@@ -808,7 +810,8 @@ double Vpt_3o(double p, double T)
 
 double Vpt_3p(double p, double T)
 {
-    IJnData IJn[] = {{0, -1, -9.82825342010366e-05},
+    static const IJnData IJn[] = {
+                     {0, -1, -9.82825342010366e-05},
                      {0, 0, 1.05145700850612},
                      {0, 1, 1.16033094095084e+02},
                      {0, 2, 3.24664750281543e+03},
@@ -851,7 +854,8 @@ double Vpt_3p(double p, double T)
 
 double Vpt_3q(double p, double T)
 {
-    IJnData IJn[] = {{-12, 10, -8.20433843259950e+04},
+    static const IJnData IJn[] = {
+                     {-12, 10, -8.20433843259950e+04},
                      {-12, 12, 4.73271518461586e+10},
                      {-10, 6, -8.05950021005413e-02},
                      {-10, 7, 3.28600025435980e+01},
@@ -891,7 +895,8 @@ double Vpt_3q(double p, double T)
 
 double Vpt_3r(double p, double T)
 {
-    IJnData IJn[] = {{-8, 6, 1.44165955660863e-03},
+    static const IJnData IJn[] = {
+                     {-8, 6, 1.44165955660863e-03},
                      {-8, 14, -7.01438599628258e+12},
                      {-3, -3, -8.30946716459219e-17},
                      {-3, 3, 2.61975135368109e-01},
@@ -934,7 +939,8 @@ double Vpt_3r(double p, double T)
 
 double Vpt_3s(double p, double T)
 {
-    IJnData IJn[] = {{-12, 20, -5.32466612140254e+22},
+    static const IJnData IJn[] = {
+                     {-12, 20, -5.32466612140254e+22},
                      {-12, 24, 1.00415480000824e+31},
                      {-10, 22, -1.91540001821367e+29},
                      {-8, 14, 1.05618377808847e+16},
@@ -979,7 +985,8 @@ double Vpt_3s(double p, double T)
 
 double Vpt_3t(double p, double T)
 {
-    IJnData IJn[] = {{0, 0, 1.55287249586268},
+    static const IJnData IJn[] = {
+                     {0, 0, 1.55287249586268},
                      {0, 1, 6.64235115009031},
                      {0, 4, -2.89366236727210e+03},
                      {0, 12, -3.85923202309848e+12},
@@ -1028,7 +1035,8 @@ double Vpt_3t(double p, double T)
 
 double Vpt_3u(double p, double T)
 {
-    IJnData IJn[] = {{-12, 14, 1.22088349258355e+17},
+    static const IJnData IJn[] = {
+                     {-12, 14, 1.22088349258355e+17},
                      {-10, 10, 1.04216468608488e+09},
                      {-10, 12, -8.82666931564652e+15},
                      {-10, 14, 2.59929510849499e+19},
@@ -1083,7 +1091,8 @@ double Vpt_3u(double p, double T)
 
 double Vpt_3v(double p, double T)
 {
-    IJnData IJn[] = {{-10, -8, -4.15652812061591e-55},
+    static const IJnData IJn[] = {
+                     {-10, -8, -4.15652812061591e-55},
                      {-8, -12, 1.77441742924043e-61},
                      {-6, -12, -3.57078668203377e-55},
                      {-6, -3, 3.59252213604114e-26},
@@ -1139,7 +1148,8 @@ double Vpt_3v(double p, double T)
 
 double Vpt_3w(double p, double T)
 {
-    IJnData IJn[] = {{-12, 8, -5.86219133817016e-08},
+    static const IJnData IJn[] = {
+                     {-12, 8, -5.86219133817016e-08},
                      {-12, 14, -8.94460355005526e+10},
                      {-10, -1, 5.31168037519774e-31},
                      {-10, 8, 1.09892402329239e-01},
@@ -1190,7 +1200,8 @@ double Vpt_3w(double p, double T)
 
 double Vpt_3x(double p, double T)
 {
-    IJnData IJn[] = {{-8, 14, 3.77373741298151e+18},
+    static const IJnData IJn[] = {
+                     {-8, 14, 3.77373741298151e+18},
                      {-6, 10, -5.07100883722913e+12},
                      {-5, 10, -1.03363225598860e+15},
                      {-4, 1, 1.84790814320773e-06},
@@ -1242,7 +1253,8 @@ double Vpt_3x(double p, double T)
 
 double Vpt_3y(double p, double T)
 {
-    IJnData IJn[] = {{0, -3, -5.25597995024633e-10},
+    static const IJnData IJn[] = {
+                     {0, -3, -5.25597995024633e-10},
                      {0, 1, 5.83441305228407e+03},
                      {0, 5, -1.34778968457925e+16},
                      {0, 8, 1.18973500934212e+25},
@@ -1279,7 +1291,8 @@ double Vpt_3y(double p, double T)
 
 double Vpt_3z(double p, double T)
 {
-    IJnData IJn[] = {{-8, 3, 2.4400789229065e-11},
+    static const IJnData IJn[] = {
+                     {-8, 3, 2.4400789229065e-11},  
                      {-6, 6, -4.6305743033124e+06},
                      {-5, 6, 7.2880327477771e+09},
                      {-5, 8, 3.2777630285886e+15},

@@ -42,7 +42,7 @@
 #define P_TOL 1.0e-15
 #define T_TOL 1.0e-5
 
-#define K 273.15;
+#define K 273.15
 /// const for none region input
 static double rgas_water = 0.461526; // gas constant in KJ/(kg K)
 // critical point

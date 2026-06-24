@@ -10,10 +10,9 @@
  * @email cmh@seu.edu.cn
  */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <math.h>
 #include "algorithm.h"
+#include "../common/constant.h"
 
 #define EPS 3.0e-8
 
@@ -123,8 +122,7 @@ double bisection(double t1, double t2, double (*f)(double,double), double var, d
     }
     
     if (r_t1 * r_t2 > 0.0) {
-        fprintf(stderr, "Bisection failed: f(t1) and f(t2) must have opposite signs!\n");
-        exit(EXIT_FAILURE);
+        return INVALID_VALUE;
     }
 
     for (int i = 0; i < max_iter; i++) {

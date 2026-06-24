@@ -107,7 +107,7 @@ double ps2T_reg2b(double p, double s)
     // Table 26. Numerical values of the coefficients and exponents of
     // the backward equation T( p,s ) for
     // subregion 2b, Eq. (26)
-    IJnData IJn[44] = {
+    static const IJnData IJn[44] = {
         {-6, 0, 0.31687665083497e6},
         {-6, 11, 0.20864175881858e2},
         {-5, 0, -0.39859399803599e6},
@@ -176,7 +176,7 @@ double ps2T_reg2c(double p, double s)
     // Table 27. Numerical values of the coefficient s and exponents of
     //  the backward equation T( p,s ) for
     // subregion 2c, Eq. (27)
-    IJnData IJn[30] = {
+    static const IJnData IJn[30] = {
         {-2, 0, 0.90968501005365e3},
         {-2, 1, 0.24045667088420e4},
         {-1, 0, -0.59162326387130e3},

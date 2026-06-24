@@ -20,7 +20,7 @@
 double ph2T_reg1(double p, double h)
 {
   // Page 11, Table6 :Initialize coefficients and exponents (P,H)->T for region 1
-  IJnData IJn[] = {
+ static const IJnData IJn[] = {
       {0, 0, -238.72489924521},
       {0, 1, 404.21188637945},
       {0, 2, 113.49746881718},
@@ -75,7 +75,7 @@ double ph2T_reg1(double p, double h)
 double ps2T_reg1(double p, double s)
 // Page 12, Table 8 : Initialize coefficients and exponents (P,S)->T for region 1
 {
-  IJnData IJn[] = {
+ static const  IJnData IJn[] = {
       {0, 0, 0.17478268058307e3},
       {0, 1, 0.34806930892873e2},
       {0, 2, 0.65292584978455e1},

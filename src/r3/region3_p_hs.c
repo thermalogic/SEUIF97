@@ -20,7 +20,7 @@ double hs2p3a_reg3(double h, double s)
      s : Specific entropy [kJ/kgK]
       P : Pressure [MPa] */
 {
-    IJnData IJn[33] = {{0, 0, 0.770889828326934e1},
+    static const IJnData IJn[33] = {{0, 0, 0.770889828326934e1},
                        {0, 1, -0.260835009128688e2},
                        {0, 5, 0.267416218930389e3},
                        {1, 0, 0.172221089496844e2},
@@ -71,7 +71,7 @@ double hs2p3b_reg3(double h, double s)
     s : Specific entropy [kJ/kgK]
     P : Pressure [MPa]*/
 {
-    IJnData IJn[35] = {
+    static const IJnData IJn[35] = {
         {-12, 2, 0.125244360717979e-12},
         {-12, 10, -0.126599322553713e-1},
         {-12, 12, 0.506878030140626e1},

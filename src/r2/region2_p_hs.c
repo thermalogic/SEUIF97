@@ -31,7 +31,7 @@ double ph2s_reg2(double p, double h)
 double pi2aHS(double eta, double sigma)
 {
   // Initialize coefficients and exponents (H,S)->P for region 2a
-  IJnData IJn[] = {{0, 1, -0.182575361923032E-01},
+  static const IJnData IJn[] = {{0, 1, -0.182575361923032E-01},
                    {0, 3, -0.125229548799536},
                    {0, 6, 0.592290437320145},
                    {0, 16, 0.604769706185122E+01},
@@ -89,7 +89,7 @@ double hs2p_reg2a(double h, double s)
 //=========================================================
 double pi2bHS(double eta, double sigma)
 {
-  IJnData IJn[] = {{0, 0, 0.801496989929495E-01},
+ static const IJnData IJn[] = {{0, 0, 0.801496989929495E-01},
                    {0, 1, -0.543862807146111},
                    {0, 2, 0.337455597421283},
                    {0, 4, 0.890555451157450E+01},
@@ -147,7 +147,7 @@ double hs2p_reg2b(double h, double s)
 //=========================================================
 double pi2cHS(double eta, double sigma)
 {
-  IJnData IJn[] = {{0, 0, 0.112225607199012E+00},
+  static const IJnData IJn[] = {{0, 0, 0.112225607199012E+00},
                    {0, 1, -0.339005953606712E+01},
                    {0, 2, -0.320503911730094E+02},
                    {0, 3, -0.197597305104900E+03},
@@ -209,7 +209,7 @@ double s2hreg2ab(double s)
    """
 */
 {
-  static double n[4] = {-0.349898083432139E+04,
+  static const double n[4] = {-0.349898083432139E+04,
                         0.257560716905876E+04,
                         -0.421073558227969E+03,
                         0.276349063799944E+02};
@@ -239,23 +239,4 @@ double hs2p_reg2(double h, double s)
     p = hs2p_reg2a(h, s);
   };
   return (p);
-
-  /*  double p1,p2,f1,f2;
-    p1 =p;
-    f1=s-ph2s_reg2(p1,h);
-    if (fabs(f1)>xacc)
-    {
-      if (f1>0) // pT2sreg1(p,h)< s ,the p1< expt p，so， p2=1.05*p1 p（p1,p2)
-        p2=(1.0+f1/s)*p1;
-      else
-        p2=(1.0-f1/s)*p1;
-
-      f2=s-ph2s_reg2(p2,h);
-
-      p=rtsec1(ph2s_reg2,h,s,p1,p2,f1,f2,xacc,iMAX);
-    }
-    else
-      p=p1;
-
-   return p;   */
 }

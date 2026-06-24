@@ -36,7 +36,7 @@ double hs2T_reg43(double h, double s)
     s :        Specific entropy [kJ/kgK]
  */
 {
-    IJnData IJn[] = {
+    static const IJnData IJn[] = {
         {0, 0, .179882673606601},
         {0, 3, -.267507455199603},
         {0, 12, .116276722612600e1},

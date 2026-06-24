@@ -12,7 +12,7 @@
 #include <math.h>
 #include "algorithm.h"
 
-double poly(double vi, double vj, int size, IJnData *IJn)
+double poly(double vi, double vj, int size, const IJnData *IJn)
 {
   double v = 0.0;
   for (int k = 0; k < size; k++)
@@ -20,7 +20,7 @@ double poly(double vi, double vj, int size, IJnData *IJn)
   return v;
 }
 
-double poly_i(double vi, double vj, int size, IJnData *IJn)
+double poly_i(double vi, double vj, int size, const IJnData *IJn)
 {
   double v = 0.0;
   for (int k = 0; k < size; k++)
@@ -28,7 +28,7 @@ double poly_i(double vi, double vj, int size, IJnData *IJn)
   return v;
 }
 
-double poly_ii(double vi, double vj, int size, IJnData *IJn)
+double poly_ii(double vi, double vj, int size, const IJnData *IJn)
 {
   double v = 0.0;
   for (int k = 0; k < size; k++)
@@ -36,7 +36,7 @@ double poly_ii(double vi, double vj, int size, IJnData *IJn)
   return v;
 }
 
-double poly_j(double vi, double vj, int size, IJnData *IJn)
+double poly_j(double vi, double vj, int size, const IJnData *IJn)
 {
   double v = 0.0;
   for (int k = 0; k < size; k++)
@@ -44,7 +44,7 @@ double poly_j(double vi, double vj, int size, IJnData *IJn)
   return v;
 }
 
-double poly_jj(double vi, double vj, int size, IJnData *IJn)
+double poly_jj(double vi, double vj, int size, const IJnData *IJn)
 {
   double v = 0.0;
   for (int k = 0; k < size; k++)
@@ -52,7 +52,7 @@ double poly_jj(double vi, double vj, int size, IJnData *IJn)
   return v;
 }
 
-double poly_ij(double vi, double vj, int size, IJnData *IJn)
+double poly_ij(double vi, double vj, int size, const IJnData *IJn)
 {
   double v = 0.0;
   for (int k = 0; k < size; k++)
@@ -62,7 +62,7 @@ double poly_ij(double vi, double vj, int size, IJnData *IJn)
 //--------------multiple values ------------------------------------------------------
 
 // /df/dvj
-void polys_0_j(double vi, double vj, int size, IJnData *IJn, double *poly_0, double *poly_j)
+void polys_0_j(double vi, double vj, int size, const IJnData *IJn, double *poly_0, double *poly_j)
 {
   double item = 0.0;
   for (int k = 0; k < size; k++)
@@ -74,7 +74,7 @@ void polys_0_j(double vi, double vj, int size, IJnData *IJn, double *poly_0, dou
   *poly_j /= vj;
 }
 
-void polys_i_ii_ij_jj(double vi, double vj, int size, IJnData *IJn,
+void polys_i_ii_ij_jj(double vi, double vj, int size, const IJnData *IJn,
      double *poly_i, double *poly_ii, double *poly_ij, double *poly_jj)
 {
   double item = 0.0;

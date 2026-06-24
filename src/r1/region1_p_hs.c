@@ -28,7 +28,7 @@ double hs2p_reg1(double h, double s)
 {
   // Page 5, Table 2 :
   // Initialize coefficients and exponents (H,S)->P for region 1
-  IJnData IJn[] = {
+ static const  IJnData IJn[] = {
       {0, 0, -.691997014660582},
       {0, 1, -.183612548787560e2},
       {0, 2, -.928332409297335e1},

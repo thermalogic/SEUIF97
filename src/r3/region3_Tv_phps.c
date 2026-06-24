@@ -37,7 +37,7 @@ double theta3aph(double pi, double eta)
   // (p,h)->T for region 3a
   // Page7 Table 3. Coefficients and exponents of the backward equation T3a(p,h) for subregion 3a in its
   // dimensionless form, Eq. (2)
-  IJnData IJn[31] = {
+  static const IJnData IJn[31] = {
       {-12, 0, -1.33645667811215e-7},
       {-12, 1, 4.55912656802978e-6},
       {-12, 2, -1.46294640700979e-5},
@@ -100,7 +100,7 @@ double theta3bph(double pi, double eta)
 {
   // Table 4. Coefficients and exponents of the backward equation T3b=(p,h) for subregion 3b in its
   // dimensionless form, Eq. (3)
-  IJnData IJn[33] = {
+  static const IJnData IJn[33] = {
       {-12, 0, 3.23254573644920e-5},
       {-12, 1, -1.27575556587181e-4},
       {-10, 0, -4.75851877356068e-4},
@@ -164,7 +164,7 @@ double omega3aph(double pi, double eta)
 {
   // Page9 Table 6. Coefficients and exponents of the backward equation v3a(p,h) for subregion 3a in its
   // dimensionless form, Eq. (4)
-  IJnData IJn[] = {
+  static const IJnData IJn[] = {
       {-12, 6, 5.29944062966028e-3},
       {-12, 8, -1.70099690234461e-1},
       {-12, 12, 1.11323814312927e1},
@@ -221,7 +221,7 @@ double omega3bph(double pi, double eta)
   // Page 9
   // Table 7. Coefficients and exponents of the backward equation v3b (p,h) for subregion 3b in its
   // dimensionless form, Eq. (5)
-  IJnData IJn[30] = {
+  static const IJnData IJn[30] = {
       {-12, 0, -2.25196934336318e-9},
       {-12, 1, 1.40674363313486e-8},
       {-8, 0, 2.33784085280560e-6},
@@ -308,7 +308,7 @@ double ph2v_reg3(double p, double h)
 //---------------------------------------------------------------
 double theta3aps(double pi, double sigma)
 {
-  IJnData IJn[] = {{-12, 28, 0.150042008263875E+10},
+  static const IJnData IJn[] = {{-12, 28, 0.150042008263875E+10},
                    {-12, 32, -0.159397258480424E+12},
                    {-10, 4, 0.502181140217975E-03},
                    {-10, 10, -0.672057767855466E+02},
@@ -362,7 +362,7 @@ double ps2T3a_reg3(double p, double s)
 //---------------------------------------------------------------
 double theta3bps(double pi, double sigma)
 {
-  IJnData IJn[28] = {{-12, 1, 0.527111701601660E+00},
+  static const IJnData IJn[28] = {{-12, 1, 0.527111701601660E+00},
                      {-12, 3, -0.401317830052742E+02},
                      {-12, 4, 0.153020073134484E+03},
                      {-12, 7, -0.224799398218827E+04},
@@ -411,7 +411,7 @@ double ps2T3b_reg3(double p, double s)
 //---------------------------------------------------------------
 double omega3aps(double pi, double sigma)
 {
-  IJnData IJn[28] = {{-12, 10, 0.795544074093975E+02},
+  static const IJnData IJn[28] = {{-12, 10, 0.795544074093975E+02},
                      {-12, 12, -0.238261242984590E+04},
                      {-12, 14, 0.176813100617787E+05},
                      {-10, 4, -0.110524727080379E-02},
@@ -461,7 +461,7 @@ double ps2v3a_reg3(double p, double s)
 //-------------------------------------------------------------------
 double omega3bps(double pi, double sigma)
 {
-  IJnData IJn[] = {{-12, 0, 0.591599780322238E-04},
+  static const IJnData IJn[] = {{-12, 0, 0.591599780322238E-04},
                    {-12, 1, -0.185465997137856E-02},
                    {-12, 2, 0.104190510480013E-01},
                    {-12, 3, 0.598647302038590E-02},

@@ -20,7 +20,7 @@ double ph2T_reg2a(double p, double h)
   // Numerical values of the coefficients and exponents of
   // the backward equation T ( p,h ) for
   // subregion 2a, Eq. (22)
-  IJnData IJn[34] = {
+ static const IJnData IJn[34] = {
       {0, 0, 0.10898952318288E+04},
       {0, 1, 0.84951654495535E+03},
       {0, 2, -0.10781748091826E+03},
@@ -77,7 +77,7 @@ double ph2T_reg2b(double p, double h)
 {
   // Table 21. Numerical values of the coefficients and exponents
   // of the backward equation T ( p,h ) for
-  IJnData IJn[38] = {
+  static const IJnData IJn[38] = {
       {0, 0, 1.4895041079516e3},
       {0, 1, 7.4307798314034e2},
       {0, 2, -9.7708318797837e1},
@@ -138,7 +138,7 @@ double ph2T_reg2c(double p, double h)
 {
   // Table 22. Numerical values of the coefficients and exponents of
   // the backward  equation T ( p,h ) for subregion 2c, Eq. (24)
-  IJnData IJn[23] = {
+  static const IJnData IJn[23] = {
       {-7, 0, -3236839855524.2},
       {-7, 4, 7326335090218.1},
       {-6, 0, 358250899454.47},
@@ -181,7 +181,7 @@ double ph2T_reg2c(double p, double h)
 double enthalpy2bc(double p)
 // http://www.iapws.org/relguide/IF97-Rev.html, Eq 21
 {
-  const double n[] = {0.12809002730136e-3,
+  static const double n[] = {0.12809002730136e-3,
                       0.26526571908428e4,
                       0.45257578905948e1};
   return n[1] + sqrt((p - n[2]) / n[0]);
@@ -192,28 +192,10 @@ double ph2T_reg2(double p, double h)
   double T;
   if (p > 4)
     if (h < enthalpy2bc(p))
-      T = ph2T_reg2c(p, h);
+        T = ph2T_reg2c(p, h);
     else
-      T = ph2T_reg2b(p, h);
+        T = ph2T_reg2b(p, h);
   else
-    T = ph2T_reg2a(p, h);
-
-  /*double T1, T2, f1, f2;
-  T1 = T;
-  f1 = h - pT2h_reg2(p, T1);
-  if (fabs(f1) > xacc)
-  {
-    if (f1 > 0)
-      T2 = (1.0 + f1 / h) * T1; // TODO: Is 1+f1/h faster than 1.05? Not tested
-    else
-      T2 = (1.0 - f1 / h) * T1;
-
-    f2 = h - pT2h_reg2(p, T2);
-
-    T = rtsec2(pT2h_reg2, p, h, T1, T2, f1, f2, xacc, iMAX);
-  }
-  else
-    T = T1;*/
-
+       T = ph2T_reg2a(p, h);
   return T;
 }

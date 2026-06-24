@@ -16,7 +16,7 @@
 
 static const double n1 = 0.10658070028513e1;
 // 39
-static IJnData IJn[] = {
+static const IJnData IJn[] = {
     {0, 0, -0.15732845290239E+02},
     {0, 1, 0.20944396974307E+02},
     {0, 2, -0.76867707878716E+01},

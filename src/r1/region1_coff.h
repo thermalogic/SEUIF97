@@ -17,7 +17,7 @@
 static const double r1pstar = 16.53;  // MPa
 static const double r1Tstar = 1386.0; // K
 
-static IJnData IJn[] = {
+static const IJnData IJn[] = {
     {0, -2, 0.14632971213167E+00},
     {0, -1, -0.84548187169114E+00},
     {0, 0, -0.37563603672040E+01},
