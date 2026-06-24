@@ -60,10 +60,10 @@ void polys_solo_i_ii_ij_jj(double vi, double vj, int size, IJnData *IJn, int *i2
                            double *poly_i, double *poly_ii, double *poly_ij, double *poly_jj);
 
 static double xacc = 1.0E-08;
-static int iMAX = 100;
+static int iMAX = 20000;
 typedef double (*callfunc)(double, double);
 
-double rtsec1(callfunc func, double cVar2, double fr, double x1,
-              double x2, double ft, double f, double xacc, int iMAX);
-double rtsec2(callfunc func, double cVar1, double fr, double x1,
-              double x2, double fl, double f, double xacc, int iMAX);
+double rtsec(callfunc func, double var, double target, double x1,
+              double x2, int var_position, double xacc, int iMAX);
+typedef double (*bisection_func)(double, double);
+double bisection(double t1, double t2, double (*f)(double, double), double var, double r, int var_position, int max_iter, double tol, double x_tol);

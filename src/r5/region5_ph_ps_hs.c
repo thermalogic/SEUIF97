@@ -43,7 +43,7 @@ double ph2T_reg5(double p, double h)
 
       f2 = h - pT2h_reg5(p, T2);
 
-      T = rtsec2(pT2h_reg5, p, h, T1, T2, f1, f2, xacc, iMAX);
+      T = rtsec(pT2h_reg5, p, h, T1, T2, 1, xacc, iMAX);
    }
    else
       T = T1;
@@ -78,7 +78,7 @@ double ps2T_reg5(double p, double s)
          T2 = (1.0 - f1 / s) * T1;
 
       f = s - pT2s_reg5(p, T2);
-      T = rtsec2(pT2s_reg5, p, s, T1, T2, f1, f, xacc, iMAX);
+      T = rtsec(pT2s_reg5, p, s, T1, T2, 1, xacc, iMAX);
    }
    else
       T = T1;
@@ -124,7 +124,7 @@ double hs2p_reg5(double h, double s)
 
       f2 = s - ph2s_reg5(p2, h);
 
-      p = rtsec1(ph2s_reg5, h, s, p1, p2, f1, f2, xacc, iMAX);
+      p = rtsec(ph2s_reg5, h, s, p1, p2, 2, xacc, iMAX);
    }
    else
       p = p1;

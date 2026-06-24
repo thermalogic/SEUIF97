@@ -29,13 +29,11 @@ double pv2T_reg5(double p, double v)
     v1 = pT2v_reg5(p, T1);
     T2 = TMAX5;
     v2 = pT2v_reg5(p, T2);
-    f = v - pT2v_reg5(p, T2);
     if ((v2 - v1) != 0.0)
     {
         T1 = T1 + (T2 - T1) * (v - v1) / (v2 - v1);
     }
-    f1 = v - pT2v_reg5(p, T1);
-    T = rtsec2(pT2v_reg5, p, v, T1, T2, f1, f, xacc, iMAX);
+    T = rtsec(pT2v_reg5, p, v, T1, T2, 1, xacc, iMAX);
     if (T < TMIN5)
     {
         T = TMIN5;
@@ -56,47 +54,9 @@ double pv2T_reg5(double p, double v)
 //  p: pressure  MPa
 double Tv2p_reg5(double T, double v)
 {
-    double p, p1, p2, v1, v2, f1, f2;
-    int vbounded = 0;
-    p1 = PMIN5; //
-    v1 = pT2v_reg5(p1, T);
-    if (v == v1)
-        return (p1);
-    p2 = 10 * p1;
-    v2 = pT2v_reg5(p2, T);
-    if (v == v2)
-        return (p2);
-    if ((v > v2) && (v < v1))
-        vbounded = 1;
-    while (vbounded == 0)
-    {
-        p1 = p2;
-        v1 = v2;
-        p2 = 5 * p1;
-        if (p2 >= PMAX5)
-        {
-            p2 = PMAX5;
-            vbounded = 1;
-        }
-        v2 = pT2v_reg5(p2, T);
-        if (v == v2)
-            return (p2);
-        if ((v > v2) && (v < v1))
-            vbounded = 1;
-    }
-    f2 = v - v2;
-    p1 = p2 - (p2 - p1) * (v - v2) / (v1 - v2);
-    if (p1 < PMIN5)
-        p1 = PMIN5;
-    f1 = v - pT2v_reg5(p1, T);
-    if (fabs(f1) < xacc)
-        return (p1);
-    p = rtsec1(pT2v_reg5, T, v, p1, p2, f1, f2, xacc, iMAX);
-    if (p > PMAX5)
-        p = PMAX5;
-    if (p < PMIN5)
-        p = PMIN5;
-    return (p);
+   double p1 = PMIN5;
+   double p2 = PMAX5;
+   return bisection(p1, p2, pT2v_reg5, T, v,2, iMAX, 1.0e-15, 1.0e-9);  
 }
 
 //----------------------------------------------
@@ -106,22 +66,17 @@ double Ts2p_reg5(double T, double s)
 {
     double p, p1, p2, s1, s2, f1, f2;
     p1 = PMIN5; //
-    s1 == pT2s_reg5(p1, T);
-    f1 = s - s1;
+    s1 = pT2s_reg5(p1, T);
     p2 = PMAX5;
     s2 = pT2s_reg5(p2, T);
-    f2 = s - s2;
     p1 = p2 - (p2 - p1) * (s - s2) / (s1 - s2);
     if (p1 < PMIN5)
         p1 = PMIN5;
     s1 = pT2s_reg5(p1, T);
-    f1 = s - s1;
-    if (fabs(f1) < xacc)
-        return (p1);
-    p = rtsec1(pT2s_reg5, T, s, p1, p2, f1, f2, xacc, iMAX);
+    p = rtsec(pT2s_reg5, T, s, p1, p2, 2, xacc, iMAX);
     if (p > PMAX5)
         p = PMAX5;
-    if (p < PMIN5)
+    else if (p < PMIN5)
         p = PMIN5;
     return (p);
 }
@@ -137,15 +92,11 @@ double Th2p_reg5(double T, double h)
     h1 = pT2h_reg5(p1, T);
     p2 = PMAX5; //
     h2 = pT2h_reg5(p2, T);
-    f2 = h - h2;
     p1 = p2 - (p2 - p1) * fabs(h - h2) / (h1 - h2);
-    f1 = h - pT2h_reg5(p1, T);
-    if (fabs(f1) < xacc)
-        return (p1);
-    p = rtsec1(pT2h_reg5, T, h, p1, p2, f1, f2, xacc, iMAX);
+    p = rtsec(pT2h_reg5, T, h, p1, p2, 2, xacc, iMAX);
     if (p > PMAX5)
         p = PMAX5;
-    if (p < PMIN5)
+    else if (p < PMIN5)
         p = PMIN5;
     return (p);
 }

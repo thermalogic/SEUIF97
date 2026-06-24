@@ -44,55 +44,9 @@ double T2pmax_reg2(double T)
 // * T: temperature  K
 double pv2T_reg2(double p, double v)
 {
-    double T1, T2, f1, f, v1, v2, T;
-    double Tmin2 = p2Tmin_reg2(p);
-    T1 = Tmin2;
-    v1 = pT2v_reg2(p, T1);
-    f1 = v - v1;
-    T2 = TMAX2;
-    T2 = 1.1 * T1; // fast
-    v2 = pT2v_reg2(p, T2);
-    f = v - v2;
-    T1 = T1 + (T2 - T1) * fabs(v - v1) / (v2 - v1);
-    v1 = pT2v_reg2(p, T1);
-    f1 = v - v1;
-    if (fabs(f1) < xacc)
-        return (T1);
-    T = rtsec2(pT2v_reg2, p, v, T1, T2, f1, f, xacc, iMAX);
-    if (T < Tmin2)
-        T = Tmin2;
-    else if (T > TMAX2)
-        T = TMAX2;
-    double v0 = pT2v_reg2(p, T);
-    if (fabs(v0 - v) < xacc)
-    {
-        return (T);
-    }    
-    // zoom
-    int i = 0;
-    int success = 1;
-    if (fabs(v0 - v) > xacc)
-        success = 0;
-    while (success == 0)
-    {
-        if (v0 > v)
-        {
-            i += 1;
-            T = T - 0.001;
-            if (T < Tmin2)
-                v0 = pT2v_reg2(p, T);
-        }
-        else
-        {
-            i += 1;
-            T = T + 0.001;
-            if (T > TMAX2)
-                v0 = pT2v_reg2(p, T);
-        }
-        if (i < 1000)
-            success = 1;
-    }
-    return (T);
+   double T1 = p2Tmin_reg2(p);
+   double T2 = TMAX2;
+   return bisection(T1, T2, pT2v_reg2, p, v, 1,iMAX, 1.0e-10, 1.0e-6);   
 }
 
 // Region 2(T,v)->p using the secant method
@@ -101,55 +55,9 @@ double pv2T_reg2(double p, double v)
 //  p: pressure  MPa
 double Tv2p_reg2(double T, double v)
 {
-    double pmax2, p, p1, p2, pmid, v1, v2, f1, f2, stepa, stepm;
-    int bounded = 0;
-    p1 = PMIN2;
-    pmax2 = T2pmax_reg2(T);
-    stepa = 1.0;
-    stepm = 5.0;
-    v1 = pT2v_reg2(p1, T);
-    if (fabs(v - v1) < xacc)
-        return (p1);
-    p2 = p1 * stepm;
-    v2 = pT2v_reg2(p2, T);
-    if (fabs(v - v2) < xacc)
-        return (p2);
-    if ((v > v2) && (v < v1))
-        bounded = 1;
-    while (bounded == 0)
-    {
-        p1 = p2;
-        v1 = v2;
-        if (p1 > 1.0)
-            p2 = p1 + stepa;
-        if (p1 < 1.0)
-            p2 = p1 * stepm;
-        if (p2 >= pmax2)
-        {
-            p2 = pmax2;
-            bounded = 1;
-        }
-        v2 = pT2v_reg2(p2, T);
-        if (fabs(v - v2) < xacc)
-            return (p2);
-        if ((v > v2) && (v < v1))
-            bounded = 1;
-    }
-    f2 = v - v2;
-    pmid = p2 - (p2 - p1) * (v - v2) / (v1 - v2);
-    if (v < pT2v_reg2(pmid, T))
-        p1 = pmid;
-    if (p1 < PMIN2)
-        p1 = PMIN2;
-    f1 = v - pT2v_reg2(p1, T);
-    if (fabs(f1) < xacc)
-        return (p1);
-    p = rtsec1(pT2v_reg2, T, v, p1, p2, f1, f2, xacc, iMAX);
-    if (p < PMIN2)
-        p = PMIN2;
-    else if (p > pmax2)
-        p = pmax2;
-    return (p);
+   double p1 = PMIN2;
+   double p2 = T2pmax_reg2(T);
+   return bisection(p1, p2, pT2v_reg2, T, v, 2,iMAX, 1.0e-15, 1.0e-9);  
 }
 
 //----------------------------------------------
@@ -157,27 +65,9 @@ double Tv2p_reg2(double T, double v)
 //----------------------------------------------
 double Ts2p_reg2(double T, double s)
 {
-    double p, p1, p2, pmax2, f1, f2, s1, s2;
-    p1 = PMIN2;
-    s1 = pT2s_reg2(p1, T);
-    f1 = s - s1;
-    pmax2 = T2pmax_reg2(T);
-    p2 = pmax2;
-    s2 = pT2s_reg2(p2, T);
-    f2 = s - s2;
-    p1 = p2 - (p2 - p1) * (s - s2) / (s1 - s2);
-    if (p1 < PMIN2)
-        p1 = PMIN2;
-    s1 = pT2s_reg2(p1, T);
-    f1 = s - s1;
-    if (fabs(f1) < xacc)
-        return (p1);
-    p = rtsec1(pT2s_reg2, T,s, p1, p2, f1, f2, xacc, iMAX);
-    if (p < PMIN2)
-        p = PMIN2;
-    else if (p > pmax2)
-        p = pmax2;
-    return (p);
+    double p1 = PMIN2;
+    double p2 = T2pmax_reg2(T);
+    return bisection(p1, p2, pT2s_reg2, T, s,2, iMAX, 1.0e-10, 1.0e-9); 
 }
 
 // Region 2(T,h)->p using the secant method
@@ -186,59 +76,7 @@ double Ts2p_reg2(double T, double s)
 //  *  p: pressure  MPa
 double Th2p_reg2(double T, double h)
 {
-    double p, p1, p2, pmax2, pmid, stepa, stepm, f1, f2, h1, h2;
-    int bounded = 0;
-
-    p1 = PMIN2; // 0.0001;
-    pmax2 = T2pmax_reg2(T);
-    p2 = pmax2;
-    stepa = 1;
-    stepm = 5.0;
-    h1 = pT2h_reg2(p1, T);
-    if (fabs(h - h1) < xacc)
-        return (p1);
-    p2 = p1 * stepm;
-    h2 = pT2h_reg2(p2, T);
-    if (fabs(h - h2) < xacc)
-        return (p2);
-    if ((h > h2) && (h < h1))
-        bounded = 1;
-    while (bounded == 0)
-    {
-        p1 = p2;
-        h1 = h2;
-        if (p1 > 1)
-            p2 = p1 + stepa;
-        if (p1 < 1)
-            p2 = p1 * stepm;
-        if (p2 >= pmax2)
-        {
-            p2 = pmax2;
-            bounded = 1;
-        }
-        h2 = pT2h_reg2(p2, T);
-        if (fabs(h - h2) < xacc)
-            return (p2);
-        if ((h > h2) && (h < h1))
-            bounded = 1;
-    }
-    f2 = h - h2;
-    pmid = p2 - (p2 - p1) * (h - h2) / (h1 - h2);
-    if (pmid < PMIN2)
-    {
-        pmid = PMIN2;
-    };
-    h1 = pT2h_reg2(pmid, T);
-    if (h < pT2h_reg2(pmid, T))
-        p1 = pmid;
-    h1 = pT2h_reg2(p1, T);
-    f1 = h - h1;
-    if (fabs(f1) < xacc)
-        return (p1);
-    p = rtsec1(pT2h_reg2, T, h, p1, p2, f1, f2, xacc, iMAX);
-    if (p < PMIN2)
-        p = PMIN2;
-    if (p > pmax2)
-        p = pmax2;
-    return (p);
+    double p1 = PMIN2;
+    double p2 = T2pmax_reg2(T);
+    return bisection(p1, p2, pT2h_reg2, T, h, 2,iMAX, 1.0e-10, 1.0e-9); 
 }

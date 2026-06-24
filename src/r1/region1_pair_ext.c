@@ -16,55 +16,19 @@
 #include "region1.h"
 #include "../r4/region4.h"
 
+#include "../algo/algorithm.h"
+#include "region1.h"
+#include "../r4/region4.h"
+
 // Region 1  (p,v)->T using the secant method and refine adjust
 // * p: pressure  MPa
 // * v: specific volume m^3/kg
 // * T: temperature  K
 double pv2T_reg1(double p, double v)
 {
-    const double STEP = 0.1;
-    const int MAX_STEPS = 10000;
-    
     double T1 = TMIN1;
-    double v1 = pT2v_reg1(p, T1);
-    
     double T2 = ((p >= 16.5291643) && (p <= 100.0)) ? TMAX1 : TSat(p);
-    double v2 = pT2v_reg1(p, T2);
-    if ((v2 - v1) != 0.0) {
-        T1 = T1 + (T2 - T1) * (v - v1) / (v2 - v1);
-    }
-    double f = v - v2;
-    double f1 = v - pT2v_reg1(p, T1);
-    double T = rtsec2(pT2v_reg1, p, v, T1, T2, f1, f, xacc, iMAX);
-    f = v - pT2v_reg1(p, T);
-    if (fabs(f) < xacc) {
-        return T;
-    }
-    // In low temperature and low pressure region,
-    // v changes very little, and the variation pattern reverses: T increases, v decreases
-    int sum = 0;
-    T1 = T;
-    f1 = f;
-    double step = (f < 0) ? -STEP : STEP;
-    while (sum <= MAX_STEPS) {
-        T1 += step;
-        if (T1 < TMIN1 || T1 > TMAX1) {
-            T = (T1 < TMIN1) ? TMIN1 : TMAX1;
-            break;
-        }
-        f1 = v - pT2v_reg1(p, T1);
-        if (fabs(f1) < fabs(f)) {
-                f = f1;
-                T = T1;
-        }
-        if (fabs(f1) < xacc) {
-            T = T1;
-            break;
-         }
-            sum++;
-        }
-    T = (T < TMIN1) ? TMIN1 : (T > TMAX1) ? TMAX1 : T;
-    return T;
+    return bisection(T1, T2, pT2v_reg1, p, v, 1,iMAX, 1.0e-10, 1.0e-6);   
 }
 
 // Region 1  (T,v)->p using the secant method
@@ -77,8 +41,7 @@ double Tv2p_reg1(double T, double v)
     double p2 = 1.05 * p1;
     double f1 = v - pT2v_reg1(p1, T);
     double f = v - pT2v_reg1(p2, T);
-    double p = rtsec1(pT2v_reg1, T, v, p1, p2, f1, f, xacc, iMAX);
-    return p;
+    return rtsec(pT2v_reg1, T, v, p1, p2, 2, xacc, iMAX);
 }
 
 //----------------------------------------------
@@ -86,28 +49,10 @@ double Tv2p_reg1(double T, double v)
 //----------------------------------------------
 double Ts2p_reg1(double T, double s)
 {
-    double tau, p, p1, p2, pmin1, s1, s2, f1, f2;
-    pmin1 = pSat(T);
-    p1 = pmin1;
-    s1 = pT2s_reg1(p1, T);
-    f1 = s - s1;
-    p2 = PMAX1;
-    s2 = pT2s_reg1(p2, T);
-    f2 = s - s2;
-    p1 = p2 - (p2 - p1) * (s - s2) / (s1 - s2);
-    if (p1 < pmin1)
-        p1 = pmin1;
-    s1 = pT2s_reg1(p1, T);
-    f1 = s - s1;
-    if (fabs(f1) < xacc)
-        return (p1);
-    p = rtsec1(pT2s_reg1, T, s, p1, p2, f1, f2, xacc, iMAX);
-    if (p > PMAX1)
-        p = PMAX1;
-    if (p < pmin1)
-        p = pmin1;
-    return (p);
-}
+    double p1 = pSat(T);
+    double p2 = PMAX1;
+    return bisection(p1, p2, pT2s_reg1, T, s, 2,iMAX, 1.0e-10, 1.0e-6); 
+ }
 
 // Region 1  (T,h)->p using the secant method
 //  *  T: temperature  K
@@ -117,7 +62,7 @@ double Th2p_reg1(double T, double h)
 {
     double pmin1 = pSat(T);
     double p1 = pmin1;
-    double p2 = PMAX1; // p1 + stepa
+    double p2 = PMAX1; 
     double h1 = pT2h_reg1(p1, T);
     if (fabs(h - h1) < xacc)
     {
@@ -128,16 +73,13 @@ double Th2p_reg1(double T, double h)
     {
         return p2;
     }
-
-    double f1 = h - pT2h_reg1(p1, T);
-    double f = h - pT2h_reg1(p2, T);
-    double p = rtsec1(pT2h_reg1, T, h, p1, p2, f1, f, xacc, iMAX);
+    double p = rtsec(pT2h_reg1, T, h, p1, p2, 2, xacc, iMAX);
 
     if (p > PMAX1)
     {
         p = PMAX1;
     }
-    if (p < pmin1)
+    else if (p < pmin1)
     {
         p = pmin1;
     }
