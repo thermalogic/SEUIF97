@@ -22,47 +22,20 @@
 /// the helper for the extended input pair
 double p2Tmin_reg2(double p)
 {
-    double Tmin = TMIN2;
-    if (p > 0.0 && p < 0.000611213)
-    {
-        Tmin = TMIN2;
-    }
-    else
-    {
-        if (p >= 0.000611213 && p <= pSat(623.15))
-        {
-            Tmin = TSat(p);
-        }
-        else
-        {
-            Tmin = B23_p2T(p);
-        }
-    }
-    return Tmin;
+    double pSat623 = pSat(623.15);
+    if (p >= 0.000611213 && p <= pSat623)
+    {  return TSat(p);  }
+    else if (p>pSat623 && p<=PMAX2) { return B23_p2T(p);  }
+    return TMIN2; 
 }
 
 double T2pmax_reg2(double T)
 {
-    double pmax = PMAX2;
     if (T >= 273.15 && T <= 623.15)
-    {
-        pmax = pSat(T);
-    }
-    else
-    {
-        if (T > 623.15 && T <= 863.15)
-        {
-            pmax = B23_T2p(T);
-        }
-        else
-        {
-            if (T > 863.15 && T <= 1073.15)
-            {
-                pmax = 100.0;
-            };
-        };
-    };
-    return pmax;
+    {   return pSat(T); }
+    else if (T > 623.15 && T <= 863.15)
+    {  return B23_T2p(T);  }
+    return PMAX2; 
 }
 
 // Region 2  (p,v)->T using the secant method and refine adjust
@@ -88,7 +61,7 @@ double pv2T_reg2(double p, double v)
     T = rtsec2(pT2v_reg2, p, v, T1, T2, f1, f, xacc, iMAX);
     if (T < Tmin2)
         T = Tmin2;
-    if (T > TMAX2)
+    else if (T > TMAX2)
         T = TMAX2;
     double v0 = pT2v_reg2(p, T);
     if (fabs(v0 - v) < xacc)
@@ -174,7 +147,7 @@ double Tv2p_reg2(double T, double v)
     p = rtsec1(pT2v_reg2, T, v, p1, p2, f1, f2, xacc, iMAX);
     if (p < PMIN2)
         p = PMIN2;
-    if (p > pmax2)
+    else if (p > pmax2)
         p = pmax2;
     return (p);
 }
@@ -202,7 +175,7 @@ double Ts2p_reg2(double T, double s)
     p = rtsec1(pT2s_reg2, T,s, p1, p2, f1, f2, xacc, iMAX);
     if (p < PMIN2)
         p = PMIN2;
-    if (p > pmax2)
+    else if (p > pmax2)
         p = pmax2;
     return (p);
 }
