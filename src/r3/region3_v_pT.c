@@ -364,7 +364,7 @@ char SubRegion3(double p, double t) {
 double pT2v_reg3(double p, double T) {
   // p is pressure in MPa
   // t is temperature in K
-  // returns density in kg/m3
+  // return v in m³/kg
   double v;
   if (fabs(T - tc_water) < T_TOL && fabs(p - pc_water) < P_TOL) {
     v = 1.0 / dc_water;
