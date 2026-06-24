@@ -22,105 +22,49 @@
 // * T: temperature  K
 double pv2T_reg1(double p, double v)
 {
-    double T1, T2, f1, f, v1, v2, T;
-    T1 = TMIN1;
-    v1 = pT2v_reg1(p, T1);
-    if ((p >= 16.5291643) && (p <= 100.0))
-    {
-        T2 = TMAX1;
-    }
-    else
-    {
-        T2 = TSat(p);
-    };
-    v2 = pT2v_reg1(p, T2);
-    f = v - pT2v_reg1(p, T2);
-    if ((v2 - v1) != 0.0)
-    {
+    const double STEP = 0.1;
+    const int MAX_STEPS = 10000;
+    
+    double T1 = TMIN1;
+    double v1 = pT2v_reg1(p, T1);
+    
+    double T2 = ((p >= 16.5291643) && (p <= 100.0)) ? TMAX1 : TSat(p);
+    double v2 = pT2v_reg1(p, T2);
+    if ((v2 - v1) != 0.0) {
         T1 = T1 + (T2 - T1) * (v - v1) / (v2 - v1);
     }
-    f1 = v - pT2v_reg1(p, T1);
-    T = rtsec2(pT2v_reg1, p, v, T1, T2, f1, f, xacc, iMAX);
-    if (T >= 300)
-        if (fabs(f1) < xacc)
-            return (T1);
-
+    double f = v - v2;
+    double f1 = v - pT2v_reg1(p, T1);
+    double T = rtsec2(pT2v_reg1, p, v, T1, T2, f1, f, xacc, iMAX);
     f = v - pT2v_reg1(p, T);
-    if (fabs(f) > xacc)
-    {
-        int success = 0;
-        int sum = 0;
-        T1 = T;
-        f1 = f;
-        if (f < 0) // T too large
-        {
-            while (!success)
-            {
-                T1 -= 0.1;
-                if (T1 < 273.15)
-                {
-                    T = 273.15;
-                    break;
-                };
-                f1 = v - pT2v_reg1(p, T1);
-                if (fabs(f1) < fabs(f))
-                {
-                    f = f1;
-                    T = T1;
-                }
-                if (fabs(f1) < xacc)
-                {
-                    T = T1;
-                    break;
-                }
-                sum += 1;
-                if (sum > 10000)
-                    success = 1;
-            };
-        }
-        else
-        {
-            while (!success)
-            {
-                T1 += 0.1;
-                if (T1 > 623.15)
-                {
-                    T = 623.15;
-                    break;
-                };
-                f1 = v - pT2v_reg1(p, T1);
-                if (fabs(f1) < fabs(f))
-                {
-                    f = f1;
-                    T = T1;
-                }
-                if (100 * fabs(f1) < xacc)
-                {
-                    T = T1;
-                    break;
-                }
-                sum += 1;
-                if (sum > 10000)
-                {
-                    success = 1;
-                }
-            }
-        }
-    };
-    // 1. In low temperature region, v changes very little
-    // 2. In low temperature and low pressure region, v changes very little, and the variation pattern reverses: T increases, v decreases
-    if (T < TMIN1)
-    {
-        T = TMIN1;
+    if (fabs(f) < xacc) {
+        return T;
     }
-    else
-    {
-        if (T > TMAX1)
-        {
-            T = TMAX1;
-        };
-    };
-    return (T);
+    // In low temperature and low pressure region,
+    // v changes very little, and the variation pattern reverses: T increases, v decreases
+    int sum = 0;
+    T1 = T;
+    f1 = f;
+    double step = (f < 0) ? -STEP : STEP;
+    while (sum <= MAX_STEPS) {
+        T1 += step;
+        if (T1 < TMIN1 || T1 > TMAX1) {
+            T = (T1 < TMIN1) ? TMIN1 : TMAX1;
+            break;
+        }
+        f1 = v - pT2v_reg1(p, T1);
+        if (fabs(f1) < fabs(f)) {
+                f = f1;
+                T = T1;
+        }
+        if (fabs(f1) < xacc) {
+            T = T1;
+            break;
+         }
+            sum++;
+        }
+    T = (T < TMIN1) ? TMIN1 : (T > TMAX1) ? TMAX1 : T;
+    return T;
 }
 
 // Region 1  (T,v)->p using the secant method

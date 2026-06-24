@@ -90,9 +90,12 @@ double pv2T_reg2(double p, double v)
         T = Tmin2;
     if (T > TMAX2)
         T = TMAX2;
-
-    // zoom
     double v0 = pT2v_reg2(p, T);
+    if (fabs(v0 - v) < xacc)
+    {
+        return (T);
+    }    
+    // zoom
     int i = 0;
     int success = 1;
     if (fabs(v0 - v) > xacc)
