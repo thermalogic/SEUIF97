@@ -118,9 +118,9 @@ double pT2cv_reg5(double p, double T)
 	double tau = r5Tstar / T;
 	double a, b, c; // for temp
 	double cv;
-	a = (-pow(tau, 2.0)) * (gamma0_tautau_reg5(tau) + gammar_tautau_reg5(pi, tau));
+	a = (-tau*tau) * (gamma0_tautau_reg5(tau) + gammar_tautau_reg5(pi, tau));
 	b = 1.0 + pi * gammar_pi_reg5(pi, tau) - tau * pi * gammar_pitau_reg5(pi, tau);
-	c = 1.0 - pow(pi, 2.0) * gammar_pipi_reg5(pi, tau);
+	c = 1.0 - pi*pi * gammar_pipi_reg5(pi, tau);
 	cv = rgas_water * (a - pow(b, 2.0) / c);
 	return cv;
 }
@@ -133,7 +133,8 @@ double pT2w_reg5(double p, double T)
 	double pi = p / r5Pstar;
 	double dgammar_pi = gammar_pi_reg5(pi, tau);
 
-	a = pow(1.0 + pi * dgammar_pi, 2.0);
+	double item=1.0 + pi * dgammar_pi;
+	a= item*item;
 	b = 1.0 - pi * pi * gammar_pipi_reg5(pi, tau);
 	c = 1.0 + pi * dgammar_pi - tau * pi * gammar_pitau_reg5(pi, tau);
 	d = tau * tau * (gamma0_tautau_reg5(tau) + gammar_tautau_reg5(pi, tau));

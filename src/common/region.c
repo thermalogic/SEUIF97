@@ -222,8 +222,7 @@ int hs_region(double h, double s)
   double s13 = 3.39778295;    // pT2s_reg1(100, 623.15);
   double s13s = 3.77828134;   // pT2s_reg1(Ps_623, 623.15);
   double sTPmax = 6.04048367; // pT2s_reg2(100, 1073.15);
-  double s2ab =
-      7.85234040; // pT2s_reg2(4, 1073.15); // TODO: What is the meaning of p=4 2ab s2ab?
+  double s2ab = 7.85234040; // pT2s_reg2(4, 1073.15); 
 
   // Left point in h-s plot
   double smin = 0.0;           // pT2s_reg1(100, 273.15);

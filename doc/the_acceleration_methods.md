@@ -114,7 +114,7 @@ $$\frac{u(\pi, \tau)}{RT} = \tau \gamma_{\tau} - \pi \gamma_{\pi}$$
 
 ```c
 // algo/polynomial_solo.c
-void polys_solo_i_j(double vi, double vj, int size, IJnData *IJn, int *i2soI, int *j2soJ, solo_power_fn solo_i_j_power, double *poly_i, double *poly_j)
+void polys_solo_i_j(double vi, double vj, int size, const IJnData *IJn, int *i2soI, int *j2soJ, solo_power_fn solo_i_j_power, double *poly_i, double *poly_j)
 {
   (*solo_i_j_power)(vi, vj, soI_pow, soJ_pow);
   double item = 0.0;

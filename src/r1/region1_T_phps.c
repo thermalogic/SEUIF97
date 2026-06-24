@@ -48,25 +48,6 @@ double ph2T_reg1(double p, double h)
   eta = h / 2500.0 + 1.0;
   theta = poly(pi, eta, 20, IJn);
   return (1.0 *theta);
-
-  /*double T1, T2, T, f1, f2;
-  T1 = (1.0 * theta);
-  f1 = h - pT2h_reg1(p, T1);
-  if (fabs(f1) > xacc)
-  {
-    if (f1 > 0)
-      T2 = (1.0 + f1 / h) * T1; // TODO: Is 1+f1/h faster than 1.05? Not tested
-    else
-      T2 = (1.0 - f1 / h) * T1;
-
-    f2 = h - pT2h_reg1(p, T2);
-
-    T = rtsec2(pT2h_reg1, p, h, T1, T2, f1, f2, xacc, iMAX);
-  }
-  else
-    T = T1;
-
-  return T;*/
 }
 
 //----------------------------------------------------------------
@@ -105,25 +86,5 @@ double ps2T_reg1(double p, double s)
   pi = p / 1.0;
   sigma = s / 1.0 + 2.0;
   theta = poly(pi, sigma, 20, IJn);
-   return (1.0*theta);
-
-  /*
-  // iteration: refine
-  double T1, T2, T, f1, f2;
-  T1 = (1.0 * theta);
-  f1 = s - pT2s_reg1(p, T1);
-  if (fabs(f1) > xacc)
-  {
-    if (f1 > 0) // pT2s_reg1(p,T1)< s ,the T1< expt T，so， T2=1.05*T1 T（T1,T2)
-      T2 = (1.0 + f1 / s) * T1;
-    else
-      T2 = (1.0 - f1 / s) * T1;
-
-    f2 = s - pT2s_reg1(p, T2);
-    T = rtsec2(pT2s_reg1, p, s, T1, T2, f1, f2, xacc, iMAX);
-  }
-  else
-    T = T1;
-
-  return T;*/
+  return (1.0*theta);
 }

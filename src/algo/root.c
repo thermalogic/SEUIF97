@@ -75,7 +75,6 @@ double rtsec(callfunc func, double var, double target, double x1,
           fl = f;
           rts += dx;
           
-          // TODO: Pass solution bounds as parameters to ensure iteration stays within bounds
           // rts must be bounded in region X
           if (var_position == 1) {
               f = target - func(var, rts);

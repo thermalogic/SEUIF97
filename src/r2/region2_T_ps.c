@@ -33,7 +33,7 @@ double ps2T_reg2a(double p, double s)
     // Table 25. Numerical values of the coefficients and exponents of
     // the backward equation T( p,s ) for
     // subregion 2a, Eq. (25)
-    dIJnData IJn[46] = {
+    static const dIJnData IJn[46] = {
         {-1.5, -24, -0.39235983861984E+06},
         {-1.5, -23, 0.51526573827270E+06},
         {-1.5, -19, 0.40482443161048E+05},
@@ -242,23 +242,4 @@ double ps2T_reg2(double p, double s)
         T = ps2T_reg2a(p, s);
     }
     return T;
-    /*
-        double T1, T2, f1, f2;
-        T1 = T;
-        f1 = s - pT2s_reg2(p, T1);
-        if (fabs(f1) > xacc)
-        {
-            if (f1 > 0) // pT2sreg1(p,T1)< s ,the T1< expt T，so， T2=1.05*T1 T（T1,T2)
-                T2 = (1.0 + f1 / s) * T1;
-            else
-                T2 = (1.0 - f1 / s) * T1;
-
-            f2 = s - pT2s_reg2(p, T2);
-
-            T = rtsec2(pT2s_reg2, p, s, T1, T2, f1, f2, xacc, iMAX);
-        }
-        else
-            T = T1;
-
-        return T;*/
 }

@@ -23,7 +23,7 @@ double ph2T_reg5(double p, double h)
    double T, T1, T2;
    double f1, f2;
 
-   // TODO: Method to find initial value for iteration using interpolation
+   // Method to find initial value for iteration using interpolation
    // double hmin = pT2h_reg2(p, 1073.15);
    // double hmax = pT2h_reg5(p, 2273.15);
    // T1 = 1073.15 + (2273.15 - 1073.15) * (h - hmin) / (hmax - hmin);
