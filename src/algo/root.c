@@ -24,17 +24,17 @@
 //----------------------------------------------------------------------------
 
 /**
- * 使用割线法求解方程 f(x) = target 的根
+ * Finds the root of the equation f(x) = target using the secant method.
  *
- * @param func         目标函数指针 f(double, double)
- * @param var          固定参数值
- * @param target       目标值 (求解 f = target)
- * @param x1           搜索区间的左边界
- * @param x2           搜索区间的右边界
- * @param var_position 固定参数的位置: 1=f(var,x), 2=f(x,var)
- * @param xacc         收敛精度
- * @param iMAX         最大迭代次数
- * @return             满足精度要求的近似根
+ * @param func         Target function pointer f(double, double)
+ * @param var          Fixed parameter value
+ * @param target       Target value (solve for f = target)
+ * @param x1           Left boundary of the search interval
+ * @param x2           Right boundary of the search interval
+ * @param var_position Position of the fixed parameter: 1=f(var,x), 2=f(x,var)
+ * @param xacc         Convergence precision
+ * @param iMAX         Maximum number of iterations
+ * @return             Approximate root satisfying the precision requirement
  */
 double rtsec(callfunc func, double var, double target, double x1,
              double x2, int var_position, double xacc, int iMAX)
@@ -95,18 +95,18 @@ double rtsec(callfunc func, double var, double target, double x1,
 }
 
 /**
- * 使用二分法求解方程 f(x) = 0 的根
+ * Finds the root of the equation f(x) = 0 using the bisection method.
  *
- * @param t1          搜索区间的左边界
- * @param t2          搜索区间的右边界
- * @param f           目标函数指针 f(double, double)
- * @param var         固定参数值
- * @param r           目标值 (求解 f = r)
- * @param var_position 固定参数的位置: 1=f(var,t), 2=f(t,var)
- * @param max_iter    最大迭代次数
- * @param tol         函数值容差 (|f(x)| < tol)
- * @param x_tol       区间长度容差 (|t1 - t2| < x_tol)
- * @return            满足精度要求的近似根
+ * @param t1           Left boundary of the search interval
+ * @param t2           Right boundary of the search interval
+ * @param f            Target function pointer f(double, double)
+ * @param var          Fixed parameter value
+ * @param r            Target value (solve for f = r)
+ * @param var_position Position of the fixed parameter: 1=f(var,t), 2=f(t,var)
+ * @param max_iter     Maximum number of iterations
+ * @param tol          Function value tolerance (|f(x)| < tol)
+ * @param x_tol        Interval length tolerance (|t1 - t2| < x_tol)
+ * @return             Approximate root satisfying the precision requirement
  */
 double bisection(double t1, double t2, double (*f)(double,double), double var, double r, int var_position, int max_iter, double tol, double x_tol) {
     double r_t1, r_t2;
