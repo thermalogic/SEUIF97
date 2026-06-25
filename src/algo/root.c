@@ -2,10 +2,11 @@
  * @file root.c
  * @brief Root finding algorithms for IAPWS-IF97
  * 
- * This file implements numerical root finding methods (secant method)
+ * This file implements numerical root finding methods 
  * for solving implicit equations in thermodynamic property calculations.
  * Reference: Numerical Recipes, Chapter 9, Pages 347 ~ 368
- * 
+ *   - bisection method
+ *   - secant method
  * @author Cheng Maohua
  * @email cmh@seu.edu.cn
  */
@@ -15,6 +16,64 @@
 #include "../common/constant.h"
 
 #define EPS 3.0e-8
+
+/**
+ * Finds the root of the equation f(x) = 0 using the bisection method.
+ *
+ * @param t1           Left boundary of the search interval
+ * @param t2           Right boundary of the search interval
+ * @param f            Target function pointer f(double, double)
+ * @param var          Fixed parameter value
+ * @param r            Target value (solve for f = r)
+ * @param var_position Position of the fixed parameter: 1=f(var,t), 2=f(t,var)
+ * @param max_iter     Maximum number of iterations
+ * @param tol          Function value tolerance (|f(x)| < tol)
+ * @param x_tol        Interval length tolerance (|t1 - t2| < x_tol)
+ * @return             Approximate root satisfying the precision requirement
+ */
+double bisection(double t1, double t2, double (*f)(double,double), double var, double r, int var_position, int max_iter, double tol, double x_tol) {
+    double r_t1, r_t2;
+    
+    // Calculate function values based on variable position
+    if (var_position == 1) {
+        // f(var, t) - first parameter is fixed
+        r_t1 = r - f(var, t1);
+        r_t2 = r - f(var, t2);
+    } else {
+        // f(t, var) - second parameter is fixed
+        r_t1 = r - f(t1, var);
+        r_t2 = r - f(t2, var);
+    }
+    
+    if (r_t1 * r_t2 > 0.0) {
+        return INVALID_VALUE;
+    }
+
+    for (int i = 0; i < max_iter; i++) {
+        double tm = 0.5 * (t1 + t2);
+        double r_tm;
+        
+        // Calculate function value based on variable position
+        if (var_position == 1) {
+            r_tm = r - f(var, tm);
+        } else {
+            r_tm = r - f(tm, var);
+        }
+        
+        if (fabs(r_tm) < tol || fabs(t1 - t2) < x_tol) {
+            return tm;
+        }
+        
+        if (r_t1 * r_tm < 0.0) {
+            t2 = tm;
+            r_t2 = r_tm;
+        } else {
+            t1 = tm;
+            r_t1 = r_tm;
+        }
+    }
+    return 0.5 * (t1 + t2);
+}
 
 //----------------------------------------------------------------------------
 // SECANT METHOD : Ch.9.2: Pages 357, 
@@ -92,63 +151,5 @@ double rtsec(callfunc func, double var, double target, double x1,
   return rts;
 }
 
-/**
- * Finds the root of the equation f(x) = 0 using the bisection method.
- *
- * @param t1           Left boundary of the search interval
- * @param t2           Right boundary of the search interval
- * @param f            Target function pointer f(double, double)
- * @param var          Fixed parameter value
- * @param r            Target value (solve for f = r)
- * @param var_position Position of the fixed parameter: 1=f(var,t), 2=f(t,var)
- * @param max_iter     Maximum number of iterations
- * @param tol          Function value tolerance (|f(x)| < tol)
- * @param x_tol        Interval length tolerance (|t1 - t2| < x_tol)
- * @return             Approximate root satisfying the precision requirement
- */
-double bisection(double t1, double t2, double (*f)(double,double), double var, double r, int var_position, int max_iter, double tol, double x_tol) {
-    double r_t1, r_t2;
-    
-    // Calculate function values based on variable position
-    if (var_position == 1) {
-        // f(var, t) - first parameter is fixed
-        r_t1 = r - f(var, t1);
-        r_t2 = r - f(var, t2);
-    } else {
-        // f(t, var) - second parameter is fixed
-        r_t1 = r - f(t1, var);
-        r_t2 = r - f(t2, var);
-    }
-    
-    if (r_t1 * r_t2 > 0.0) {
-        return INVALID_VALUE;
-    }
-
-    for (int i = 0; i < max_iter; i++) {
-        double tm = 0.5 * (t1 + t2);
-        double r_tm;
-        
-        // Calculate function value based on variable position
-        if (var_position == 1) {
-            r_tm = r - f(var, tm);
-        } else {
-            r_tm = r - f(tm, var);
-        }
-        
-        if (fabs(r_tm) < tol || fabs(t1 - t2) < x_tol) {
-            return tm;
-        }
-        
-        if (r_t1 * r_tm < 0.0) {
-            t2 = tm;
-            r_t2 = r_tm;
-        } else {
-            t1 = tm;
-            r_t1 = r_tm;
-        }
-    }
-    
-    return 0.5 * (t1 + t2);
-}
 
 #undef EPS
