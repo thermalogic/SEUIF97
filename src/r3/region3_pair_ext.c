@@ -21,7 +21,7 @@
 // * T: temperature  K
 double pv2T_reg3(double p, double v)
 {
-  double T1, T2, d, f1, f2;
+  double T1, T2, d;
   T1 = TMIN3;
   T2 = B23_p2T(p);
   d = 1.0 / v;

@@ -39,8 +39,6 @@ double Tv2p_reg1(double T, double v)
 {
     double p1 = 0.3 * (pSat(T) + PMAX1);
     double p2 = 1.05 * p1;
-    double f1 = v - pT2v_reg1(p1, T);
-    double f = v - pT2v_reg1(p2, T);
     return rtsec(pT2v_reg1, T, v, p1, p2, 2, xacc, iMAX);
 }
 
@@ -74,8 +72,7 @@ double Th2p_reg1(double T, double h)
         return p2;
     }
     double p = rtsec(pT2h_reg1, T, h, p1, p2, 2, xacc, iMAX);
-
-    if (p > PMAX1)
+   if (p > PMAX1)
     {
         p = PMAX1;
     }

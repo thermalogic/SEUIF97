@@ -74,13 +74,13 @@ double rtsec(callfunc func, double var, double target, double x1,
           xl = rts;
           fl = f;
           rts += dx;
-          
-          // rts must be bounded in region X
+          // rts must be bounded 
+          if (rts <= 0)  {  
+            rts = 0.000001;
+          }
           if (var_position == 1) {
               f = target - func(var, rts);
           } else {
-              // rts may be out-of-bounds in region X
-              if (rts <= 0) rts = 0.000001;
               f = target - func(rts, var);
           }
           i++;
