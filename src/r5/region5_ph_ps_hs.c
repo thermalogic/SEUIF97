@@ -11,19 +11,14 @@
 #include <math.h>
 #include "region5.h"
 #include "../algo/algorithm.h"
-
-static double TMAX5 = 2273.15;
-static double TMIN5 = 1073.15;
-
-static double PMAX5 = 50;
-static double PMIN5 = 0.000611212677444;
+#include "../common/constant.h"
 
 double ph2T_reg5(double p, double h)
 {
    double T, T1, T2, f;
    // Method to find initial value for iteration using interpolation
-   double hmin = pT2h_reg5(p, 1073.15);
-   double hmax = pT2h_reg5(p, 2273.15);
+   double hmin = pT2h_reg5(p, TMIN5);
+   double hmax = pT2h_reg5(p, TMAX5);
    T1 = 1073.15 + (2273.15 - 1073.15) * (h - hmin) / (hmax - hmin);
    f = h - pT2h_reg5(p, T1);
    if (fabs(f) > xacc)
@@ -47,8 +42,8 @@ double ps2T_reg5(double p, double s)
 {
    double T, T1, T2, f;
    // Method to find initial value for iteration using interpolation
-   double smin = pT2s_reg5(p, 1073.15);
-   double smax = pT2s_reg5(p, 2273.15);
+   double smin = pT2s_reg5(p, TMIN5);
+   double smax = pT2s_reg5(p, TMAX5);
    T1 = 1073.15 + (2273.15 - 1073.15) * (s - smin) / (smax - smin);
    f = s - pT2s_reg5(p, T1);
    if (fabs(f) > xacc)
@@ -80,8 +75,8 @@ double hs2p_reg5(double h, double s)
 {
    double p, p1, p2, f;
    // Initial value for iteration
-   double hmin = pT2h_reg5(PMIN5, 1073.15);
-   double hmax = pT2h_reg5(PMAX5, 2273.15);
+   double hmin = pT2h_reg5(PMIN5, TMIN5);
+   double hmax = pT2h_reg5(PMAX5, TMAX5);
    p1 = PMIN5 + (PMAX5 - PMIN5) * (h - hmin) / (hmax - hmin);
    f = s - ph2s_reg5(p1, h);
    if (fabs(f) > xacc)
