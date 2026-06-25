@@ -19,6 +19,8 @@ Build output location:
 
 ### MinGW-GCC at Windows
 
+WinLibs 是预打包的完整 MinGW-w64 工具链，比 MSYS2 更稳定
+
 64bit __stdcall  dll(VBA)
 
 ```bash

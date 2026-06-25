@@ -1,7 +1,7 @@
 LIBDIR=./bin/
 ifeq ($(OS),Windows_NT)
     LIBNAME =$(LIBDIR)libseuif97.dll 
-	LIBFLAGS=-static-libstdc++ -static-libgcc -static -Wl,--add-stdcall-alias,--output-def=$(LIBDIR)libseuif97.def,-out-implib=$(LIBDIR)libseuif97.lib
+	LIBFLAGS=-static-libgcc -static -Wl,--add-stdcall-alias,--output-def=$(LIBDIR)libseuif97.def,-out-implib=$(LIBDIR)libseuif97.lib
 
 else
 	UNAME_S := $(shell uname -s)
@@ -10,12 +10,12 @@ else
     endif
 endif
 
-CFLAGS=-O3 -march=native -funroll-loops -ffast-math  -flto=auto
+CFLAGS=-O3 -march=native -funroll-loops
 
 # __stdcall for Windows VBA X64
-#CFLAGS=-O3 -DBUILD_DLL
+CFLAGS += -DBUILD_DLL
 # __stdcall for Windows VBA X86
-#CFLAGS=-O3 -DBUILD_DLL -m32
+#CFLAGS += -DBUILD_DLL -m32
 
 CC=gcc
 
