@@ -44,7 +44,9 @@ double Th2d_reg3(double T, double h)
 //  * d: density    kg/m^3
 double Ts2d_reg3(double T, double s)
 {
-  double d1 = 100.0;
-  double d2 = 1.1 * d1;
+  double p1 = B23_T2p(T);
+  double d1 = 1.0 / pT2v_reg3(p1, T);
+  double p2 = PMAX3;
+  double d2 = 1.0 / pT2v_reg3(p2, T);
   return rtsec(Td2s_reg3, T, s, d1, d2, 1, xacc, iMAX);
 }
