@@ -205,7 +205,7 @@ static inline double possac(double x, int n)
 		x23 = x20 * x3;
 		return x23 * x23;
 	case 47:
-	   SAC20(x, x2, x3, x5,x10,x20);
+	    SAC20(x, x2, x3, x5,x10,x20);
 		x23 = x20 * x3;
 		x46 = x23 * x23;
 		return x46 * x;
