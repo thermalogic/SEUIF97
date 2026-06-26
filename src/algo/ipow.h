@@ -14,8 +14,8 @@
 
 #define IPOW ipowsac
 // #define IPOW ipowrqm
-// #define IPOW powf
 // #define IPOW __builtin_powi //GCC/Clang
+// #define IPOW powf
 
 static inline double ipowrqm(double x, int i)
 {
