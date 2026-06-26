@@ -105,7 +105,7 @@ double pT2s_reg1(double p, double T)
   double gamma = 0.0;
   double gammatau = 0.0;
 
-  // polys_0_j(7.1 - pi, tau - 1.222,34,IJn,&gamma,&gammatau);
+  //polys_0_j(7.1 - pi, tau - 1.222,34,IJn,&gamma,&gammatau);
   polys_solo_0_j_reg1(pi, tau, &gamma, &gammatau);  
   return rgas_water * (tau * gammatau - gamma);
 }
