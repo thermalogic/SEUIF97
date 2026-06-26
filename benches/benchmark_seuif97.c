@@ -1,5 +1,5 @@
 /*
- * Benchmark: SEUIF97 C Shared Library Performance Test
+ * Benchmark: SEUIF97 Performance Test
  */
 
 #include <stdio.h>
@@ -64,11 +64,40 @@ static void benchmark_property(const char *name, double p, double t, short o_id,
            name, result, elapsed_ms, avg_ns);
 }
 
+typedef struct {
+    const char *label;
+    double p;
+    double t;
+} TestCase;
+
+static void run_benchmark_group(const TestCase *tc, int count)
+{
+    printf("  Input:  p = %.1f MPa, t = %.2f "
+#if defined(_WIN32)
+           "\xA1\xE3""C"
+#else
+           "°C"
+#endif
+           "\n\n", tc->p, tc->t);
+    printf("  Property     Value         Total(ms)        Avg(ns/call)\n");
+    printf("  --------    ---------      -----------     --------------\n");
+
+    benchmark_property("h", tc->p, tc->t, OH, count);
+    benchmark_property("s", tc->p, tc->t, OS, count);
+    benchmark_property("v", tc->p, tc->t, OV, count);
+    printf("\n");
+}
+
 int main(void)
 {
     const int count = 1000000;
-    const double p = 30.0;
-    const double t = 700.0 - 273.15;
+
+    const TestCase cases[] = {
+        {"Region1: liquid water",   3.0,  300.0 - 273.15},
+        {"Region2: superheated",   30.0,  700.0 - 273.15},
+        {"Region5: high temp",      0.5, 1500.0 - 273.15},
+    };
+    const int n_cases = sizeof(cases) / sizeof(cases[0]);
 
     hr_timer_init();
 
@@ -80,21 +109,13 @@ int main(void)
            "clock_gettime(CLOCK_MONOTONIC) (ns resolution)"
 #endif
     );
-    printf("  Input:  p = %.1f MPa, t = %.2f "
-    #if defined(_WIN32)
-       "\xA1\xE3""C"
-    #else
-       "°C"
-    #endif
-       "\n\n", p, t);
-    printf("  Property     Value         Total(ms)        Avg(ns/call)\n");
-    printf("  --------    ---------      -----------     --------------\n");
-
-    benchmark_property("h", p, t, OH, count);
-    benchmark_property("s", p, t, OS, count);
-    benchmark_property("v", p, t, OV, count);
-
+    printf("  Cases:  %d\n", n_cases);
     printf("\n");
+
+    for (int i = 0; i < n_cases; i++) {
+        printf("[%s]\n", cases[i].label);
+        run_benchmark_group(&cases[i], count);
+    }
 
     return EXIT_SUCCESS;
 }
