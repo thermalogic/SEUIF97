@@ -57,23 +57,4 @@ double hs2p_reg1(double h, double s)
   sigma = s / 7.6 + 0.05;
   pi= poly(eta,sigma , 19,IJn);
   return (100.0*pi);
-
-  /*// iteration: refine
-  double p1, p2, p, f1, f2;
-  p1 = (100.0 * pi);
-  f1 = s - ph2s_reg1(p1, h);
-  if (fabs(f1) > xacc)
-  {
-    if (f1 > 0) // pT2s_reg1(p,h)< s ,the p1< expt p，so， p2=1.05*p1 p（p1,p2)
-      p2 = (1.0 + f1 / s) * p1;
-    else
-      p2 = (1.0 - f1 / s) * p1;
-
-    f2 = s - ph2s_reg1(p2, h);
-    p = rtsec1(ph2s_reg1, h, s, p1, p2, f1, f2, xacc, iMAX);
-  }
-  else
-    p = p1;
-
-  return p;*/
 }
