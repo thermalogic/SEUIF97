@@ -13,9 +13,9 @@
 #pragma once
 
 #define IPOW ipowsac
-// #define IPOW ipowrqm
-// #define IPOW __builtin_powi //GCC/Clang
-// #define IPOW powf
+//#define IPOW ipowrqm
+//#define IPOW __builtin_powi //GCC/Clang
+//#define IPOW powf
 
 static inline double ipowrqm(double x, int i)
 {
@@ -269,12 +269,10 @@ static inline double possac(double x, int n)
 
 static inline double ipowsac(double x, int n)
 {
-	if (n >= 0)
-	{
+	if (n >= 0) {
+	
 		return possac(x, n);
-	}
-	else
-	{
+	} else {
 		return 1.0 / possac(x, -n);
 	}
 }

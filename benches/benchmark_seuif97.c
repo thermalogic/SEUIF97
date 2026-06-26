@@ -31,29 +31,31 @@
     }
 #endif
 
-#define OH 4
-#define OS 5
-#define OV 3
+/* 输出属性 ID */
+#define OT 1   /* temperature */
+#define OV 3   /* specific volume */
+#define OH 4   /* enthalpy */
+#define OS 5   /* entropy */
 
 extern double pt(double p, double t, int o_id);
+extern double ph(double p, double h, int o_id);
+extern double ps(double p, double s, int o_id);
+extern double hs(double h, double s, int o_id);
 
+typedef double (*prop_fn_t)(double, double, int);
 
-static void benchmark_property(const char *name, double p, double t, short o_id, int count)
+static void benchmark_property_fn(const char *name, prop_fn_t fn,
+                                  double a, double b, short o_id, int count)
 {
     volatile double result = 0.0;
     hr_time_t start, end;
 
-    /* 预热：让 CPU 进入稳定频率并填充缓存 */
     for (int i = 0; i < 1000; i++)
-    {
-        result = pt(p, t, o_id);
-    }
+        result = fn(a, b, o_id);
 
     HR_TIME_GET(start);
     for (int i = 0; i < count; i++)
-    {
-        result = pt(p, t, o_id);
-    }
+        result = fn(a, b, o_id);
     HR_TIME_GET(end);
 
     double elapsed_ns = hr_time_diff_ns(start, end);
@@ -70,7 +72,7 @@ typedef struct {
     double t;
 } TestCase;
 
-static void run_benchmark_group(const TestCase *tc, int count)
+static void run_benchmark_pt(const TestCase *tc, int count)
 {
     printf("  Input:  p = %.1f MPa, t = %.2f "
 #if defined(_WIN32)
@@ -82,9 +84,31 @@ static void run_benchmark_group(const TestCase *tc, int count)
     printf("  Property     Value         Total(ms)        Avg(ns/call)\n");
     printf("  --------    ---------      -----------     --------------\n");
 
-    benchmark_property("h", tc->p, tc->t, OH, count);
-    benchmark_property("s", tc->p, tc->t, OS, count);
-    benchmark_property("v", tc->p, tc->t, OV, count);
+    benchmark_property_fn("h",  pt, tc->p, tc->t, OH, count);
+    benchmark_property_fn("s",  pt, tc->p, tc->t, OS, count);
+    benchmark_property_fn("v",  pt, tc->p, tc->t, OV, count);
+    printf("\n");
+}
+
+static void run_benchmark_reverse(const TestCase *tc, int count)
+{
+    double h = pt(tc->p, tc->t, OH);
+    double s = pt(tc->p, tc->t, OS);
+
+    printf("  Forward:  p = %.1f MPa, t = %.2f "
+#if defined(_WIN32)
+           "\xA1\xE3""C"
+#else
+           "°C"
+#endif
+           "  ->  h = %.4f, s = %.4f\n\n", tc->p, tc->t, h, s);
+    printf("  Property     Value         Total(ms)        Avg(ns/call)\n");
+    printf("  --------    ---------      -----------     --------------\n");
+
+    /* 反向计算：给定 (p,h) 求 T，给定 (p,s) 求 T，给定 (h,s) 求 T */
+    benchmark_property_fn("phT", ph, tc->p, h, OT, count);
+    benchmark_property_fn("psT", ps, tc->p, s, OT, count);
+    benchmark_property_fn("hsT", hs, h,   s, OT, count);
     printf("\n");
 }
 
@@ -113,8 +137,13 @@ int main(void)
     printf("\n");
 
     for (int i = 0; i < n_cases; i++) {
-        printf("[%s]\n", cases[i].label);
-        run_benchmark_group(&cases[i], count);
+        printf("[PT -> %s]\n", cases[i].label);
+        run_benchmark_pt(&cases[i], count);
+    }
+
+    for (int i = 0; i < n_cases; i++) {
+        printf("[Reverse -> %s]\n", cases[i].label);
+        run_benchmark_reverse(&cases[i], count);
     }
 
     return EXIT_SUCCESS;
