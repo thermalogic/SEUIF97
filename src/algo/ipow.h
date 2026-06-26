@@ -232,8 +232,7 @@ static inline double possac(double x, int n)
 		x26 = x13 * x13;
 		return x26 * x26;
 	case 53:
-		SAC16(x, x2, x4, x8,x16);
-		x18 = x16 * x2;
+		SAC18(x, x2, x4, x8,x18);
 		x36 = x18 * x18;
 		x37 = x36 * x;
 		return x37 * x16;
