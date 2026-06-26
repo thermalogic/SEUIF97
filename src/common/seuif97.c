@@ -138,7 +138,7 @@ IF97_DLL double tv(double t, double v, int o_id)
     return value;
 }
 
-// sehx(h,x,o_id) - the property of `o_id`(thermodynamic)
+// hx(h,x,o_id) - the property of `o_id`(thermodynamic)
 IF97_DLL double hx(double h, double x, int o_id)
 {
     if ((h > HMAX4) || (h < HMIN4) || (x > 1.0) || (x < 0.0))
@@ -157,7 +157,7 @@ IF97_DLL double hx(double h, double x, int o_id)
     return value;
 }
 
-// seusx(s,x,o_id) - the property of `o_id`(thermodynamic)
+// sx(s,x,o_id) - the property of `o_id`(thermodynamic)
 IF97_DLL double sx(double s, double x, int o_id)
 {
     if ((s > SMAX4) || (s < SMIN4) || (x > 1.0) || (x < 0.0))

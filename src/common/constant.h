@@ -44,23 +44,20 @@
 
 #define K 273.15
 /// const for none region input
-static double rgas_water = 0.461526; // gas constant in KJ/(kg K)
+#define rgas_water  0.461526 // gas constant in KJ/(kg K)
 // critical point
-static double tc_water = 647.096;          // critical temperature in K
-static double pc_water = 22.064;           // critical p in MPa
-static double dc_water = 322.0;            // critical density in kg/m**3
-static double sc_water = 4.41202148223476; // Critical entropy
-static double hc_water = 2.087546845e+03;  // Critical enthalpy h
+#define tc_water 647.096          // critical temperature in K
+#define pc_water 22.064           // critical p in MPa
+#define dc_water 322.0            // critical density in kg/m**3
+#define sc_water 4.41202148223476 // Critical entropy
+#define hc_water 2.087546845e+03  // Critical enthalpy h
 // triple point
-static double Pt = 611.657e-6;     // the triple point
-static double Tt = 273.16;         // the triple point
-static double st_water = 5.85;     // the triple point
-static double ht_water = 0.611783; // the triple point
-
+#define Pt 611.657e-6     // the triple point
+#define Tt 273.16         // the triple point
+#define st_water 5.85     // the triple point
+#define ht_water 0.611783 // the triple point
 // T=623.15 region (1,3)
-static double Ps_623 =
-    16.5291642526045; // PMIN3 Ps_623 = _PSat_T(623.15)  P Saturation at 623.15
-                      // K, boundary region 1-3
+#define Ps_623 16.5291642526045 // PMIN3 Ps_623 = _PSat_T(623.15)  P Saturation at 623.15K boundary region 1-3
 
 #define PMIN 0.000611212677444 // Pmin = _PSat_T(273.15)  Minimum pressure
 #define PMAX 100.0

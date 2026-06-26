@@ -25,7 +25,7 @@ double pv2T_reg3(double p, double v)
   T1 = TMIN3;
   T2 = B23_p2T(p);
   d = 1.0 / v;
-  return rtsec(Td2p_reg3, d, p, T1, T2,2, xacc, iMAX);
+  return rtsec(Td2p_reg3, d, p, T1, T2,SECOND_FIXED,MAX_ITER, CONVERGENCE_PRECISION);
 }
 
 //     (t,h) ->d
@@ -35,7 +35,7 @@ double Th2d_reg3(double T, double h)
   double d1 = 1.0 / pT2v_reg3(p1, T);
   double p2 = PMAX3;
   double d2 = 1.0 / pT2v_reg3(p2, T);
-  return rtsec(Td2h_reg3, T, h, d1, d2, 1, xacc, iMAX);
+  return rtsec(Td2h_reg3, T, h, d1, d2, FIRST_FIXED, MAX_ITER, CONVERGENCE_PRECISION);
 }
 
 // Region 3  (T,s)->d using the secant method
@@ -48,5 +48,5 @@ double Ts2d_reg3(double T, double s)
   double d1 = 1.0 / pT2v_reg3(p1, T);
   double p2 = PMAX3;
   double d2 = 1.0 / pT2v_reg3(p2, T);
-  return rtsec(Td2s_reg3, T, s, d1, d2, 1, xacc, iMAX);
+  return rtsec(Td2s_reg3, T, s, d1, d2, FIRST_FIXED, MAX_ITER, CONVERGENCE_PRECISION);
 }

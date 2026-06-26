@@ -46,7 +46,7 @@ double pv2T_reg2(double p, double v)
 {
    double T1 = p2Tmin_reg2(p);
    double T2 = TMAX2;
-   return bisection(T1, T2, pT2v_reg2, p, v, 1,iMAX, 1.0e-10, 1.0e-6);   
+   return bisection(pT2v_reg2, p, v,T1, T2, FIRST_FIXED, MAX_ITER, 1.0e-10, 1.0e-6);   
 }
 
 // Region 2(T,v)->p using the secant method
@@ -57,7 +57,7 @@ double Tv2p_reg2(double T, double v)
 {
    double p1 = PMIN2;
    double p2 = T2pmax_reg2(T);
-   return bisection(p1, p2, pT2v_reg2, T, v, 2,iMAX, 1.0e-15, 1.0e-9);  
+   return bisection(pT2v_reg2, T, v,p1, p2, SECOND_FIXED, MAX_ITER, 1.0e-15, 1.0e-9);  
 }
 
 //----------------------------------------------
@@ -67,7 +67,7 @@ double Ts2p_reg2(double T, double s)
 {
     double p1 = PMIN2;
     double p2 = T2pmax_reg2(T);
-    return bisection(p1, p2, pT2s_reg2, T, s,2, iMAX, 1.0e-10, 1.0e-9); 
+    return bisection(pT2s_reg2, T, s,p1, p2,  SECOND_FIXED, MAX_ITER, 1.0e-10, 1.0e-9); 
 }
 
 // Region 2(T,h)->p using the secant method
@@ -78,5 +78,5 @@ double Th2p_reg2(double T, double h)
 {
     double p1 = PMIN2;
     double p2 = T2pmax_reg2(T);
-    return bisection(p1, p2, pT2h_reg2, T, h, 2,iMAX, 1.0e-10, 1.0e-9); 
+    return bisection(pT2h_reg2, T, h,p1, p2, SECOND_FIXED, MAX_ITER, 1.0e-10, 1.0e-9); 
 }
