@@ -4,6 +4,19 @@
 #include <math.h>
 #include "algorithm.h"
 
+
+double poly_solo_backward_eq(int size, const IJnData *IJn,
+                             const double *soI_pow,const double *soJ_pow,
+                             const int *i2soI,const int *j2soJ)
+{ double poly = 0.0;
+  for (int k = 0; k < size; k++)
+  {
+    poly += IJn[k].n * soI_pow[i2soI[k]] * soJ_pow[j2soJ[k]];
+  }
+  return poly;
+}
+
+
 double poly_solo(double vi, double vj, int size, const IJnData *IJn, int *i2soI, int *j2soJ, solo_power_fn solo_i_j_power)
 { // 1. Calculate independent power values soI_pow, soJ_pow
   (*solo_i_j_power)(vi, vj, soI_pow, soJ_pow);

@@ -32,6 +32,7 @@
 #endif
 
 /* 输出属性 ID */
+#define OP 0   /* pressure */
 #define OT 1   /* temperature */
 #define OV 3   /* specific volume */
 #define OH 4   /* enthalpy */
@@ -108,7 +109,7 @@ static void run_benchmark_reverse(const TestCase *tc, int count)
     /* 反向计算：给定 (p,h) 求 T，给定 (p,s) 求 T，给定 (h,s) 求 T */
     benchmark_property_fn("phT", ph, tc->p, h, OT, count);
     benchmark_property_fn("psT", ps, tc->p, s, OT, count);
-    benchmark_property_fn("hsT", hs, h,   s, OT, count);
+    benchmark_property_fn("hsP", hs, h,   s, OP, count);
     printf("\n");
 }
 

@@ -55,6 +55,34 @@ double hs2p_reg1(double h, double s)
   double pi;
   eta = h / 3400.0 + 0.05;
   sigma = s / 7.6 + 0.05;
-  pi= poly(eta,sigma , 19,IJn);
+// pi= poly(eta,sigma , 19,IJn);
+ 
+  static const int soI[6] = {0,1,2,3,4,5};
+  static const int i2soI[19] = {0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,3,4,4,5};
+  static const int soJ[9] = {0,1,2,4,5,6,8,14,10};
+  static const int j2soJ[19] = {0,1,2,3,4,5,6,7,0,1,3,5,0,1,8,3,1,3,0};
+
+  //0, 1, 2, 3, 4, 5
+  double soI_pow[6];
+  soI_pow[0]=1.0;
+  soI_pow[1]=eta;
+  soI_pow[2]=eta*eta;
+  soI_pow[3]=soI_pow[2]*eta;
+  soI_pow[4]=soI_pow[3]*eta;
+  soI_pow[5]=soI_pow[4]*eta;
+  
+  //0,1,2,4,5,6,8,14,10
+  double soJ_pow[9];
+  soJ_pow[0]=1.0;
+  soJ_pow[1]=sigma;
+  soJ_pow[2]=sigma*sigma;
+  soJ_pow[3]=soJ_pow[2]*soJ_pow[2]; //4
+  soJ_pow[4]=soJ_pow[3]*sigma; // 5
+  soJ_pow[5]=soJ_pow[4]*sigma; // 6
+  soJ_pow[6]=soJ_pow[5]*soJ_pow[2]; //8
+  soJ_pow[7]=soJ_pow[5]*soJ_pow[6]; //14
+  soJ_pow[8]=soJ_pow[6]*soJ_pow[2]; //10  
+  
+  pi= poly_solo_backward_eq(19,IJn,soI_pow,soJ_pow,i2soI, j2soJ);
   return (100.0*pi);
 }

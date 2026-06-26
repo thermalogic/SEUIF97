@@ -27,6 +27,9 @@ void polys_0_j(double vi, double vj, int size, const IJnData *IJn, double *poly_
 void polys_i_ii_ij_jj(double vi, double vj, int size, const IJnData *IJn,
                       double *poly_i, double *poly_ii, double *poly_ij, double *poly_jj);
 
+double poly_solo_backward_eq(int size, const IJnData *IJn,
+                             const double *soI_pow,const double *soJ_pow,const int *i2soI,const int *j2soJ);
+
 static double soI_pow[45] = {(double)(0.0)};
 static double soJ_pow[45] = {(double)(0.0)};
 
@@ -68,3 +71,5 @@ void polys_solo_i_ii_ij_jj(double vi, double vj, int size, const IJnData *IJn, i
 typedef double (*calfn)(double, double);
 double rtsec(calfn fn, double var, double target, double x1, double x2, int var_position, int max_iter,double xacc);
 double bisection(calfn fn, double var, double target, double t1, double t2, int var_position, int max_iter, double tol, double x_tol);
+
+
