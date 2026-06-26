@@ -75,9 +75,8 @@ static inline double possac(double x, int n)
         SAC5(x, x2, x3, x5);
 	    return (x5 * x2);
 	case 8:
-		x2 = x * x;
-		x4 = x2 * x2;
-		return (x4 * x4);
+		SAC8(x, x2, x4, x8);
+		return (x8);
 	case 9:
 		SAC8(x, x2, x4, x8);
 		return (x * x8);
