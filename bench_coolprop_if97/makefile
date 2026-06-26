@@ -23,5 +23,5 @@ all: test
 	$(OUT)
 
 test: $(SRCS)
-	$(CC) -o $(OUT) $(CFLAG)  $(SRCS)  c_bench_if97.cpp  $(INC)  $(LIBFLAGS) 
+	$(CC) -o $(OUT) $(CFLAG)  $(SRCS)  bench_if97.cpp  $(INC)  $(LIBFLAGS) 
 
