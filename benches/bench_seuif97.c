@@ -92,11 +92,10 @@ static void benchmark_property_fn_region(const char *name, prop_fn_region fn,
     HR_TIME_GET(end);
 
     double elapsed_ns = hr_time_diff_ns(start, end);
-    double elapsed_ms = elapsed_ns / 1e6;
     double avg_ns = elapsed_ns / (double)count;
 
-    printf("  %4s     %12.6f     %10.3f     %10.3f\n",
-           name, result, elapsed_ms, avg_ns);
+    printf("  %4s     %12.6f     %10.3f\n",
+           name, result,  avg_ns);
 }
 
 static void benchmark_property_fn(const char *name, prop_fn fn,
@@ -114,11 +113,8 @@ static void benchmark_property_fn(const char *name, prop_fn fn,
     HR_TIME_GET(end);
 
     double elapsed_ns = hr_time_diff_ns(start, end);
-    double elapsed_ms = elapsed_ns / 1e6;
     double avg_ns = elapsed_ns / (double)count;
-
-    printf("  %4s     %12.6f     %10.3f     %10.3f\n",
-           name, result, elapsed_ms, avg_ns);
+    printf("  %4s     %12.6f     %10.3f\n",name, result, avg_ns);
 }
 
 typedef struct {
@@ -136,8 +132,8 @@ static void run_benchmark_pt(const TestCase *tc, int count)
            "°C"
 #endif
            "\n\n", tc->p, tc->t);
-    printf("  Property     Value         Total(ms)        Avg(ns/call)\n");
-    printf("  --------    ---------      -----------     --------------\n");
+    printf("  Property     Value         Avg(ns/call)\n");
+    printf("  --------    ---------     --------------\n");
 
     benchmark_property_fn("h",  pt, tc->p, tc->t, OH, count);
     benchmark_property_fn("s",  pt, tc->p, tc->t, OS, count);
@@ -157,8 +153,8 @@ static void run_benchmark_reverse(const TestCase *tc, int count)
            "°C"
 #endif
            "  ->  h = %.4f, s = %.4f\n\n", tc->p, tc->t, h, s);
-    printf("  Property     Value         Total(ms)        Avg(ns/call)\n");
-    printf("  --------    ---------      -----------     --------------\n");
+    printf("  Property     Value         Avg(ns/call)\n");
+    printf("  --------    ---------     --------------\n");
 
     /* 反向计算：给定 (p,h) 求 T，给定 (p,s) 求 T，给定 (h,s) 求 T */
     benchmark_property_fn("phT", ph, tc->p, h, OT, count);
@@ -178,8 +174,8 @@ static void run_benchmark_reverse_region1(const TestCase *tc, int count)
            "°C"
 #endif
            "  ->  h = %.4f, s = %.4f\n\n", tc->p, tc->t, h, s);
-    printf("  Property     Value         Total(ms)        Avg(ns/call)\n");
-    printf("  --------    ---------      -----------     --------------\n");
+    printf("  Property        Value          Avg(ns/call)\n");
+    printf("  --------      ---------      -------------\n");
 
      RegionBenchItem items[] = {
         {"ph2T_reg1", ph2T_reg1, tc->p, h},
@@ -204,8 +200,8 @@ static void run_benchmark_reverse_region2(const TestCase *tc, int count)
            "°C"
 #endif
            "  ->  h = %.4f, s = %.4f\n\n", tc->p, tc->t, h, s);
-    printf("  Property     Value         Total(ms)        Avg(ns/call)\n");
-    printf("  --------    ---------      -----------     --------------\n");
+    printf("  Property        Value         Avg(ns/call)\n");
+    printf("  --------       ---------    --------------\n");
 
     RegionBenchItem items[] = {
         {"ph2T_reg2",  ph2T_reg2,  tc->p, h},
