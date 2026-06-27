@@ -95,9 +95,39 @@ double ps2T_reg2a(double p, double s)
     sigma = s / 2.0 - 2.0;
 
     theta = 0.0;
+    //for (int k = 0; k < 46; k++)
+   // {
+   //     theta += IJn[k].n * powf(pi, IJn[k].I) * IPOW(sigma, IJn[k].J);
+   // }
+   
+    static const double soI[12] = {-1.5,-1.25,-1.0,-0.75,-0.5,-0.25,0.25,0.5,0.75,1.0,1.25,1.5};
+    static const int i2soI[46] = {0,0,0,0,0,0,1,1,1,2,2,2,2,2,2,3,3,
+                                  4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,7,7,7,
+                                  8,8,8,8,9,9,10,10,11,11};
+    
+    double soI_pow[12];
+    double sqrt_pi  = sqrt(pi);
+    double pi_0_25  = sqrt(sqrt_pi);      // pi^0.25
+    double rpi_0_25 = 1.0 / pi_0_25;      // pi^-0.25
+    double rpi_0_5  = 1.0 / sqrt_pi;      // pi^-0.5
+    double rpi      = 1.0 / pi;           // pi^-1
+
+    soI_pow[0]  = rpi * rpi_0_5;          // -1.5
+    soI_pow[1]  = rpi * rpi_0_25;         // -1.25
+    soI_pow[2]  = rpi;                    // -1.0
+    soI_pow[3]  = rpi * pi_0_25;          // -0.75
+    soI_pow[4]  = rpi_0_5;                // -0.5
+    soI_pow[5]  = rpi_0_25;               // -0.25
+    soI_pow[6]  = pi_0_25;                //  0.25
+    soI_pow[7]  = sqrt_pi;                //  0.5
+    soI_pow[8]  = 1.0 / soI_pow[3];       //  0.75
+    soI_pow[9]  = pi;                     //  1.0
+    soI_pow[10] = pi * pi_0_25;           //  1.25
+    soI_pow[11] = pi * sqrt_pi;           //  1.5
+    
     for (int k = 0; k < 46; k++)
     {
-        theta += IJn[k].n * pow(pi, IJn[k].I) * IPOW(sigma, IJn[k].J);
+        theta += IJn[k].n * soI_pow[i2soI[k]] * IPOW(sigma,IJn[k].J);
     }
     return 1.0 * theta;
 }

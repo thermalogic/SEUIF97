@@ -15,7 +15,7 @@
 #define IPOW ipowsac
 //#define IPOW ipowrqm
 //#define IPOW __builtin_powi //GCC/Clang
-//#define IPOW powf
+//#define IPOW pow
 
 static inline double ipowrqm(double x, int i)
 {
@@ -43,13 +43,18 @@ static inline double ipowrqm(double x, int i)
 #define SAC20(x, x2, x3, x5, x10, x20) (x2 = (x) * (x), x3 = x2 * (x), x5 = x3 * x2, x10 = x5 * x5, x20 = x10 * x10)
 #define SAC24(x, x2, x3, x6, x12, x24) (x2 = (x) * (x), x3 = x2 * (x), x6 = x3 * x3, x12 = x6 * x6, x24 = x12 * x12)
 
-static inline double possac(double x, int n)
+static inline double ipowsac(double x, int n)
 {
 	// the shortest addition chains, [0,58]
 	double x2, x3, x4, x5, x6, x7, x8, x9;
 	double x10, x12, x13, x14, x15, x16, x17, x18, x19;
 	double x20, x21, x22, x23, x24, x25, x26, x27, x28, x29;
 	double x32, x33, x36, x37, x46, x48, x49, x54;
+
+	if (n < 0) {
+        x = 1.0 / x;
+        n = -n;
+    }
 
 	switch (n)
 	{
@@ -264,15 +269,5 @@ static inline double possac(double x, int n)
 		return x29 * x29;
 	default:
 		return ipowrqm(x, n);
-	}
-}
-
-static inline double ipowsac(double x, int n)
-{
-	if (n >= 0) {
-	
-		return possac(x, n);
-	} else {
-		return 1.0 / possac(x, -n);
 	}
 }
