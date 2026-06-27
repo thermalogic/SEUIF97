@@ -92,11 +92,11 @@ int main() {
             ankerl::nanobench::doNotOptimizeAway(hs2p_reg2a(h2, s2));
         })
         
-        .run("r2a hs2p_reg2b", [&]() {
+        .run("r2b hs2p_reg2b", [&]() {
             ankerl::nanobench::doNotOptimizeAway(hs2p_reg2b(h2, s2));
         })
         
-        .run("r2a hs2p_reg2c", [&]() {
+        .run("r2b hs2p_reg2c", [&]() {
             ankerl::nanobench::doNotOptimizeAway(hs2p_reg2c(h2, s2));
         });
     
