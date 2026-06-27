@@ -69,7 +69,7 @@ void polys_solo_i_ii_ij_jj(double vi, double vj, int size, const IJnData *IJn, i
 #define INTERVAL_TOLERANCE       1.0E-08   /* bisection 的 x_tol：区间长度阈值 */
 #define MAX_ITER                 20000     /* 最大迭代次数 */
 typedef double (*calfn)(double, double);
-double rtsec(calfn fn, double var, double target, double x1, double x2, int var_position, int max_iter,double xacc);
-double bisection(calfn fn, double var, double target, double t1, double t2, int var_position, int max_iter, double tol, double x_tol);
+double rtsec(calfn fn, double fvar, double target, double x1, double x2, int fvar_position, int max_iter,double xacc);
+double bisection(calfn fn, double fvar, double target, double t1, double t2, int fvar_position, int max_iter, double tol, double x_tol);
 
 

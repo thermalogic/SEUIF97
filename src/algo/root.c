@@ -21,26 +21,26 @@
  * @param t1           Left boundary of the search interval
  * @param t2           Right boundary of the search interval
  * @param f            Target function pointer f(double, double)
- * @param var          Fixed parameter value
+ * @param fvar          Fixed parameter value
  * @param r            Target value (solve for f = r)
- * @param var_position Position of the fixed parameter: FIRST_FIXED=f(var,t), SECOND_FIXED=f(t,var)
+ * @param fvar_position Position of the fixed parameter: FIRST_FIXED=f(fvar,t), SECOND_FIXED=f(t,fvar)
  * @param max_iter     Maximum number of iterations
  * @param tol          Function value tolerance (|f(x)| < tol)
  * @param x_tol        Interval length tolerance (|t1 - t2| < x_tol)
  * @return             Approximate root satisfying the precision requirement
  */
-double bisection(calfn fn, double var, double target, double x1, double x2, int var_position, int max_iter, double tol, double x_tol) {
+double bisection(calfn fn, double fvar, double target, double x1, double x2, int fvar_position, int max_iter, double tol, double x_tol) {
     double r_x1, r_x2;
     
     // Calculate function values based on variable position
-    if (var_position == FIRST_FIXED) {
-        // f(var, x) - first parameter is fixed
-        r_x1 = target - fn(var, x1);
-        r_x2 = target - fn(var, x2);
+    if (fvar_position == FIRST_FIXED) {
+        // f(fvar, x) - first parameter is fixed
+        r_x1 = target - fn(fvar, x1);
+        r_x2 = target - fn(fvar, x2);
     } else {
-        // f(x, var) - second parameter is fixed
-        r_x1 = target - fn(x1, var);
-        r_x2 = target - fn(x2, var);
+        // f(x, fvar) - second parameter is fixed
+        r_x1 = target - fn(x1, fvar);    
+        r_x2 = target - fn(x2, fvar);
     }
     
     if (r_x1 * r_x2 > 0.0 || isnan(r_x1) || isnan(r_x2)) {
@@ -52,10 +52,10 @@ double bisection(calfn fn, double var, double target, double x1, double x2, int 
         double r_tm;
         
         // Calculate function value based on variable position
-        if (var_position == FIRST_FIXED) {
-            r_tm = target - fn(var, tm);
+        if (fvar_position == FIRST_FIXED) {
+            r_tm = target - fn(fvar, tm);
         } else {
-            r_tm = target - fn(tm, var);
+            r_tm = target - fn(tm, fvar);
         }
         
         if (fabs(r_tm) < tol || fabs(x1 - x2) < x_tol) {
@@ -83,29 +83,29 @@ double bisection(calfn fn, double var, double target, double x1, double x2, int 
  * Finds the root of the equation f(x) = target using the secant method.
  *
  * @param func         Target function pointer f(double, double)
- * @param var          Fixed parameter value
+ * @param fvar         Fixed parameter value
  * @param target       Target value (solve for f = target)
  * @param x1           Left boundary of the search interval
  * @param x2           Right boundary of the search interval
- * @param var_position Position of the fixed parameter: FIRST_FIXED=f(var,x), SECOND_FIXED=f(x,var)
+ * @param fvar_position Position of the fixed parameter: FIRST_FIXED=f(fvar,x), SECOND_FIXED=f(x,var)
  * @param xacc         Convergence precision
  * @param max_iter     Maximum number of iterations
  * @return             Approximate root satisfying the precision requirement
  */
-double rtsec(calfn fn, double var, double target, double x1,double x2, int var_position,int max_iter, double xacc)
+double rtsec(calfn fn, double fvar, double target, double x1,double x2, int fvar_position,int max_iter, double xacc)
 {
   double xl, rts, swap, dx;
   double fl, f;
   
   // Calculate function values based on variable position
-  if (var_position == FIRST_FIXED) {
-      // f(var, x) - first parameter is fixed
-      fl = target - fn(var, x1);
-      f = target - fn(var, x2);
+  if (fvar_position == FIRST_FIXED) {
+      // f(fvar, x) - first parameter is fixed
+      fl = target - fn(fvar, x1);
+      f = target - fn(fvar, x2);
   } else {
-      // f(x, var) - second parameter is fixed
-      fl = target - fn(x1, var);
-      f = target - fn(x2, var);
+      // f(x, fvar) - second parameter is fixed
+      fl = target - fn(x1, fvar);
+      f = target - fn(x2, fvar);
   }
   
   // pick the bound with the smaller function value as the most recent guess
@@ -134,10 +134,10 @@ double rtsec(calfn fn, double var, double target, double x1,double x2, int var_p
           if (rts <= 0)  {  
             rts = 0.000001;
           }
-          if (var_position == FIRST_FIXED) {
-              f = target - fn(var, rts);
+          if (fvar_position == FIRST_FIXED) {
+              f = target - fn(fvar, rts);
           } else {
-              f = target - fn(rts, var);
+              f = target - fn(rts, fvar);
           }
           i++;
       }
