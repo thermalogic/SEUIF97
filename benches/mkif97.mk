@@ -5,7 +5,7 @@ ifneq ($(OS),Windows_NT)
     endif
 endif
 
-CC=g++ 
+CC=gcc 
 
 CFLAG=-O3 -march=native -flto=auto -funroll-loops -ftree-vectorize
 
@@ -17,11 +17,11 @@ SRCS= ../src/algo/*.c \
 	  ../src/r4/*.c \
 	  ../src/r5/*.c 	  
       
-OUT=./bench_nano_seuif97
+OUT=./bench_seuif97
  
 all: test
 	$(OUT)
 
 test: $(SRCS)
-	$(CC) -o $(OUT) $(CFLAG)  $(SRCS)  bench_nano_seuif97.cpp  $(INC)  $(LIBFLAGS) 
+	$(CC) -o $(OUT) $(CFLAG)  $(SRCS)  bench_seuif97.c  $(INC)  $(LIBFLAGS) 
 
