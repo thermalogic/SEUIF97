@@ -137,7 +137,7 @@ double ph2T_reg2b(double p, double h)
 double ph2T_reg2c(double p, double h)
 {
   // Table 22. Numerical values of the coefficients and exponents of
-  // the backward  equation T ( p,h ) for subregion 2c, Eq. (24)
+  // the backward  equation T(p,h) for subregion 2c, Eq. (24)
   static const IJnData IJn[23] = {
       {-7, 0, -3236839855524.2},
       {-7, 4, 7326335090218.1},
