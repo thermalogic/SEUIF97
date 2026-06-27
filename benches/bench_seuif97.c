@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "if97_data.h"
+#include "../test/if97_data.h"
 
 #if defined(_WIN32)
     #include <windows.h>

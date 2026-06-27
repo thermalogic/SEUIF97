@@ -5,8 +5,8 @@ typedef struct
     double v;
     double d;
     double h;
-    double s;
     double u;
+    double s;
     double cp;
     double cv;
     double w;
