@@ -1,6 +1,7 @@
 /**
  * @file region2_p_hs.c
  * @brief Backward equations for Region 2 (h,s)->p
+ *    Supp-PHS12-2014:  (h,s)->p :hs2p_reg2(h,s)
  * 
  * This file implements the backward equations for calculating pressure
  * from enthalpy and entropy in Region 2 subregions.
@@ -10,11 +11,6 @@
  * @email cmh@seu.edu.cn
  */
 
-/*
-   Supp-PHS12-2014: (H,S)->P
-       6 Backward Equations p(h,s) for Region 2
-       (h,s)->p :hs2p_reg2(h,s)
-*/
 #include <math.h>
 #include "region2.h"
 #include "../algo/algorithm.h"
@@ -28,7 +24,7 @@ double ph2s_reg2(double p, double h)
   return pT2s_reg2(p, T);
 }
 
-double pi2aHS(double eta, double sigma)
+double hs2p_reg2a(double h, double s)
 {
   // Initialize coefficients and exponents (H,S)->P for region 2a
   static const IJnData IJn[] = {{0, 1, -0.182575361923032E-01},
@@ -65,31 +61,23 @@ double pi2aHS(double eta, double sigma)
                    {5, 16, -0.633207286824489E+04},
                    {6, 3, -0.558919224465760E+01},
                    {7, 1, 0.400645798472063E-01}};
-  double pi, pi2;
-  eta = eta - 0.5;
-  sigma = sigma - 1.2;
-  // pi=0.0;
+ 
+ 
+  double eta, sigma;
+  double pi=0.0;
+  eta = h / 4200.0-0.5;
+  sigma = s / 12.0-1.2;
   // for(int k=0; k<29; k++)
   //   pi += n[k]*IPOW(eta,i[k])*IPOW(sigma,j[k]);
   pi = poly(eta, sigma, 29, IJn);
-  pi2 = pi * pi;
-  return (pi2 * pi2);
+  double pi2 = pi * pi;
+  return (4.0*pi2 * pi2);
 }
 
-double hs2p_reg2a(double h, double s)
+double hs2p_reg2b(double h, double s)
 {
-  double eta, sigma;
-  eta = h / 4200.0;
-  sigma = s / 12.0;
-  return (4.0 * pi2aHS(eta, sigma));
-}
-//=========================================================
-// Initialize coefficients and exponents (H,S)->P for region 2b
-//  Table 7
-//=========================================================
-double pi2bHS(double eta, double sigma)
-{
- static const IJnData IJn[] = {{0, 0, 0.801496989929495E-01},
+  // Initialize coefficients and exponents (H,S)->P for region 2b Table 7
+  static const IJnData IJn[] = {{0, 0, 0.801496989929495E-01},
                    {0, 1, -0.543862807146111},
                    {0, 2, 0.337455597421283},
                    {0, 4, 0.890555451157450E+01},
@@ -122,31 +110,22 @@ double pi2bHS(double eta, double sigma)
                    {8, 18, -0.247964654258893E+14},
                    {12, 10, 0.188801906865134E+10},
                    {14, 16, -0.123651009018773E+15}};
+  
+  double eta, sigma;
   double pi, pi2;
-  eta = eta - 0.6;
-  sigma = sigma - 1.01;
+  eta = h / 4100.0-0.6;
+  sigma = s / 7.9-1.01;
   // pi = 0.0;
   // for (int k = 0; k < 33; k++)
   //   pi += n[k] * IPOW(eta, i[k]) * IPOW(sigma, j[k]);
   pi = poly(eta, sigma, 33, IJn);
   pi2 = pi * pi;
-  return (pi2 * pi2);
+  return (100.0*pi2 * pi2);
 }
 
-double hs2p_reg2b(double h, double s)
+double hs2p_reg2c(double h, double s)
 {
-  double eta, sigma;
-  eta = h / 4100.0;
-  sigma = s / 7.9;
-  return (100.0 * pi2bHS(eta, sigma));
-}
-
-//=========================================================
-// Initialize coefficients and exponents (H,S)->P for region 2c
-//  Table 8
-//=========================================================
-double pi2cHS(double eta, double sigma)
-{
+ // Initialize coefficients and exponents (H,S)->P for region 2c  Table 8
   static const IJnData IJn[] = {{0, 0, 0.112225607199012E+00},
                    {0, 1, -0.339005953606712E+01},
                    {0, 2, -0.320503911730094E+02},
@@ -178,29 +157,19 @@ double pi2cHS(double eta, double sigma)
                    {10, 7, -0.107890854108088E+10},
                    {12, 7, -0.296492620980124E+11},
                    {16, 10, -0.111754907323424E+16}};
-  double pi, pi2;
-  eta = eta - 0.7;
-  sigma = sigma - 1.1;
-  pi = poly(eta, sigma, 31, IJn);
-  pi2 = pi * pi;
-  return (pi2 * pi2);
+   double eta, sigma;
+   double pi, pi2;
+   eta = h / 3500.0-0.7;
+   sigma = s / 5.9-1.1;
+   pi = poly(eta, sigma, 31, IJn);
+   pi2 = pi * pi;
+   return (100.0*pi2 * pi2); 
 }
 
-double hs2p_reg2c(double h, double s)
-{
-  double eta, sigma;
-  eta = h / 3500.0;
-  sigma = s / 5.9;
-  return (100.0 * pi2cHS(eta, sigma));
-}
-//------------------------------------------------------------
-// Region 2  HS
-//------------------------------------------------------------
-
-double s2hreg2ab(double s)
+double s2h_reg2ab(double s)
 /*  Define the boundary between Region 2a and 2b, h=f(s)
     Water and Steam, http://www.iapws.org/relguide/Supp-PHS12-2014.pdf, Eq 2
-      _hab_s(7)   3376.437884
+       s2hreg2ab(7)-> 3376.437884
 */
 {
   static const double n[4] = {-0.349898083432139E+04,
@@ -216,7 +185,7 @@ double s2hreg2ab(double s)
 double hs2p_reg2(double h, double s)
 {
   double h2ab, p;
-  h2ab = s2hreg2ab(s);
+  h2ab = s2h_reg2ab(s);
   if (h > h2ab)
   {
     if (s >= 5.85)

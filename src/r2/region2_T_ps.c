@@ -7,7 +7,7 @@
  *  Page 25:
  *       6.3.2 The Backward Equations T(p,s) for Subregions 2a, 2b, and 2c.
  *       ps2T_reg2(p,s)
- *         -  ps2Treg2a, I is double,using powf()
+ *        -  ps2Treg2a, I is double,using pow()
  *
  * @author Cheng Maohua
  * @email cmh@seu.edu.cn

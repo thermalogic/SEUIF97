@@ -10,23 +10,21 @@ extern "C" double ps(double p, double s, int o_id);
 extern "C" double hs(double h, double s, int o_id);
 extern "C" double tv(double t, double v, int o_id);
 
-// Region 1 反向方程
+// Region 1 backward equations
 extern "C" double ph2T_reg1(double p, double h);
 extern "C" double ps2T_reg1(double p, double s);
+extern "C" double hs2p_reg1(double h, double s);
 
-// Region 2 反向方程
+// Region 2 backward equations
 extern "C" double ph2T_reg2a(double p, double h);
 extern "C" double ph2T_reg2b(double p, double h);
 extern "C" double ph2T_reg2c(double p, double h);
 extern "C" double ps2T_reg2a(double p, double s);
 extern "C" double ps2T_reg2b(double p, double s);
 extern "C" double ps2T_reg2c(double p, double s);
-
-// Region 3 反向方程
-extern "C" double ph2T3a_reg3(double p, double h);
-extern "C" double ph2T3b_reg3(double p, double h);
-extern "C" double ps2T3a_reg3(double p, double s);
-extern "C" double ps2T3b_reg3(double p, double s);
+extern "C" double hs2p_reg2a(double h, double s);
+extern "C" double hs2p_reg2b(double h, double s);
+extern "C" double hs2p_reg2c(double h, double s);
 
 typedef struct {
     const char *label;
@@ -35,27 +33,23 @@ typedef struct {
 } TestCase;
 
 int main() {
-    // 测试数据点（与 benchmark_seuif97.c 一致）
     const TestCase cases[] = {
         {"Region1: liquid water",   3.0,  300.0 - 273.15},
         {"Region2: superheated",   30.0,  700.0 - 273.15},
-        {"Region5: high temp",      0.5, 1500.0 - 273.15},
     };
     const int n_cases = sizeof(cases) / sizeof(cases[0]);
 
-    // 先通过正向计算获取 h 和 s
+    // (p,t) -> h , s
     double h_vals[3], s_vals[3];
     for (int i = 0; i < n_cases; i++) {
         h_vals[i] = pt(cases[i].p, cases[i].t, 4);  // OH = 4
         s_vals[i] = pt(cases[i].p, cases[i].t, 5);  // OS = 5
     }
 
-    // Region 1: p=3.0, h/s 来自 cases[0]
+    // Region 1: p=3.0, h/s  cases[0]
     double p1 = cases[0].p, h1 = h_vals[0], s1 = s_vals[0];
-    // Region 2: p=30.0, h/s 来自 cases[1]
+    // Region 2: p=30.0, h/s cases[1]
     double p2 = cases[1].p, h2 = h_vals[1], s2 = s_vals[1];
-    // Region 5: p=0.5, h/s 来自 cases[2]（Region 5 无反向方程，仅用于对比）
-    double p5 = cases[2].p, h5 = h_vals[2], s5 = s_vals[2];
 
     ankerl::nanobench::Bench()
         .title("IAPWS-IF97 Backward Equations")
@@ -68,6 +62,10 @@ int main() {
         })
         .run("r1 ps2T_reg1", [&]() {
             ankerl::nanobench::doNotOptimizeAway(ps2T_reg1(p1, s1));
+        })
+
+       .run("r1 hs2p_reg1", [&]() {
+           ankerl::nanobench::doNotOptimizeAway(hs2p_reg1(h1, s1));
         })
 
         // Region 2 (p=30.0 MPa, superheated)
@@ -88,7 +86,19 @@ int main() {
         })
         .run("r2c ps2T_reg2c", [&]() {
             ankerl::nanobench::doNotOptimizeAway(ps2T_reg2c(p2, s2));
-        });
+        })
 
+        .run("r2a hs2p_reg2a", [&]() {
+            ankerl::nanobench::doNotOptimizeAway(hs2p_reg2a(h2, s2));
+        })
+        
+        .run("r2a hs2p_reg2b", [&]() {
+            ankerl::nanobench::doNotOptimizeAway(hs2p_reg2b(h2, s2));
+        })
+        
+        .run("r2a hs2p_reg2c", [&]() {
+            ankerl::nanobench::doNotOptimizeAway(hs2p_reg2c(h2, s2));
+        });
+    
     return 0;
 }
