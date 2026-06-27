@@ -97,7 +97,7 @@ double ps2T_reg2a(double p, double s)
     theta = 0.0;
     for (int k = 0; k < 46; k++)
     {
-        theta += IJn[k].n * pow(pi, IJn[k].I) * pow(sigma, IJn[k].J);
+        theta += IJn[k].n * pow(pi, IJn[k].I) * IPOW(sigma, IJn[k].J);
     }
     return 1.0 * theta;
 }
@@ -164,9 +164,6 @@ double ps2T_reg2b(double p, double s)
     double pi, sigma;
     pi = p / 1.0;
     sigma = 10 - s / 0.7853;
-    // double heta = 0.0;
-    // for (int k = 0; k < 44; k++)
-    //     theta += IJn[k].n * pow(pi, IJn[k].I) * pow(sigma, IJn[k].J);
     double theta = poly(pi, sigma, 44, IJn);
     return 1.0 * theta;
 }
@@ -216,9 +213,6 @@ double ps2T_reg2c(double p, double s)
     double pi, sigma;
     pi = p / 1.0;
     sigma = 2 - s / 2.9251;
-    // theta = 0.0;
-    // for (int k = 0; k < 30; k++)
-    //    theta += IJn[k].n * pow(pi, IJn[k].I) * pow(sigma, IJn[k].J);
     double theta = poly(pi, sigma, 30, IJn);
     return 1.0 * theta;
 }

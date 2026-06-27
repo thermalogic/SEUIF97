@@ -78,10 +78,6 @@ double theta3aph(double pi, double eta)
 
   pi = pi + 0.240;
   eta = eta - 0.615;
-  // theta = 0.0;
-  // for (int k = 0; k < 31; k++)
-  //   theta += IJn[k].n * pow(pi, IJn[k].I) * pow(eta, IJn[k].J);
-
   double theta = poly(pi, eta, 31, IJn);
   return (theta);
 }
@@ -143,9 +139,6 @@ double theta3bph(double pi, double eta)
 
   pi = pi + 0.298;
   eta = eta - 0.720;
-  // theta = 0.0;
-  // for (int k = 0; k < 33; k++)
-  // theta += IJn[k].n * pow(pi, IJn[k].I) * pow(eta, IJn[k].J);
   double theta = poly(pi, eta, 33, IJn);
   return (theta);
 }
@@ -199,9 +192,6 @@ double omega3aph(double pi, double eta)
       {8, 2, -4.08757344495612e-2}};
   pi = pi + 0.128;
   eta = eta - 0.727;
-  // omega = 0.0;
-  // for (int k = 0; k < 32; k++)
-  //   omega += IJn[k].n * pow(pi, IJn[k].I) * pow(eta, IJn[k].J);
   double omega = poly(pi, eta, 32, IJn);
   return (omega);
 }
@@ -254,9 +244,6 @@ double omega3bph(double pi, double eta)
       {2, 6, 1.60697101092520}};
   pi = pi + 0.0661;
   eta = eta - 0.720;
-  // omega = 0.0;
-  // for (int k = 0; k < 30; k++)
-  //  omega += IJn[k].n * pow(pi, IJn[k].I) * pow(eta, IJn[k].J);
   double omega = poly(pi, eta, 30, IJn);
   return (omega);
 }
@@ -343,9 +330,6 @@ double theta3aps(double pi, double sigma)
                    {10, 2, 0.123220024851555E-02}};
   pi = pi + 0.240;
   sigma = sigma - 0.703;
-  // theta = 0.0;
-  // for (int k = 0; k < 33; k++)
-  //   theta += n[k] * pow(pi, i[k]) * pow(sigma, j[k]);
   double theta = poly(pi, sigma, 33, IJn);
   return (theta);
 }
@@ -392,9 +376,6 @@ double theta3bps(double pi, double sigma)
                      {14, 2, -0.215095749182309E-04}};
   pi = pi + 0.760;
   sigma = sigma - 0.818;
-  // theta = 0.0;
-  // for (int k = 0; k < 28; k++)
-  //   theta += n[k] * pow(pi, i[k]) * pow(sigma, j[k]);
   double theta = poly(pi, sigma, 28, IJn);
   return (theta);
 }
@@ -442,9 +423,6 @@ double omega3aps(double pi, double sigma)
 
   pi = pi + 0.187;
   sigma = sigma - 0.755;
-  // omega = 0.0;
-  // for (int k = 0; k < 28; k++)
-  //   omega += n[k] * pow(pi, i[k]) * pow(sigma, j[k]);
   double omega = poly(pi, sigma, 28, IJn);
   return (omega);
 }
@@ -495,9 +473,6 @@ double omega3bps(double pi, double sigma)
 
   pi = pi + 0.298;
   sigma = sigma - 0.816;
-  // omega = 0.0;
-  // for (int k = 0; k < 31; k++)
-  //   omega += n[k] * pow(pi, i[k]) * pow(sigma, j[k]);
   double omega = poly(pi, sigma, 31, IJn);
   return (omega);
 }
