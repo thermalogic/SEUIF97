@@ -16,9 +16,10 @@
 
 double hs2p3a_reg3(double h, double s)
 /*  Backward equation for region 3a, P=f(h,s)
-     h : Specific enthalpy [kJ/kg]
-     s : Specific entropy [kJ/kgK]
-      P : Pressure [MPa] */
+      h : Specific enthalpy [kJ/kg]
+      s : Specific entropy [kJ/kgK]
+      p : Pressure [MPa] 
+*/
 {
     static const IJnData IJn[33] = {{0, 0, 0.770889828326934e1},
                        {0, 1, -0.260835009128688e2},
@@ -56,20 +57,16 @@ double hs2p3a_reg3(double h, double s)
 
     double nu = h / 2300 - 1.01;
     double sigma = s / 4.4 - 0.75;
-    // double suma = 0;
-    // for (int i = 0; i < 33; i++)
-    // {
-    //    suma += n[i] * pow(nu, I[i]) * pow(sigma, J[i]);
-    // }
     double suma = poly(nu, sigma, 33, IJn);
     return (99 * suma);
 }
 
 double hs2p3b_reg3(double h, double s)
-/*Backward equation for region 3b, P=f(h,s)
+/* Backward equation for region 3b, P=f(h,s)
     h :  Specific enthalpy [kJ/kg]
     s : Specific entropy [kJ/kgK]
-    P : Pressure [MPa]*/
+    p : Pressure [MPa]
+*/
 {
     static const IJnData IJn[35] = {
         {-12, 2, 0.125244360717979e-12},
@@ -111,11 +108,6 @@ double hs2p3b_reg3(double h, double s)
 
     double nu = h / 2800 - 0.681;
     double sigma = s / 5.3 - 0.792;
-    // double suma = 0;
-    // for (int i = 0; i < 35; i++)
-    //{
-    //     suma += n[i] * pow(nu, I[i]) * pow(sigma, J[i]);
-    // }
     double suma = poly(nu, sigma, 35, IJn);
     return (16.6 / suma);
 }
@@ -125,7 +117,7 @@ double hs2p_reg3(double h, double s)
         h : Specific enthalpy [kJ/kg]
         s : Specific entropy [kJ/kgK]
         P : Pressure [MPa]
-  */
+*/
 {
 
     double p;

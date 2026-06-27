@@ -181,11 +181,6 @@ double pi2cHS(double eta, double sigma)
   double pi, pi2;
   eta = eta - 0.7;
   sigma = sigma - 1.1;
-  // pi = 0.0;
-  // for (int k = 0; k < 31; k++)
-  // {
-  //  pi += n[k] * IPOW(eta, i[k]) * IPOW(sigma, j[k]);
-  // }
   pi = poly(eta, sigma, 31, IJn);
   pi2 = pi * pi;
   return (pi2 * pi2);
@@ -204,9 +199,8 @@ double hs2p_reg2c(double h, double s)
 
 double s2hreg2ab(double s)
 /*  Define the boundary between Region 2a and 2b, h=f(s)
-   Water and Steam, http://www.iapws.org/relguide/Supp-PHS12-2014.pdf, Eq 2
-     >>> _hab_s(7)   3376.437884
-   """
+    Water and Steam, http://www.iapws.org/relguide/Supp-PHS12-2014.pdf, Eq 2
+      _hab_s(7)   3376.437884
 */
 {
   static const double n[4] = {-0.349898083432139E+04,
