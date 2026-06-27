@@ -17,11 +17,10 @@ SRCS= ../src/algo/*.c \
 	  ../src/r4/*.c \
 	  ../src/r5/*.c 	  
       
-OUT=../bin/bench_if97
+OUT=./bench_coolprop_if97
  
 all: test
 	$(OUT)
 
 test: $(SRCS)
-	$(CC) -o $(OUT) $(CFLAG)  $(SRCS)  bench_if97.cpp  $(INC)  $(LIBFLAGS) 
-
+	$(CC) -o $(OUT) $(CFLAG)  $(SRCS)  bench_coolprop_if97.cpp  $(INC)  $(LIBFLAGS) 
