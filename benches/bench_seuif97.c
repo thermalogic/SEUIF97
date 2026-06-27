@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "if97_data.h"
 
 #if defined(_WIN32)
     #include <windows.h>
@@ -216,15 +217,15 @@ static void run_benchmark_reverse_region2(const TestCase *tc, int count)
         benchmark_property_fn_region(items[i].name, items[i].fn, items[i].a, items[i].b, count);
     printf("\n");
     RegionBenchItem items_sub[] = {
-        {"ph2T_reg2a", ph2T_reg2a, 3.0, 3000.0},
-        {"ph2T_reg2b", ph2T_reg2b, 5.0, 3500.0},
-        {"ph2T_reg2c", ph2T_reg2c, 40.0, 2700.0},
-        {"ps2T_reg2a", ps2T_reg2a, 0.1, 7.5},
-        {"ps2T_reg2b", ps2T_reg2b, 8.0, 6.0},
-        {"ps2T_reg2c", ps2T_reg2c, 20.0, 5.75},
-        {"hs2p_reg2a", hs2p_reg2a, 2800.0, 6.5},
-        {"hs2p_reg2b", hs2p_reg2b, 2800.0, 6.0},
-        {"hs2p_reg2c", hs2p_reg2c, 2800.0, 5.1},
+        {"ph2T_reg2a", ph2T_reg2a, r2a_phT[0].p, r2a_phT[0].h},
+        {"ph2T_reg2b", ph2T_reg2b, r2b_phT[0].p, r2b_phT[0].h},
+        {"ph2T_reg2c", ph2T_reg2c, r2c_phT[0].p, r2c_phT[0].h},
+        {"ps2T_reg2a", ps2T_reg2a, r2a_psT[0].p, r2a_psT[0].s},
+        {"ps2T_reg2b", ps2T_reg2b, r2b_psT[0].p, r2b_psT[0].s},
+        {"ps2T_reg2c", ps2T_reg2c, r2c_psT[0].p, r2c_psT[0].s},
+        {"hs2p_reg2a", hs2p_reg2a, r2a_hsP[0].h, r2a_hsP[0].s},
+        {"hs2p_reg2b", hs2p_reg2b, r2b_hsP[0].h, r2b_hsP[0].s},
+        {"hs2p_reg2c", hs2p_reg2c, r2c_hsP[0].h, r2c_hsP[0].s},
     };
     int k = sizeof(items_sub) / sizeof(items_sub[0]);
     for (int i = 0; i < k; i++)
@@ -237,9 +238,9 @@ int main(void)
     const int count = 100000;
 
     const TestCase cases[] = {
-        {"Region1: liquid water",   3.0,  300.0 - 273.15},
-        {"Region2: superheated",   30.0,  700.0 - 273.15},
-        {"Region5: high temp",      0.5, 1500.0 - 273.15},
+        {"Region1: ", r1_pT[0].p, r1_pT[0].T - 273.15},
+        {"Region2: ", r2_pT[0].p, r2_pT[0].T - 273.15},
+        {"Region5: ", r5_pT[0].p, r5_pT[0].T - 273.15},
     };
     const int n_cases = sizeof(cases) / sizeof(cases[0]);
 
