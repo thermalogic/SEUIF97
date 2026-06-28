@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include "../test/if97_data.h"
 
 #if defined(_WIN32)
@@ -181,21 +182,67 @@ static void run_backward_suite(const TestCase *tc, int count)
     run_bench_suite(title, items, count);
 }
 
-static void run_region_suite(const char *label, const BenchItem *region_items, const TestCase *tc, int count)
+static void benchmark_compare(const char *name,
+                              prop_fn fn_generic, short o_id,
+                              prop_fn_region fn_region,
+                              double a, double b, double r,int count,
+                              int convert_to_celsius)
+{
+    volatile double result = 0.0;
+    hr_time_t start, end;
+
+    for (int i = 0; i < 1000; i++) {
+        result = fn_generic(a, b, o_id);
+        result = fn_region(a, b);
+    }
+
+    HR_TIME_GET(start);
+    for (int i = 0; i < count; i++)
+        result = fn_generic(a, b, o_id);
+    HR_TIME_GET(end);
+    double ns_generic = hr_time_diff_ns(start, end) / (double)count;
+
+    HR_TIME_GET(start);
+    for (int i = 0; i < count; i++)
+        result = fn_region(a, b);
+    HR_TIME_GET(end);
+    double ns_region = hr_time_diff_ns(start, end) / (double)count;
+
+    if (convert_to_celsius)
+    {    result -= 273.15;
+    }     
+    double speedup = ns_generic / ns_region;
+    double diff = fabs(result - r);
+
+    printf("  %-10s  %12.6f   %12.6f      %8.6f |  %10.3f    %10.3f      |  %6.1fx \n",
+           name,
+           r,result, diff,
+           ns_generic,ns_region,speedup);
+}
+
+static void print_compare_header(void)
+{
+    printf("  Property       Value         Value(API)      Diff       Time(ns)      Time(Direct tns)     Speedup\n");
+    printf("  ----------   ----------      ----------      -------    -----------    ----------------     ---------\n");
+}
+
+static void run_region_compare(const char *label,
+                               prop_fn_region fn_ph2T, prop_fn_region fn_ps2T, prop_fn_region fn_hs2p,
+                               const TestCase *tc, int count)
 {
     double h = pt(tc->p, tc->t, OH);
     double s = pt(tc->p, tc->t, OS);
     char title[128];
-    snprintf(title, sizeof(title), "[Backward %s]  p=%.6f, t=%.2f -> h=%.4f, s=%.4f",
+    snprintf(title, sizeof(title), "[Compare %s]  p=%.6f, t=%.2f -> h=%.4f, s=%.4f",
              label, tc->p, tc->t, h, s);
 
-    BenchItem items[] = {
-        {region_items[0].name, BT_REGION, tc->p, h, .fn_reg=region_items[0].fn_reg},
-        {region_items[1].name, BT_REGION, tc->p, s, .fn_reg=region_items[1].fn_reg},
-        {region_items[2].name, BT_REGION, h, s, .fn_reg=region_items[2].fn_reg},
-        ITEM_END
-    };
-    run_bench_suite(title, items, count);
+    printf("%s\n", title);
+    print_compare_header();
+
+    benchmark_compare("phT", ph, OT, fn_ph2T, tc->p, h, tc->t, count, 1);
+    benchmark_compare("psT", ps, OT, fn_ps2T, tc->p, s, tc->t, count, 1);
+    benchmark_compare("hsP", hs, OP, fn_hs2p, h, s, tc->p,count, 0);
+    printf("\n");
 }
 
 static void run_region2_sub_suite(const TestCase *tc, int count)
@@ -258,8 +305,12 @@ int main(void)
         ITEM_END
     };
 
-    run_region_suite("Region1", region1_items, &cases[0], count);
-    run_region_suite("Region2", region2_items, &cases[1], count);
+    run_region_compare("Region1",
+                       ph2T_reg1, ps2T_reg1, hs2p_reg1,
+                       &cases[0], count);
+    run_region_compare("Region2",
+                       ph2T_reg2, ps2T_reg2, hs2p_reg2,
+                       &cases[1], count);
     run_region2_sub_suite(&cases[1], count);
 
     return EXIT_SUCCESS;
