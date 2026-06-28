@@ -67,14 +67,21 @@ extern double hs2p_reg2c(double h, double s);
 typedef double (*prop_fn)(double, double, int);
 typedef double (*prop_fn_region)(double, double);
 
+typedef enum { BT_PROP, BT_REGION } BenchType;
 
-/* Region 反向方程测试项 */
 typedef struct {
     const char *name;
-    prop_fn_region fn;
-    double a;
-    double b;
-} RegionBenchItem;
+    BenchType type;
+    double a, b;
+    union {
+        struct { prop_fn fn; short o_id; } prop;
+        prop_fn_region fn_reg;
+    };
+} BenchItem;
+
+#define PROP_ITEM(n, f, a, b, o) {n, BT_PROP, a, b, .prop={f, o}}
+#define REG_ITEM(n, f, a, b)     {n, BT_REGION, a, b, .fn_reg=f}
+#define ITEM_END                 {NULL, BT_PROP, 0, 0, .prop={NULL, 0}}
 
 static void benchmark_property_fn(const char *name, prop_fn fn,
                                   double a, double b, short o_id, int count)
@@ -106,15 +113,20 @@ static void benchmark_property_fn_region(const char *name, prop_fn_region fn,
 
     HR_TIME_GET(start);
     for (int i = 0; i < count; i++)
-    {    result = fn(a, b);
-    }
+        result = fn(a, b);
     HR_TIME_GET(end);
 
     double elapsed_ns = hr_time_diff_ns(start, end);
     double avg_ns = elapsed_ns / (double)count;
+    printf("  %-10s %12.6f %14.3f\n", name, result, avg_ns);
+}
 
-    printf("  %-10s %12.6f %14.3f\n",
-           name, result,  avg_ns);
+static void bench_item(const BenchItem *item, int count)
+{
+    if (item->type == BT_PROP)
+        benchmark_property_fn(item->name, item->prop.fn, item->a, item->b, item->prop.o_id, count);
+    else
+        benchmark_property_fn_region(item->name, item->fn_reg, item->a, item->b, count);
 }
 
 static void print_benchmark_header(void)
@@ -123,9 +135,13 @@ static void print_benchmark_header(void)
     printf("  --------    ---------     --------------\n");
 }
 
-static void print_forward_info(double p, double t, double h, double s)
+static void run_bench_suite(const char *title, const BenchItem *items, int count)
 {
-    printf("  Forward:  p = %.1f MPa, t = %.2f C  ->  h = %.4f, s = %.4f\n\n", p, t, h, s);
+    printf("%s\n", title);
+    print_benchmark_header();
+    for (int i = 0; items[i].name != NULL; i++)
+        bench_item(&items[i], count);
+    printf("\n");
 }
 
 typedef struct {
@@ -134,70 +150,69 @@ typedef struct {
     double t;
 } TestCase;
 
-static void run_benchmark_pt(const TestCase *tc, int count)
+static void run_pt_suite(const TestCase *tc, int count)
 {
-    printf("  Input:  p = %.1f MPa, t = %.2f C\n\n", tc->p, tc->t);
-    print_benchmark_header();
-    benchmark_property_fn("h",  pt, tc->p, tc->t, OH, count);
-    benchmark_property_fn("s",  pt, tc->p, tc->t, OS, count);
-    benchmark_property_fn("v",  pt, tc->p, tc->t, OV, count);
-    printf("\n");
+    char title[128];
+    snprintf(title, sizeof(title), "[PT -> %s]  p=%.6f MPa, t=%.2f C", tc->label, tc->p, tc->t);
+
+    BenchItem items[] = {
+        PROP_ITEM("h", pt, tc->p, tc->t, OH),
+        PROP_ITEM("s", pt, tc->p, tc->t, OS),
+        PROP_ITEM("v", pt, tc->p, tc->t, OV),
+        ITEM_END
+    };
+    run_bench_suite(title, items, count);
 }
 
-static void run_benchmark_backward(const TestCase *tc, int count)
+static void run_backward_suite(const TestCase *tc, int count)
 {
     double h = pt(tc->p, tc->t, OH);
     double s = pt(tc->p, tc->t, OS);
+    char title[128];
+    snprintf(title, sizeof(title), "[Backward -> %s]  p=%.6f, t=%.2f -> h=%.4f, s=%.4f",
+             tc->label, tc->p, tc->t, h, s);
 
-    print_forward_info(tc->p, tc->t, h, s);
-    print_benchmark_header();
-
-    benchmark_property_fn("phT", ph, tc->p, h, OT, count);
-    benchmark_property_fn("psT", ps, tc->p, s, OT, count);
-    benchmark_property_fn("hsP", hs, h,   s, OP, count);
-    printf("\n");
+    BenchItem items[] = {
+        PROP_ITEM("phT", ph, tc->p, h, OT),
+        PROP_ITEM("psT", ps, tc->p, s, OT),
+        PROP_ITEM("hsP", hs, h,   s, OP),
+        ITEM_END
+    };
+    run_bench_suite(title, items, count);
 }
 
-static void run_benchmark_backward_region(const char *region_label,
-                                          prop_fn_region fn_ph2T,
-                                          prop_fn_region fn_ps2T,
-                                          prop_fn_region fn_hs2p,
-                                          const TestCase *tc, int count)
+static void run_region_suite(const char *label, const BenchItem *region_items, const TestCase *tc, int count)
 {
     double h = pt(tc->p, tc->t, OH);
     double s = pt(tc->p, tc->t, OS);
+    char title[128];
+    snprintf(title, sizeof(title), "[Backward %s]  p=%.6f, t=%.2f -> h=%.4f, s=%.4f",
+             label, tc->p, tc->t, h, s);
 
-    print_forward_info(tc->p, tc->t, h, s);
-    print_benchmark_header();
-
-    RegionBenchItem items[] = {
-        {"ph2T", fn_ph2T, tc->p, h},
-        {"ps2T", fn_ps2T, tc->p, s},
-        {"hs2p", fn_hs2p, h, s},
+    BenchItem items[] = {
+        {region_items[0].name, BT_REGION, tc->p, h, .fn_reg=region_items[0].fn_reg},
+        {region_items[1].name, BT_REGION, tc->p, s, .fn_reg=region_items[1].fn_reg},
+        {region_items[2].name, BT_REGION, h, s, .fn_reg=region_items[2].fn_reg},
+        ITEM_END
     };
-    int n = sizeof(items) / sizeof(items[0]);
-    for (int i = 0; i < n; i++)
-        benchmark_property_fn_region(items[i].name, items[i].fn, items[i].a, items[i].b, count);
-    printf("\n");
+    run_bench_suite(title, items, count);
 }
 
-static void run_benchmark_backward_region2_sub(const TestCase *tc, int count)
+static void run_region2_sub_suite(const TestCase *tc, int count)
 {
-    RegionBenchItem items[] = {
-        {"ph2T_reg2a", ph2T_reg2a, r2a_phT[0].p, r2a_phT[0].h},
-        {"ph2T_reg2b", ph2T_reg2b, r2b_phT[0].p, r2b_phT[0].h},
-        {"ph2T_reg2c", ph2T_reg2c, r2c_phT[0].p, r2c_phT[0].h},
-        {"ps2T_reg2a", ps2T_reg2a, r2a_psT[0].p, r2a_psT[0].s},
-        {"ps2T_reg2b", ps2T_reg2b, r2b_psT[0].p, r2b_psT[0].s},
-        {"ps2T_reg2c", ps2T_reg2c, r2c_psT[0].p, r2c_psT[0].s},
-        {"hs2p_reg2a", hs2p_reg2a, r2a_hsP[0].h, r2a_hsP[0].s},
-        {"hs2p_reg2b", hs2p_reg2b, r2b_hsP[0].h, r2b_hsP[0].s},
-        {"hs2p_reg2c", hs2p_reg2c, r2c_hsP[0].h, r2c_hsP[0].s},
+    BenchItem items[] = {
+        REG_ITEM("ph2T_reg2a", ph2T_reg2a, r2a_phT[0].p, r2a_phT[0].h),
+        REG_ITEM("ph2T_reg2b", ph2T_reg2b, r2b_phT[0].p, r2b_phT[0].h),
+        REG_ITEM("ph2T_reg2c", ph2T_reg2c, r2c_phT[0].p, r2c_phT[0].h),
+        REG_ITEM("ps2T_reg2a", ps2T_reg2a, r2a_psT[0].p, r2a_psT[0].s),
+        REG_ITEM("ps2T_reg2b", ps2T_reg2b, r2b_psT[0].p, r2b_psT[0].s),
+        REG_ITEM("ps2T_reg2c", ps2T_reg2c, r2c_psT[0].p, r2c_psT[0].s),
+        REG_ITEM("hs2p_reg2a", hs2p_reg2a, r2a_hsP[0].h, r2a_hsP[0].s),
+        REG_ITEM("hs2p_reg2b", hs2p_reg2b, r2b_hsP[0].h, r2b_hsP[0].s),
+        REG_ITEM("hs2p_reg2c", hs2p_reg2c, r2c_hsP[0].h, r2c_hsP[0].s),
+        ITEM_END
     };
-    int n = sizeof(items) / sizeof(items[0]);
-    for (int i = 0; i < n; i++)
-        benchmark_property_fn_region(items[i].name, items[i].fn, items[i].a, items[i].b, count);
-    printf("\n");
+    run_bench_suite("[Backward Region2 Sub-regions]", items, count);
 }
 
 int main(void)
@@ -224,22 +239,28 @@ int main(void)
     printf("  Cases:  %d\n", n_cases);
     printf("\n");
 
-    for (int i = 0; i < n_cases; i++) {
-        printf("[PT -> %s]\n", cases[i].label);
-        run_benchmark_pt(&cases[i], count);
-    }
+    for (int i = 0; i < n_cases; i++)
+        run_pt_suite(&cases[i], count);
 
-    for (int i = 0; i < n_cases; i++) {
-        printf("[Reverse -> %s]\n", cases[i].label);
-        run_benchmark_backward(&cases[i], count);
-    }
+    for (int i = 0; i < n_cases; i++)
+        run_backward_suite(&cases[i], count);
 
-    printf("[Reverse Region1 -> %s]\n", cases[0].label);
-    run_benchmark_backward_region("Region1", ph2T_reg1, ps2T_reg1, hs2p_reg1, &cases[0], count);
+    static const BenchItem region1_items[] = {
+        REG_ITEM("ph2T", ph2T_reg1, 0, 0),
+        REG_ITEM("ps2T", ps2T_reg1, 0, 0),
+        REG_ITEM("hs2p", hs2p_reg1, 0, 0),
+        ITEM_END
+    };
+    static const BenchItem region2_items[] = {
+        REG_ITEM("ph2T", ph2T_reg2, 0, 0),
+        REG_ITEM("ps2T", ps2T_reg2, 0, 0),
+        REG_ITEM("hs2p", hs2p_reg2, 0, 0),
+        ITEM_END
+    };
 
-    printf("[Reverse Region2 -> %s]\n", cases[1].label);
-    run_benchmark_backward_region("Region2", ph2T_reg2, ps2T_reg2, hs2p_reg2, &cases[1], count);
-    run_benchmark_backward_region2_sub(&cases[1], count);
+    run_region_suite("Region1", region1_items, &cases[0], count);
+    run_region_suite("Region2", region2_items, &cases[1], count);
+    run_region2_sub_suite(&cases[1], count);
 
     return EXIT_SUCCESS;
 }
