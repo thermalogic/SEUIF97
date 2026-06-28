@@ -214,7 +214,7 @@ static void benchmark_compare(const char *name,
     double speedup = ns_generic / ns_region;
     double diff = fabs(result - r);
 
-    printf("  %-10s  %12.6f   %12.6f      %8.6f |  %10.3f    %10.3f      |  %6.1fx \n",
+    printf("  %-10s  %12.6f   %12.6f      %8.6f  |  %7.1f         %6.1f       |  %6.1fx \n",
            name,
            r,result, diff,
            ns_generic,ns_region,speedup);
@@ -222,8 +222,8 @@ static void benchmark_compare(const char *name,
 
 static void print_compare_header(void)
 {
-    printf("  Property       Value         Value(API)      Diff       Time(ns)      Time(Direct tns)     Speedup\n");
-    printf("  ----------   ----------      ----------      -------    -----------    ----------------     ---------\n");
+    printf("  Property       Value         Value(bw)        Diff         Time(ns)      Time(reg ns)    Overhead\n");
+    printf("  ----------   ----------      ----------      --------    -----------    --------------   ---------\n");
 }
 
 static void run_region_compare(const char *label,
