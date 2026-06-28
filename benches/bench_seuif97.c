@@ -246,15 +246,15 @@ int main(void)
         run_backward_suite(&cases[i], count);
 
     static const BenchItem region1_items[] = {
-        REG_ITEM("ph2T", ph2T_reg1, 0, 0),
-        REG_ITEM("ps2T", ps2T_reg1, 0, 0),
-        REG_ITEM("hs2p", hs2p_reg1, 0, 0),
+        REG_ITEM("ph2T_reg1", ph2T_reg1, 0, 0),
+        REG_ITEM("ps2T_reg1", ps2T_reg1, 0, 0),
+        REG_ITEM("hs2p_reg1", hs2p_reg1, 0, 0),
         ITEM_END
     };
     static const BenchItem region2_items[] = {
-        REG_ITEM("ph2T", ph2T_reg2, 0, 0),
-        REG_ITEM("ps2T", ps2T_reg2, 0, 0),
-        REG_ITEM("hs2p", hs2p_reg2, 0, 0),
+        REG_ITEM("ph2T_reg2", ph2T_reg2, 0, 0),
+        REG_ITEM("ps2T_reg2", ps2T_reg2, 0, 0),
+        REG_ITEM("hs2p_reg2", hs2p_reg2, 0, 0),
         ITEM_END
     };
 
