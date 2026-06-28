@@ -76,6 +76,25 @@ typedef struct {
     double b;
 } RegionBenchItem;
 
+static void benchmark_property_fn(const char *name, prop_fn fn,
+                                  double a, double b, short o_id, int count)
+{
+    volatile double result = 0.0;
+    hr_time_t start, end;
+
+    for (int i = 0; i < 1000; i++)
+        result = fn(a, b, o_id);
+
+    HR_TIME_GET(start);
+    for (int i = 0; i < count; i++)
+        result = fn(a, b, o_id);
+    HR_TIME_GET(end);
+
+    double elapsed_ns = hr_time_diff_ns(start, end);
+    double avg_ns = elapsed_ns / (double)count;
+    printf("  %-10s %12.6f %14.3f\n", name, result, avg_ns);
+}
+
 static void benchmark_property_fn_region(const char *name, prop_fn_region fn,
                                   double a, double b, int count)
 {
@@ -94,27 +113,19 @@ static void benchmark_property_fn_region(const char *name, prop_fn_region fn,
     double elapsed_ns = hr_time_diff_ns(start, end);
     double avg_ns = elapsed_ns / (double)count;
 
-    printf("  %4s     %12.6f     %10.3f\n",
+    printf("  %-10s %12.6f %14.3f\n",
            name, result,  avg_ns);
 }
 
-static void benchmark_property_fn(const char *name, prop_fn fn,
-                                  double a, double b, short o_id, int count)
+static void print_benchmark_header(void)
 {
-    volatile double result = 0.0;
-    hr_time_t start, end;
+    printf("  Property     Value         Avg(ns/call)\n");
+    printf("  --------    ---------     --------------\n");
+}
 
-    for (int i = 0; i < 1000; i++)
-        result = fn(a, b, o_id);
-
-    HR_TIME_GET(start);
-    for (int i = 0; i < count; i++)
-        result = fn(a, b, o_id);
-    HR_TIME_GET(end);
-
-    double elapsed_ns = hr_time_diff_ns(start, end);
-    double avg_ns = elapsed_ns / (double)count;
-    printf("  %4s     %12.6f     %10.3f\n",name, result, avg_ns);
+static void print_forward_info(double p, double t, double h, double s)
+{
+    printf("  Forward:  p = %.1f MPa, t = %.2f C  ->  h = %.4f, s = %.4f\n\n", p, t, h, s);
 }
 
 typedef struct {
@@ -125,9 +136,8 @@ typedef struct {
 
 static void run_benchmark_pt(const TestCase *tc, int count)
 {
-    printf("  Input:  p = %.1f MPa, t = %.2f C " "\n\n", tc->p, tc->t);
-    printf("  Property     Value         Avg(ns/call)\n");
-    printf("  --------    ---------     --------------\n");
+    printf("  Input:  p = %.1f MPa, t = %.2f C\n\n", tc->p, tc->t);
+    print_benchmark_header();
     benchmark_property_fn("h",  pt, tc->p, tc->t, OH, count);
     benchmark_property_fn("s",  pt, tc->p, tc->t, OS, count);
     benchmark_property_fn("v",  pt, tc->p, tc->t, OV, count);
@@ -139,36 +149,31 @@ static void run_benchmark_backward(const TestCase *tc, int count)
     double h = pt(tc->p, tc->t, OH);
     double s = pt(tc->p, tc->t, OS);
 
-    printf("  Forward:  p = %.1f MPa, t = %.2f "
-#if defined(_WIN32)
-           "\xA1\xE3""C"
-#else
-           "°C"
-#endif
-           "  ->  h = %.4f, s = %.4f\n\n", tc->p, tc->t, h, s);
-    printf("  Property     Value         Avg(ns/call)\n");
-    printf("  --------    ---------     --------------\n");
+    print_forward_info(tc->p, tc->t, h, s);
+    print_benchmark_header();
 
-    /* 反向计算：给定 (p,h) 求 T，给定 (p,s) 求 T，给定 (h,s) 求 T */
     benchmark_property_fn("phT", ph, tc->p, h, OT, count);
     benchmark_property_fn("psT", ps, tc->p, s, OT, count);
     benchmark_property_fn("hsP", hs, h,   s, OP, count);
     printf("\n");
 }
 
-static void run_benchmark_backward_region1(const TestCase *tc, int count)
+static void run_benchmark_backward_region(const char *region_label,
+                                          prop_fn_region fn_ph2T,
+                                          prop_fn_region fn_ps2T,
+                                          prop_fn_region fn_hs2p,
+                                          const TestCase *tc, int count)
 {
     double h = pt(tc->p, tc->t, OH);
     double s = pt(tc->p, tc->t, OS);
-    printf("  Forward:  p = %.1f MPa, t = %.2f C "
-           "  ->  h = %.4f, s = %.4f\n\n", tc->p, tc->t, h, s);
-    printf("  Property        Value          Avg(ns/call)\n");
-    printf("  --------      ---------      -------------\n");
 
-     RegionBenchItem items[] = {
-        {"ph2T_reg1", ph2T_reg1, tc->p, h},
-        {"ps2T_reg1", ps2T_reg1, tc->p, s},
-        {"hs2p_reg1", hs2p_reg1, h, s},
+    print_forward_info(tc->p, tc->t, h, s);
+    print_benchmark_header();
+
+    RegionBenchItem items[] = {
+        {"ph2T", fn_ph2T, tc->p, h},
+        {"ps2T", fn_ps2T, tc->p, s},
+        {"hs2p", fn_hs2p, h, s},
     };
     int n = sizeof(items) / sizeof(items[0]);
     for (int i = 0; i < n; i++)
@@ -176,26 +181,9 @@ static void run_benchmark_backward_region1(const TestCase *tc, int count)
     printf("\n");
 }
 
-
-static void run_benchmark_backward_region2(const TestCase *tc, int count)
+static void run_benchmark_backward_region2_sub(const TestCase *tc, int count)
 {
-    double h = pt(tc->p, tc->t, OH);
-    double s = pt(tc->p, tc->t, OS);
-    printf("  Forward:  p = %.1f MPa, t = %.2f C "
-           "  ->  h = %.4f, s = %.4f\n\n", tc->p, tc->t, h, s);
-    printf("  Property        Value         Avg(ns/call)\n");
-    printf("  --------       ---------    --------------\n");
-
     RegionBenchItem items[] = {
-        {"ph2T_reg2",  ph2T_reg2,  tc->p, h},
-        {"ps2T_reg2",  ps2T_reg2,  tc->p, s},
-        {"hs2p_reg2",  hs2p_reg2,  h, s},
-    };
-    int n = sizeof(items) / sizeof(items[0]);
-    for (int i = 0; i < n; i++)
-        benchmark_property_fn_region(items[i].name, items[i].fn, items[i].a, items[i].b, count);
-    printf("\n");
-    RegionBenchItem items_sub[] = {
         {"ph2T_reg2a", ph2T_reg2a, r2a_phT[0].p, r2a_phT[0].h},
         {"ph2T_reg2b", ph2T_reg2b, r2b_phT[0].p, r2b_phT[0].h},
         {"ph2T_reg2c", ph2T_reg2c, r2c_phT[0].p, r2c_phT[0].h},
@@ -206,10 +194,10 @@ static void run_benchmark_backward_region2(const TestCase *tc, int count)
         {"hs2p_reg2b", hs2p_reg2b, r2b_hsP[0].h, r2b_hsP[0].s},
         {"hs2p_reg2c", hs2p_reg2c, r2c_hsP[0].h, r2c_hsP[0].s},
     };
-    int k = sizeof(items_sub) / sizeof(items_sub[0]);
-    for (int i = 0; i < k; i++)
-        benchmark_property_fn_region(items_sub[i].name, items_sub[i].fn, items_sub[i].a, items_sub[i].b, count);
-   printf("\n");
+    int n = sizeof(items) / sizeof(items[0]);
+    for (int i = 0; i < n; i++)
+        benchmark_property_fn_region(items[i].name, items[i].fn, items[i].a, items[i].b, count);
+    printf("\n");
 }
 
 int main(void)
@@ -246,8 +234,12 @@ int main(void)
         run_benchmark_backward(&cases[i], count);
     }
 
-    run_benchmark_backward_region1(&cases[0], count);
-    run_benchmark_backward_region2(&cases[1], count);
+    printf("[Reverse Region1 -> %s]\n", cases[0].label);
+    run_benchmark_backward_region("Region1", ph2T_reg1, ps2T_reg1, hs2p_reg1, &cases[0], count);
+
+    printf("[Reverse Region2 -> %s]\n", cases[1].label);
+    run_benchmark_backward_region("Region2", ph2T_reg2, ps2T_reg2, hs2p_reg2, &cases[1], count);
+    run_benchmark_backward_region2_sub(&cases[1], count);
 
     return EXIT_SUCCESS;
 }
