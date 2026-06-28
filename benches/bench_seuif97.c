@@ -125,23 +125,16 @@ typedef struct {
 
 static void run_benchmark_pt(const TestCase *tc, int count)
 {
-    printf("  Input:  p = %.1f MPa, t = %.2f "
-#if defined(_WIN32)
-           "\xA1\xE3""C"
-#else
-           "°C"
-#endif
-           "\n\n", tc->p, tc->t);
+    printf("  Input:  p = %.1f MPa, t = %.2f C " "\n\n", tc->p, tc->t);
     printf("  Property     Value         Avg(ns/call)\n");
     printf("  --------    ---------     --------------\n");
-
     benchmark_property_fn("h",  pt, tc->p, tc->t, OH, count);
     benchmark_property_fn("s",  pt, tc->p, tc->t, OS, count);
     benchmark_property_fn("v",  pt, tc->p, tc->t, OV, count);
     printf("\n");
 }
 
-static void run_benchmark_reverse(const TestCase *tc, int count)
+static void run_benchmark_backward(const TestCase *tc, int count)
 {
     double h = pt(tc->p, tc->t, OH);
     double s = pt(tc->p, tc->t, OS);
@@ -163,16 +156,11 @@ static void run_benchmark_reverse(const TestCase *tc, int count)
     printf("\n");
 }
 
-static void run_benchmark_reverse_region1(const TestCase *tc, int count)
+static void run_benchmark_backward_region1(const TestCase *tc, int count)
 {
     double h = pt(tc->p, tc->t, OH);
     double s = pt(tc->p, tc->t, OS);
-    printf("  Forward:  p = %.1f MPa, t = %.2f "
-#if defined(_WIN32)
-           "\xA1\xE3""C"
-#else
-           "°C"
-#endif
+    printf("  Forward:  p = %.1f MPa, t = %.2f C "
            "  ->  h = %.4f, s = %.4f\n\n", tc->p, tc->t, h, s);
     printf("  Property        Value          Avg(ns/call)\n");
     printf("  --------      ---------      -------------\n");
@@ -189,16 +177,11 @@ static void run_benchmark_reverse_region1(const TestCase *tc, int count)
 }
 
 
-static void run_benchmark_reverse_region2(const TestCase *tc, int count)
+static void run_benchmark_backward_region2(const TestCase *tc, int count)
 {
     double h = pt(tc->p, tc->t, OH);
     double s = pt(tc->p, tc->t, OS);
-    printf("  Forward:  p = %.1f MPa, t = %.2f "
-#if defined(_WIN32)
-           "\xA1\xE3""C"
-#else
-           "°C"
-#endif
+    printf("  Forward:  p = %.1f MPa, t = %.2f C "
            "  ->  h = %.4f, s = %.4f\n\n", tc->p, tc->t, h, s);
     printf("  Property        Value         Avg(ns/call)\n");
     printf("  --------       ---------    --------------\n");
@@ -260,11 +243,11 @@ int main(void)
 
     for (int i = 0; i < n_cases; i++) {
         printf("[Reverse -> %s]\n", cases[i].label);
-        run_benchmark_reverse(&cases[i], count);
+        run_benchmark_backward(&cases[i], count);
     }
 
-    run_benchmark_reverse_region1(&cases[0], count);
-    run_benchmark_reverse_region2(&cases[1], count);
+    run_benchmark_backward_region1(&cases[0], count);
+    run_benchmark_backward_region2(&cases[1], count);
 
     return EXIT_SUCCESS;
 }
