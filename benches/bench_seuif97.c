@@ -1,5 +1,18 @@
 /*
- * Benchmark: SEUIF97 Performance Test
+ * SEUIF97 Performance Benchmark
+ *
+ * Purpose:
+ *   Evaluate the performance of SEUIF97 thermodynamic property calculations.
+ *
+ * Features:
+ *   - Forward calculation benchmark (pt -> h, s, v)
+ *   - Backward calculation benchmark (ph, ps, hs generic APIs)
+ *   - Region-specific backward equation benchmark (ph2T_reg1, etc.)
+ *   - Overhead analysis: compare generic API vs region-specific API
+ *
+ * Output:
+ *   - Property values and execution time (ns/call)
+ *   - Overhead ratio showing region detection cost
  */
 
 #include <stdio.h>
