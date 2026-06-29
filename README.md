@@ -143,9 +143,9 @@ You can modify the provided interfaces to match your own API needs.
 | Isothermal throttling coefficient     | kJ/(kg·MPa) |    δt  |         22 |
 | Joule-Thomson coefficient             |    K/MPa    |     μ  |         23 |
 | Dynamic viscosity                     |  kg/(m·s)   |     η  |         24 |
-| Kinematic viscosity                   |    m²/s    |     ν  |         25 |
+| Kinematic viscosity                   |    m²/s     |     ν  |         25 |
 | Thermal conductivity                  |   W/(m·K)   |     λ  |         26 |
-| Thermal diffusivity                   |   µm²/s   |     a  |         27 |
+| Thermal diffusivity                   |   µm²/s     |     a  |         27 |
 | Prandtl number                        |             |     Pr |         28 |
 | Surface tension                       |     N/m     |     σ  |         29 |
 
